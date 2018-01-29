@@ -1,0 +1,14 @@
+platform :ios, ‘8.0’
+
+target ‘Parking’ do
+
+pod 'AFNetworking'
+pod 'IQKeyboardManager'
+pod 'Masonry'
+pod 'MJRefresh'
+pod 'MJExtension'
+pod 'SDWebImage'
+pod 'MBProgressHUD'
+pod 'ZBarSDK'
+
+end
