@@ -1,15 +1,13 @@
 //
-//  ViewController.h
+//  PIMeViewController.h
 //  Parking
 //
 //  Created by apple on 2018/1/29.
 //  Copyright © 2018年 GM. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "PIBaseViewController.h"
 
-@interface ViewController : UIViewController
-
+@interface PIMeViewController : PIBaseViewController
 
 @end
-

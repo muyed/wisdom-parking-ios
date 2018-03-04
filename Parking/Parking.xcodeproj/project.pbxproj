@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18080D53201F45E4006543FA /* UIView+PIExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 18080D52201F45E4006543FA /* UIView+PIExtension.m */; };
-		183A1F9F201EC88B00F8B55F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A1F9E201EC88B00F8B55F /* ViewController.m */; };
 		183A1FB4201EC88B00F8B55F /* ParkingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A1FB3201EC88B00F8B55F /* ParkingTests.m */; };
 		183A1FBF201EC88B00F8B55F /* ParkingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A1FBE201EC88B00F8B55F /* ParkingUITests.m */; };
 		183A1FD7201EF5CE00F8B55F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A1FCF201EF5CE00F8B55F /* AppDelegate.m */; };
@@ -17,6 +15,8 @@
 		183A1FDA201EF5CE00F8B55F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183A1FD3201EF5CE00F8B55F /* Main.storyboard */; };
 		183A1FDB201EF5CE00F8B55F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183A1FD5201EF5CE00F8B55F /* Info.plist */; };
 		183A1FDC201EF5CE00F8B55F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A1FD6201EF5CE00F8B55F /* main.m */; };
+		18B095AC204C606400871845 /* PIMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095A9204C606400871845 /* PIMeViewController.m */; };
+		18B095B3204C60AD00871845 /* PIOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095B0204C60AD00871845 /* PIOrderViewController.m */; };
 		F060CE10D439F1EE5A0EFB29 /* libPods-Parking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB5728185F18F73085A448AB /* libPods-Parking.a */; };
 /* End PBXBuildFile section */
 
@@ -40,11 +40,7 @@
 /* Begin PBXFileReference section */
 		004A3E1F8EE38D86320430D9 /* Pods-Parking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.release.xcconfig"; path = "Pods/Target Support Files/Pods-Parking/Pods-Parking.release.xcconfig"; sourceTree = "<group>"; };
 		18080D50201F44B7006543FA /* PIToolHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIToolHeader.h; sourceTree = "<group>"; };
-		18080D51201F45E4006543FA /* UIView+PIExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+PIExtension.h"; sourceTree = "<group>"; };
-		18080D52201F45E4006543FA /* UIView+PIExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+PIExtension.m"; sourceTree = "<group>"; };
 		183A1F97201EC88B00F8B55F /* Parking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parking.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		183A1F9D201EC88B00F8B55F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		183A1F9E201EC88B00F8B55F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		183A1FAF201EC88B00F8B55F /* ParkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		183A1FB3201EC88B00F8B55F /* ParkingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParkingTests.m; sourceTree = "<group>"; };
 		183A1FB5201EC88B00F8B55F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,6 +55,10 @@
 		183A1FD5201EF5CE00F8B55F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		183A1FD6201EF5CE00F8B55F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		183A205B201EF9D700F8B55F /* parkingHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = parkingHeader.pch; sourceTree = "<group>"; };
+		18B095A8204C606400871845 /* PIMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIMeViewController.h; sourceTree = "<group>"; };
+		18B095A9204C606400871845 /* PIMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIMeViewController.m; sourceTree = "<group>"; };
+		18B095AF204C60AD00871845 /* PIOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIOrderViewController.h; sourceTree = "<group>"; };
+		18B095B0204C60AD00871845 /* PIOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIOrderViewController.m; sourceTree = "<group>"; };
 		9349DDA0ABEC8A2A985E6235 /* Pods-Parking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Parking/Pods-Parking.debug.xcconfig"; sourceTree = "<group>"; };
 		AB5728185F18F73085A448AB /* libPods-Parking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Parking.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -89,54 +89,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		18080D49201F42C8006543FA /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				18080D4A201F42C8006543FA /* Base */,
-				18080D4B201F42C8006543FA /* Category */,
-				18080D4C201F42C8006543FA /* Lib */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
-		18080D4A201F42C8006543FA /* Base */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Base;
-			sourceTree = "<group>";
-		};
-		18080D4B201F42C8006543FA /* Category */ = {
-			isa = PBXGroup;
-			children = (
-				18080D51201F45E4006543FA /* UIView+PIExtension.h */,
-				18080D52201F45E4006543FA /* UIView+PIExtension.m */,
-			);
-			path = Category;
-			sourceTree = "<group>";
-		};
-		18080D4C201F42C8006543FA /* Lib */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Lib;
-			sourceTree = "<group>";
-		};
-		18080D4D201F42D2006543FA /* Tool */ = {
-			isa = PBXGroup;
-			children = (
-				18080D4E201F42D2006543FA /* HttpTool */,
-			);
-			path = Tool;
-			sourceTree = "<group>";
-		};
-		18080D4E201F42D2006543FA /* HttpTool */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = HttpTool;
-			sourceTree = "<group>";
-		};
 		183A1F8E201EC88B00F8B55F = {
 			isa = PBXGroup;
 			children = (
@@ -164,8 +116,6 @@
 			isa = PBXGroup;
 			children = (
 				183A1FCC201EF41600F8B55F /* Classes */,
-				183A1F9D201EC88B00F8B55F /* ViewController.h */,
-				183A1F9E201EC88B00F8B55F /* ViewController.m */,
 				183A1FD5201EF5CE00F8B55F /* Info.plist */,
 			);
 			path = Parking;
@@ -192,8 +142,8 @@
 		183A1FCC201EF41600F8B55F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				18080D4D201F42D2006543FA /* Tool */,
-				18080D49201F42C8006543FA /* Main */,
+				18B095AD204C60AD00871845 /* Order */,
+				18B095A6204C606400871845 /* Me */,
 				183A1FCD201EF5CE00F8B55F /* Other */,
 			);
 			path = Classes;
@@ -220,6 +170,72 @@
 			);
 			name = "Support Files";
 			path = "Parking/Support Files";
+			sourceTree = "<group>";
+		};
+		18B095A6204C606400871845 /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				18B095A7204C606400871845 /* Controller */,
+				18B095AA204C606400871845 /* Model */,
+				18B095AB204C606400871845 /* View */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		18B095A7204C606400871845 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				18B095A8204C606400871845 /* PIMeViewController.h */,
+				18B095A9204C606400871845 /* PIMeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		18B095AA204C606400871845 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		18B095AB204C606400871845 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		18B095AD204C60AD00871845 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				18B095AE204C60AD00871845 /* Controller */,
+				18B095B1204C60AD00871845 /* Model */,
+				18B095B2204C60AD00871845 /* View */,
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
+		18B095AE204C60AD00871845 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				18B095AF204C60AD00871845 /* PIOrderViewController.h */,
+				18B095B0204C60AD00871845 /* PIOrderViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		18B095B1204C60AD00871845 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		18B095B2204C60AD00871845 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		2C868DF110EE56F0EB0EB620 /* Frameworks */ = {
@@ -437,9 +453,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				183A1FD7201EF5CE00F8B55F /* AppDelegate.m in Sources */,
-				18080D53201F45E4006543FA /* UIView+PIExtension.m in Sources */,
 				183A1FDC201EF5CE00F8B55F /* main.m in Sources */,
-				183A1F9F201EC88B00F8B55F /* ViewController.m in Sources */,
+				18B095AC204C606400871845 /* PIMeViewController.m in Sources */,
+				18B095B3204C60AD00871845 /* PIOrderViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
