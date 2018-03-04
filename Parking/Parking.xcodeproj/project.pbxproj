@@ -9,14 +9,56 @@
 /* Begin PBXBuildFile section */
 		183A1FB4201EC88B00F8B55F /* ParkingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A1FB3201EC88B00F8B55F /* ParkingTests.m */; };
 		183A1FBF201EC88B00F8B55F /* ParkingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A1FBE201EC88B00F8B55F /* ParkingUITests.m */; };
-		183A1FD7201EF5CE00F8B55F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A1FCF201EF5CE00F8B55F /* AppDelegate.m */; };
-		183A1FD8201EF5CE00F8B55F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 183A1FD0201EF5CE00F8B55F /* Assets.xcassets */; };
-		183A1FD9201EF5CE00F8B55F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183A1FD1201EF5CE00F8B55F /* LaunchScreen.storyboard */; };
-		183A1FDA201EF5CE00F8B55F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183A1FD3201EF5CE00F8B55F /* Main.storyboard */; };
-		183A1FDB201EF5CE00F8B55F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183A1FD5201EF5CE00F8B55F /* Info.plist */; };
-		183A1FDC201EF5CE00F8B55F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A1FD6201EF5CE00F8B55F /* main.m */; };
 		18B095AC204C606400871845 /* PIMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095A9204C606400871845 /* PIMeViewController.m */; };
 		18B095B3204C60AD00871845 /* PIOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095B0204C60AD00871845 /* PIOrderViewController.m */; };
+		18B095CC204C61CD00871845 /* PIAddDeviceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095B8204C61CD00871845 /* PIAddDeviceController.m */; };
+		18B095CD204C61CD00871845 /* PIAddSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095BA204C61CD00871845 /* PIAddSubViewController.m */; };
+		18B095CE204C61CD00871845 /* PIAddSubViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095BE204C61CD00871845 /* PIAddSubViewCell.m */; };
+		18B095CF204C61CD00871845 /* PIHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095C1204C61CD00871845 /* PIHomeViewController.m */; };
+		18B095D0204C61CD00871845 /* PIHomeBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095C5204C61CD00871845 /* PIHomeBottomView.m */; };
+		18B095D1204C61CD00871845 /* PIHomeItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095C7204C61CD00871845 /* PIHomeItemCell.m */; };
+		18B095D2204C61CD00871845 /* PIHomeItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095C9204C61CD00871845 /* PIHomeItemView.m */; };
+		18B095D3204C61CD00871845 /* PIHomeMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095CB204C61CD00871845 /* PIHomeMainView.m */; };
+		18B095E7204C622600871845 /* PILoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095D7204C622600871845 /* PILoginViewController.m */; };
+		18B095E8204C622600871845 /* PIRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095D9204C622600871845 /* PIRegisterViewController.m */; };
+		18B095E9204C622600871845 /* PISetPassWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095DB204C622600871845 /* PISetPassWViewController.m */; };
+		18B095EA204C622600871845 /* PILoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095DE204C622600871845 /* PILoginManager.m */; };
+		18B095EB204C622600871845 /* PILoginFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095E2204C622600871845 /* PILoginFieldView.m */; };
+		18B095EC204C622600871845 /* PIThirdLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095E4204C622600871845 /* PIThirdLoginView.m */; };
+		18B095ED204C622600871845 /* PIVerificationBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095E6204C622600871845 /* PIVerificationBtn.m */; };
+		18B09605204C626000871845 /* PICodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095F1204C626000871845 /* PICodeViewController.m */; };
+		18B09606204C626000871845 /* shaoma.png in Resources */ = {isa = PBXBuildFile; fileRef = 18B095F2204C626000871845 /* shaoma.png */; };
+		18B09607204C626000871845 /* shaoma@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18B095F3204C626000871845 /* shaoma@2x.png */; };
+		18B09608204C626000871845 /* shaoma@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18B095F4204C626000871845 /* shaoma@3x.png */; };
+		18B09609204C626000871845 /* shaomacenter.png in Resources */ = {isa = PBXBuildFile; fileRef = 18B095F5204C626000871845 /* shaomacenter.png */; };
+		18B0960A204C626000871845 /* shaomacenter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18B095F6204C626000871845 /* shaomacenter@2x.png */; };
+		18B0960B204C626000871845 /* shaomacenter@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18B095F7204C626000871845 /* shaomacenter@3x.png */; };
+		18B0960C204C626000871845 /* PIHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095FA204C626000871845 /* PIHttpTool.m */; };
+		18B0960D204C626000871845 /* PILocationTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095FD204C626000871845 /* PILocationTool.m */; };
+		18B0960E204C626000871845 /* PIMapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095FF204C626000871845 /* PIMapManager.m */; };
+		18B0960F204C626000871845 /* PITool.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B09601204C626000871845 /* PITool.m */; };
+		18B09610204C626000871845 /* PILoginInfoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B09604204C626000871845 /* PILoginInfoTool.m */; };
+		18B09632204C629E00871845 /* PIBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B09615204C629E00871845 /* PIBaseViewController.m */; };
+		18B09633204C629E00871845 /* PINavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B09617204C629E00871845 /* PINavigationController.m */; };
+		18B09634204C629E00871845 /* PITabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B09619204C629E00871845 /* PITabBarController.m */; };
+		18B09635204C629E00871845 /* PIBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B0961C204C629E00871845 /* PIBaseModel.m */; };
+		18B09636204C629E00871845 /* PIBottomBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B0961F204C629E00871845 /* PIBottomBtn.m */; };
+		18B09637204C629E00871845 /* AppDelegate+PIExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B09622204C629E00871845 /* AppDelegate+PIExtension.m */; };
+		18B09638204C629E00871845 /* MBProgressHUD+PI.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B09624204C629E00871845 /* MBProgressHUD+PI.m */; };
+		18B09639204C629E00871845 /* NSString+Exrtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B09626204C629E00871845 /* NSString+Exrtension.m */; };
+		18B0963A204C629E00871845 /* UIBarButtonItem+PI.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B09628204C629E00871845 /* UIBarButtonItem+PI.m */; };
+		18B0963B204C629E00871845 /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B0962A204C629E00871845 /* UIButton+Extension.m */; };
+		18B0963C204C629E00871845 /* UILabel+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B0962C204C629E00871845 /* UILabel+Extension.m */; };
+		18B0963D204C629E00871845 /* UIView+ParentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B0962E204C629E00871845 /* UIView+ParentController.m */; };
+		18B0963E204C629E00871845 /* UIView+PIExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B09630204C629E00871845 /* UIView+PIExtension.m */; };
+		18B0966B204C652300871845 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B09666204C652300871845 /* AppDelegate.m */; };
+		18B0966C204C652300871845 /* PIConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B09669204C652300871845 /* PIConst.m */; };
+		18B09675204C65D700871845 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18B0966E204C65D700871845 /* Assets.xcassets */; };
+		18B09676204C65D700871845 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18B0966F204C65D700871845 /* LaunchScreen.storyboard */; };
+		18B09677204C65D700871845 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18B09671204C65D700871845 /* Main.storyboard */; };
+		18B09678204C65D700871845 /* keystore.cer in Resources */ = {isa = PBXBuildFile; fileRef = 18B09673204C65D700871845 /* keystore.cer */; };
+		18B09679204C65D700871845 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B09674204C65D700871845 /* main.m */; };
+		18B0967B204C668000871845 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18B0967A204C668000871845 /* Info.plist */; };
 		F060CE10D439F1EE5A0EFB29 /* libPods-Parking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB5728185F18F73085A448AB /* libPods-Parking.a */; };
 /* End PBXBuildFile section */
 
@@ -39,7 +81,6 @@
 
 /* Begin PBXFileReference section */
 		004A3E1F8EE38D86320430D9 /* Pods-Parking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.release.xcconfig"; path = "Pods/Target Support Files/Pods-Parking/Pods-Parking.release.xcconfig"; sourceTree = "<group>"; };
-		18080D50201F44B7006543FA /* PIToolHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIToolHeader.h; sourceTree = "<group>"; };
 		183A1F97201EC88B00F8B55F /* Parking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		183A1FAF201EC88B00F8B55F /* ParkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		183A1FB3201EC88B00F8B55F /* ParkingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParkingTests.m; sourceTree = "<group>"; };
@@ -47,18 +88,96 @@
 		183A1FBA201EC88B00F8B55F /* ParkingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParkingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		183A1FBE201EC88B00F8B55F /* ParkingUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParkingUITests.m; sourceTree = "<group>"; };
 		183A1FC0201EC88B00F8B55F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		183A1FCE201EF5CE00F8B55F /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		183A1FCF201EF5CE00F8B55F /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		183A1FD0201EF5CE00F8B55F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		183A1FD2201EF5CE00F8B55F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		183A1FD4201EF5CE00F8B55F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		183A1FD5201EF5CE00F8B55F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		183A1FD6201EF5CE00F8B55F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		183A205B201EF9D700F8B55F /* parkingHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = parkingHeader.pch; sourceTree = "<group>"; };
 		18B095A8204C606400871845 /* PIMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIMeViewController.h; sourceTree = "<group>"; };
 		18B095A9204C606400871845 /* PIMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIMeViewController.m; sourceTree = "<group>"; };
 		18B095AF204C60AD00871845 /* PIOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIOrderViewController.h; sourceTree = "<group>"; };
 		18B095B0204C60AD00871845 /* PIOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIOrderViewController.m; sourceTree = "<group>"; };
+		18B095B7204C61CD00871845 /* PIAddDeviceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIAddDeviceController.h; sourceTree = "<group>"; };
+		18B095B8204C61CD00871845 /* PIAddDeviceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIAddDeviceController.m; sourceTree = "<group>"; };
+		18B095B9204C61CD00871845 /* PIAddSubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIAddSubViewController.h; sourceTree = "<group>"; };
+		18B095BA204C61CD00871845 /* PIAddSubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIAddSubViewController.m; sourceTree = "<group>"; };
+		18B095BD204C61CD00871845 /* PIAddSubViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIAddSubViewCell.h; sourceTree = "<group>"; };
+		18B095BE204C61CD00871845 /* PIAddSubViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIAddSubViewCell.m; sourceTree = "<group>"; };
+		18B095C0204C61CD00871845 /* PIHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIHomeViewController.h; sourceTree = "<group>"; };
+		18B095C1204C61CD00871845 /* PIHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIHomeViewController.m; sourceTree = "<group>"; };
+		18B095C4204C61CD00871845 /* PIHomeBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIHomeBottomView.h; sourceTree = "<group>"; };
+		18B095C5204C61CD00871845 /* PIHomeBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIHomeBottomView.m; sourceTree = "<group>"; };
+		18B095C6204C61CD00871845 /* PIHomeItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIHomeItemCell.h; sourceTree = "<group>"; };
+		18B095C7204C61CD00871845 /* PIHomeItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIHomeItemCell.m; sourceTree = "<group>"; };
+		18B095C8204C61CD00871845 /* PIHomeItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIHomeItemView.h; sourceTree = "<group>"; };
+		18B095C9204C61CD00871845 /* PIHomeItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIHomeItemView.m; sourceTree = "<group>"; };
+		18B095CA204C61CD00871845 /* PIHomeMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIHomeMainView.h; sourceTree = "<group>"; };
+		18B095CB204C61CD00871845 /* PIHomeMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIHomeMainView.m; sourceTree = "<group>"; };
+		18B095D6204C622600871845 /* PILoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PILoginViewController.h; sourceTree = "<group>"; };
+		18B095D7204C622600871845 /* PILoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PILoginViewController.m; sourceTree = "<group>"; };
+		18B095D8204C622600871845 /* PIRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIRegisterViewController.h; sourceTree = "<group>"; };
+		18B095D9204C622600871845 /* PIRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIRegisterViewController.m; sourceTree = "<group>"; };
+		18B095DA204C622600871845 /* PISetPassWViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PISetPassWViewController.h; sourceTree = "<group>"; };
+		18B095DB204C622600871845 /* PISetPassWViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PISetPassWViewController.m; sourceTree = "<group>"; };
+		18B095DD204C622600871845 /* PILoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PILoginManager.h; sourceTree = "<group>"; };
+		18B095DE204C622600871845 /* PILoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PILoginManager.m; sourceTree = "<group>"; };
+		18B095E1204C622600871845 /* PILoginFieldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PILoginFieldView.h; sourceTree = "<group>"; };
+		18B095E2204C622600871845 /* PILoginFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PILoginFieldView.m; sourceTree = "<group>"; };
+		18B095E3204C622600871845 /* PIThirdLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIThirdLoginView.h; sourceTree = "<group>"; };
+		18B095E4204C622600871845 /* PIThirdLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIThirdLoginView.m; sourceTree = "<group>"; };
+		18B095E5204C622600871845 /* PIVerificationBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIVerificationBtn.h; sourceTree = "<group>"; };
+		18B095E6204C622600871845 /* PIVerificationBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIVerificationBtn.m; sourceTree = "<group>"; };
+		18B095F0204C626000871845 /* PICodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PICodeViewController.h; sourceTree = "<group>"; };
+		18B095F1204C626000871845 /* PICodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PICodeViewController.m; sourceTree = "<group>"; };
+		18B095F2204C626000871845 /* shaoma.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shaoma.png; sourceTree = "<group>"; };
+		18B095F3204C626000871845 /* shaoma@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shaoma@2x.png"; sourceTree = "<group>"; };
+		18B095F4204C626000871845 /* shaoma@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shaoma@3x.png"; sourceTree = "<group>"; };
+		18B095F5204C626000871845 /* shaomacenter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shaomacenter.png; sourceTree = "<group>"; };
+		18B095F6204C626000871845 /* shaomacenter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shaomacenter@2x.png"; sourceTree = "<group>"; };
+		18B095F7204C626000871845 /* shaomacenter@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shaomacenter@3x.png"; sourceTree = "<group>"; };
+		18B095F9204C626000871845 /* PIHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIHttpTool.h; sourceTree = "<group>"; };
+		18B095FA204C626000871845 /* PIHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIHttpTool.m; sourceTree = "<group>"; };
+		18B095FC204C626000871845 /* PILocationTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PILocationTool.h; sourceTree = "<group>"; };
+		18B095FD204C626000871845 /* PILocationTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PILocationTool.m; sourceTree = "<group>"; };
+		18B095FE204C626000871845 /* PIMapManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIMapManager.h; sourceTree = "<group>"; };
+		18B095FF204C626000871845 /* PIMapManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIMapManager.m; sourceTree = "<group>"; };
+		18B09600204C626000871845 /* PITool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PITool.h; sourceTree = "<group>"; };
+		18B09601204C626000871845 /* PITool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PITool.m; sourceTree = "<group>"; };
+		18B09603204C626000871845 /* PILoginInfoTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PILoginInfoTool.h; sourceTree = "<group>"; };
+		18B09604204C626000871845 /* PILoginInfoTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PILoginInfoTool.m; sourceTree = "<group>"; };
+		18B09614204C629E00871845 /* PIBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIBaseViewController.h; sourceTree = "<group>"; };
+		18B09615204C629E00871845 /* PIBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIBaseViewController.m; sourceTree = "<group>"; };
+		18B09616204C629E00871845 /* PINavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINavigationController.h; sourceTree = "<group>"; };
+		18B09617204C629E00871845 /* PINavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PINavigationController.m; sourceTree = "<group>"; };
+		18B09618204C629E00871845 /* PITabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PITabBarController.h; sourceTree = "<group>"; };
+		18B09619204C629E00871845 /* PITabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PITabBarController.m; sourceTree = "<group>"; };
+		18B0961B204C629E00871845 /* PIBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIBaseModel.h; sourceTree = "<group>"; };
+		18B0961C204C629E00871845 /* PIBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIBaseModel.m; sourceTree = "<group>"; };
+		18B0961E204C629E00871845 /* PIBottomBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIBottomBtn.h; sourceTree = "<group>"; };
+		18B0961F204C629E00871845 /* PIBottomBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIBottomBtn.m; sourceTree = "<group>"; };
+		18B09621204C629E00871845 /* AppDelegate+PIExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+PIExtension.h"; sourceTree = "<group>"; };
+		18B09622204C629E00871845 /* AppDelegate+PIExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+PIExtension.m"; sourceTree = "<group>"; };
+		18B09623204C629E00871845 /* MBProgressHUD+PI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+PI.h"; sourceTree = "<group>"; };
+		18B09624204C629E00871845 /* MBProgressHUD+PI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+PI.m"; sourceTree = "<group>"; };
+		18B09625204C629E00871845 /* NSString+Exrtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Exrtension.h"; sourceTree = "<group>"; };
+		18B09626204C629E00871845 /* NSString+Exrtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Exrtension.m"; sourceTree = "<group>"; };
+		18B09627204C629E00871845 /* UIBarButtonItem+PI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+PI.h"; sourceTree = "<group>"; };
+		18B09628204C629E00871845 /* UIBarButtonItem+PI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+PI.m"; sourceTree = "<group>"; };
+		18B09629204C629E00871845 /* UIButton+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extension.h"; sourceTree = "<group>"; };
+		18B0962A204C629E00871845 /* UIButton+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extension.m"; sourceTree = "<group>"; };
+		18B0962B204C629E00871845 /* UILabel+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Extension.h"; sourceTree = "<group>"; };
+		18B0962C204C629E00871845 /* UILabel+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Extension.m"; sourceTree = "<group>"; };
+		18B0962D204C629E00871845 /* UIView+ParentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ParentController.h"; sourceTree = "<group>"; };
+		18B0962E204C629E00871845 /* UIView+ParentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ParentController.m"; sourceTree = "<group>"; };
+		18B0962F204C629E00871845 /* UIView+PIExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+PIExtension.h"; sourceTree = "<group>"; };
+		18B09630204C629E00871845 /* UIView+PIExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+PIExtension.m"; sourceTree = "<group>"; };
+		18B09665204C652300871845 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		18B09666204C652300871845 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		18B09667204C652300871845 /* parkingHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parkingHeader.pch; sourceTree = "<group>"; };
+		18B09668204C652300871845 /* PIConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIConst.h; sourceTree = "<group>"; };
+		18B09669204C652300871845 /* PIConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIConst.m; sourceTree = "<group>"; };
+		18B0966A204C652300871845 /* PIToolHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIToolHeader.h; sourceTree = "<group>"; };
+		18B0966E204C65D700871845 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		18B09670204C65D700871845 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		18B09672204C65D700871845 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		18B09673204C65D700871845 /* keystore.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = keystore.cer; sourceTree = "<group>"; };
+		18B09674204C65D700871845 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		18B0967A204C668000871845 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9349DDA0ABEC8A2A985E6235 /* Pods-Parking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Parking/Pods-Parking.debug.xcconfig"; sourceTree = "<group>"; };
 		AB5728185F18F73085A448AB /* libPods-Parking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Parking.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -93,7 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				183A1F99201EC88B00F8B55F /* Parking */,
-				183A205A201EF95E00F8B55F /* Support Files */,
+				18B0966D204C65D700871845 /* Support Files */,
 				183A1FB2201EC88B00F8B55F /* ParkingTests */,
 				183A1FBD201EC88B00F8B55F /* ParkingUITests */,
 				183A1F98201EC88B00F8B55F /* Products */,
@@ -116,7 +235,6 @@
 			isa = PBXGroup;
 			children = (
 				183A1FCC201EF41600F8B55F /* Classes */,
-				183A1FD5201EF5CE00F8B55F /* Info.plist */,
 			);
 			path = Parking;
 			sourceTree = "<group>";
@@ -142,34 +260,15 @@
 		183A1FCC201EF41600F8B55F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				18B09664204C652300871845 /* Other */,
+				18B09611204C629E00871845 /* Main */,
+				18B095EE204C626000871845 /* Tool */,
+				18B095D4204C622600871845 /* Login */,
+				18B095B4204C61CD00871845 /* Home */,
 				18B095AD204C60AD00871845 /* Order */,
 				18B095A6204C606400871845 /* Me */,
-				183A1FCD201EF5CE00F8B55F /* Other */,
 			);
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		183A1FCD201EF5CE00F8B55F /* Other */ = {
-			isa = PBXGroup;
-			children = (
-				183A1FCE201EF5CE00F8B55F /* AppDelegate.h */,
-				183A1FCF201EF5CE00F8B55F /* AppDelegate.m */,
-				183A205B201EF9D700F8B55F /* parkingHeader.pch */,
-				18080D50201F44B7006543FA /* PIToolHeader.h */,
-			);
-			path = Other;
-			sourceTree = "<group>";
-		};
-		183A205A201EF95E00F8B55F /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				183A1FD0201EF5CE00F8B55F /* Assets.xcassets */,
-				183A1FD1201EF5CE00F8B55F /* LaunchScreen.storyboard */,
-				183A1FD3201EF5CE00F8B55F /* Main.storyboard */,
-				183A1FD6201EF5CE00F8B55F /* main.m */,
-			);
-			name = "Support Files";
-			path = "Parking/Support Files";
 			sourceTree = "<group>";
 		};
 		18B095A6204C606400871845 /* Me */ = {
@@ -236,6 +335,302 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		18B095B4204C61CD00871845 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				18B095B5204C61CD00871845 /* AddDevice */,
+				18B095BF204C61CD00871845 /* Controller */,
+				18B095C2204C61CD00871845 /* Model */,
+				18B095C3204C61CD00871845 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		18B095B5204C61CD00871845 /* AddDevice */ = {
+			isa = PBXGroup;
+			children = (
+				18B095B6204C61CD00871845 /* Controller */,
+				18B095BB204C61CD00871845 /* Model */,
+				18B095BC204C61CD00871845 /* View */,
+			);
+			path = AddDevice;
+			sourceTree = "<group>";
+		};
+		18B095B6204C61CD00871845 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				18B095B7204C61CD00871845 /* PIAddDeviceController.h */,
+				18B095B8204C61CD00871845 /* PIAddDeviceController.m */,
+				18B095B9204C61CD00871845 /* PIAddSubViewController.h */,
+				18B095BA204C61CD00871845 /* PIAddSubViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		18B095BB204C61CD00871845 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		18B095BC204C61CD00871845 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18B095BD204C61CD00871845 /* PIAddSubViewCell.h */,
+				18B095BE204C61CD00871845 /* PIAddSubViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		18B095BF204C61CD00871845 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				18B095C0204C61CD00871845 /* PIHomeViewController.h */,
+				18B095C1204C61CD00871845 /* PIHomeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		18B095C2204C61CD00871845 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		18B095C3204C61CD00871845 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18B095C4204C61CD00871845 /* PIHomeBottomView.h */,
+				18B095C5204C61CD00871845 /* PIHomeBottomView.m */,
+				18B095C6204C61CD00871845 /* PIHomeItemCell.h */,
+				18B095C7204C61CD00871845 /* PIHomeItemCell.m */,
+				18B095C8204C61CD00871845 /* PIHomeItemView.h */,
+				18B095C9204C61CD00871845 /* PIHomeItemView.m */,
+				18B095CA204C61CD00871845 /* PIHomeMainView.h */,
+				18B095CB204C61CD00871845 /* PIHomeMainView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		18B095D4204C622600871845 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				18B095D5204C622600871845 /* Controller */,
+				18B095DC204C622600871845 /* DataManager */,
+				18B095DF204C622600871845 /* Model */,
+				18B095E0204C622600871845 /* View */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		18B095D5204C622600871845 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				18B095D6204C622600871845 /* PILoginViewController.h */,
+				18B095D7204C622600871845 /* PILoginViewController.m */,
+				18B095D8204C622600871845 /* PIRegisterViewController.h */,
+				18B095D9204C622600871845 /* PIRegisterViewController.m */,
+				18B095DA204C622600871845 /* PISetPassWViewController.h */,
+				18B095DB204C622600871845 /* PISetPassWViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		18B095DC204C622600871845 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				18B095DD204C622600871845 /* PILoginManager.h */,
+				18B095DE204C622600871845 /* PILoginManager.m */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		18B095DF204C622600871845 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		18B095E0204C622600871845 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18B095E1204C622600871845 /* PILoginFieldView.h */,
+				18B095E2204C622600871845 /* PILoginFieldView.m */,
+				18B095E3204C622600871845 /* PIThirdLoginView.h */,
+				18B095E4204C622600871845 /* PIThirdLoginView.m */,
+				18B095E5204C622600871845 /* PIVerificationBtn.h */,
+				18B095E6204C622600871845 /* PIVerificationBtn.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		18B095EE204C626000871845 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				18B095EF204C626000871845 /* CodeTool */,
+				18B095F8204C626000871845 /* HttpTool */,
+				18B095FB204C626000871845 /* Location */,
+				18B09600204C626000871845 /* PITool.h */,
+				18B09601204C626000871845 /* PITool.m */,
+				18B09602204C626000871845 /* UserInfo */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		18B095EF204C626000871845 /* CodeTool */ = {
+			isa = PBXGroup;
+			children = (
+				18B095F0204C626000871845 /* PICodeViewController.h */,
+				18B095F1204C626000871845 /* PICodeViewController.m */,
+				18B095F2204C626000871845 /* shaoma.png */,
+				18B095F3204C626000871845 /* shaoma@2x.png */,
+				18B095F4204C626000871845 /* shaoma@3x.png */,
+				18B095F5204C626000871845 /* shaomacenter.png */,
+				18B095F6204C626000871845 /* shaomacenter@2x.png */,
+				18B095F7204C626000871845 /* shaomacenter@3x.png */,
+			);
+			path = CodeTool;
+			sourceTree = "<group>";
+		};
+		18B095F8204C626000871845 /* HttpTool */ = {
+			isa = PBXGroup;
+			children = (
+				18B095F9204C626000871845 /* PIHttpTool.h */,
+				18B095FA204C626000871845 /* PIHttpTool.m */,
+			);
+			path = HttpTool;
+			sourceTree = "<group>";
+		};
+		18B095FB204C626000871845 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				18B095FC204C626000871845 /* PILocationTool.h */,
+				18B095FD204C626000871845 /* PILocationTool.m */,
+				18B095FE204C626000871845 /* PIMapManager.h */,
+				18B095FF204C626000871845 /* PIMapManager.m */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		18B09602204C626000871845 /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				18B09603204C626000871845 /* PILoginInfoTool.h */,
+				18B09604204C626000871845 /* PILoginInfoTool.m */,
+			);
+			path = UserInfo;
+			sourceTree = "<group>";
+		};
+		18B09611204C629E00871845 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				18B09612204C629E00871845 /* Base */,
+				18B09620204C629E00871845 /* Category */,
+				18B09631204C629E00871845 /* Lib */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		18B09612204C629E00871845 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				18B09613204C629E00871845 /* Controller */,
+				18B0961A204C629E00871845 /* Model */,
+				18B0961D204C629E00871845 /* View */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		18B09613204C629E00871845 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				18B09614204C629E00871845 /* PIBaseViewController.h */,
+				18B09615204C629E00871845 /* PIBaseViewController.m */,
+				18B09616204C629E00871845 /* PINavigationController.h */,
+				18B09617204C629E00871845 /* PINavigationController.m */,
+				18B09618204C629E00871845 /* PITabBarController.h */,
+				18B09619204C629E00871845 /* PITabBarController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		18B0961A204C629E00871845 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				18B0961B204C629E00871845 /* PIBaseModel.h */,
+				18B0961C204C629E00871845 /* PIBaseModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		18B0961D204C629E00871845 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18B0961E204C629E00871845 /* PIBottomBtn.h */,
+				18B0961F204C629E00871845 /* PIBottomBtn.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		18B09620204C629E00871845 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				18B09621204C629E00871845 /* AppDelegate+PIExtension.h */,
+				18B09622204C629E00871845 /* AppDelegate+PIExtension.m */,
+				18B09623204C629E00871845 /* MBProgressHUD+PI.h */,
+				18B09624204C629E00871845 /* MBProgressHUD+PI.m */,
+				18B09625204C629E00871845 /* NSString+Exrtension.h */,
+				18B09626204C629E00871845 /* NSString+Exrtension.m */,
+				18B09627204C629E00871845 /* UIBarButtonItem+PI.h */,
+				18B09628204C629E00871845 /* UIBarButtonItem+PI.m */,
+				18B09629204C629E00871845 /* UIButton+Extension.h */,
+				18B0962A204C629E00871845 /* UIButton+Extension.m */,
+				18B0962B204C629E00871845 /* UILabel+Extension.h */,
+				18B0962C204C629E00871845 /* UILabel+Extension.m */,
+				18B0962D204C629E00871845 /* UIView+ParentController.h */,
+				18B0962E204C629E00871845 /* UIView+ParentController.m */,
+				18B0962F204C629E00871845 /* UIView+PIExtension.h */,
+				18B09630204C629E00871845 /* UIView+PIExtension.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		18B09631204C629E00871845 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		18B09664204C652300871845 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				18B09665204C652300871845 /* AppDelegate.h */,
+				18B09666204C652300871845 /* AppDelegate.m */,
+				18B09667204C652300871845 /* parkingHeader.pch */,
+				18B09668204C652300871845 /* PIConst.h */,
+				18B09669204C652300871845 /* PIConst.m */,
+				18B0966A204C652300871845 /* PIToolHeader.h */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		18B0966D204C65D700871845 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				18B0967A204C668000871845 /* Info.plist */,
+				18B0966E204C65D700871845 /* Assets.xcassets */,
+				18B0966F204C65D700871845 /* LaunchScreen.storyboard */,
+				18B09671204C65D700871845 /* Main.storyboard */,
+				18B09673204C65D700871845 /* keystore.cer */,
+				18B09674204C65D700871845 /* main.m */,
+			);
+			path = "Support Files";
 			sourceTree = "<group>";
 		};
 		2C868DF110EE56F0EB0EB620 /* Frameworks */ = {
@@ -326,7 +721,7 @@
 				TargetAttributes = {
 					183A1F96201EC88B00F8B55F = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					183A1FAE201EC88B00F8B55F = {
 						CreatedOnToolsVersion = 9.2;
@@ -365,10 +760,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				183A1FDA201EF5CE00F8B55F /* Main.storyboard in Resources */,
-				183A1FDB201EF5CE00F8B55F /* Info.plist in Resources */,
-				183A1FD9201EF5CE00F8B55F /* LaunchScreen.storyboard in Resources */,
-				183A1FD8201EF5CE00F8B55F /* Assets.xcassets in Resources */,
+				18B0960A204C626000871845 /* shaomacenter@2x.png in Resources */,
+				18B09676204C65D700871845 /* LaunchScreen.storyboard in Resources */,
+				18B09678204C65D700871845 /* keystore.cer in Resources */,
+				18B09606204C626000871845 /* shaoma.png in Resources */,
+				18B09608204C626000871845 /* shaoma@3x.png in Resources */,
+				18B0960B204C626000871845 /* shaomacenter@3x.png in Resources */,
+				18B09675204C65D700871845 /* Assets.xcassets in Resources */,
+				18B09677204C65D700871845 /* Main.storyboard in Resources */,
+				18B0967B204C668000871845 /* Info.plist in Resources */,
+				18B09609204C626000871845 /* shaomacenter.png in Resources */,
+				18B09607204C626000871845 /* shaoma@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +831,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Parking/Pods-Parking-resources.sh",
+				"${PODS_ROOT}/AMap2DMap/MAMapKit.framework/AMap.bundle",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/ZBarSDK/iphone/res/zbar-back.png",
@@ -452,10 +855,45 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				183A1FD7201EF5CE00F8B55F /* AppDelegate.m in Sources */,
-				183A1FDC201EF5CE00F8B55F /* main.m in Sources */,
+				18B0966B204C652300871845 /* AppDelegate.m in Sources */,
+				18B0963C204C629E00871845 /* UILabel+Extension.m in Sources */,
+				18B09605204C626000871845 /* PICodeViewController.m in Sources */,
+				18B0963A204C629E00871845 /* UIBarButtonItem+PI.m in Sources */,
+				18B09639204C629E00871845 /* NSString+Exrtension.m in Sources */,
+				18B09637204C629E00871845 /* AppDelegate+PIExtension.m in Sources */,
+				18B09635204C629E00871845 /* PIBaseModel.m in Sources */,
+				18B09633204C629E00871845 /* PINavigationController.m in Sources */,
+				18B095E8204C622600871845 /* PIRegisterViewController.m in Sources */,
+				18B0960F204C626000871845 /* PITool.m in Sources */,
+				18B095EC204C622600871845 /* PIThirdLoginView.m in Sources */,
+				18B095ED204C622600871845 /* PIVerificationBtn.m in Sources */,
+				18B0960D204C626000871845 /* PILocationTool.m in Sources */,
+				18B09679204C65D700871845 /* main.m in Sources */,
+				18B095CC204C61CD00871845 /* PIAddDeviceController.m in Sources */,
+				18B095CF204C61CD00871845 /* PIHomeViewController.m in Sources */,
+				18B095CD204C61CD00871845 /* PIAddSubViewController.m in Sources */,
+				18B095D0204C61CD00871845 /* PIHomeBottomView.m in Sources */,
+				18B09634204C629E00871845 /* PITabBarController.m in Sources */,
+				18B095CE204C61CD00871845 /* PIAddSubViewCell.m in Sources */,
+				18B0963E204C629E00871845 /* UIView+PIExtension.m in Sources */,
+				18B095EB204C622600871845 /* PILoginFieldView.m in Sources */,
+				18B0966C204C652300871845 /* PIConst.m in Sources */,
+				18B095EA204C622600871845 /* PILoginManager.m in Sources */,
+				18B0960C204C626000871845 /* PIHttpTool.m in Sources */,
+				18B09610204C626000871845 /* PILoginInfoTool.m in Sources */,
 				18B095AC204C606400871845 /* PIMeViewController.m in Sources */,
+				18B09638204C629E00871845 /* MBProgressHUD+PI.m in Sources */,
+				18B095D1204C61CD00871845 /* PIHomeItemCell.m in Sources */,
+				18B095D3204C61CD00871845 /* PIHomeMainView.m in Sources */,
+				18B0960E204C626000871845 /* PIMapManager.m in Sources */,
+				18B095D2204C61CD00871845 /* PIHomeItemView.m in Sources */,
+				18B09632204C629E00871845 /* PIBaseViewController.m in Sources */,
+				18B0963B204C629E00871845 /* UIButton+Extension.m in Sources */,
 				18B095B3204C60AD00871845 /* PIOrderViewController.m in Sources */,
+				18B095E9204C622600871845 /* PISetPassWViewController.m in Sources */,
+				18B0963D204C629E00871845 /* UIView+ParentController.m in Sources */,
+				18B09636204C629E00871845 /* PIBottomBtn.m in Sources */,
+				18B095E7204C622600871845 /* PILoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,18 +929,18 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		183A1FD1201EF5CE00F8B55F /* LaunchScreen.storyboard */ = {
+		18B0966F204C65D700871845 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				183A1FD2201EF5CE00F8B55F /* Base */,
+				18B09670204C65D700871845 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		183A1FD3201EF5CE00F8B55F /* Main.storyboard */ = {
+		18B09671204C65D700871845 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				183A1FD4201EF5CE00F8B55F /* Base */,
+				18B09672204C65D700871845 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -619,12 +1057,15 @@
 			baseConfigurationReference = 9349DDA0ABEC8A2A985E6235 /* Pods-Parking.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = D2C4P929KB;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Parking/Classes/Other/parkingHeader.pch";
-				INFOPLIST_FILE = Parking/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Support Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.parking.Parking;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Peterpan.Parking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "b761efad-53e2-4ff3-bf6f-cffce127ee7d";
+				PROVISIONING_PROFILE_SPECIFIER = WisdomParking;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -634,12 +1075,15 @@
 			baseConfigurationReference = 004A3E1F8EE38D86320430D9 /* Pods-Parking.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = D2C4P929KB;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Parking/Classes/Other/parkingHeader.pch";
-				INFOPLIST_FILE = Parking/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Support Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.parking.Parking;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Peterpan.Parking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "b761efad-53e2-4ff3-bf6f-cffce127ee7d";
+				PROVISIONING_PROFILE_SPECIFIER = WisdomParking;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
