@@ -29,6 +29,7 @@
     
     self.title = @"添加设备";
     
+    _count = 1;
     [self setupTableView];
 }
 
@@ -75,6 +76,11 @@
     
     cell.index = indexPath.row + 1;
     
+    weakself
+    [cell setClickIndex:^(NSInteger index) {
+       
+        [weakSelf addBtnClick:index];
+    }];
     return cell;
 }
 
@@ -86,16 +92,20 @@
     label.frame = CGRectMake(10, 10, SCREEN_WIDTH - 70, 29);
     [view addSubview:label];
     
-    UIButton *addBtn = [[UIButton alloc] initWithImageName:@"home_add_car"];
-    addBtn.frame = CGRectMake(SCREEN_WIDTH - 40, 10, 29, 29);
-    [addBtn addTarget:self action:@selector(addBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    [view addSubview:addBtn];
+
     return view;
 }
 
-- (void)addBtnClick {
+- (void)addBtnClick:(NSInteger)index {
     
-    _count += 1;
+    if (index == 1) {
+        
+        _count += 1;
+    }else {
+        
+        _count -= 1;
+    }
+    
     [self.tableView reloadData];
     
 }

@@ -24,6 +24,8 @@
 @property (nonatomic, strong) PILoginFieldView *codeFieldView;
 ///-- 状态
 @property (nonatomic, strong) UILabel *statuLabel;
+///-- 删除按钮
+@property (nonatomic, strong) UIButton *deleteBtn;
 
 @end
 
@@ -45,6 +47,8 @@
 - (void)setupUI {
     
     [self.contentView addSubview:self.numLabel];
+    [self.contentView addSubview:self.deleteBtn];
+    
     [self.contentView addSubview:self.idLabel];
     [self.contentView addSubview:self.idFieldView];
     [self.contentView addSubview:self.codeLabel];
@@ -55,9 +59,16 @@
     [self.numLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.left.equalTo(weakSelf.contentView).offset(15);
-        make.right.equalTo(weakSelf.contentView).offset(-15);
+        make.right.equalTo(weakSelf.contentView).offset(-75);
         make.top.equalTo(weakSelf.contentView).offset(10);
         make.height.mas_equalTo(20);
+    }];
+    
+    [self.deleteBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.right.equalTo(weakSelf.contentView).offset(-15);
+        make.top.equalTo(weakSelf.contentView).offset(5);
+        make.height.and.width.mas_equalTo(25);
     }];
     
     [self.idLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -92,6 +103,7 @@
         make.height.mas_equalTo(35);
     }];
     
+    [self.deleteBtn addTarget:self action:@selector(deleteBtnClick) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)swapClick:(UIButton *)sender {
@@ -108,11 +120,28 @@
     [self.parentController presentViewController:nac animated:YES completion:nil];
 }
 
+- (void)deleteBtnClick {
+    
+    if (self.clickIndex) {
+        
+        self.clickIndex(self.index);
+    }
+}
+
 - (void)setIndex:(NSInteger)index {
     
     _index = index;
     
     self.numLabel.text = [NSString stringWithFormat:@"车位 %lu", index];
+    
+    if (index == 1) {
+        
+        [self.deleteBtn setImage:[UIImage imageNamed:@"home_add_car"] forState:UIControlStateNormal];
+        
+    }else {
+        
+        [self.deleteBtn setImage:[UIImage imageNamed:@"home_delete"] forState:UIControlStateNormal];
+    }
 }
 #pragma mark -- 懒加载
 - (UILabel *)numLabel {
@@ -180,6 +209,16 @@
     }
     
     return _codeFieldView;
+}
+
+- (UIButton *)deleteBtn {
+    
+    if (!_deleteBtn) {
+        
+        _deleteBtn = [[UIButton alloc] initWithImageName:@"home_delete"];
+    }
+    
+    return _deleteBtn;
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
