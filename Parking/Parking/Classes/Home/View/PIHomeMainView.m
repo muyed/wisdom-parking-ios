@@ -42,7 +42,7 @@
     [self addSubview:self.orderCodeLabel];
     [self addSubview:self.codeText];
     
-    CGFloat addBtnWH = 80 * Scale_Y;
+    CGFloat addBtnWH = 100 * Scale_Y;
     weakself
     [self.addBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         

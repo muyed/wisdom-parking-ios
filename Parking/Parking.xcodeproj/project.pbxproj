@@ -59,6 +59,15 @@
 		18B09678204C65D700871845 /* keystore.cer in Resources */ = {isa = PBXBuildFile; fileRef = 18B09673204C65D700871845 /* keystore.cer */; };
 		18B09679204C65D700871845 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B09674204C65D700871845 /* main.m */; };
 		18B0967B204C668000871845 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18B0967A204C668000871845 /* Info.plist */; };
+		18B096A3204D668E00871845 /* PIAddPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B096A2204D668E00871845 /* PIAddPayViewController.m */; };
+		18B096A6204D6B2500871845 /* PIAddPayViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B096A5204D6B2500871845 /* PIAddPayViewCell.m */; };
+		18B096A9204D80D700871845 /* PIAddNoOwerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B096A8204D80D700871845 /* PIAddNoOwerController.m */; };
+		18B096AC204D812300871845 /* PIAddNoOwerHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B096AB204D812300871845 /* PIAddNoOwerHeaderView.m */; };
+		18B096B2204D9C8000871845 /* PIAddCarHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B096B1204D9C8000871845 /* PIAddCarHeaderView.m */; };
+		18B096DD204EC3D700871845 /* PIAddWisedomeCarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B096DC204EC3D700871845 /* PIAddWisedomeCarCell.m */; };
+		18B096E0204ECC3500871845 /* PICarNumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B096DF204ECC3500871845 /* PICarNumCell.m */; };
+		18B096E3204ED2CC00871845 /* PIAddPersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B096E2204ED2CC00871845 /* PIAddPersonCell.m */; };
+		18B096E6204EDAFA00871845 /* PIImageUpBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B096E5204EDAFA00871845 /* PIImageUpBtn.m */; };
 		F060CE10D439F1EE5A0EFB29 /* libPods-Parking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB5728185F18F73085A448AB /* libPods-Parking.a */; };
 /* End PBXBuildFile section */
 
@@ -178,6 +187,24 @@
 		18B09673204C65D700871845 /* keystore.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = keystore.cer; sourceTree = "<group>"; };
 		18B09674204C65D700871845 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		18B0967A204C668000871845 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18B096A1204D668E00871845 /* PIAddPayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIAddPayViewController.h; sourceTree = "<group>"; };
+		18B096A2204D668E00871845 /* PIAddPayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIAddPayViewController.m; sourceTree = "<group>"; };
+		18B096A4204D6B2500871845 /* PIAddPayViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIAddPayViewCell.h; sourceTree = "<group>"; };
+		18B096A5204D6B2500871845 /* PIAddPayViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIAddPayViewCell.m; sourceTree = "<group>"; };
+		18B096A7204D80D700871845 /* PIAddNoOwerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIAddNoOwerController.h; sourceTree = "<group>"; };
+		18B096A8204D80D700871845 /* PIAddNoOwerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIAddNoOwerController.m; sourceTree = "<group>"; };
+		18B096AA204D812300871845 /* PIAddNoOwerHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIAddNoOwerHeaderView.h; sourceTree = "<group>"; };
+		18B096AB204D812300871845 /* PIAddNoOwerHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIAddNoOwerHeaderView.m; sourceTree = "<group>"; };
+		18B096B0204D9C8000871845 /* PIAddCarHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIAddCarHeaderView.h; sourceTree = "<group>"; };
+		18B096B1204D9C8000871845 /* PIAddCarHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIAddCarHeaderView.m; sourceTree = "<group>"; };
+		18B096DB204EC3D700871845 /* PIAddWisedomeCarCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIAddWisedomeCarCell.h; sourceTree = "<group>"; };
+		18B096DC204EC3D700871845 /* PIAddWisedomeCarCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIAddWisedomeCarCell.m; sourceTree = "<group>"; };
+		18B096DE204ECC3500871845 /* PICarNumCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PICarNumCell.h; sourceTree = "<group>"; };
+		18B096DF204ECC3500871845 /* PICarNumCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PICarNumCell.m; sourceTree = "<group>"; };
+		18B096E1204ED2CC00871845 /* PIAddPersonCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIAddPersonCell.h; sourceTree = "<group>"; };
+		18B096E2204ED2CC00871845 /* PIAddPersonCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIAddPersonCell.m; sourceTree = "<group>"; };
+		18B096E4204EDAFA00871845 /* PIImageUpBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIImageUpBtn.h; sourceTree = "<group>"; };
+		18B096E5204EDAFA00871845 /* PIImageUpBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIImageUpBtn.m; sourceTree = "<group>"; };
 		9349DDA0ABEC8A2A985E6235 /* Pods-Parking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Parking/Pods-Parking.debug.xcconfig"; sourceTree = "<group>"; };
 		AB5728185F18F73085A448AB /* libPods-Parking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Parking.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -365,6 +392,10 @@
 				18B095B8204C61CD00871845 /* PIAddDeviceController.m */,
 				18B095B9204C61CD00871845 /* PIAddSubViewController.h */,
 				18B095BA204C61CD00871845 /* PIAddSubViewController.m */,
+				18B096A1204D668E00871845 /* PIAddPayViewController.h */,
+				18B096A2204D668E00871845 /* PIAddPayViewController.m */,
+				18B096A7204D80D700871845 /* PIAddNoOwerController.h */,
+				18B096A8204D80D700871845 /* PIAddNoOwerController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -381,6 +412,18 @@
 			children = (
 				18B095BD204C61CD00871845 /* PIAddSubViewCell.h */,
 				18B095BE204C61CD00871845 /* PIAddSubViewCell.m */,
+				18B096A4204D6B2500871845 /* PIAddPayViewCell.h */,
+				18B096A5204D6B2500871845 /* PIAddPayViewCell.m */,
+				18B096AA204D812300871845 /* PIAddNoOwerHeaderView.h */,
+				18B096AB204D812300871845 /* PIAddNoOwerHeaderView.m */,
+				18B096B0204D9C8000871845 /* PIAddCarHeaderView.h */,
+				18B096B1204D9C8000871845 /* PIAddCarHeaderView.m */,
+				18B096DB204EC3D700871845 /* PIAddWisedomeCarCell.h */,
+				18B096DC204EC3D700871845 /* PIAddWisedomeCarCell.m */,
+				18B096DE204ECC3500871845 /* PICarNumCell.h */,
+				18B096DF204ECC3500871845 /* PICarNumCell.m */,
+				18B096E1204ED2CC00871845 /* PIAddPersonCell.h */,
+				18B096E2204ED2CC00871845 /* PIAddPersonCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -412,6 +455,8 @@
 				18B095C9204C61CD00871845 /* PIHomeItemView.m */,
 				18B095CA204C61CD00871845 /* PIHomeMainView.h */,
 				18B095CB204C61CD00871845 /* PIHomeMainView.m */,
+				18B096E4204EDAFA00871845 /* PIImageUpBtn.h */,
+				18B096E5204EDAFA00871845 /* PIImageUpBtn.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -856,6 +901,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18B0966B204C652300871845 /* AppDelegate.m in Sources */,
+				18B096AC204D812300871845 /* PIAddNoOwerHeaderView.m in Sources */,
 				18B0963C204C629E00871845 /* UILabel+Extension.m in Sources */,
 				18B09605204C626000871845 /* PICodeViewController.m in Sources */,
 				18B0963A204C629E00871845 /* UIBarButtonItem+PI.m in Sources */,
@@ -865,7 +911,10 @@
 				18B09633204C629E00871845 /* PINavigationController.m in Sources */,
 				18B095E8204C622600871845 /* PIRegisterViewController.m in Sources */,
 				18B0960F204C626000871845 /* PITool.m in Sources */,
+				18B096A9204D80D700871845 /* PIAddNoOwerController.m in Sources */,
+				18B096E3204ED2CC00871845 /* PIAddPersonCell.m in Sources */,
 				18B095EC204C622600871845 /* PIThirdLoginView.m in Sources */,
+				18B096E6204EDAFA00871845 /* PIImageUpBtn.m in Sources */,
 				18B095ED204C622600871845 /* PIVerificationBtn.m in Sources */,
 				18B0960D204C626000871845 /* PILocationTool.m in Sources */,
 				18B09679204C65D700871845 /* main.m in Sources */,
@@ -883,10 +932,15 @@
 				18B09610204C626000871845 /* PILoginInfoTool.m in Sources */,
 				18B095AC204C606400871845 /* PIMeViewController.m in Sources */,
 				18B09638204C629E00871845 /* MBProgressHUD+PI.m in Sources */,
+				18B096B2204D9C8000871845 /* PIAddCarHeaderView.m in Sources */,
 				18B095D1204C61CD00871845 /* PIHomeItemCell.m in Sources */,
 				18B095D3204C61CD00871845 /* PIHomeMainView.m in Sources */,
+				18B096A3204D668E00871845 /* PIAddPayViewController.m in Sources */,
+				18B096E0204ECC3500871845 /* PICarNumCell.m in Sources */,
 				18B0960E204C626000871845 /* PIMapManager.m in Sources */,
 				18B095D2204C61CD00871845 /* PIHomeItemView.m in Sources */,
+				18B096DD204EC3D700871845 /* PIAddWisedomeCarCell.m in Sources */,
+				18B096A6204D6B2500871845 /* PIAddPayViewCell.m in Sources */,
 				18B09632204C629E00871845 /* PIBaseViewController.m in Sources */,
 				18B0963B204C629E00871845 /* UIButton+Extension.m in Sources */,
 				18B095B3204C60AD00871845 /* PIOrderViewController.m in Sources */,
@@ -1061,12 +1115,13 @@
 				DEVELOPMENT_TEAM = D2C4P929KB;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Parking/Classes/Other/parkingHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Support Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Peterpan.Parking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b761efad-53e2-4ff3-bf6f-cffce127ee7d";
+				PROVISIONING_PROFILE = "3e650a4a-2494-4755-8e85-ec8deeef2900";
 				PROVISIONING_PROFILE_SPECIFIER = WisdomParking;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1079,12 +1134,13 @@
 				DEVELOPMENT_TEAM = D2C4P929KB;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Parking/Classes/Other/parkingHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Support Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Peterpan.Parking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "b761efad-53e2-4ff3-bf6f-cffce127ee7d";
 				PROVISIONING_PROFILE_SPECIFIER = WisdomParking;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

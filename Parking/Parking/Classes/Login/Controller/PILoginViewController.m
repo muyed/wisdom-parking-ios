@@ -14,6 +14,8 @@
 #import "PIVerificationBtn.h"
 #import "PILoginManager.h"
 #import "PIBaseModel.h"
+#import "PIHomeViewController.h"
+#import "PINavigationController.h"
 
 @interface PILoginViewController ()
 
@@ -184,6 +186,25 @@
         if (model.code == 200) {
             
             [MBProgressHUD showMessage:@"登录成功"];
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                
+                [UIView transitionWithView:[UIApplication sharedApplication].keyWindow duration:0.5f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+                    BOOL oldState = [UIView areAnimationsEnabled];
+                    [UIView setAnimationsEnabled:NO];
+                    
+                    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+                    
+                    PINavigationController  *nav = [[PINavigationController alloc] initWithRootViewController:[[PIHomeViewController alloc] init]];
+                    //重新设置窗口的根视图
+                    window.rootViewController = nav;
+                    
+                    [UIView setAnimationsEnabled:oldState];
+                } completion:^(BOOL finished) {
+                }];
+                
+            });
+           
         }else {
             
             [MBProgressHUD showMessage:model.errMsg];

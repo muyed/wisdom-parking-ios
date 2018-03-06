@@ -9,6 +9,8 @@
 #import "PIAddSubViewController.h"
 #import "PIBottomBtn.h"
 #import "PIAddSubViewCell.h"
+#import "PIAddPayViewController.h"
+#import "PINavigationController.h"
 
 @interface PIAddSubViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -39,7 +41,9 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.sectionHeaderHeight = 49;
-    self.tableView.rowHeight = 140;
+    self.tableView.rowHeight = 170;
+    self.tableView.separatorColor = [UIColor groupTableViewBackgroundColor];
+    self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
     [self.view addSubview:self.tableView];
     
     self.bottomBtn = [[PIBottomBtn alloc] init];
@@ -59,7 +63,10 @@
 
 - (void)buttonClick {
     
-    NSLog(@"下一步");
+    PIAddPayViewController *addPay = [[PIAddPayViewController alloc] init];
+    PINavigationController *nav = [[PINavigationController alloc] initWithRootViewController: addPay];
+    
+    [self presentViewController:nav animated:YES completion:nil];
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
@@ -107,6 +114,13 @@
     }
     
     [self.tableView reloadData];
+    
+    if (_count > 3) {
+        
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:(_count - 1) inSection:1];
+        
+        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionNone animated:YES];
+    }
     
 }
 - (void)didReceiveMemoryWarning {

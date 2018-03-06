@@ -7,13 +7,14 @@
 //
 
 #import "PIHomeBottomView.h"
+#import "PIImageUpBtn.h"
 
 @interface PIHomeBottomView ()
 
 ///-- 收放按钮
 @property (nonatomic, strong) UIButton *tmpBtn;
 ///-- 预约
-@property (nonatomic, strong) UIButton *orderBtn;
+@property (nonatomic, strong) PIImageUpBtn *orderBtn;
 ///-- 个人中心
 @property (nonatomic, strong) UIButton *personBtn;
 ///-- 提醒
@@ -110,11 +111,15 @@
    [MBProgressHUD showMessage:@"正在努力建设中...."];
 }
 #pragma mark -- 懒加载
-- (UIButton *)orderBtn {
+- (PIImageUpBtn *)orderBtn {
     
     if (!_orderBtn) {
         
-        _orderBtn = [[UIButton alloc] initWithFont:17 titleColor:[UIColor whiteColor] title:@"预约"];
+        _orderBtn = [[PIImageUpBtn alloc] initWithFont:17 titleColor:[UIColor whiteColor] title:@"预约"];
+        [_orderBtn setImage:[UIImage imageNamed:@"home_swap_white"] forState:UIControlStateNormal];
+//        _orderBtn.titleEdgeInsets = UIEdgeInsetsMake(25, 0, 0, 25);
+//        _orderBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 30, 25, 0);
+      
         _orderBtn.backgroundColor = PIMainColor;
     }
     

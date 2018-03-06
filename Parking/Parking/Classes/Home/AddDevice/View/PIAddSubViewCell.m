@@ -48,11 +48,11 @@
     
     [self.contentView addSubview:self.numLabel];
     [self.contentView addSubview:self.deleteBtn];
-    
     [self.contentView addSubview:self.idLabel];
     [self.contentView addSubview:self.idFieldView];
     [self.contentView addSubview:self.codeLabel];
     [self.contentView addSubview:self.codeFieldView];
+    [self.contentView addSubview:self.statuLabel];
     
     weakself
     
@@ -101,6 +101,13 @@
         make.right.equalTo(weakSelf.contentView).offset(-10);
         make.bottom.equalTo(weakSelf.codeLabel.mas_bottom).offset(-3);
         make.height.mas_equalTo(35);
+    }];
+    
+    [self.statuLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.left.equalTo(weakSelf.contentView).offset(15);
+        make.right.equalTo(weakSelf.contentView).offset(-15);
+        make.top.equalTo(weakSelf.codeFieldView.mas_bottom).offset(20);
     }];
     
     [self.deleteBtn addTarget:self action:@selector(deleteBtnClick) forControlEvents:UIControlEventTouchUpInside];
@@ -219,6 +226,17 @@
     }
     
     return _deleteBtn;
+}
+
+- (UILabel *)statuLabel {
+    
+    if (!_statuLabel) {
+        
+        _statuLabel = [[UILabel alloc] initWithFont:15 textColor:txtRedColor];
+        _statuLabel.text = @"此设备还未支付过设备押金";
+    }
+    
+    return _statuLabel;
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

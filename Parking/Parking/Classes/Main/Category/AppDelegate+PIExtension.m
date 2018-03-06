@@ -20,9 +20,24 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
-    PINavigationController *nav = [[PINavigationController alloc] initWithRootViewController:[[PIHomeViewController alloc] init]];
+    PINavigationController *nav;
+    
+    if ([PIUserDefaults objectForKey:@"sessionid"]) {
+        
+        nav = [[PINavigationController alloc] initWithRootViewController:[[PIHomeViewController alloc] init]];
+    }else {
+        
+        nav = [[PINavigationController alloc] initWithRootViewController:[[PILoginViewController alloc] init]];
+    }
+    
     [self.window setRootViewController: nav];
     
+    if (@available(ios 11.0,*)) {
+        UIScrollView.appearance.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        UITableView.appearance.estimatedRowHeight = 0;
+        UITableView.appearance.estimatedSectionFooterHeight = 0;
+        UITableView.appearance.estimatedSectionHeaderHeight = 0;
+    }
     
     
     [self.window makeKeyAndVisible];

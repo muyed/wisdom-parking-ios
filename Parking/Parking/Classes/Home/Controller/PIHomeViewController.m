@@ -108,7 +108,7 @@
         make.top.equalTo(weakSelf.view).offset(50+ NavBarHeight);
         make.centerX.equalTo(weakSelf.view);
         make.width.mas_equalTo(SCREEN_WIDTH);
-        make.height.mas_equalTo(220 * Scale_Y);
+        make.height.mas_equalTo(240 * Scale_Y);
     }];
     
     [self.customBtn mas_makeConstraints:^(MASConstraintMaker *make) {

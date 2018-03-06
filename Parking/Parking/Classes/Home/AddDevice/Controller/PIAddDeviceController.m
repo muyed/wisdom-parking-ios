@@ -9,6 +9,7 @@
 #import "PIAddDeviceController.h"
 #import "PIBottomBtn.h"
 #import "PIAddSubViewController.h"
+#import "PIAddNoOwerController.h"
 
 @interface PIAddDeviceController ()
 
@@ -67,7 +68,9 @@
         
     }else {
         
-        [MBProgressHUD showMessage:@"正在努力建设中...."];
+        PIAddNoOwerController *noOwer = [PIAddNoOwerController new];
+        
+        [self.navigationController pushViewController:noOwer animated:YES];
         
     }
 }

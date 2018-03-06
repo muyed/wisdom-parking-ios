@@ -126,6 +126,12 @@
             NSString *cookieString = [[HTTPResponse allHeaderFields] valueForKey:@"Set-Cookie"];
             NSString *session = [cookieString substringWithRange:NSMakeRange(8, 36)];
             
+            if (session) {
+                
+                [PIUserDefaults setObject:session forKey:@"sessionid"];
+                [PIUserDefaults synchronize];
+            }
+            
             success(responseObject);
         }
         
