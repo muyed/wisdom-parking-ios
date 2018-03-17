@@ -73,12 +73,12 @@
 - (void)setupNav {
     
     UIView *nav = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, NavBarHeight)];
-    
+    nav.backgroundColor = PIMainColor;
     [self.view addSubview:nav];
     
     CGFloat top = NavBarHeight - 35;
     
-    UIButton *btn = [[UIButton alloc] initWithImageName:@"home_message1"];
+    UIButton *btn = [[UIButton alloc] initWithImageName:@"home_message"];
     btn.x = SCREEN_WIDTH - 50;
     btn.y = top;
     btn.width = 25;

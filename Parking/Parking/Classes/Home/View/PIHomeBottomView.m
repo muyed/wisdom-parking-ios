@@ -8,6 +8,7 @@
 
 #import "PIHomeBottomView.h"
 #import "PIImageUpBtn.h"
+#import "PIPersonalController.h"
 
 @interface PIHomeBottomView ()
 
@@ -108,7 +109,9 @@
 }
 - (void)personBtnClick {
     
-   [MBProgressHUD showMessage:@"正在努力建设中...."];
+    PIPersonalController *personal = [PIPersonalController new];
+    personal.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    [self.parentController presentViewController:personal animated:YES completion:nil];
 }
 #pragma mark -- 懒加载
 - (PIImageUpBtn *)orderBtn {

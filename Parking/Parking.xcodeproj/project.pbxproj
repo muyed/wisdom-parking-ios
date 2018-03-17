@@ -68,6 +68,8 @@
 		18B096E0204ECC3500871845 /* PICarNumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B096DF204ECC3500871845 /* PICarNumCell.m */; };
 		18B096E3204ED2CC00871845 /* PIAddPersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B096E2204ED2CC00871845 /* PIAddPersonCell.m */; };
 		18B096E6204EDAFA00871845 /* PIImageUpBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B096E5204EDAFA00871845 /* PIImageUpBtn.m */; };
+		18B0970520518CEF00871845 /* UITableViewCell+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B0970420518CEE00871845 /* UITableViewCell+Extension.m */; };
+		18B0970C20518E2B00871845 /* PIPersonalController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B0970B20518E2B00871845 /* PIPersonalController.m */; };
 		F060CE10D439F1EE5A0EFB29 /* libPods-Parking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB5728185F18F73085A448AB /* libPods-Parking.a */; };
 /* End PBXBuildFile section */
 
@@ -205,6 +207,10 @@
 		18B096E2204ED2CC00871845 /* PIAddPersonCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIAddPersonCell.m; sourceTree = "<group>"; };
 		18B096E4204EDAFA00871845 /* PIImageUpBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIImageUpBtn.h; sourceTree = "<group>"; };
 		18B096E5204EDAFA00871845 /* PIImageUpBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIImageUpBtn.m; sourceTree = "<group>"; };
+		18B0970320518CEE00871845 /* UITableViewCell+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+Extension.h"; sourceTree = "<group>"; };
+		18B0970420518CEE00871845 /* UITableViewCell+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+Extension.m"; sourceTree = "<group>"; };
+		18B0970A20518E2B00871845 /* PIPersonalController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIPersonalController.h; sourceTree = "<group>"; };
+		18B0970B20518E2B00871845 /* PIPersonalController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIPersonalController.m; sourceTree = "<group>"; };
 		9349DDA0ABEC8A2A985E6235 /* Pods-Parking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Parking/Pods-Parking.debug.xcconfig"; sourceTree = "<group>"; };
 		AB5728185F18F73085A448AB /* libPods-Parking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Parking.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -287,6 +293,7 @@
 		183A1FCC201EF41600F8B55F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				18B0970620518DF400871845 /* Personal */,
 				18B09664204C652300871845 /* Other */,
 				18B09611204C629E00871845 /* Main */,
 				18B095EE204C626000871845 /* Tool */,
@@ -641,6 +648,8 @@
 				18B0962E204C629E00871845 /* UIView+ParentController.m */,
 				18B0962F204C629E00871845 /* UIView+PIExtension.h */,
 				18B09630204C629E00871845 /* UIView+PIExtension.m */,
+				18B0970320518CEE00871845 /* UITableViewCell+Extension.h */,
+				18B0970420518CEE00871845 /* UITableViewCell+Extension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -676,6 +685,39 @@
 				18B09674204C65D700871845 /* main.m */,
 			);
 			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		18B0970620518DF400871845 /* Personal */ = {
+			isa = PBXGroup;
+			children = (
+				18B0970720518DF400871845 /* Controller */,
+				18B0970820518DF400871845 /* Model */,
+				18B0970920518DF400871845 /* View */,
+			);
+			path = Personal;
+			sourceTree = "<group>";
+		};
+		18B0970720518DF400871845 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				18B0970A20518E2B00871845 /* PIPersonalController.h */,
+				18B0970B20518E2B00871845 /* PIPersonalController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		18B0970820518DF400871845 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		18B0970920518DF400871845 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		2C868DF110EE56F0EB0EB620 /* Frameworks */ = {
@@ -900,6 +942,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18B0970C20518E2B00871845 /* PIPersonalController.m in Sources */,
 				18B0966B204C652300871845 /* AppDelegate.m in Sources */,
 				18B096AC204D812300871845 /* PIAddNoOwerHeaderView.m in Sources */,
 				18B0963C204C629E00871845 /* UILabel+Extension.m in Sources */,
@@ -916,6 +959,7 @@
 				18B095EC204C622600871845 /* PIThirdLoginView.m in Sources */,
 				18B096E6204EDAFA00871845 /* PIImageUpBtn.m in Sources */,
 				18B095ED204C622600871845 /* PIVerificationBtn.m in Sources */,
+				18B0970520518CEF00871845 /* UITableViewCell+Extension.m in Sources */,
 				18B0960D204C626000871845 /* PILocationTool.m in Sources */,
 				18B09679204C65D700871845 /* main.m in Sources */,
 				18B095CC204C61CD00871845 /* PIAddDeviceController.m in Sources */,
@@ -1138,7 +1182,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Peterpan.Parking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b761efad-53e2-4ff3-bf6f-cffce127ee7d";
+				PROVISIONING_PROFILE = "3e650a4a-2494-4755-8e85-ec8deeef2900";
 				PROVISIONING_PROFILE_SPECIFIER = WisdomParking;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

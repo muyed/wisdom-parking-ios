@@ -118,7 +118,7 @@
         make.left.equalTo(bottomLine.mas_left);
         make.right.equalTo(bottomLine.mas_right);
         make.centerY.equalTo(weakSelf.villageLabel.mas_centerY);
-        make.height.mas_equalTo(45);
+        make.height.mas_equalTo(40);
     }];
     
     [self.detailAdd mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -134,7 +134,7 @@
         make.left.equalTo(weakSelf.detailAdd.mas_right).offset(5);
         make.centerY.equalTo(weakSelf.detailAdd.mas_centerY);
         make.width.mas_equalTo(90);
-        make.height.mas_equalTo(45);
+        make.height.mas_equalTo(40);
     }];
     
     [self.dongLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -150,7 +150,7 @@
         make.left.equalTo(weakSelf.dongLabel.mas_right).offset(5);
         make.centerY.equalTo(weakSelf.dongLabel.mas_centerY);
         make.width.mas_equalTo(90);
-        make.height.mas_equalTo(45);
+        make.height.mas_equalTo(40);
     }];
     
     [self.roomLabel mas_makeConstraints:^(MASConstraintMaker *make) {
