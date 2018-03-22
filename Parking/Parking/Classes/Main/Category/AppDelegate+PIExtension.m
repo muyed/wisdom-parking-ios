@@ -22,7 +22,7 @@
     
     PINavigationController *nav;
     
-    if ([PIUserDefaults objectForKey:@"sessionid"]) {
+    if ([PIUserDefaults objectForKey:SessionId]) {
         
         nav = [[PINavigationController alloc] initWithRootViewController:[[PIHomeViewController alloc] init]];
     }else {

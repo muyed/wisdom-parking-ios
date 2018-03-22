@@ -9,3 +9,7 @@
 #import <UIKit/UIKit.h>
 
 NSString * const PIAMap_Key = @"24440f88b802d8373b2de08e7e8b383d";
+
+NSString *const SessionId = @"SessionId";
+
+CGFloat const btnBorderM = 30;

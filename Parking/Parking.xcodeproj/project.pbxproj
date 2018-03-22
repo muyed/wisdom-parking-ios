@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		180E22AF2061282C00FF21BB /* timg.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 180E22AE2061282C00FF21BB /* timg.jpeg */; };
+		180E22B220614B5600FF21BB /* PIHomeOrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 180E22B120614B5600FF21BB /* PIHomeOrderController.m */; };
+		180E22B82061557000FF21BB /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 180E22B72061557000FF21BB /* UIImage+Extension.m */; };
+		180E22C120628B7500FF21BB /* PIForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 180E22C020628B7500FF21BB /* PIForgetViewController.m */; };
+		180E22C42062922700FF21BB /* PILoginField.m in Sources */ = {isa = PBXBuildFile; fileRef = 180E22C32062922700FF21BB /* PILoginField.m */; };
 		183A1FB4201EC88B00F8B55F /* ParkingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A1FB3201EC88B00F8B55F /* ParkingTests.m */; };
 		183A1FBF201EC88B00F8B55F /* ParkingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A1FBE201EC88B00F8B55F /* ParkingUITests.m */; };
 		18B095AC204C606400871845 /* PIMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095A9204C606400871845 /* PIMeViewController.m */; };
@@ -92,6 +97,15 @@
 
 /* Begin PBXFileReference section */
 		004A3E1F8EE38D86320430D9 /* Pods-Parking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.release.xcconfig"; path = "Pods/Target Support Files/Pods-Parking/Pods-Parking.release.xcconfig"; sourceTree = "<group>"; };
+		180E22AE2061282C00FF21BB /* timg.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = timg.jpeg; sourceTree = "<group>"; };
+		180E22B020614B5600FF21BB /* PIHomeOrderController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIHomeOrderController.h; sourceTree = "<group>"; };
+		180E22B120614B5600FF21BB /* PIHomeOrderController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIHomeOrderController.m; sourceTree = "<group>"; };
+		180E22B62061557000FF21BB /* UIImage+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
+		180E22B72061557000FF21BB /* UIImage+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
+		180E22BF20628B7500FF21BB /* PIForgetViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIForgetViewController.h; sourceTree = "<group>"; };
+		180E22C020628B7500FF21BB /* PIForgetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIForgetViewController.m; sourceTree = "<group>"; };
+		180E22C22062922700FF21BB /* PILoginField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PILoginField.h; sourceTree = "<group>"; };
+		180E22C32062922700FF21BB /* PILoginField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PILoginField.m; sourceTree = "<group>"; };
 		183A1F97201EC88B00F8B55F /* Parking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		183A1FAF201EC88B00F8B55F /* ParkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		183A1FB3201EC88B00F8B55F /* ParkingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParkingTests.m; sourceTree = "<group>"; };
@@ -241,10 +255,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		180E22AD205FE00F00FF21BB /* OrderData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OrderData;
+			sourceTree = "<group>";
+		};
 		183A1F8E201EC88B00F8B55F = {
 			isa = PBXGroup;
 			children = (
 				183A1F99201EC88B00F8B55F /* Parking */,
+				180E22AE2061282C00FF21BB /* timg.jpeg */,
 				18B0966D204C65D700871845 /* Support Files */,
 				183A1FB2201EC88B00F8B55F /* ParkingTests */,
 				183A1FBD201EC88B00F8B55F /* ParkingUITests */,
@@ -341,6 +363,7 @@
 		18B095AD204C60AD00871845 /* Order */ = {
 			isa = PBXGroup;
 			children = (
+				180E22AD205FE00F00FF21BB /* OrderData */,
 				18B095AE204C60AD00871845 /* Controller */,
 				18B095B1204C60AD00871845 /* Model */,
 				18B095B2204C60AD00871845 /* View */,
@@ -440,6 +463,8 @@
 			children = (
 				18B095C0204C61CD00871845 /* PIHomeViewController.h */,
 				18B095C1204C61CD00871845 /* PIHomeViewController.m */,
+				180E22B020614B5600FF21BB /* PIHomeOrderController.h */,
+				180E22B120614B5600FF21BB /* PIHomeOrderController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -488,6 +513,8 @@
 				18B095D9204C622600871845 /* PIRegisterViewController.m */,
 				18B095DA204C622600871845 /* PISetPassWViewController.h */,
 				18B095DB204C622600871845 /* PISetPassWViewController.m */,
+				180E22BF20628B7500FF21BB /* PIForgetViewController.h */,
+				180E22C020628B7500FF21BB /* PIForgetViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -517,6 +544,8 @@
 				18B095E4204C622600871845 /* PIThirdLoginView.m */,
 				18B095E5204C622600871845 /* PIVerificationBtn.h */,
 				18B095E6204C622600871845 /* PIVerificationBtn.m */,
+				180E22C22062922700FF21BB /* PILoginField.h */,
+				180E22C32062922700FF21BB /* PILoginField.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -650,6 +679,8 @@
 				18B09630204C629E00871845 /* UIView+PIExtension.m */,
 				18B0970320518CEE00871845 /* UITableViewCell+Extension.h */,
 				18B0970420518CEE00871845 /* UITableViewCell+Extension.m */,
+				180E22B62061557000FF21BB /* UIImage+Extension.h */,
+				180E22B72061557000FF21BB /* UIImage+Extension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -849,6 +880,7 @@
 			files = (
 				18B0960A204C626000871845 /* shaomacenter@2x.png in Resources */,
 				18B09676204C65D700871845 /* LaunchScreen.storyboard in Resources */,
+				180E22AF2061282C00FF21BB /* timg.jpeg in Resources */,
 				18B09678204C65D700871845 /* keystore.cer in Resources */,
 				18B09606204C626000871845 /* shaoma.png in Resources */,
 				18B09608204C626000871845 /* shaoma@3x.png in Resources */,
@@ -951,6 +983,7 @@
 				18B09639204C629E00871845 /* NSString+Exrtension.m in Sources */,
 				18B09637204C629E00871845 /* AppDelegate+PIExtension.m in Sources */,
 				18B09635204C629E00871845 /* PIBaseModel.m in Sources */,
+				180E22C42062922700FF21BB /* PILoginField.m in Sources */,
 				18B09633204C629E00871845 /* PINavigationController.m in Sources */,
 				18B095E8204C622600871845 /* PIRegisterViewController.m in Sources */,
 				18B0960F204C626000871845 /* PITool.m in Sources */,
@@ -962,6 +995,7 @@
 				18B0970520518CEF00871845 /* UITableViewCell+Extension.m in Sources */,
 				18B0960D204C626000871845 /* PILocationTool.m in Sources */,
 				18B09679204C65D700871845 /* main.m in Sources */,
+				180E22B220614B5600FF21BB /* PIHomeOrderController.m in Sources */,
 				18B095CC204C61CD00871845 /* PIAddDeviceController.m in Sources */,
 				18B095CF204C61CD00871845 /* PIHomeViewController.m in Sources */,
 				18B095CD204C61CD00871845 /* PIAddSubViewController.m in Sources */,
@@ -980,6 +1014,7 @@
 				18B095D1204C61CD00871845 /* PIHomeItemCell.m in Sources */,
 				18B095D3204C61CD00871845 /* PIHomeMainView.m in Sources */,
 				18B096A3204D668E00871845 /* PIAddPayViewController.m in Sources */,
+				180E22C120628B7500FF21BB /* PIForgetViewController.m in Sources */,
 				18B096E0204ECC3500871845 /* PICarNumCell.m in Sources */,
 				18B0960E204C626000871845 /* PIMapManager.m in Sources */,
 				18B095D2204C61CD00871845 /* PIHomeItemView.m in Sources */,
@@ -988,6 +1023,7 @@
 				18B09632204C629E00871845 /* PIBaseViewController.m in Sources */,
 				18B0963B204C629E00871845 /* UIButton+Extension.m in Sources */,
 				18B095B3204C60AD00871845 /* PIOrderViewController.m in Sources */,
+				180E22B82061557000FF21BB /* UIImage+Extension.m in Sources */,
 				18B095E9204C622600871845 /* PISetPassWViewController.m in Sources */,
 				18B0963D204C629E00871845 /* UIView+ParentController.m in Sources */,
 				18B09636204C629E00871845 /* PIBottomBtn.m in Sources */,

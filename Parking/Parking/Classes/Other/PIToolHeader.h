@@ -30,7 +30,7 @@
 #import "MBProgressHUD+PI.h"
 #import "PIHttpTool.h"
 #import "UIView+ParentController.h"
-
+#import "UIImage+Extension.h"
 
 
 #endif /* PIToolHeader_h */

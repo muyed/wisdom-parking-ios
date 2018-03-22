@@ -16,4 +16,7 @@
 ///-- 是否为获取验证码
 @property (nonatomic, assign) BOOL isVerif;
 
+@property (nonatomic, copy) NSString *leftImageName;
+
+@property (nonatomic, copy) NSString *rightImageName;
 @end

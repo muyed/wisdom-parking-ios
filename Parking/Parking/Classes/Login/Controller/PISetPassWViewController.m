@@ -44,55 +44,57 @@
 - (void)setupUI {
     
     [self.view addSubview:self.nickView];
-    [self.view addSubview:self.verifCodeView];
+    //[self.view addSubview:self.verifCodeView];
     [self.view addSubview:self.passWView];
     [self.view addSubview:self.verPassWView];
     [self.view addSubview:self.bottomBtn];
     
+    CGFloat borderM = 20;
+    CGFloat fieldH = 40;
     weakself
     [self.nickView mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.top.equalTo(weakSelf.view).offset(100 * Scale_Y);
-        make.left.equalTo(weakSelf.view);
-        make.right.equalTo(weakSelf.view);
-        make.height.mas_equalTo(36);
+        make.left.equalTo(weakSelf.view).offset(btnBorderM);
+        make.right.equalTo(weakSelf.view).offset(-btnBorderM);
+        make.height.mas_equalTo(fieldH);
         
     }];
  
-    [self.verifCodeView mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.top.equalTo(weakSelf.nickView.mas_bottom).offset(10);
-        make.left.equalTo(weakSelf.view);
-        make.right.equalTo(weakSelf.view);
-        make.height.mas_equalTo(36);
-        
-    }];
+//    [self.verifCodeView mas_makeConstraints:^(MASConstraintMaker *make) {
+//
+//        make.top.equalTo(weakSelf.nickView.mas_bottom).offset(10);
+//        make.left.equalTo(weakSelf.view);
+//        make.right.equalTo(weakSelf.view);
+//        make.height.mas_equalTo(36);
+//
+//    }];
     [self.passWView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.top.equalTo(weakSelf.verifCodeView.mas_bottom).offset(10);
-        make.left.equalTo(weakSelf.view);
-        make.right.equalTo(weakSelf.view);
-        make.height.mas_equalTo(36);
+        make.top.equalTo(weakSelf.nickView.mas_bottom).offset(btnBorderM);
+        make.left.equalTo(weakSelf.nickView.mas_left);
+        make.right.equalTo(weakSelf.nickView.mas_right);
+        make.height.mas_equalTo(fieldH);
     }];
     
     [self.verPassWView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.top.equalTo(weakSelf.passWView.mas_bottom).offset(10);
-        make.left.equalTo(weakSelf.view);
-        make.right.equalTo(weakSelf.view);
-        make.height.mas_equalTo(36);
+        make.top.equalTo(weakSelf.passWView.mas_bottom).offset(btnBorderM);
+        make.left.equalTo(weakSelf.nickView.mas_left);
+        make.right.equalTo(weakSelf.nickView.mas_right);
+        make.height.mas_equalTo(fieldH);
     }];
     
     [self.bottomBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.top.equalTo(weakSelf.verPassWView.mas_bottom).offset(40);
-        make.left.equalTo(weakSelf.view).offset(25);
-        make.right.equalTo(weakSelf.view).offset(-25);
-        make.height.mas_equalTo(44);
+        make.top.equalTo(weakSelf.verPassWView.mas_bottom).offset(3 * borderM);
+        make.left.equalTo(weakSelf.view).offset(btnBorderM);
+        make.right.equalTo(weakSelf.view).offset(-btnBorderM);
+        make.height.mas_equalTo(50);
         
     }];
     
-    self.bottomBtn.layer.cornerRadius = 10.0;
+    self.bottomBtn.layer.cornerRadius = 5.0;
     self.bottomBtn.clipsToBounds = YES;
     
     [self.bottomBtn addTarget:self action:@selector(comfir)
@@ -116,11 +118,11 @@
 
 - (void)comfir {
     
-    if (self.verifCodeView.textField.text.cancelSpace.length != 6) {
-        
-        [MBProgressHUD showMessage:@"验证码错误"];
-        return;
-    }
+//    if (self.verifCodeView.textField.text.cancelSpace.length != 6) {
+//
+//        [MBProgressHUD showMessage:@"验证码错误"];
+//        return;
+//    }
     
     if (self.passWView.textField.text.cancelSpace.length == 0) {
 
@@ -153,7 +155,7 @@
     
     [MBProgressHUD showIndeterWithMessage:@"正在注册..."];
     weakself
-    [PILoginManager registerCountWithPhoneNum:self.phoneNum phoneCode:self.verifCodeView.textField.text userName:self.nickView.textField.text passWord:self.passWView.textField.text success:^(id response) {
+    [PILoginManager registerCountWithPhoneNum:self.phoneNum phoneCode:self.verifCode userName:self.nickView.textField.text passWord:self.passWView.textField.text success:^(id response) {
         
          [MBProgressHUD hideHUD];
          PIBaseModel *model = [PIBaseModel mj_objectWithKeyValues:response];
@@ -232,6 +234,8 @@
         _nickView = [PILoginFieldView new];
         _nickView.textField.placeholder = @"请输入昵称";
         _nickView.textField.delegate = self;
+        _nickView.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+        _nickView.leftImageName = @"login_user";
     }
     
     return _nickView;
@@ -258,6 +262,8 @@
         _passWView = [PILoginFieldView new];
         _passWView.textField.placeholder = @"请设置6-20为密码";
         _passWView.textField.secureTextEntry = YES;
+        _passWView.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+        _passWView.leftImageName = @"login_pass";
     }
     
     return _passWView;
@@ -270,6 +276,8 @@
         _verPassWView = [PILoginFieldView new];
         _verPassWView.textField.placeholder = @"请再次输入密码";
         _verPassWView.textField.secureTextEntry = YES;
+        _verPassWView.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+        _verPassWView.leftImageName = @"login_pass";
     }
     return _verPassWView;
 }
@@ -278,7 +286,7 @@
     
     if (!_bottomBtn) {
         
-        _bottomBtn = [[PIBottomBtn alloc] initWithTitle:@"确定"];
+        _bottomBtn = [[PIBottomBtn alloc] initWithTitle:@"立即注册"];
     }
     
     return _bottomBtn;

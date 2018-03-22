@@ -21,8 +21,8 @@
 
 #define weakself __weak typeof(self) weakSelf = self;
 
-#define urlPath(url)  [NSString stringWithFormat:@"https://101.132.75.118:8443/%@", url]
-
+//#define urlPath(url)  [NSString stringWithFormat:@"https://101.132.75.118:8443/%@", url]
+#define urlPath(url)  [NSString stringWithFormat:@"https://api.jsppi.com/%@", url]
 /// 16进制颜色
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 /// 16进制颜色
@@ -39,7 +39,8 @@
 /// 系统字体
 #define PISYS_FONT(x) [UIFont systemFontOfSize:x]
 
-#define PIMainColor   UIColorFromRGB(0x28A8C7)
+//#define PIMainColor   UIColorFromRGB(0x00BCD4)
+#define PIMainColor   UIColorFromRGB(0x6bbbd4)
 #define PIBackColor   UIColorFromRGB(0xf3f2f2)
 
 #define PIBigFont     PISYS_FONT(16)
@@ -56,7 +57,8 @@
 #define txtRedColor         UIColorFromRGB(0xfd4c9d)
 /// 占位文字颜色
 #define txtPlaceColor       UIColorFromRGB(0x999999)
-
+#define sepLineColor        UIColorFromRGB(0xBDBDBD)
+#define secondMainColor        UIColorFromRGB(0x0097A7)
 #define PIUserDefaults  [NSUserDefaults standardUserDefaults]
 
 #endif /* parkingHeader_pch */

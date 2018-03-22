@@ -10,3 +10,7 @@
 
 /**高德key*/
 UIKIT_EXTERN NSString * const PIAMap_Key;
+
+UIKIT_EXTERN NSString * const SessionId;
+
+UIKIT_EXTERN CGFloat const btnBorderM;

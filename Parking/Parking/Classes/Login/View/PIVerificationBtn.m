@@ -15,11 +15,11 @@
     if (self = [super initWithFrame:frame]) {
         
         self.backgroundColor = PIMainColor;
-        self.titleLabel.font = PISYS_FONT(14);
+        self.titleLabel.font = PISYS_FONT(13);
         [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         
         self.layer.masksToBounds=YES;
-        self.layer.cornerRadius= 5.0f;
+        self.layer.cornerRadius= 15.0f;
         [self addTarget:self
                  action:@selector(eventForClick)
        forControlEvents:UIControlEventTouchUpInside];

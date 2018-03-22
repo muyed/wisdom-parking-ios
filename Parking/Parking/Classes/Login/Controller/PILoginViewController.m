@@ -16,15 +16,20 @@
 #import "PIBaseModel.h"
 #import "PIHomeViewController.h"
 #import "PINavigationController.h"
+#import "PIForgetViewController.h"
 
 @interface PILoginViewController ()
 
+///-- <#Notes#>
+@property (nonatomic, strong) UIImageView *topImageView;
 ///-- 手机号
 @property (nonatomic, strong) PILoginFieldView *phoneView;
 ///-- 密码
 @property (nonatomic, strong) PILoginFieldView *passWView;
 ///-- 底部按钮
 @property (nonatomic, strong) PIBottomBtn *bottomBtn;
+///-- 底部按钮
+@property (nonatomic, strong) UIButton *rigestBtn;
 ///-- 忘记密码
 @property (nonatomic, strong) UIButton *forgetPassWBtn;
 ///-- 验证码登录
@@ -49,86 +54,124 @@
 
 - (void)setupUI {
     
+    [self.view addSubview:self.topImageView];
     [self.view addSubview:self.phoneView];
     [self.view addSubview:self.passWView];
-    [self.view addSubview:self.codeLoginBtn];
+    //[self.view addSubview:self.codeLoginBtn];
     [self.view addSubview:self.bottomBtn];
-    [self.view addSubview:self.forgetPassWBtn];
+   // [self.view addSubview:self.forgetPassWBtn];
+    [self.view addSubview:self.rigestBtn];
     
     weakself
-    [self.phoneView mas_makeConstraints:^(MASConstraintMaker *make) {
+    
+    CGFloat topWH = 80;
+    [self.topImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.top.equalTo(weakSelf.view).offset(100 * Scale_Y);
-        make.left.equalTo(weakSelf.view);
-        make.right.equalTo(weakSelf.view);
-        make.height.mas_equalTo(36);
+        make.centerX.equalTo(weakSelf.view);
+        make.height.and.width.mas_equalTo(topWH);
+        
+    }];
+    
+    self.topImageView.layer.cornerRadius = topWH * 0.5;
+    self.topImageView.clipsToBounds = YES;
+    
+    [self.phoneView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.equalTo(weakSelf.topImageView.mas_bottom).offset(40 * Scale_Y);
+        make.left.equalTo(weakSelf.view).offset(btnBorderM);
+        make.right.equalTo(weakSelf.view).offset(-btnBorderM);
+        make.height.mas_equalTo(40);
     }];
     
     [self.passWView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.top.equalTo(weakSelf.phoneView.mas_bottom).offset(10);
-        make.left.equalTo(weakSelf.view);
-        make.right.equalTo(weakSelf.view);
-        make.height.mas_equalTo(36);
+        make.top.equalTo(weakSelf.phoneView.mas_bottom).offset(20 * Scale_Y);
+        make.left.equalTo(weakSelf.view).offset(btnBorderM);
+        make.right.equalTo(weakSelf.view).offset(-btnBorderM);
+        make.height.mas_equalTo(40);
     }];
     
-    [self.codeLoginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.top.equalTo(weakSelf.passWView.mas_bottom).offset(40);
-        make.left.equalTo(weakSelf.view).offset(25);
-        make.right.equalTo(weakSelf.view).offset(-25);
-        make.height.mas_equalTo(44);
-    }];
+//    [self.codeLoginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+//
+//        make.top.equalTo(weakSelf.passWView.mas_bottom).offset(60 * Scale_Y);
+//        make.left.equalTo(weakSelf.view).offset(25);
+//        make.right.equalTo(weakSelf.view).offset(-25);
+//        make.height.mas_equalTo(44);
+//    }];
     
     [self.bottomBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.top.equalTo(weakSelf.codeLoginBtn.mas_bottom).offset(30);
-        make.left.equalTo(weakSelf.view).offset(25);
-        make.right.equalTo(weakSelf.view).offset(-25);
-        make.height.mas_equalTo(44);
+        make.top.equalTo(weakSelf.passWView.mas_bottom).offset(40 * Scale_Y);
+        make.left.equalTo(weakSelf.view).offset(btnBorderM);
+        make.right.equalTo(weakSelf.view).offset(-btnBorderM);
+        make.height.mas_equalTo(50);
         
     }];
     
-    [self.forgetPassWBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.rigestBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.top.equalTo(weakSelf.bottomBtn.mas_bottom).offset(10);
-        make.right.equalTo(weakSelf.bottomBtn.mas_right);
-        make.height.mas_equalTo(30);
-        make.width.mas_equalTo(80);
+        
+        make.top.equalTo(weakSelf.bottomBtn.mas_bottom).offset(20 * Scale_Y);
+        make.left.equalTo(weakSelf.view).offset(btnBorderM);
+        make.right.equalTo(weakSelf.view).offset(-btnBorderM);
+        make.height.mas_equalTo(50);
+        
     }];
+    
+    
+    
+//    [self.forgetPassWBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+//
+//        make.top.equalTo(weakSelf.bottomBtn.mas_bottom).offset(10 * Scale_Y);
+//        make.right.equalTo(weakSelf.bottomBtn.mas_right);
+//        make.height.mas_equalTo(30);
+//        make.width.mas_equalTo(80);
+//    }];
     
     //-- 验证码按钮
-    self.verifiBtn = [[PIVerificationBtn alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
+//    self.verifiBtn = [[PIVerificationBtn alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
+//
+//    self.passWView.textField.rightView = self.verifiBtn;
+//
+//
+//    [self.verifiBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
+//    [self.verifiBtn setVerifClick:^{
+//
+//        [weakSelf.verifiBtn startTimer];
+//        [weakSelf getVerifCode];
+//    }];
     
-    self.passWView.textField.rightView = self.verifiBtn;
+    
+    self.forgetPassWBtn.frame = CGRectMake(0, 0, 80, 30);
+    self.passWView.textField.rightView = self.forgetPassWBtn;
+    self.passWView.textField.rightViewMode = UITextFieldViewModeAlways;
+    [self.forgetPassWBtn addTarget:self action:@selector(forgetPassW) forControlEvents:UIControlEventTouchUpInside];
     
     
-    [self.verifiBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
-    [self.verifiBtn setVerifClick:^{
-        
-        [weakSelf.verifiBtn startTimer];
-        [weakSelf getVerifCode];
-    }];
+//    PIThirdLoginView *thirdView = [PIThirdLoginView new];
+//    CGFloat thirdViewH = SCREEN_WIDTH / 3 - 20 * Scale_X;
+//    thirdView.frame = CGRectMake(0, SCREEN_HEIGHT - thirdViewH - 100 * Scale_X, SCREEN_WIDTH, thirdViewH);
+//    [self.view addSubview:thirdView];
     
-    PIThirdLoginView *thirdView = [PIThirdLoginView new];
-    CGFloat thirdViewH = SCREEN_WIDTH / 3 - 20 * Scale_X;
-    thirdView.frame = CGRectMake(0, SCREEN_HEIGHT - thirdViewH - 100 * Scale_X, SCREEN_WIDTH, thirdViewH);
-    [self.view addSubview:thirdView];
-    
-    self.bottomBtn.layer.cornerRadius = 10.0;
+    self.bottomBtn.layer.cornerRadius = 5.0;
     self.bottomBtn.clipsToBounds = YES;
+    self.rigestBtn.layer.cornerRadius = 5.0;
+    self.rigestBtn.clipsToBounds = YES;
     
     [self.codeLoginBtn addTarget:self action:@selector(codeLoginBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.bottomBtn addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
     
-    [self.forgetPassWBtn addTarget:self action:@selector(forgetPassW) forControlEvents:UIControlEventTouchUpInside];
+    [self.rigestBtn addTarget:self action:@selector(pushToRgister) forControlEvents:UIControlEventTouchUpInside];
+    
+   
 }
 
 - (void)setupNav {
     
-    UIBarButtonItem *right = [UIBarButtonItem itemWithTitle:@"注册" target:self action:@selector(pushToRgister) type:PIBarButtonItemRight];
-    self.navigationItem.rightBarButtonItem = right;
+//    UIBarButtonItem *right = [UIBarButtonItem itemWithTitle:@"注册" target:self action:@selector(pushToRgister) type:PIBarButtonItemRight];
+//    self.navigationItem.rightBarButtonItem = right;
 }
 
 - (void)pushToRgister {
@@ -248,7 +291,9 @@
 }
 - (void)forgetPassW {
     
-    NSLog(@"忘记密码");
+    PIForgetViewController *forget = [PIForgetViewController new];
+    
+    [self.navigationController pushViewController:forget animated:YES];
 }
 
 - (void)codeLoginBtnClick:(UIButton *)sender {
@@ -296,7 +341,9 @@
         _phoneView = [PILoginFieldView new];
         _phoneView.tag = 0;
         _phoneView.textField.placeholder = @" 请输入用户名";
-        
+        _phoneView.textField.clearButtonMode = UITextFieldViewModeAlways;
+        _phoneView.rightImageName = @"login_delete";
+        _phoneView.leftImageName = @"login_user";
     }
     
     return _phoneView;
@@ -310,6 +357,7 @@
         _passWView.tag = 1;
         _passWView.textField.placeholder = @" 请输入密码";
         _passWView.textField.secureTextEntry = YES;
+        _passWView.leftImageName = @"login_pass";
     }
     
     return _passWView;
@@ -339,16 +387,49 @@
     return _bottomBtn;
 }
 
+- (UIButton *)rigestBtn {
+    
+    if (!_rigestBtn) {
+        
+        _rigestBtn = [[UIButton alloc] initWithTitle:@"注册新账号"];
+        _rigestBtn.layer.borderColor = PIMainColor.CGColor;
+        _rigestBtn.layer.borderWidth = 1.0;
+        _rigestBtn.titleLabel.font = PIBigFont;
+        [_rigestBtn setTitleColor:PIMainColor forState:UIControlStateNormal];
+    }
+    
+    return _rigestBtn;
+}
+
 - (UIButton *)forgetPassWBtn {
     
     if (!_forgetPassWBtn) {
         
-        _forgetPassWBtn = [[UIButton alloc] initWithTitle:@"忘记密码?"];
-        _forgetPassWBtn.titleLabel.font = PISYS_FONT(14);
-        [_forgetPassWBtn setTitleColor:txtSeconColor forState:UIControlStateNormal];
+        _forgetPassWBtn = [[UIButton alloc] init];
+        
+        NSMutableAttributedString * str = [[NSMutableAttributedString alloc] initWithString:@"忘记密码?"];
+        NSRange range = NSMakeRange(0, 5);
+        
+        NSDictionary *attribtDic = @{NSUnderlineStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle]};
+        [str addAttributes:attribtDic range:range];
+        //设置文本中的电话号码显示为黄色
+        [str addAttribute:NSForegroundColorAttributeName value:PIMainColor range:range];
+        [_forgetPassWBtn setAttributedTitle:str forState:UIControlStateNormal];
+        _forgetPassWBtn.titleLabel.font = PISYS_FONT(15);
+        [_forgetPassWBtn setTitleColor:PIMainColor forState:UIControlStateNormal];
     }
     
     return _forgetPassWBtn;
+}
+
+- (UIImageView *)topImageView {
+    
+    if (!_topImageView) {
+        
+        _topImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"timg.jpeg"]];
+    }
+    
+    return _topImageView;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

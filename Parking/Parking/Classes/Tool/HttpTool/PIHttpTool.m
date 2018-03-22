@@ -58,18 +58,14 @@
     }];
     
 }
-
+    
 + (void)piPost:(NSString *)url params:(NSDictionary *)params success:(void (^)(id response))success failure:(void (^)(NSError *error))failure {
     
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:params options:NSJSONWritingPrettyPrinted error:nil];
+    
     
     AFHTTPSessionManager *manager = [self getHttpManager];
     
-    [manager POST:url parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-        
-        [formData appendPartWithFormData:jsonData name:@"data"];
-        
-    } progress:^(NSProgress * _Nonnull uploadProgress) {
+    [manager POST:url parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
         
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -81,6 +77,7 @@
             NSLog(@"成功回调-->%@",responseObject);
             success(responseObject);
         }
+        
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
@@ -97,59 +94,173 @@
         
     }];
     
+    
+//    [manager POST:url parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+//
+//        [formData appendPartWithFormData:jsonData name:@"data"];
+//
+//    } progress:^(NSProgress * _Nonnull uploadProgress) {
+//
+//
+//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//
+//        if (success) {
+//
+//            NSLog(@"请求地址--->%@",url);
+//            NSLog(@"请求参数-->%@",params);
+//            NSLog(@"成功回调-->%@",responseObject);
+//            success(responseObject);
+//        }
+//
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//
+//        if (failure) {
+//            NSLog(@"请求地址--->%@",url);
+//            NSLog(@"请求参数-->%@",params);
+//            NSLog(@"失败回调--->%@",error);
+//
+//            NSString *errorResult = [error localizedDescription];
+//            NSLog(@"%@",errorResult);
+//            failure(error);
+//
+//        }
+//
+//    }];
+    
 }
+
+//+ (void)piPost:(NSString *)url params:(NSDictionary *)params success:(void (^)(id response))success failure:(void (^)(NSError *error))failure {
+//
+//    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:params options:NSJSONWritingPrettyPrinted error:nil];
+//
+//    AFHTTPSessionManager *manager = [self getHttpManager];
+//
+//    [manager POST:url parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+//
+//        [formData appendPartWithFormData:jsonData name:@"data"];
+//
+//    } progress:^(NSProgress * _Nonnull uploadProgress) {
+//
+//
+//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//
+//        if (success) {
+//
+//            NSLog(@"请求地址--->%@",url);
+//            NSLog(@"请求参数-->%@",params);
+//            NSLog(@"成功回调-->%@",responseObject);
+//            success(responseObject);
+//        }
+//
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//
+//        if (failure) {
+//            NSLog(@"请求地址--->%@",url);
+//            NSLog(@"请求参数-->%@",params);
+//            NSLog(@"失败回调--->%@",error);
+//
+//            NSString *errorResult = [error localizedDescription];
+//            NSLog(@"%@",errorResult);
+//            failure(error);
+//
+//        }
+//
+//    }];
+//
+//}
 
 + (void)getCookieWithPost:(NSString *)url params:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSError *))failure {
     
     
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:params options:NSJSONWritingPrettyPrinted error:nil];
-    
-    AFHTTPSessionManager *manager = [self getHttpManager];
-    [manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    
-    [manager POST:url parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-        
-        [formData appendPartWithFormData:jsonData name:@"data"];
-        
-    } progress:^(NSProgress * _Nonnull uploadProgress) {
-        
-        
+    AFHTTPSessionManager *manaager = [self getHttpManager];
+
+    [manaager POST:url parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
+
+
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
+
         if (success) {
-            
+
             NSLog(@"请求地址--->%@",url);
             NSLog(@"请求参数-->%@",params);
+            NSLog(@"成功回调-->%@",responseObject[@"errMsg"]);
             NSLog(@"成功回调-->%@",responseObject);
             
             NSHTTPURLResponse *HTTPResponse = (NSHTTPURLResponse *)task.response;
             NSString *cookieString = [[HTTPResponse allHeaderFields] valueForKey:@"Set-Cookie"];
             NSString *session = [cookieString substringWithRange:NSMakeRange(8, 36)];
+            NSLog(@"----> %@", session);
             
             if (session) {
-                
-                [PIUserDefaults setObject:session forKey:@"sessionid"];
+            
+                [PIUserDefaults setObject:session forKey:SessionId];
                 [PIUserDefaults synchronize];
             }
             
+            
             success(responseObject);
         }
-        
+
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-        if (failure) {
-            NSLog(@"请求地址--->%@",url);
-            NSLog(@"请求参数-->%@",params);
-            NSLog(@"失败回调--->%@",error);
-            
-            NSString *errorResult = [error localizedDescription];
-            NSLog(@"%@",errorResult);
-            failure(error);
-            
-        }
-        
+
+        NSLog(@"请求地址--->%@",url);
+        NSLog(@"请求参数-->%@",params);
+        NSLog(@"失败回调--->%@",error);
+
+        NSString *errorResult = [error localizedDescription];
+        NSLog(@"%@",errorResult);
+        failure(error);
+
     }];
-    
+//
+   // NSData *jsonData = [NSJSONSerialization dataWithJSONObject:params options:NSJSONWritingPrettyPrinted error:nil];
+
+   // AFHTTPSessionManager *manager = [self getHttpManager];
+  //  [manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+
+//    [manager POST:url parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+//
+//        [formData appendPartWithFormData:jsonData name:@"data"];
+//
+//    } progress:^(NSProgress * _Nonnull uploadProgress) {
+//
+//
+//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//
+//        if (success) {
+//
+//            NSLog(@"请求地址--->%@",url);
+//            NSLog(@"请求参数-->%@",params);
+//            NSLog(@"成功回调-->%@",responseObject);
+//
+//            NSHTTPURLResponse *HTTPResponse = (NSHTTPURLResponse *)task.response;
+//            NSString *cookieString = [[HTTPResponse allHeaderFields] valueForKey:@"Set-Cookie"];
+//            NSString *session = [cookieString substringWithRange:NSMakeRange(8, 36)];
+//
+//            if (session) {
+//
+//                [PIUserDefaults setObject:session forKey:@"sessionid"];
+//                [PIUserDefaults synchronize];
+//            }
+//
+//            success(responseObject);
+//        }
+//
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//
+//        if (failure) {
+//            NSLog(@"请求地址--->%@",url);
+//            NSLog(@"请求参数-->%@",params);
+//            NSLog(@"失败回调--->%@",error);
+//
+//            NSString *errorResult = [error localizedDescription];
+//            NSLog(@"%@",errorResult);
+//            failure(error);
+//
+//        }
+//
+//    }];
+
     
 }
 + (AFHTTPSessionManager *)getHttpManager {
@@ -163,17 +274,17 @@
     
     manager.requestSerializer.timeoutInterval = 20;
     
-    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+   // manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json",@"image/jpeg",@"image/png", @"text/plain", @"text/html", nil];
     
-    NSString *certFilePath = [[NSBundle mainBundle] pathForResource:@"keystore" ofType:@"cer"];
-    NSData *certData = [NSData dataWithContentsOfFile:certFilePath];
-    NSSet *certSet = [NSSet setWithObject:certData];
-    AFSecurityPolicy *policy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone withPinnedCertificates:certSet];
-    policy.allowInvalidCertificates = YES;
-    policy.validatesDomainName = NO;
-    [manager setSecurityPolicy:policy];
+//    NSString *certFilePath = [[NSBundle mainBundle] pathForResource:@"keystore" ofType:@"cer"];
+//    NSData *certData = [NSData dataWithContentsOfFile:certFilePath];
+//    NSSet *certSet = [NSSet setWithObject:certData];
+//    AFSecurityPolicy *policy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone withPinnedCertificates:certSet];
+//    policy.allowInvalidCertificates = YES;
+//    policy.validatesDomainName = NO;
+//    [manager setSecurityPolicy:policy];
     
     return manager;
 }

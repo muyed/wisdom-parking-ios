@@ -14,4 +14,5 @@
 @property (nonatomic, copy) NSString *phoneNum;
 ///-- 验证码
 @property (nonatomic, copy) NSString *verifCode;
+
 @end
