@@ -27,6 +27,12 @@
 		183C66AC206A75F400908E21 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183C66AB206A75F400908E21 /* Foundation.framework */; };
 		183C66AE206A760100908E21 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183C66AD206A760100908E21 /* CFNetwork.framework */; };
 		183C66B0206A761B00908E21 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183C66AF206A761B00908E21 /* CoreMotion.framework */; };
+		1845B36D206D1725007B3FE2 /* PIComCertifiController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1845B36C206D1725007B3FE2 /* PIComCertifiController.m */; };
+		1845B370206D1822007B3FE2 /* PIComCertiHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1845B36F206D1822007B3FE2 /* PIComCertiHeaderView.m */; };
+		1845B373206D2059007B3FE2 /* PILeftImageBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 1845B372206D2059007B3FE2 /* PILeftImageBtn.m */; };
+		1845B376206D2171007B3FE2 /* PIComCerBtnCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1845B375206D2171007B3FE2 /* PIComCerBtnCell.m */; };
+		1845B379206D2511007B3FE2 /* PIComCerNumberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1845B378206D2511007B3FE2 /* PIComCerNumberCell.m */; };
+		1845B37C206D2C53007B3FE2 /* PIComCerShareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1845B37B206D2C53007B3FE2 /* PIComCerShareCell.m */; };
 		18B095AC204C606400871845 /* PIMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095A9204C606400871845 /* PIMeViewController.m */; };
 		18B095B3204C60AD00871845 /* PIOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095B0204C60AD00871845 /* PIOrderViewController.m */; };
 		18B095CC204C61CD00871845 /* PIAddDeviceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095B8204C61CD00871845 /* PIAddDeviceController.m */; };
@@ -139,6 +145,18 @@
 		183C66AB206A75F400908E21 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		183C66AD206A760100908E21 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		183C66AF206A761B00908E21 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		1845B36B206D1725007B3FE2 /* PIComCertifiController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIComCertifiController.h; sourceTree = "<group>"; };
+		1845B36C206D1725007B3FE2 /* PIComCertifiController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIComCertifiController.m; sourceTree = "<group>"; };
+		1845B36E206D1822007B3FE2 /* PIComCertiHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIComCertiHeaderView.h; sourceTree = "<group>"; };
+		1845B36F206D1822007B3FE2 /* PIComCertiHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIComCertiHeaderView.m; sourceTree = "<group>"; };
+		1845B371206D2059007B3FE2 /* PILeftImageBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PILeftImageBtn.h; sourceTree = "<group>"; };
+		1845B372206D2059007B3FE2 /* PILeftImageBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PILeftImageBtn.m; sourceTree = "<group>"; };
+		1845B374206D2171007B3FE2 /* PIComCerBtnCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIComCerBtnCell.h; sourceTree = "<group>"; };
+		1845B375206D2171007B3FE2 /* PIComCerBtnCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIComCerBtnCell.m; sourceTree = "<group>"; };
+		1845B377206D2511007B3FE2 /* PIComCerNumberCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIComCerNumberCell.h; sourceTree = "<group>"; };
+		1845B378206D2511007B3FE2 /* PIComCerNumberCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIComCerNumberCell.m; sourceTree = "<group>"; };
+		1845B37A206D2C53007B3FE2 /* PIComCerShareCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIComCerShareCell.h; sourceTree = "<group>"; };
+		1845B37B206D2C53007B3FE2 /* PIComCerShareCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIComCerShareCell.m; sourceTree = "<group>"; };
 		18B095A8204C606400871845 /* PIMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIMeViewController.h; sourceTree = "<group>"; };
 		18B095A9204C606400871845 /* PIMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIMeViewController.m; sourceTree = "<group>"; };
 		18B095AF204C60AD00871845 /* PIOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIOrderViewController.h; sourceTree = "<group>"; };
@@ -353,6 +371,7 @@
 		183A1FCC201EF41600F8B55F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1845B367206D16D1007B3FE2 /* Community(小区) */,
 				18B0970620518DF400871845 /* Personal */,
 				18B09664204C652300871845 /* Other */,
 				18B09611204C629E00871845 /* Main */,
@@ -372,6 +391,47 @@
 				183C6698206A73C100908E21 /* AlipaySDK.framework */,
 			);
 			path = Alipay;
+			sourceTree = "<group>";
+		};
+		1845B367206D16D1007B3FE2 /* Community(小区) */ = {
+			isa = PBXGroup;
+			children = (
+				1845B369206D1700007B3FE2 /* Controller */,
+				1845B36A206D1700007B3FE2 /* Model */,
+				1845B368206D16FF007B3FE2 /* View */,
+			);
+			path = "Community(小区)";
+			sourceTree = "<group>";
+		};
+		1845B368206D16FF007B3FE2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1845B36E206D1822007B3FE2 /* PIComCertiHeaderView.h */,
+				1845B36F206D1822007B3FE2 /* PIComCertiHeaderView.m */,
+				1845B374206D2171007B3FE2 /* PIComCerBtnCell.h */,
+				1845B375206D2171007B3FE2 /* PIComCerBtnCell.m */,
+				1845B377206D2511007B3FE2 /* PIComCerNumberCell.h */,
+				1845B378206D2511007B3FE2 /* PIComCerNumberCell.m */,
+				1845B37A206D2C53007B3FE2 /* PIComCerShareCell.h */,
+				1845B37B206D2C53007B3FE2 /* PIComCerShareCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1845B369206D1700007B3FE2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1845B36B206D1725007B3FE2 /* PIComCertifiController.h */,
+				1845B36C206D1725007B3FE2 /* PIComCertifiController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1845B36A206D1700007B3FE2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		18B095A6204C606400871845 /* Me */ = {
@@ -701,6 +761,8 @@
 			children = (
 				18B0961E204C629E00871845 /* PIBottomBtn.h */,
 				18B0961F204C629E00871845 /* PIBottomBtn.m */,
+				1845B371206D2059007B3FE2 /* PILeftImageBtn.h */,
+				1845B372206D2059007B3FE2 /* PILeftImageBtn.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1041,6 +1103,7 @@
 				18B09605204C626000871845 /* PICodeViewController.m in Sources */,
 				18B0963A204C629E00871845 /* UIBarButtonItem+PI.m in Sources */,
 				18B09639204C629E00871845 /* NSString+Exrtension.m in Sources */,
+				1845B37C206D2C53007B3FE2 /* PIComCerShareCell.m in Sources */,
 				18B09637204C629E00871845 /* AppDelegate+PIExtension.m in Sources */,
 				18B09635204C629E00871845 /* PIBaseModel.m in Sources */,
 				180E22C42062922700FF21BB /* PILoginField.m in Sources */,
@@ -1054,6 +1117,7 @@
 				18B095ED204C622600871845 /* PIVerificationBtn.m in Sources */,
 				18B0970520518CEF00871845 /* UITableViewCell+Extension.m in Sources */,
 				18B0960D204C626000871845 /* PILocationTool.m in Sources */,
+				1845B370206D1822007B3FE2 /* PIComCertiHeaderView.m in Sources */,
 				18B09679204C65D700871845 /* main.m in Sources */,
 				180E22B220614B5600FF21BB /* PIHomeOrderController.m in Sources */,
 				18B095CC204C61CD00871845 /* PIAddDeviceController.m in Sources */,
@@ -1070,6 +1134,8 @@
 				18B09610204C626000871845 /* PILoginInfoTool.m in Sources */,
 				18B095AC204C606400871845 /* PIMeViewController.m in Sources */,
 				18B09638204C629E00871845 /* MBProgressHUD+PI.m in Sources */,
+				1845B379206D2511007B3FE2 /* PIComCerNumberCell.m in Sources */,
+				1845B373206D2059007B3FE2 /* PILeftImageBtn.m in Sources */,
 				18B096B2204D9C8000871845 /* PIAddCarHeaderView.m in Sources */,
 				18B095D1204C61CD00871845 /* PIHomeItemCell.m in Sources */,
 				18B095D3204C61CD00871845 /* PIHomeMainView.m in Sources */,
@@ -1082,12 +1148,14 @@
 				18B096A6204D6B2500871845 /* PIAddPayViewCell.m in Sources */,
 				18B09632204C629E00871845 /* PIBaseViewController.m in Sources */,
 				18B0963B204C629E00871845 /* UIButton+Extension.m in Sources */,
+				1845B376206D2171007B3FE2 /* PIComCerBtnCell.m in Sources */,
 				18B095B3204C60AD00871845 /* PIOrderViewController.m in Sources */,
 				180E22B82061557000FF21BB /* UIImage+Extension.m in Sources */,
 				18B095E9204C622600871845 /* PISetPassWViewController.m in Sources */,
 				18B0963D204C629E00871845 /* UIView+ParentController.m in Sources */,
 				18B09636204C629E00871845 /* PIBottomBtn.m in Sources */,
 				18B095E7204C622600871845 /* PILoginViewController.m in Sources */,
+				1845B36D206D1725007B3FE2 /* PIComCertifiController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

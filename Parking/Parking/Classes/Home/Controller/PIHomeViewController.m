@@ -15,6 +15,7 @@
 #import "PIHomeOrderController.h"
 #import "PICodeViewController.h"
 #import "PINavigationController.h"
+#import "PIComCertifiController.h"
 
 
 @interface PIHomeViewController ()<MAMapViewDelegate, PIHomeBottomDelegate>
@@ -253,9 +254,13 @@
     
     //[MBProgressHUD showMessage:@"正在努力建设中...."];
     
-    PIHomeOrderController *order = [PIHomeOrderController new];
+//    PIHomeOrderController *order = [PIHomeOrderController new];
+//
+//    [self.navigationController pushViewController:order animated:YES];
     
-    [self.navigationController pushViewController:order animated:YES];
+    PIComCertifiController *comCer = [PIComCertifiController new];
+    
+    [self.navigationController pushViewController:comCer animated:YES];
 }
 
 - (void)customerClick {

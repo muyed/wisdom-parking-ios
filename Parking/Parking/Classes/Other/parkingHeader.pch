@@ -58,7 +58,10 @@
 /// 占位文字颜色
 #define txtPlaceColor       UIColorFromRGB(0x999999)
 #define sepLineColor        UIColorFromRGB(0xBDBDBD)
-#define secondMainColor        UIColorFromRGB(0x0097A7)
+#define secondMainColor     UIColorFromRGB(0x0097A7)
+#define yellowColor         UIColorFromRGB(0xd8a70d)
+#define backRedColor        UIColorFromRGB(0xf0b126)
+
 #define PIUserDefaults  [NSUserDefaults standardUserDefaults]
 
 #endif /* parkingHeader_pch */
