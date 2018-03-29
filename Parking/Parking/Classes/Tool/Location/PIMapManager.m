@@ -33,7 +33,7 @@
     
     self.mapView = [[MAMapView alloc] initWithFrame:CGRectMake(0, NavBarHeight + 60, SCREEN_WIDTH, SCREEN_HEIGHT - NavBarHeight)];
     self.mapController.view.backgroundColor = [UIColor whiteColor];
-    [self.mapController.view addSubview:self.mapView];
+    [self.mapController.view insertSubview:self.mapView atIndex:0];
     [AMapServices sharedServices].enableHTTPS = YES;
 
     [self.mapView setZoomLevel:17.3 animated:YES];

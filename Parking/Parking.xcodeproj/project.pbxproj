@@ -14,6 +14,19 @@
 		180E22C42062922700FF21BB /* PILoginField.m in Sources */ = {isa = PBXBuildFile; fileRef = 180E22C32062922700FF21BB /* PILoginField.m */; };
 		183A1FB4201EC88B00F8B55F /* ParkingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A1FB3201EC88B00F8B55F /* ParkingTests.m */; };
 		183A1FBF201EC88B00F8B55F /* ParkingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A1FBE201EC88B00F8B55F /* ParkingUITests.m */; };
+		183C6699206A73C100908E21 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 183C6697206A73C100908E21 /* AlipaySDK.bundle */; };
+		183C669A206A73C100908E21 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183C6698206A73C100908E21 /* AlipaySDK.framework */; };
+		183C669C206A741400908E21 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 183C669B206A741400908E21 /* libc++.tbd */; };
+		183C669E206A742900908E21 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 183C669D206A742900908E21 /* libz.tbd */; };
+		183C66A0206A743400908E21 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183C669F206A743400908E21 /* SystemConfiguration.framework */; };
+		183C66A2206A744D00908E21 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183C66A1206A744D00908E21 /* CoreTelephony.framework */; };
+		183C66A4206A759E00908E21 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183C66A3206A759E00908E21 /* QuartzCore.framework */; };
+		183C66A6206A75AF00908E21 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183C66A5206A75AF00908E21 /* CoreText.framework */; };
+		183C66A8206A75CE00908E21 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183C66A7206A75CE00908E21 /* CoreGraphics.framework */; };
+		183C66AA206A75E100908E21 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183C66A9206A75E100908E21 /* UIKit.framework */; };
+		183C66AC206A75F400908E21 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183C66AB206A75F400908E21 /* Foundation.framework */; };
+		183C66AE206A760100908E21 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183C66AD206A760100908E21 /* CFNetwork.framework */; };
+		183C66B0206A761B00908E21 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183C66AF206A761B00908E21 /* CoreMotion.framework */; };
 		18B095AC204C606400871845 /* PIMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095A9204C606400871845 /* PIMeViewController.m */; };
 		18B095B3204C60AD00871845 /* PIOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095B0204C60AD00871845 /* PIOrderViewController.m */; };
 		18B095CC204C61CD00871845 /* PIAddDeviceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095B8204C61CD00871845 /* PIAddDeviceController.m */; };
@@ -113,6 +126,19 @@
 		183A1FBA201EC88B00F8B55F /* ParkingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParkingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		183A1FBE201EC88B00F8B55F /* ParkingUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParkingUITests.m; sourceTree = "<group>"; };
 		183A1FC0201EC88B00F8B55F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		183C6697206A73C100908E21 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
+		183C6698206A73C100908E21 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
+		183C669B206A741400908E21 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		183C669D206A742900908E21 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		183C669F206A743400908E21 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		183C66A1206A744D00908E21 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		183C66A3206A759E00908E21 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		183C66A5206A75AF00908E21 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		183C66A7206A75CE00908E21 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		183C66A9206A75E100908E21 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		183C66AB206A75F400908E21 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		183C66AD206A760100908E21 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		183C66AF206A761B00908E21 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		18B095A8204C606400871845 /* PIMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIMeViewController.h; sourceTree = "<group>"; };
 		18B095A9204C606400871845 /* PIMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIMeViewController.m; sourceTree = "<group>"; };
 		18B095AF204C60AD00871845 /* PIOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIOrderViewController.h; sourceTree = "<group>"; };
@@ -234,7 +260,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				183C66B0206A761B00908E21 /* CoreMotion.framework in Frameworks */,
+				183C66AE206A760100908E21 /* CFNetwork.framework in Frameworks */,
+				183C66AC206A75F400908E21 /* Foundation.framework in Frameworks */,
+				183C66AA206A75E100908E21 /* UIKit.framework in Frameworks */,
+				183C66A8206A75CE00908E21 /* CoreGraphics.framework in Frameworks */,
+				183C66A6206A75AF00908E21 /* CoreText.framework in Frameworks */,
+				183C66A4206A759E00908E21 /* QuartzCore.framework in Frameworks */,
+				183C66A2206A744D00908E21 /* CoreTelephony.framework in Frameworks */,
+				183C66A0206A743400908E21 /* SystemConfiguration.framework in Frameworks */,
+				183C669E206A742900908E21 /* libz.tbd in Frameworks */,
+				183C669C206A741400908E21 /* libc++.tbd in Frameworks */,
 				F060CE10D439F1EE5A0EFB29 /* libPods-Parking.a in Frameworks */,
+				183C669A206A73C100908E21 /* AlipaySDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,6 +363,15 @@
 				18B095A6204C606400871845 /* Me */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		183C6696206A73C100908E21 /* Alipay */ = {
+			isa = PBXGroup;
+			children = (
+				183C6697206A73C100908E21 /* AlipaySDK.bundle */,
+				183C6698206A73C100908E21 /* AlipaySDK.framework */,
+			);
+			path = Alipay;
 			sourceTree = "<group>";
 		};
 		18B095A6204C606400871845 /* Me */ = {
@@ -688,6 +735,7 @@
 		18B09631204C629E00871845 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				183C6696206A73C100908E21 /* Alipay */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -754,6 +802,17 @@
 		2C868DF110EE56F0EB0EB620 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				183C66AF206A761B00908E21 /* CoreMotion.framework */,
+				183C66AD206A760100908E21 /* CFNetwork.framework */,
+				183C66AB206A75F400908E21 /* Foundation.framework */,
+				183C66A9206A75E100908E21 /* UIKit.framework */,
+				183C66A7206A75CE00908E21 /* CoreGraphics.framework */,
+				183C66A5206A75AF00908E21 /* CoreText.framework */,
+				183C66A3206A759E00908E21 /* QuartzCore.framework */,
+				183C66A1206A744D00908E21 /* CoreTelephony.framework */,
+				183C669F206A743400908E21 /* SystemConfiguration.framework */,
+				183C669D206A742900908E21 /* libz.tbd */,
+				183C669B206A741400908E21 /* libc++.tbd */,
 				AB5728185F18F73085A448AB /* libPods-Parking.a */,
 			);
 			name = Frameworks;
@@ -881,6 +940,7 @@
 				18B0960A204C626000871845 /* shaomacenter@2x.png in Resources */,
 				18B09676204C65D700871845 /* LaunchScreen.storyboard in Resources */,
 				180E22AF2061282C00FF21BB /* timg.jpeg in Resources */,
+				183C6699206A73C100908E21 /* AlipaySDK.bundle in Resources */,
 				18B09678204C65D700871845 /* keystore.cer in Resources */,
 				18B09606204C626000871845 /* shaoma.png in Resources */,
 				18B09608204C626000871845 /* shaoma@3x.png in Resources */,
@@ -950,7 +1010,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Parking/Pods-Parking-resources.sh",
-				"${PODS_ROOT}/AMap2DMap/MAMapKit.framework/AMap.bundle",
+				"${PODS_ROOT}/AMap3DMap/MAMapKit.framework/AMap.bundle",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/ZBarSDK/iphone/res/zbar-back.png",
@@ -1193,6 +1253,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = D2C4P929KB;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Parking/Classes/Main/Lib/Alipay",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Parking/Classes/Other/parkingHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Support Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1212,6 +1276,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = D2C4P929KB;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Parking/Classes/Main/Lib/Alipay",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Parking/Classes/Other/parkingHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Support Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

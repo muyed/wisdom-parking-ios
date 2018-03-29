@@ -84,7 +84,7 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_resource "${PODS_ROOT}/AMap2DMap/MAMapKit.framework/AMap.bundle"
+  install_resource "${PODS_ROOT}/AMap3DMap/MAMapKit.framework/AMap.bundle"
   install_resource "${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle"
   install_resource "${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle"
   install_resource "${PODS_ROOT}/ZBarSDK/iphone/res/zbar-back.png"
@@ -93,7 +93,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_ROOT}/ZBarSDK/iphone/res/zbar-samples.png"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_resource "${PODS_ROOT}/AMap2DMap/MAMapKit.framework/AMap.bundle"
+  install_resource "${PODS_ROOT}/AMap3DMap/MAMapKit.framework/AMap.bundle"
   install_resource "${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle"
   install_resource "${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle"
   install_resource "${PODS_ROOT}/ZBarSDK/iphone/res/zbar-back.png"

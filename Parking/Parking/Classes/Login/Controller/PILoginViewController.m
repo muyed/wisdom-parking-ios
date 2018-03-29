@@ -65,6 +65,8 @@
     weakself
     
     CGFloat topWH = 80;
+    CGFloat btnH = 50;
+    
     [self.topImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.top.equalTo(weakSelf.view).offset(100 * Scale_Y);
@@ -105,7 +107,7 @@
         make.top.equalTo(weakSelf.passWView.mas_bottom).offset(40 * Scale_Y);
         make.left.equalTo(weakSelf.view).offset(btnBorderM);
         make.right.equalTo(weakSelf.view).offset(-btnBorderM);
-        make.height.mas_equalTo(50);
+        make.height.mas_equalTo(btnH);
         
     }];
     
@@ -115,7 +117,7 @@
         make.top.equalTo(weakSelf.bottomBtn.mas_bottom).offset(20 * Scale_Y);
         make.left.equalTo(weakSelf.view).offset(btnBorderM);
         make.right.equalTo(weakSelf.view).offset(-btnBorderM);
-        make.height.mas_equalTo(50);
+        make.height.mas_equalTo(btnH);
         
     }];
     
@@ -154,9 +156,9 @@
 //    thirdView.frame = CGRectMake(0, SCREEN_HEIGHT - thirdViewH - 100 * Scale_X, SCREEN_WIDTH, thirdViewH);
 //    [self.view addSubview:thirdView];
     
-    self.bottomBtn.layer.cornerRadius = 5.0;
+    self.bottomBtn.layer.cornerRadius = btnH * 0.5;
     self.bottomBtn.clipsToBounds = YES;
-    self.rigestBtn.layer.cornerRadius = 5.0;
+    self.rigestBtn.layer.cornerRadius = btnH * 0.5;
     self.rigestBtn.clipsToBounds = YES;
     
     [self.codeLoginBtn addTarget:self action:@selector(codeLoginBtnClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -200,17 +202,19 @@
         
     }else {
         
+        if (self.phoneView.textField.text.cancelSpace.length == 0) {
+            
+            [MBProgressHUD showMessage:@"请输入用户名"];
+            return;
+        }
+        
         if (self.passWView.textField.text.cancelSpace.length < 6 || self.passWView.textField.text.cancelSpace.length > 20) {
             
             [MBProgressHUD showMessage:@"密码长度为6-20位"];
             return;
         }
         
-        if (self.phoneView.textField.text.cancelSpace.length == 0) {
-            
-            [MBProgressHUD showMessage:@"请输入用户名"];
-            return;
-        }
+       
         
         if ([self.phoneView.textField.text.cancelSpace isNum]) {
             

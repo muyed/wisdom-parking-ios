@@ -51,6 +51,7 @@
     
     CGFloat borderM = 20;
     CGFloat fieldH = 40;
+    CGFloat btnH = 50;
     weakself
     [self.nickView mas_makeConstraints:^(MASConstraintMaker *make) {
         
@@ -90,11 +91,11 @@
         make.top.equalTo(weakSelf.verPassWView.mas_bottom).offset(3 * borderM);
         make.left.equalTo(weakSelf.view).offset(btnBorderM);
         make.right.equalTo(weakSelf.view).offset(-btnBorderM);
-        make.height.mas_equalTo(50);
+        make.height.mas_equalTo(btnH);
         
     }];
     
-    self.bottomBtn.layer.cornerRadius = 5.0;
+    self.bottomBtn.layer.cornerRadius = btnH * 0.5;
     self.bottomBtn.clipsToBounds = YES;
     
     [self.bottomBtn addTarget:self action:@selector(comfir)

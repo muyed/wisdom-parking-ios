@@ -251,7 +251,11 @@
 
 - (void)getMessage {
     
-    [MBProgressHUD showMessage:@"正在努力建设中...."];
+    //[MBProgressHUD showMessage:@"正在努力建设中...."];
+    
+    PIHomeOrderController *order = [PIHomeOrderController new];
+    
+    [self.navigationController pushViewController:order animated:YES];
 }
 
 - (void)customerClick {
@@ -324,14 +328,14 @@
     }
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    
-    //[self.view endEditing:YES];
-    
-    PIHomeOrderController *order = [PIHomeOrderController new];
-    
-    [self.navigationController pushViewController:order animated:YES];
-}
+//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+//    
+//    //[self.view endEditing:YES];
+//    
+//    PIHomeOrderController *order = [PIHomeOrderController new];
+//    
+//    [self.navigationController pushViewController:order animated:YES];
+//}
 #pragma mark -- 懒加载
 - (PIHomeMainView *)mainView {
     

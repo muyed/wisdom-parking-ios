@@ -48,6 +48,8 @@
 - (void)getMessage {
     
     [MBProgressHUD showMessage:@"正在努力建设中...."];
+    
+    
 }
 
 - (void)customerClick {

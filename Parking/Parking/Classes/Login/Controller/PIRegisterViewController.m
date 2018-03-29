@@ -63,6 +63,8 @@
     
     weakself
     
+    CGFloat btnH = 50;
+    
     [self.topLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.top.equalTo(weakSelf.view).offset(100 * Scale_Y);
@@ -112,7 +114,7 @@
         make.left.equalTo(weakSelf.view).offset(btnBorderM);
         make.right.equalTo(weakSelf.view).offset(-btnBorderM);
         make.top.equalTo(weakSelf.tipLabel.mas_bottom).offset(50);
-        make.height.mas_equalTo(50);
+        make.height.mas_equalTo(btnH);
     }];
     
     [self.backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -121,7 +123,7 @@
         make.top.equalTo(weakSelf.nextBtn.mas_bottom).offset(20 * Scale_Y);
         make.left.equalTo(weakSelf.view).offset(btnBorderM);
         make.right.equalTo(weakSelf.view).offset(-btnBorderM);
-        make.height.mas_equalTo(50);
+        make.height.mas_equalTo(btnH);
         
     }];
     
@@ -138,9 +140,9 @@
             [weakSelf getVerifCode];
         }];
     
-    self.nextBtn.layer.cornerRadius = 5.0;
+    self.nextBtn.layer.cornerRadius = btnH * 0.5;
     self.nextBtn.clipsToBounds = YES;
-    self.backBtn.layer.cornerRadius = 5.0;
+    self.backBtn.layer.cornerRadius = btnH * 0.5;
     self.backBtn.clipsToBounds = YES;
     
     [self.selectBtn addTarget:self action:@selector(selectBtnClick:) forControlEvents:UIControlEventTouchUpInside];

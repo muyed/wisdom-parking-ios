@@ -10,7 +10,7 @@ pod 'MJExtension'
 pod 'SDWebImage'
 pod 'MBProgressHUD'
 pod 'ZBarSDK'
-pod 'AMap2DMap'
+pod 'AMap3DMap'
 pod 'AMapSearch'
 pod 'AMapLocation'
 
