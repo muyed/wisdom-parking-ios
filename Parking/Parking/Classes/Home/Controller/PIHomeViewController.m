@@ -16,6 +16,9 @@
 #import "PICodeViewController.h"
 #import "PINavigationController.h"
 #import "PIComCertifiController.h"
+#import <AlipaySDK/AlipaySDK.h>
+#import "PIAddCarController.h"
+#import "PIVillageOrderController.h"
 
 
 @interface PIHomeViewController ()<MAMapViewDelegate, PIHomeBottomDelegate>
@@ -172,6 +175,9 @@
     sender.enabled = NO;
     self.selectButton = sender;
     
+    PIVillageOrderController *village = [PIVillageOrderController new];
+    
+    [self.navigationController pushViewController:village animated:YES];
 }
 
 
@@ -258,14 +264,37 @@
 //
 //    [self.navigationController pushViewController:order animated:YES];
     
-    PIComCertifiController *comCer = [PIComCertifiController new];
+//    PIComCertifiController *comCer = [PIComCertifiController new];
+//    
+//    [self.navigationController pushViewController:comCer animated:YES];
     
-    [self.navigationController pushViewController:comCer animated:YES];
+    PIAddCarController *addCar = [PIAddCarController new];
+    
+    [self.navigationController pushViewController:addCar animated:YES];
+    
 }
 
 - (void)customerClick {
     
-    [MBProgressHUD showMessage:@"正在努力建设中...."];
+    [PIHttpTool piGet:urlPath(@"api/pay/mayi/CD20180401211513939171") params:nil success:^(id response) {
+        
+        NSString *str = response[@"data"];
+        
+//        NSString *str = @"app_id=2018022602278947&biz_content=%7B%22out_trade_no%22%3A%22CD20180331140954647241%22%2C%22total_amount%22%3A%220.01%22%2C%22subject%22%3A%22%E8%BD%A6%E4%BD%8D%E9%94%81%E6%8A%BC%E9%87%91%22%2C%22timeout_express%22%3A%2230m%22%2C%22body%22%3A%22%E8%BD%A6%E4%BD%8D%E9%94%81%E6%8A%BC%E9%87%91%22%2C%22product_code%22%3A%22QUICK_MSECURITY_PAY%22%7D&charset=utf-8&method=alipay.trade.app.pay&notify_url=https%3A%2F%2Fapi.jsppi.com%2Fapi%2Fpay%2Fmayi%2Fcallback&sign_type=RSA2&timestamp=2018-04-01+20%3A57%3A21&version=1.0&sign=gse4XILO%2B%2BaqEq2t2DZiloX2jOMJOFAp5CdqIDjTTPPp3w%2FQF6H%2FHajFAug54ClBkqK2DpY4HqGX4qTGVR63fOlnCtVmGqiA7ZT4FvsDOGpJTvXsZPd7aCSVNOGm9ZKfbXgZZBIg2M9E2Le13CE%2FOU0gro1HaIcbNnhovjHpymazSuAEfECDfd6X3SuyNfckHS6vVI8A7czEsZCBGbU49o4u2Z1LpwPKZC2ye0lC3PzFWvNUbcinACey1kyo7SFGOgoy1E%2FSVzkTDzQswz4vOnIGY57kqgMrvk%2FHzP1f3yeUR6GiNb3jql7qqp3SiVdHFTj4gDHqMoVnwImvoNRarg%3D%3D";
+        
+        NSLog(@"%@", str);
+        [[AlipaySDK defaultService] payOrder:str fromScheme:@"wisdompark" callback:^(NSDictionary *resultDic) {
+            
+            NSLog(@"%@", resultDic);
+            
+        }];
+        
+        
+    } failure:^(NSError *error) {
+        
+        
+        
+    }];
 }
 
 - (void)tipBtnClick {

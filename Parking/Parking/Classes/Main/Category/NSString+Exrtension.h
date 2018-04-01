@@ -24,4 +24,7 @@
  * 是否为存数字
  */
 - (BOOL)isNum;
+
+- (BOOL)isChinese;
+
 @end

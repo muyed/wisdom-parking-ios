@@ -11,6 +11,7 @@
 #import "PITabBarController.h"
 #import "PIHomeViewController.h"
 #import "PINavigationController.h"
+#import <AlipaySDK/AlipaySDK.h>
 
 @implementation AppDelegate (PIExtension)
 
@@ -49,5 +50,23 @@
     
     [AMapServices sharedServices].apiKey = PIAMap_Key;
     //[[PILocationTool shareCoreLoaction] startUpdataingLocation];
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
+    
+    NSLog(@"-----> ：%@", url.host);
+    
+    if ([url.host isEqualToString:@"safepay"]) {
+        //跳转支付宝钱包进行支付，处理支付结果
+        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+            NSLog(@"result = %@",resultDic);
+            
+           
+        }];
+        
+        return YES;
+    }
+    
+    return NO;
 }
 @end
