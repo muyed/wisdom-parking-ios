@@ -19,6 +19,10 @@
 @property(nonatomic,strong)CLLocation *currentLocation;
 ///-- 是否显示当前位置
 @property (nonatomic, assign) BOOL pi_showUserLocation;
+
+///-- 城市名字
+@property (nonatomic, copy) NSString *cityName;
+
 ///-- 初始化单例管理员对象
 +(instancetype)sharedManager;
 ///-- 初始化地图

@@ -9,6 +9,7 @@
 #import "PIAddCarController.h"
 #import "PIAddCarView.h"
 #import "PIBottomBtn.h"
+#import "PIBaseModel.h"
 
 @interface PIAddCarController ()
 
@@ -23,7 +24,10 @@
 @end
 
 @implementation PIAddCarController
-
+{
+    
+    NSString *_carNum;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -72,8 +76,45 @@
     
     self.bottomBtn.layer.cornerRadius = 50 * Scale_X * 0.5;
     self.bottomBtn.clipsToBounds = YES;
+    
+    [self.bottomBtn addTarget:self action:@selector(bottomBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
 }
 
+- (void)bottomBtnClick {
+    
+    if (_carNum.length < 7) {
+        
+        [MBProgressHUD showMessage:@"请输入正确的车牌"];
+        return;
+    }
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    params[@"license"] = _carNum;
+    
+    [MBProgressHUD showIndeterWithMessage:@"正在添加..."];
+    
+    [PIHttpTool piPost:urlPath(@"api/carLicense/add") params:params success:^(id response) {
+        
+        [MBProgressHUD hideHUD];
+        
+        PIBaseModel *model = [PIBaseModel mj_objectWithKeyValues:response];
+        
+        if (model.code == 200) {
+            
+            [MBProgressHUD showMessage:@"添加成功"];
+        }else {
+            
+            [MBProgressHUD showMessage:model.errMsg];
+        }
+       
+        
+    } failure:^(NSError *error) {
+        
+        [MBProgressHUD hideHUD];
+        
+    }];
+}
 - (PIAddCarView *)addCarView
 {
     if (!_addCarView)
@@ -86,6 +127,8 @@
 //            {
 //                [strongSelf.delegate didPasswordInputFinished:password];
 //            }
+            
+            _carNum = password;
             
             NSLog(@"%@", password);
             

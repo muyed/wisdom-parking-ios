@@ -37,6 +37,13 @@
     
     _contentStr = contentStr;
     
+    if (![contentStr isEqualToString:@"请选择开始时间"] && ![contentStr isEqualToString:@"请选择结束时间"] && ![contentStr isEqualToString:@"请选择小区"]) {
+        
+        self.commentLabel.textColor = txtMainColor;
+    }else {
+        
+        self.commentLabel.textColor = txtPlaceColor;
+    }
     self.commentLabel.text = contentStr;
     
 }

@@ -40,7 +40,7 @@
         
         UIButton *backBtn = [[UIButton alloc] init];
         [backBtn setImage:[UIImage imageNamed:@"navgation-back"] forState:UIControlStateNormal];
-        backBtn.size = CGSizeMake(70, 30);
+        backBtn.size = CGSizeMake(40, 30);
         backBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         [backBtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
         viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];

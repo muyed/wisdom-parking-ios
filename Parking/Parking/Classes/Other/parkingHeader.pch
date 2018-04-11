@@ -41,7 +41,8 @@
 
 //#define PIMainColor   UIColorFromRGB(0x00BCD4)
 #define PIMainColor   UIColorFromRGB(0x6bbbd4)
-#define PIBackColor   UIColorFromRGB(0xf3f2f2)
+//#define PIBackColor   UIColorFromRGB(0xf3f2f2)
+#define PIBackColor   UIColorFromRGB(0xe1ecf0)
 
 #define PIBigFont     PISYS_FONT(16)
 #define PIMidFont     PISYS_FONT(15)
@@ -57,9 +58,9 @@
 #define txtRedColor         UIColorFromRGB(0xfd4c9d)
 /// 占位文字颜色
 #define txtPlaceColor       UIColorFromRGB(0x999999)
-#define sepLineColor        UIColorFromRGB(0xBDBDBD)
+#define sepLineColor        [UIColor groupTableViewBackgroundColor]
 #define secondMainColor     UIColorFromRGB(0x0097A7)
-#define yellowColor         UIColorFromRGB(0xd8a70d)
+#define PIYellowColor         UIColorFromRGB(0xd8a70d)
 #define backRedColor        UIColorFromRGB(0xf0b126)
 
 #define PIUserDefaults  [NSUserDefaults standardUserDefaults]

@@ -12,8 +12,9 @@
 #import "PIVillageTypeCell.h"
 #import "PIVillageFieldCell.h"
 #import "PIBottomBtn.h"
+#import "PGDatePickManager.h"
 
-@interface PIVillageOrderController ()<UITableViewDelegate, UITableViewDataSource>
+@interface PIVillageOrderController ()<UITableViewDelegate, UITableViewDataSource, PGDatePickerDelegate>
 
 ///-- 列表
 @property (nonatomic, strong) UITableView *tableView;
@@ -23,7 +24,13 @@
 @end
 
 @implementation PIVillageOrderController
-
+{
+    
+    NSString *_beginTime;
+    NSString *_endTime;
+    NSInteger _selectIndex;
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -96,10 +103,11 @@
             cell.contentStr = @"请选择小区";
         }else if (indexPath.row == 4) {
             
-            cell.contentStr = @"请选择开始时间";
+           
+            cell.contentStr = _beginTime.length == 0 ? @"请选择开始时间" : _beginTime;
         }else {
             
-            cell.contentStr = @"请选择结束时间";
+            cell.contentStr = _endTime.length == 0 ? @"请选择结束时间" : _endTime;
         }
         
         return cell;
@@ -120,6 +128,43 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    _selectIndex = indexPath.row;
+    
+    if (indexPath.row == 4 || indexPath.row == 5) {
+        
+        PGDatePickManager *datePickManager = [[PGDatePickManager alloc]init];
+        datePickManager.isShadeBackgroud = true;
+        PGDatePicker *datePicker = datePickManager.datePicker;
+        datePicker.delegate = self;
+        datePicker.datePickerType = PGPickerViewType2;
+        datePicker.datePickerMode = PGDatePickerModeDateHourMinute;
+        datePicker.lineBackgroundColor = PIMainColor;
+        //设置选中行的字体颜色
+        datePicker.textColorOfSelectedRow = PIMainColor;
+        //设置确定按钮的字体颜色
+        datePickManager.confirmButtonTextColor = PIMainColor;
+        [self presentViewController:datePickManager animated:YES completion:nil];
+        
+    }
+}
+
+#pragma PGDatePickerDelegate
+- (void)datePicker:(PGDatePicker *)datePicker didSelectDate:(NSDateComponents *)dateComponents {
+    
+    NSString *str = [NSString stringWithFormat:@"%lu-%lu-%lu %lu:%lu:00", dateComponents.year, dateComponents.month, dateComponents.day, dateComponents.hour, dateComponents.minute];
+    
+    if (_selectIndex == 4) {
+        
+        _beginTime = str;
+    }else if (_selectIndex == 5) {
+        
+        _endTime = str;
+    }
+    
+    [self.tableView reloadData];
+}
 
 - (void)selectSegment:(UISegmentedControl *)segment {
     

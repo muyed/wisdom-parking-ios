@@ -10,6 +10,7 @@
 #import "PIHomeMainView.h"
 
 
+
 @interface PIHomeOrderController ()
 
 ///-- 主视图
@@ -59,7 +60,9 @@
 
 - (void)orderBtnClick {
     
-    [MBProgressHUD showMessage:@"正在努力建设中...."];
+   // [MBProgressHUD showMessage:@"正在努力建设中...."];
+    
+   
 }
 
 

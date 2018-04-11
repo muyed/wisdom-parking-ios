@@ -9,6 +9,8 @@
 #import "PIHomeMainView.h"
 #import "PILoginFieldView.h"
 #import "PIAddDeviceController.h"
+#import "PIVillageOrderController.h"
+#import "PIAddCarController.h"
 
 @interface PIHomeMainView ()<UITextFieldDelegate>
 
@@ -101,14 +103,16 @@
 
 - (void)addBtnClick {
     
-    PIAddDeviceController *addDevice = [PIAddDeviceController new];
+    PIAddCarController *addDevice = [PIAddCarController new];
     
     [self.parentController.navigationController pushViewController:addDevice animated:YES];
 }
 
 - (void)orderBtnClick {
     
-    NSLog(@"-=======");
+    PIVillageOrderController *vill = [PIVillageOrderController new];
+    
+    [self.parentController.navigationController pushViewController:vill animated:YES];
     
 }
 

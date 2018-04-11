@@ -11,6 +11,7 @@
 #import "PITabBarController.h"
 #import "PIHomeViewController.h"
 #import "PINavigationController.h"
+#import "PIHomeOrderController.h"
 #import <AlipaySDK/AlipaySDK.h>
 
 @implementation AppDelegate (PIExtension)
@@ -40,6 +41,7 @@
         UITableView.appearance.estimatedSectionHeaderHeight = 0;
     }
     
+   
     
     [self.window makeKeyAndVisible];
 }

@@ -118,7 +118,7 @@
     
     if (!_moneyLabel) {
         
-        _moneyLabel = [[UILabel alloc] initWithFont:17 textColor:yellowColor text:@"199.00"];
+        _moneyLabel = [[UILabel alloc] initWithFont:17 textColor:PIYellowColor text:@"199.00"];
         _moneyLabel.textAlignment = NSTextAlignmentRight;
     }
     

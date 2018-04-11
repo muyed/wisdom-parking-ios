@@ -31,6 +31,8 @@
 #import "PIHttpTool.h"
 #import "UIView+ParentController.h"
 #import "UIImage+Extension.h"
+#import <AlipaySDK/AlipaySDK.h>
+#import "PILoginTool.h"
 
 
 #endif /* PIToolHeader_h */

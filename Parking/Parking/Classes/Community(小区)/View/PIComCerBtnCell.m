@@ -60,6 +60,7 @@
         
         _openBtn = [PILeftImageBtn new];
         [_openBtn setTitle:@"解锁" forState:UIControlStateNormal];
+        _openBtn.titleLabel.font = PISYS_FONT(17);
         [_openBtn setImage:[UIImage imageNamed:@"com_open"] forState:UIControlStateNormal];
         
     }
@@ -73,6 +74,7 @@
         
         _shareBtn = [PILeftImageBtn new];
         [_shareBtn setTitle:@"分享" forState:UIControlStateNormal];
+        _shareBtn.titleLabel.font = PISYS_FONT(17);
         [_shareBtn setImage:[UIImage imageNamed:@"com_share"] forState:UIControlStateNormal];
         
     }

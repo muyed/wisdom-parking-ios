@@ -16,9 +16,12 @@
 #import "PICodeViewController.h"
 #import "PINavigationController.h"
 #import "PIComCertifiController.h"
-#import <AlipaySDK/AlipaySDK.h>
 #import "PIAddCarController.h"
 #import "PIVillageOrderController.h"
+#import "PIPayTool.h"
+#import "PIBaseModel.h"
+#import "PIMineViewController.h"
+#import "PIHomeSearchController.h"
 
 
 @interface PIHomeViewController ()<MAMapViewDelegate, PIHomeBottomDelegate>
@@ -175,9 +178,9 @@
     sender.enabled = NO;
     self.selectButton = sender;
     
-    PIVillageOrderController *village = [PIVillageOrderController new];
-    
-    [self.navigationController pushViewController:village animated:YES];
+//    PIVillageOrderController *village = [PIVillageOrderController new];
+//    
+//    [self.navigationController pushViewController:village animated:YES];
 }
 
 
@@ -265,36 +268,50 @@
 //    [self.navigationController pushViewController:order animated:YES];
     
 //    PIComCertifiController *comCer = [PIComCertifiController new];
-//    
+//
 //    [self.navigationController pushViewController:comCer animated:YES];
     
-    PIAddCarController *addCar = [PIAddCarController new];
+//    PIAddCarController *addCar = [PIAddCarController new];
+//
+//    [self.navigationController pushViewController:addCar animated:YES];
     
-    [self.navigationController pushViewController:addCar animated:YES];
+    
+    PIHomeSearchController *search = [PIHomeSearchController new];
+    search.cityName = [PIMapManager sharedManager].cityName;
+    [self.navigationController pushViewController:search animated:YES];
     
 }
 
 - (void)customerClick {
     
-    [PIHttpTool piGet:urlPath(@"api/pay/mayi/CD20180401211513939171") params:nil success:^(id response) {
+    [MBProgressHUD showIndeterWithMessage:@"请稍等..."];
+    
+    [PIPayTool AlipayForOrderWithOrderNum:@"CD20180401223909773229" success:^(id response) {
         
-        NSString *str = response[@"data"];
+        [MBProgressHUD hideHUD];
         
-//        NSString *str = @"app_id=2018022602278947&biz_content=%7B%22out_trade_no%22%3A%22CD20180331140954647241%22%2C%22total_amount%22%3A%220.01%22%2C%22subject%22%3A%22%E8%BD%A6%E4%BD%8D%E9%94%81%E6%8A%BC%E9%87%91%22%2C%22timeout_express%22%3A%2230m%22%2C%22body%22%3A%22%E8%BD%A6%E4%BD%8D%E9%94%81%E6%8A%BC%E9%87%91%22%2C%22product_code%22%3A%22QUICK_MSECURITY_PAY%22%7D&charset=utf-8&method=alipay.trade.app.pay&notify_url=https%3A%2F%2Fapi.jsppi.com%2Fapi%2Fpay%2Fmayi%2Fcallback&sign_type=RSA2&timestamp=2018-04-01+20%3A57%3A21&version=1.0&sign=gse4XILO%2B%2BaqEq2t2DZiloX2jOMJOFAp5CdqIDjTTPPp3w%2FQF6H%2FHajFAug54ClBkqK2DpY4HqGX4qTGVR63fOlnCtVmGqiA7ZT4FvsDOGpJTvXsZPd7aCSVNOGm9ZKfbXgZZBIg2M9E2Le13CE%2FOU0gro1HaIcbNnhovjHpymazSuAEfECDfd6X3SuyNfckHS6vVI8A7czEsZCBGbU49o4u2Z1LpwPKZC2ye0lC3PzFWvNUbcinACey1kyo7SFGOgoy1E%2FSVzkTDzQswz4vOnIGY57kqgMrvk%2FHzP1f3yeUR6GiNb3jql7qqp3SiVdHFTj4gDHqMoVnwImvoNRarg%3D%3D";
+        PIBaseModel *model = [PIBaseModel mj_objectWithKeyValues:response];
         
-        NSLog(@"%@", str);
-        [[AlipaySDK defaultService] payOrder:str fromScheme:@"wisdompark" callback:^(NSDictionary *resultDic) {
+        if (model.code == 200) {
             
-            NSLog(@"%@", resultDic);
+            [[AlipaySDK defaultService] payOrder:model.data fromScheme:@"wisdompark" callback:^(NSDictionary *resultDic) {
+                
+                NSLog(@"%@", resultDic);
+                
+            }];
             
-        }];
+        }else {
+            
+            [MBProgressHUD showMessage:model.errMsg];
+        }
         
+    } failue:^(NSError *error) {
         
-    } failure:^(NSError *error) {
-        
-        
-        
+        [MBProgressHUD hideHUD];
+        [MBProgressHUD showMessage:@"支付失败"];
     }];
+
+    
 }
 
 - (void)tipBtnClick {
@@ -306,42 +323,30 @@
     
     //[MBProgressHUD showMessage:@"正在努力建设中...."];
     
-    [UIView transitionWithView:[UIApplication sharedApplication].keyWindow duration:0.5 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-        
-        
-        BOOL oldState = [UIView areAnimationsEnabled];
-        [UIView setAnimationsEnabled:NO];
-        
-        UIWindow *window = [UIApplication sharedApplication].keyWindow;
-        
-        PINavigationController  *nav = [[PINavigationController alloc] initWithRootViewController:[[PILoginViewController alloc] init]];
-        
-        [PIUserDefaults removeObjectForKey:SessionId];
-        [PIUserDefaults synchronize];
-        //重新设置窗口的根视图
-        window.rootViewController = nav;
-        
-        [UIView setAnimationsEnabled:oldState];
-        
-    } completion:^(BOOL finished) {
-        
-        
-    }];
-
+    //[PILoginTool loginOut];
+    
+    PIMineViewController *mineView = [PIMineViewController new];
+    
+    [self.navigationController pushViewController:mineView animated:YES];
 }
      
 - (void)orderBtnClick {
     
-    PICodeViewController *code = [[PICodeViewController alloc] init];
-    code.errorString = @"请您扫描有效的二维码哦！";
-    UINavigationController *nac = [[UINavigationController alloc] initWithRootViewController:code];
     
+    PIHomeOrderController *order = [PIHomeOrderController new];
     
-    code.codeBlock = ^(NSString *code) {
-        //        self.codeView.textF.text = code;
-        
-    };
-    [self.navigationController presentViewController:nac animated:YES completion:nil];
+    [self.navigationController pushViewController:order animated:YES];
+    
+//    PICodeViewController *code = [[PICodeViewController alloc] init];
+//    code.errorString = @"请您扫描有效的二维码哦！";
+//    UINavigationController *nac = [[UINavigationController alloc] initWithRootViewController:code];
+//
+//
+//    code.codeBlock = ^(NSString *code) {
+//        //        self.codeView.textF.text = code;
+//
+//    };
+//    [self.navigationController presentViewController:nac animated:YES completion:nil];
     
 }
 - (void)buttonStateChanged:(BOOL)change {
