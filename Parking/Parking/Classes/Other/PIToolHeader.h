@@ -33,6 +33,7 @@
 #import "UIImage+Extension.h"
 #import <AlipaySDK/AlipaySDK.h>
 #import "PILoginTool.h"
-
+#import "PIBaseModel.h"
+#import "PIMapManager.h"
 
 #endif /* PIToolHeader_h */
