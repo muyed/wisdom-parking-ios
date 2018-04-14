@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1805E0612081E11800A48ECE /* PIPersonAuthenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805E0582081E11800A48ECE /* PIPersonAuthenController.m */; };
+		1805E0622081E11800A48ECE /* PIVillageAuthenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805E05A2081E11800A48ECE /* PIVillageAuthenController.m */; };
+		1805E0632081E11800A48ECE /* PIVillageAuthenProgressController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805E05C2081E11800A48ECE /* PIVillageAuthenProgressController.m */; };
+		1805E0642081E11800A48ECE /* PIVillageAuthenProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805E0602081E11800A48ECE /* PIVillageAuthenProgressView.m */; };
 		180DCA212070912A002F01DA /* PIAddCarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 180DCA202070912A002F01DA /* PIAddCarController.m */; };
 		180DCA2420709149002F01DA /* PIAddCarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 180DCA2320709149002F01DA /* PIAddCarView.m */; };
 		180E22AF2061282C00FF21BB /* timg.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 180E22AE2061282C00FF21BB /* timg.jpeg */; };
@@ -139,6 +143,14 @@
 
 /* Begin PBXFileReference section */
 		004A3E1F8EE38D86320430D9 /* Pods-Parking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.release.xcconfig"; path = "Pods/Target Support Files/Pods-Parking/Pods-Parking.release.xcconfig"; sourceTree = "<group>"; };
+		1805E0572081E11800A48ECE /* PIPersonAuthenController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIPersonAuthenController.h; sourceTree = "<group>"; };
+		1805E0582081E11800A48ECE /* PIPersonAuthenController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIPersonAuthenController.m; sourceTree = "<group>"; };
+		1805E0592081E11800A48ECE /* PIVillageAuthenController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIVillageAuthenController.h; sourceTree = "<group>"; };
+		1805E05A2081E11800A48ECE /* PIVillageAuthenController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIVillageAuthenController.m; sourceTree = "<group>"; };
+		1805E05B2081E11800A48ECE /* PIVillageAuthenProgressController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIVillageAuthenProgressController.h; sourceTree = "<group>"; };
+		1805E05C2081E11800A48ECE /* PIVillageAuthenProgressController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIVillageAuthenProgressController.m; sourceTree = "<group>"; };
+		1805E05F2081E11800A48ECE /* PIVillageAuthenProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIVillageAuthenProgressView.h; sourceTree = "<group>"; };
+		1805E0602081E11800A48ECE /* PIVillageAuthenProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIVillageAuthenProgressView.m; sourceTree = "<group>"; };
 		180DCA1F2070912A002F01DA /* PIAddCarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIAddCarController.h; sourceTree = "<group>"; };
 		180DCA202070912A002F01DA /* PIAddCarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIAddCarController.m; sourceTree = "<group>"; };
 		180DCA2220709149002F01DA /* PIAddCarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIAddCarView.h; sourceTree = "<group>"; };
@@ -380,6 +392,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1805E0552081E11800A48ECE /* Authen(认证) */ = {
+			isa = PBXGroup;
+			children = (
+				1805E0562081E11800A48ECE /* Controller */,
+				1805E05D2081E11800A48ECE /* Model */,
+				1805E05E2081E11800A48ECE /* View */,
+			);
+			path = "Authen(认证)";
+			sourceTree = "<group>";
+		};
+		1805E0562081E11800A48ECE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1805E0572081E11800A48ECE /* PIPersonAuthenController.h */,
+				1805E0582081E11800A48ECE /* PIPersonAuthenController.m */,
+				1805E0592081E11800A48ECE /* PIVillageAuthenController.h */,
+				1805E05A2081E11800A48ECE /* PIVillageAuthenController.m */,
+				1805E05B2081E11800A48ECE /* PIVillageAuthenProgressController.h */,
+				1805E05C2081E11800A48ECE /* PIVillageAuthenProgressController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1805E05D2081E11800A48ECE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1805E05E2081E11800A48ECE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1805E05F2081E11800A48ECE /* PIVillageAuthenProgressView.h */,
+				1805E0602081E11800A48ECE /* PIVillageAuthenProgressView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		180E22AD205FE00F00FF21BB /* OrderData */ = {
 			isa = PBXGroup;
 			children = (
@@ -440,6 +491,7 @@
 		183A1FCC201EF41600F8B55F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1805E0552081E11800A48ECE /* Authen(认证) */,
 				1845B367206D16D1007B3FE2 /* Community(小区) */,
 				18B0970620518DF400871845 /* Personal */,
 				18B09664204C652300871845 /* Other */,
@@ -1231,8 +1283,10 @@
 				18B0970C20518E2B00871845 /* PIPersonalController.m in Sources */,
 				18B0966B204C652300871845 /* AppDelegate.m in Sources */,
 				18B096AC204D812300871845 /* PIAddNoOwerHeaderView.m in Sources */,
+				1805E0632081E11800A48ECE /* PIVillageAuthenProgressController.m in Sources */,
 				18B0963C204C629E00871845 /* UILabel+Extension.m in Sources */,
 				18B09605204C626000871845 /* PICodeViewController.m in Sources */,
+				1805E0642081E11800A48ECE /* PIVillageAuthenProgressView.m in Sources */,
 				1862696E2077604D00F450AF /* PIOrderDetailController.m in Sources */,
 				18B0963A204C629E00871845 /* UIBarButtonItem+PI.m in Sources */,
 				18B09639204C629E00871845 /* NSString+Exrtension.m in Sources */,
@@ -1253,6 +1307,7 @@
 				18B095ED204C622600871845 /* PIVerificationBtn.m in Sources */,
 				18B0970520518CEF00871845 /* UITableViewCell+Extension.m in Sources */,
 				186268772071032C00F450AF /* PIVillageOrderController.m in Sources */,
+				1805E0622081E11800A48ECE /* PIVillageAuthenController.m in Sources */,
 				1862697420776B6500F450AF /* PIOrderDetailCenterCell.m in Sources */,
 				18B0960D204C626000871845 /* PILocationTool.m in Sources */,
 				1862689920724CDC00F450AF /* PIPayTool.m in Sources */,
@@ -1270,6 +1325,7 @@
 				18B09634204C629E00871845 /* PITabBarController.m in Sources */,
 				18B095CE204C61CD00871845 /* PIAddSubViewCell.m in Sources */,
 				18B0963E204C629E00871845 /* UIView+PIExtension.m in Sources */,
+				1805E0612081E11800A48ECE /* PIPersonAuthenController.m in Sources */,
 				18B095EB204C622600871845 /* PILoginFieldView.m in Sources */,
 				18B0966C204C652300871845 /* PIConst.m in Sources */,
 				18B095EA204C622600871845 /* PILoginManager.m in Sources */,
@@ -1474,6 +1530,7 @@
 			baseConfigurationReference = 9349DDA0ABEC8A2A985E6235 /* Pods-Parking.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = D2C4P929KB;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1486,7 +1543,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Peterpan.Parking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3e650a4a-2494-4755-8e85-ec8deeef2900";
+				PROVISIONING_PROFILE = "af3e746d-72da-43bc-a79d-a64a820f0ba1";
 				PROVISIONING_PROFILE_SPECIFIER = WisdomParking;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1497,6 +1554,7 @@
 			baseConfigurationReference = 004A3E1F8EE38D86320430D9 /* Pods-Parking.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = D2C4P929KB;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1509,7 +1567,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Peterpan.Parking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3e650a4a-2494-4755-8e85-ec8deeef2900";
+				PROVISIONING_PROFILE = "af3e746d-72da-43bc-a79d-a64a820f0ba1";
 				PROVISIONING_PROFILE_SPECIFIER = WisdomParking;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
