@@ -8,7 +8,7 @@
 
 #import "PIHomeViewController.h"
 #import "PILoginViewController.h"
-#import "PIMapManager.h"
+
 #import "PIHomeItemView.h"
 #import "PIHomeMainView.h"
 #import "PIHomeBottomView.h"
@@ -316,7 +316,9 @@
 
 - (void)tipBtnClick {
     
-    [MBProgressHUD showMessage:@"正在努力建设中...."];
+   // [MBProgressHUD showMessage:@"正在努力建设中...."];
+    
+    [PILoginTool loginOut];
 }
 
 - (void)personBtnClick {

@@ -27,4 +27,7 @@
 
 - (BOOL)isChinese;
 
+///-- 验证身份证
+- (BOOL)validateIdentityCard;
+
 @end

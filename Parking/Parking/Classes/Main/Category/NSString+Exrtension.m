@@ -53,5 +53,22 @@
     return [predicate evaluateWithObject:self];
 }
 
+- (BOOL)validateIdentityCard
+{
+    if (self.length == 15) {
+        //|  地址  |   年    |   月    |   日    |
+        NSString *regex = @"^(\\d{6})([3-9][0-9][01][0-9][0-3])(\\d{4})$";
+        NSPredicate *identityCardPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex];
+        return [identityCardPredicate evaluateWithObject:self];
+    } else if (self.length == 18) {
+        //|  地址  |      年       |   月    |   日    |
+        NSString *regex = @"^(\\d{6})([1][9][3-9][0-9][01][0-9][0-3])(\\d{4})(\\d|[xX])$";
+        NSPredicate *identityCardPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex];
+        return [identityCardPredicate evaluateWithObject:self];
+    } else {
+        return NO;
+    }
+}
+
 
 @end

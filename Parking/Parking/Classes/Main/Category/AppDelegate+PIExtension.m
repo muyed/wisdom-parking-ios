@@ -32,6 +32,7 @@
         nav = [[PINavigationController alloc] initWithRootViewController:[[PILoginViewController alloc] init]];
     }
     
+    [self setIQkeyboard];
     [self.window setRootViewController: nav];
     
     if (@available(ios 11.0,*)) {
@@ -53,6 +54,27 @@
     [AMapServices sharedServices].apiKey = PIAMap_Key;
     //[[PILocationTool shareCoreLoaction] startUpdataingLocation];
 }
+
+/**
+设置键盘全局
+*/
+-(void)setIQkeyboard{
+    
+    IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
+    manager.enable =YES;// 控制整个功能是否启用。
+    manager.shouldResignOnTouchOutside =YES;//控制点击背景是否收起键盘
+    manager.shouldToolbarUsesTextFieldTintColor =YES;//控制键盘上的工具条文字颜色是否用户自定义
+    manager.toolbarDoneBarButtonItemText =@"完成";//将右边Done改成完成
+    manager.enableAutoToolbar =YES;// 控制是否显示键盘上的工具条
+    manager.toolbarManageBehaviour =IQAutoToolbarByTag;
+    
+//    [manager.disabledDistanceHandlingClasses addObject:NSClassFromString(@"MLConversationController")];
+//    [manager.disabledDistanceHandlingClasses addObject:NSClassFromString(@"MLRebutReasonController")];
+//    [manager.disabledDistanceHandlingClasses addObject:NSClassFromString(@"MLFriendPersonalView")];
+//    [manager.disabledDistanceHandlingClasses addObject:NSClassFromString(@"MLFriendPersonalController")];
+//    [manager.disabledDistanceHandlingClasses addObject:NSClassFromString(@"MLBottomReplyView")];
+}
+
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
     
