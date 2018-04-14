@@ -11,6 +11,9 @@
 		1805E0722081E21700A48ECE /* PIVillageAuthenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805E06A2081E21700A48ECE /* PIVillageAuthenController.m */; };
 		1805E0732081E21700A48ECE /* PIVillageAuthenProgressController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805E06C2081E21700A48ECE /* PIVillageAuthenProgressController.m */; };
 		1805E0742081E21700A48ECE /* PIVillageAuthenProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805E0702081E21700A48ECE /* PIVillageAuthenProgressView.m */; };
+		1805E0792082058900A48ECE /* PISelectCitiesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805E0752082058800A48ECE /* PISelectCitiesController.m */; };
+		1805E07A2082058900A48ECE /* PIVillageListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805E0772082058900A48ECE /* PIVillageListController.m */; };
+		1805E07D208205D400A48ECE /* PIVillageListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805E07B208205D400A48ECE /* PIVillageListCell.m */; };
 		180DCA212070912A002F01DA /* PIAddCarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 180DCA202070912A002F01DA /* PIAddCarController.m */; };
 		180DCA2420709149002F01DA /* PIAddCarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 180DCA2320709149002F01DA /* PIAddCarView.m */; };
 		180E22AF2061282C00FF21BB /* timg.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 180E22AE2061282C00FF21BB /* timg.jpeg */; };
@@ -151,6 +154,12 @@
 		1805E06C2081E21700A48ECE /* PIVillageAuthenProgressController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIVillageAuthenProgressController.m; sourceTree = "<group>"; };
 		1805E06F2081E21700A48ECE /* PIVillageAuthenProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIVillageAuthenProgressView.h; sourceTree = "<group>"; };
 		1805E0702081E21700A48ECE /* PIVillageAuthenProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIVillageAuthenProgressView.m; sourceTree = "<group>"; };
+		1805E0752082058800A48ECE /* PISelectCitiesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PISelectCitiesController.m; sourceTree = "<group>"; };
+		1805E0762082058900A48ECE /* PISelectCitiesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PISelectCitiesController.h; sourceTree = "<group>"; };
+		1805E0772082058900A48ECE /* PIVillageListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIVillageListController.m; sourceTree = "<group>"; };
+		1805E0782082058900A48ECE /* PIVillageListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIVillageListController.h; sourceTree = "<group>"; };
+		1805E07B208205D400A48ECE /* PIVillageListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIVillageListCell.m; sourceTree = "<group>"; };
+		1805E07C208205D400A48ECE /* PIVillageListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIVillageListCell.h; sourceTree = "<group>"; };
 		180DCA1F2070912A002F01DA /* PIAddCarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIAddCarController.h; sourceTree = "<group>"; };
 		180DCA202070912A002F01DA /* PIAddCarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIAddCarController.m; sourceTree = "<group>"; };
 		180DCA2220709149002F01DA /* PIAddCarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIAddCarView.h; sourceTree = "<group>"; };
@@ -543,6 +552,8 @@
 				1862687F2071111400F450AF /* PIVillageTypeCell.m */,
 				18626881207115DD00F450AF /* PIVillageFieldCell.h */,
 				18626882207115DD00F450AF /* PIVillageFieldCell.m */,
+				1805E07C208205D400A48ECE /* PIVillageListCell.h */,
+				1805E07B208205D400A48ECE /* PIVillageListCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -554,6 +565,10 @@
 				1845B36C206D1725007B3FE2 /* PIComCertifiController.m */,
 				186268752071032C00F450AF /* PIVillageOrderController.h */,
 				186268762071032C00F450AF /* PIVillageOrderController.m */,
+				1805E0762082058900A48ECE /* PISelectCitiesController.h */,
+				1805E0752082058800A48ECE /* PISelectCitiesController.m */,
+				1805E0782082058900A48ECE /* PIVillageListController.h */,
+				1805E0772082058900A48ECE /* PIVillageListController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1291,6 +1306,7 @@
 				18B0963A204C629E00871845 /* UIBarButtonItem+PI.m in Sources */,
 				18B09639204C629E00871845 /* NSString+Exrtension.m in Sources */,
 				1845B37C206D2C53007B3FE2 /* PIComCerShareCell.m in Sources */,
+				1805E0792082058900A48ECE /* PISelectCitiesController.m in Sources */,
 				18B09637204C629E00871845 /* AppDelegate+PIExtension.m in Sources */,
 				18B09635204C629E00871845 /* PIBaseModel.m in Sources */,
 				180E22C42062922700FF21BB /* PILoginField.m in Sources */,
@@ -1300,6 +1316,7 @@
 				18B0960F204C626000871845 /* PITool.m in Sources */,
 				1862695F2075BCFE00F450AF /* PIMineViewController.m in Sources */,
 				180DCA2420709149002F01DA /* PIAddCarView.m in Sources */,
+				1805E07A2082058900A48ECE /* PIVillageListController.m in Sources */,
 				18B096A9204D80D700871845 /* PIAddNoOwerController.m in Sources */,
 				18B096E3204ED2CC00871845 /* PIAddPersonCell.m in Sources */,
 				18B095EC204C622600871845 /* PIThirdLoginView.m in Sources */,
@@ -1309,6 +1326,7 @@
 				186268772071032C00F450AF /* PIVillageOrderController.m in Sources */,
 				1805E0722081E21700A48ECE /* PIVillageAuthenController.m in Sources */,
 				1862697420776B6500F450AF /* PIOrderDetailCenterCell.m in Sources */,
+				1805E07D208205D400A48ECE /* PIVillageListCell.m in Sources */,
 				18B0960D204C626000871845 /* PILocationTool.m in Sources */,
 				1862689920724CDC00F450AF /* PIPayTool.m in Sources */,
 				1845B370206D1822007B3FE2 /* PIComCertiHeaderView.m in Sources */,
