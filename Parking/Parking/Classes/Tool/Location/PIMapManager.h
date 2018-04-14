@@ -22,6 +22,8 @@
 
 ///-- 城市名字
 @property (nonatomic, copy) NSString *cityName;
+///-- 区名
+@property (nonatomic, copy) NSString *districtName;
 
 ///-- 初始化单例管理员对象
 +(instancetype)sharedManager;

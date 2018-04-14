@@ -69,7 +69,6 @@
     self.mapView.showsUserLocation = YES;
     self.mapView.userTrackingMode = MAUserTrackingModeFollow;
     
-    NSLog(@"%lf", self.mapView.userLocation.location.coordinate.longitude);
 }
 
 #pragma mark --标记添加大头针
@@ -85,7 +84,7 @@
 - (void)onReGeocodeSearchDone:(AMapReGeocodeSearchRequest *)request response:(AMapReGeocodeSearchResponse *)response {
     
     self.cityName = response.regeocode.addressComponent.city;
-    
+    self.districtName = response.regeocode.addressComponent.district;
 }
 
 #pragma mark 定位更新回调

@@ -44,6 +44,9 @@
 //    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json",@"image/jpeg",@"image/png", @"text/plain", @"text/html", nil];
     
     AFHTTPSessionManager *manager = [self getHttpManager];
+   // manager.responseSerializer =[AFJSONResponseSerializer serializer];
+    NSLog(@"请求地址--->%@",url);
+    NSLog(@"请求参数-->%@",params);
     
     [manager GET:url parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
         

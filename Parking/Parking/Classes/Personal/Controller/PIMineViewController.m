@@ -9,6 +9,8 @@
 #import "PIMineViewController.h"
 #import "PIMineCenterView.h"
 #import "PIMineViewCell.h"
+#import "PIPersonAuthenController.h"
+#import "PIVillageAuthenController.h"
 
 @interface PIMineViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -166,6 +168,20 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.section == 1 && indexPath.row == 0) {
+        
+        PIPersonAuthenController *person = [PIPersonAuthenController new];
+        
+        [self.navigationController pushViewController:person animated:YES]; 
+    }else {
+        
+        PIVillageAuthenController *person = [PIVillageAuthenController new];
+        
+        [self.navigationController pushViewController:person animated:YES];
+    }
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
     return 15 * Scale_Y;
