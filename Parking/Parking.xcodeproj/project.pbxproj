@@ -14,6 +14,8 @@
 		1805E0792082058900A48ECE /* PISelectCitiesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805E0752082058800A48ECE /* PISelectCitiesController.m */; };
 		1805E07A2082058900A48ECE /* PIVillageListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805E0772082058900A48ECE /* PIVillageListController.m */; };
 		1805E07D208205D400A48ECE /* PIVillageListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805E07B208205D400A48ECE /* PIVillageListCell.m */; };
+		1805E0832082065B00A48ECE /* PIProvonceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805E0802082065B00A48ECE /* PIProvonceModel.m */; };
+		1805E0842082065B00A48ECE /* PIVillageListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805E0822082065B00A48ECE /* PIVillageListModel.m */; };
 		180DCA212070912A002F01DA /* PIAddCarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 180DCA202070912A002F01DA /* PIAddCarController.m */; };
 		180DCA2420709149002F01DA /* PIAddCarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 180DCA2320709149002F01DA /* PIAddCarView.m */; };
 		180E22AF2061282C00FF21BB /* timg.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 180E22AE2061282C00FF21BB /* timg.jpeg */; };
@@ -160,6 +162,10 @@
 		1805E0782082058900A48ECE /* PIVillageListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIVillageListController.h; sourceTree = "<group>"; };
 		1805E07B208205D400A48ECE /* PIVillageListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIVillageListCell.m; sourceTree = "<group>"; };
 		1805E07C208205D400A48ECE /* PIVillageListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIVillageListCell.h; sourceTree = "<group>"; };
+		1805E07F2082065B00A48ECE /* PIProvonceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIProvonceModel.h; sourceTree = "<group>"; };
+		1805E0802082065B00A48ECE /* PIProvonceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIProvonceModel.m; sourceTree = "<group>"; };
+		1805E0812082065B00A48ECE /* PIVillageListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIVillageListModel.h; sourceTree = "<group>"; };
+		1805E0822082065B00A48ECE /* PIVillageListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIVillageListModel.m; sourceTree = "<group>"; };
 		180DCA1F2070912A002F01DA /* PIAddCarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIAddCarController.h; sourceTree = "<group>"; };
 		180DCA202070912A002F01DA /* PIAddCarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIAddCarController.m; sourceTree = "<group>"; };
 		180DCA2220709149002F01DA /* PIAddCarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIAddCarView.h; sourceTree = "<group>"; };
@@ -440,6 +446,17 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		1805E07E2082065B00A48ECE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1805E07F2082065B00A48ECE /* PIProvonceModel.h */,
+				1805E0802082065B00A48ECE /* PIProvonceModel.m */,
+				1805E0812082065B00A48ECE /* PIVillageListModel.h */,
+				1805E0822082065B00A48ECE /* PIVillageListModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		180E22AD205FE00F00FF21BB /* OrderData */ = {
 			isa = PBXGroup;
 			children = (
@@ -527,7 +544,7 @@
 			isa = PBXGroup;
 			children = (
 				1845B369206D1700007B3FE2 /* Controller */,
-				1845B36A206D1700007B3FE2 /* Model */,
+				1805E07E2082065B00A48ECE /* Model */,
 				1845B368206D16FF007B3FE2 /* View */,
 			);
 			path = "Community(小区)";
@@ -571,13 +588,6 @@
 				1805E0772082058900A48ECE /* PIVillageListController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		1845B36A206D1700007B3FE2 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		1862689620724CC100F450AF /* PayTool */ = {
@@ -1300,6 +1310,7 @@
 				18B096AC204D812300871845 /* PIAddNoOwerHeaderView.m in Sources */,
 				1805E0732081E21700A48ECE /* PIVillageAuthenProgressController.m in Sources */,
 				18B0963C204C629E00871845 /* UILabel+Extension.m in Sources */,
+				1805E0842082065B00A48ECE /* PIVillageListModel.m in Sources */,
 				18B09605204C626000871845 /* PICodeViewController.m in Sources */,
 				1805E0742081E21700A48ECE /* PIVillageAuthenProgressView.m in Sources */,
 				1862696E2077604D00F450AF /* PIOrderDetailController.m in Sources */,
@@ -1307,6 +1318,7 @@
 				18B09639204C629E00871845 /* NSString+Exrtension.m in Sources */,
 				1845B37C206D2C53007B3FE2 /* PIComCerShareCell.m in Sources */,
 				1805E0792082058900A48ECE /* PISelectCitiesController.m in Sources */,
+				1805E0832082065B00A48ECE /* PIProvonceModel.m in Sources */,
 				18B09637204C629E00871845 /* AppDelegate+PIExtension.m in Sources */,
 				18B09635204C629E00871845 /* PIBaseModel.m in Sources */,
 				180E22C42062922700FF21BB /* PILoginField.m in Sources */,
