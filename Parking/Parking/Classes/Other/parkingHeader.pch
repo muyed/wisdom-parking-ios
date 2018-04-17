@@ -40,9 +40,9 @@
 #define PISYS_FONT(x) [UIFont systemFontOfSize:x]
 
 //#define PIMainColor   UIColorFromRGB(0x00BCD4)
-#define PIMainColor   UIColorFromRGB(0x6bbbd4)
+#define PIMainColor   UIColorFromRGB(0x00BCD5)
 //#define PIBackColor   UIColorFromRGB(0xf3f2f2)
-#define PIBackColor   UIColorFromRGB(0xe1ecf0)
+#define PIBackColor   UIColorFromRGB(0xf0eff5)
 #define PIBtnEnableColor RGBColor(215, 216, 217)
 
 #define PIBigFont     PISYS_FONT(16)
@@ -56,13 +56,14 @@
 /// 文字辅色
 #define txtSeconColor       UIColorFromRGB(0x666666)
 /// 文字红色
-#define txtRedColor         UIColorFromRGB(0xfd4c9d)
+#define txtRedColor         UIColorFromRGB(0xff0000)
 /// 占位文字颜色
 #define txtPlaceColor       UIColorFromRGB(0x999999)
 #define sepLineColor        RGBColor(233, 234, 235)
 #define secondMainColor     UIColorFromRGB(0x0097A7)
-#define PIYellowColor         UIColorFromRGB(0xd8a70d)
+#define PIYellowColor       UIColorFromRGB(0xd8a70d)
 #define backRedColor        UIColorFromRGB(0xf0b126)
+#define PIGreenColor       UIColorFromRGB(0x7bc161)
 
 #define PIUserDefaults  [NSUserDefaults standardUserDefaults]
 #define PINotification  [NSNotificationCenter defaultCenter]

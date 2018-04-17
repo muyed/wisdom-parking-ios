@@ -46,8 +46,10 @@
     self.mapView.distanceFilter = 5.0f;
     self.mapView.showsScale = NO;
     self.mapView.showsCompass = NO;
-    //self.mapView.centerCoordinate = self.mapView.userLocation.location.coordinate;
     
+    
+    
+    [PINotification addObserver:self selector:@selector(scrollToUserLoaction) name:@"ScrollToUserLoaction" object:nil];
 }
 
 - (void)setupLocation {
@@ -113,6 +115,17 @@ updatingLocation:(BOOL)updatingLocation
     request.location =[AMapGeoPoint locationWithLatitude:location.coordinate.latitude longitude:location.coordinate.longitude];
     _search.delegate = self;
     [_search AMapReGoecodeSearch:request];
+    
+}
+
+- (void)scrollToUserLoaction {
+    
+    self.mapView.centerCoordinate = self.mapView.userLocation.location.coordinate;
+}
+
+- (void)dealloc {
+    
+    [PINotification removeObserver:self];
     
 }
 @end

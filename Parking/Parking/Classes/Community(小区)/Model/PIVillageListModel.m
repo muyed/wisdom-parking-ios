@@ -23,5 +23,35 @@
     
     return @{@"ID" : @"id"};
 }
+
+- (NSString *)type {
+    
+    switch (_type.integerValue) {
+        case 1:
+            
+            return @"审核中";
+            break;
+            
+        case 2:
+            
+            return @"审核通过";
+            break;
+           
+        case 3:
+            
+            return @"未通过";
+            break;
+            
+        case 4:
+            
+            return @"已删除";
+            break;
+            
+        default:
+            
+            return @"";
+            break;
+    }
+}
 @end
 

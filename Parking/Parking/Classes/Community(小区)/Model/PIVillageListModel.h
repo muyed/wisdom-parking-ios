@@ -43,7 +43,17 @@
 @property (nonatomic, copy) NSString *ranges;
 
 @property (nonatomic, copy) NSString *sorts;
-@property (nonatomic, assign) NSInteger type;
 
+@property (nonatomic, copy) NSString *type;
+///-- 小区ID
+@property (nonatomic, copy) NSString *communityId;
+///-- 楼号
+@property (nonatomic, copy) NSString *floorNo;
+///-- 房间号
+@property (nonatomic, copy) NSString *houseNo;
+///-- 单元号
+@property (nonatomic, copy) NSString *unitNo;
+///-- 用户ID
+@property (nonatomic, copy) NSString *userId;
 
 @end

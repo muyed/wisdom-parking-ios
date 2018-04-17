@@ -62,7 +62,7 @@
     [self.topView mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.left.top.right.equalTo(weakSelf);
-        make.height.mas_equalTo(70 * Scale_Y);
+        make.height.mas_equalTo(60 * Scale_Y);
         
     }];
     

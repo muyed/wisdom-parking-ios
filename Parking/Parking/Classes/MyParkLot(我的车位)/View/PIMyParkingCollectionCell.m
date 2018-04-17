@@ -1,81 +1,49 @@
 //
-//  PIComCertifiController.m
+//  PIMyParkingCollectionCell.m
 //  Parking
 //
-//  Created by apple on 2018/3/29.
+//  Created by apple on 2018/4/16.
 //  Copyright © 2018年 GM. All rights reserved.
-//  小区
+//
 
-#import "PIComCertifiController.h"
+#import "PIMyParkingCollectionCell.h"
 #import "PIComCertiHeaderView.h"
 #import "PIComCerBtnCell.h"
 #import "PIComCerNumberCell.h"
 #import "PIComCerShareCell.h"
 
-@interface PIComCertifiController ()<UITableViewDataSource, UITableViewDelegate>
+
+@interface PIMyParkingCollectionCell ()<UITableViewDataSource, UITableViewDelegate>
 
 ///-- 列表
 @property (nonatomic, strong) UITableView *tableView;
-///-- 导航
-@property (nonatomic, weak) UIView *navView;
+
 
 @end
 
-@implementation PIComCertifiController
+@implementation PIMyParkingCollectionCell
 
-- (void)viewWillAppear:(BOOL)animated {
+-  (instancetype)initWithFrame:(CGRect)frame {
     
-    [super viewWillAppear:animated];
+    self= [super initWithFrame:frame];
     
-    self.navigationController.navigationBarHidden = YES;
+    if (self) {
+        
+        
+        [self setupUI];
+    }
+    
+    return self;
 }
 
-
-- (void)viewWillDisappear:(BOOL)animated {
+- (void)setupUI {
     
-    [super viewWillDisappear:animated];
-    
-    self.navigationController.navigationBarHidden = NO;
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-   
-    [self setupNav];
-}
-
-- (void)setupNav {
-    
-    UIView *nav = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, NavBarHeight)];
-    nav.backgroundColor = PIMainColor;
-    [self.view addSubview:nav];
-    self.navView = nav;
-    
-    UILabel *label = [[UILabel alloc] init];
-    
-    label.textColor = [UIColor whiteColor];
-    label.textAlignment = NSTextAlignmentCenter;
-    label.text = @"小区认证";
-    label.font = [UIFont boldSystemFontOfSize:18.0];
-    CGFloat top = NavBarHeight - 34;
-    label.frame = CGRectMake(0, top, SCREEN_WIDTH, 24);
-    
-    [nav addSubview:label];
-    
-    UIButton *btn = [[UIButton alloc] initWithImageName:@"navgation-back"];
-    btn.x = 15;
-    btn.y = top;
-    btn.width = 25;
-    btn.height = 25;
-    [btn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-    [nav addSubview:btn];
-    
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, NavBarHeight, SCREEN_WIDTH, SCREEN_HEIGHT - NavBarHeight - TabBarHeight + 50) style:UITableViewStyleGrouped];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH,SCREEN_HEIGHT - NavBarHeight - TabBarHeight + 50) style:UITableViewStyleGrouped];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     //self.tableView.rowHeight = 120;
-    
-    [self.view addSubview:self.tableView];
+    self.tableView.scrollEnabled = NO;
+    [self.contentView addSubview:self.tableView];
     
     PIComCertiHeaderView *headerView = [PIComCertiHeaderView new];
     headerView.size = CGSizeMake(SCREEN_WIDTH, 140 * Scale_Y);
@@ -89,10 +57,6 @@
     
 }
 
-- (void)back {
-    
-    [self.navigationController popViewControllerAnimated:YES];
-}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
     return 3;
@@ -147,12 +111,6 @@
         return 100;
     }
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 
 @end

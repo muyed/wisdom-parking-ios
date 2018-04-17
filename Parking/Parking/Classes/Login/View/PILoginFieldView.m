@@ -97,8 +97,8 @@
     if (!_bottomLine) {
         
         _bottomLine = [[UIView alloc] init];
-        //_bottomLine.backgroundColor = UIColorFromRGB(0xBDBDBD);
-        _bottomLine.backgroundColor = sepLineColor;
+        _bottomLine.backgroundColor = UIColorFromRGB(0xBDBDBD);
+        //_bottomLine.backgroundColor = sepLineColor;
     }
     
     return _bottomLine;

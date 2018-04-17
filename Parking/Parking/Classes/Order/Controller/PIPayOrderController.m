@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    
-    self.title = @"订单";
+    self.title = @"支付";
     
     [self setupUI];
 }
@@ -87,6 +87,7 @@
     if (indexPath.section == 0) {
         
         PIPayOrderTopCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([PIPayOrderTopCell class])];
+        cell.userInteractionEnabled = NO;
         
         return cell;
     }

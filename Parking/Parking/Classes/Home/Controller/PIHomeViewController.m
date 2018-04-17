@@ -22,6 +22,7 @@
 #import "PIBaseModel.h"
 #import "PIMineViewController.h"
 #import "PIHomeSearchController.h"
+#import "PIPublishOrderController.h"
 
 
 @interface PIHomeViewController ()<MAMapViewDelegate, PIHomeBottomDelegate>
@@ -44,6 +45,9 @@
 @property (nonatomic, strong) UIButton *tipBtn;
 ///-- 个人中心
 @property (nonatomic, strong) UIButton *personBtn;
+
+///-- 个人中心
+@property (nonatomic, strong) UIButton *locationBtn;
 
 @end
 
@@ -119,6 +123,14 @@
     [btn addTarget:self action:@selector(getMessage) forControlEvents:UIControlEventTouchUpInside];
     [nav addSubview:btn];
     
+    UIButton *leftBtn = [[UIButton alloc] initWithTitle:@"+"];
+    leftBtn.x = 20;
+    leftBtn.y = top;
+    leftBtn.width = 25;
+    leftBtn.height = 25;
+    [leftBtn addTarget:self action:@selector(publish) forControlEvents:UIControlEventTouchUpInside];
+    [nav addSubview:leftBtn];
+    
 //    UIBarButtonItem *rightBtn = [UIBarButtonItem itemWithImage:@"home_message" target:self action:@selector(getMessage)];
 //
 //    self.navigationItem.rightBarButtonItem = rightBtn;
@@ -183,6 +195,12 @@
 //    [self.navigationController pushViewController:village animated:YES];
 }
 
+- (void)publish {
+    
+    PIPublishOrderController *publish = [PIPublishOrderController new];
+    
+    [self.navigationController pushViewController:publish animated:YES];
+}
 
 - (void)setupUI {
     
@@ -191,6 +209,7 @@
     [self.view addSubview:self.orderBtn];
     [self.view addSubview:self.tipBtn];
     [self.view addSubview:self.personBtn];
+    [self.view addSubview:self.locationBtn];
     
     CGFloat btnW = 50 * Scale_X;
     weakself
@@ -231,6 +250,13 @@
         make.height.and.width.mas_equalTo(btnW);
     }];
     
+    [self.locationBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.right.equalTo(weakSelf.view).offset(-20 * Scale_X);
+        make.bottom.equalTo(weakSelf.orderBtn.mas_top).offset(-20 );
+        make.height.and.width.mas_equalTo(btnW);
+    }];
+    
     self.customBtn.layer.cornerRadius = btnW * 0.5;
     self.customBtn.clipsToBounds = YES;
     
@@ -240,6 +266,9 @@
     self.personBtn.layer.cornerRadius = btnW * 0.5;
     self.personBtn.clipsToBounds = YES;
     
+    self.locationBtn.layer.cornerRadius = btnW * 0.5;
+    self.locationBtn.clipsToBounds = YES;
+    
     [self.customBtn addTarget:self action:@selector(customerClick) forControlEvents:UIControlEventTouchUpInside];
 
     [self.orderBtn addTarget:self action:@selector(orderBtnClick) forControlEvents:UIControlEventTouchUpInside];
@@ -247,6 +276,8 @@
     [self.tipBtn addTarget:self action:@selector(tipBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
     [self.personBtn addTarget:self action:@selector(personBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.locationBtn addTarget:self action:@selector(locationBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
     
 //    self.bottomView = [PIHomeBottomView new];
@@ -318,7 +349,13 @@
     
    // [MBProgressHUD showMessage:@"正在努力建设中...."];
     
+   
     [PILoginTool loginOut];
+}
+
+- (void)locationBtnClick {
+    
+     [PINotification postNotificationName:@"ScrollToUserLoaction" object:nil];
 }
 
 - (void)personBtnClick {
@@ -448,6 +485,21 @@
     }
     
     return _personBtn;
+}
+
+- (UIButton *)locationBtn {
+    
+    if (!_locationBtn) {
+        
+        _locationBtn = [[UIButton alloc] init];
+        [_locationBtn setImage:[UIImage imageNamed:@"home_location"] forState:UIControlStateNormal];
+        
+        _locationBtn.backgroundColor = [UIColor whiteColor];
+        _locationBtn.layer.borderColor = sepLineColor.CGColor;
+        _locationBtn.layer.borderWidth = 0.5;
+    }
+    
+    return _locationBtn;
 }
 
 - (void)didReceiveMemoryWarning {

@@ -26,4 +26,5 @@
 
 @property (nonatomic, strong) UIColor *contentColor;
 
+
 @end

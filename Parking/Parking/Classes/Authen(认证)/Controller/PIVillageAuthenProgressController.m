@@ -8,8 +8,11 @@
 
 #import "PIVillageAuthenProgressController.h"
 #import "PIVillageAuthenProgressView.h"
+#import "PIBaseDetailCell.h"
 
-@interface PIVillageAuthenProgressController ()
+@interface PIVillageAuthenProgressController ()<UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, strong) UITableView *tableView;
 
 /**
  <#Description#>
@@ -22,20 +25,72 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"小区认证";
-    [self.view addSubview:self.authView];
+    [self setupUI];
     
-    weakself
-    [self.authView mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.left.and.right.equalTo(weakSelf.view);
-        make.top.equalTo(weakSelf.view).offset(NavBarHeight);
-        make.height.mas_equalTo(230 * Scale_Y);
-    }];
-    
-    self.authView.villageName = self.villageName;
 }
 
+- (void)setupUI {
+    
+   
+    self.title = self.authTitle;
+    
+    CGFloat cellH = 60;
+    
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, NavBarHeight, SCREEN_WIDTH, SCREEN_HEIGHT - NavBarHeight - TabBarHeight + 50) style:UITableViewStylePlain];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.separatorColor = sepLineColor;
+    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    self.tableView.scrollEnabled = NO;
+    self.tableView.rowHeight = cellH;
+    
+    [self.view addSubview:self.tableView];
+    
+    self.authView.size = CGSizeMake(SCREEN_WIDTH, 190 * Scale_Y);
+    
+    self.authView.imageName = self.imageName;
+    self.authView.tipTitle = self.tipTitle;
+    
+    self.tableView.tableHeaderView = self.authView;
+    
+    [self.tableView registerClass:[PIBaseDetailCell class] forCellReuseIdentifier:NSStringFromClass([PIBaseDetailCell class])];
+    
+    
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return self.titleArr.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    PIBaseDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([PIBaseDetailCell class])];
+    
+    
+    cell.titleString = self.titleArr[indexPath.row];
+    cell.contentString = self.contentArr[indexPath.row];
+    cell.commentLabel.textAlignment = NSTextAlignmentRight;
+    cell.contentColor = txtSeconColor;
+    return cell;
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    
+    return 10;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
+    
+    view.backgroundColor = [UIColor clearColor];
+}
 - (PIVillageAuthenProgressView *)authView {
     
     if (!_authView) {

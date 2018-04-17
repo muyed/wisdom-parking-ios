@@ -9,6 +9,12 @@
 #import "PIMineViewCell.h"
 #import "PITopImageBtn.h"
 #import "PIOrderViewController.h"
+#import "PIAddDeviceController.h"
+#import "PIMyParkingLotController.h"
+#import "PIAddCarController.h"
+#import "PIMyVillageController.h"
+#import "PIComCertifiController.h"
+#import "PIMyParkingController.h"
 
 @interface PIMineViewCell ()
 
@@ -76,26 +82,58 @@
     }];
     
     [self.orderBtn addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.deviceBtn addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.customerBtn addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.carBtn addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 
 - (void)buttonClick:(UIButton *)sender {
     
     
-    PIOrderViewController *order = [PIOrderViewController new];
-    
-    [self.parentController.navigationController pushViewController:order animated:YES];
+    if (sender.tag == 1) {
+        
+        PIOrderViewController *order = [PIOrderViewController new];
+        
+        [self.parentController.navigationController pushViewController:order animated:YES];
+        
+    }else if (sender.tag == 2) {
+        
+        PIMyVillageController *myVillage = [PIMyVillageController new];
+        
+        [self.parentController.navigationController pushViewController:myVillage animated:YES];
+        
+    }else if (sender.tag == 3) {
+        
+        
+        //PIMyParkingLotController *lot = [PIMyParkingLotController new];
+        
+        PIMyParkingController *com = [PIMyParkingController new];
+        
+        [self.parentController.navigationController pushViewController:com animated:YES];
+        
+    }else {
+        
+        PIAddCarController *addCar = [PIAddCarController new];
+        
+        [self.parentController.navigationController pushViewController:addCar animated:YES];
+    }
+   
 }
 - (PITopImageBtn *)carBtn {
     
     if (!_carBtn) {
         
+        
         _carBtn = [PITopImageBtn new];
+        _carBtn.tag = 0;
         [_carBtn setTitle:@"我的车辆" forState:UIControlStateNormal];
         _carBtn.titleLabel.font = PISYS_FONT(15);
         [_carBtn setImage:[UIImage imageNamed:@"mine_car"] forState:UIControlStateNormal];
         
-        //_depBtn.backgroundColor = [UIColor redColor];
     }
     
     return _carBtn;
@@ -121,7 +159,8 @@
     if (!_deviceBtn) {
         
         _deviceBtn = [PITopImageBtn new];
-        [_deviceBtn setTitle:@"我的设备" forState:UIControlStateNormal];
+        _deviceBtn.tag = 2;
+        [_deviceBtn setTitle:@"我的小区" forState:UIControlStateNormal];
         _deviceBtn.titleLabel.font = PISYS_FONT(15);
         [_deviceBtn setImage:[UIImage imageNamed:@"mine_device"] forState:UIControlStateNormal];
         
@@ -135,9 +174,10 @@
     if (!_customerBtn) {
         
         _customerBtn = [PITopImageBtn new];
-        [_customerBtn setTitle:@"我的客服" forState:UIControlStateNormal];
+        _customerBtn.tag = 3;
+        [_customerBtn setTitle:@"我的车位" forState:UIControlStateNormal];
         _customerBtn.titleLabel.font = PISYS_FONT(15);
-        [_customerBtn setImage:[UIImage imageNamed:@"mine_customer"] forState:UIControlStateNormal];
+        [_customerBtn setImage:[UIImage imageNamed:@"mine_park"] forState:UIControlStateNormal];
         
     }
     

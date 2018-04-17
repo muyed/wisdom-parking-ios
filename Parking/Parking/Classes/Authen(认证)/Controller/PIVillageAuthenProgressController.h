@@ -10,6 +10,13 @@
 
 @interface PIVillageAuthenProgressController : PIBaseViewController
 
-@property (nonatomic, copy) NSString *villageName;
-
+@property (nonatomic, copy) NSArray *titleArr;
+///-- 地址
+@property (nonatomic, copy) NSArray *contentArr;
+///-- 标题
+@property (nonatomic, copy) NSString *authTitle;
+///-- 提示标题
+@property (nonatomic, copy) NSString *tipTitle;
+///-- 提示图片
+@property (nonatomic, copy) NSString *imageName;
 @end

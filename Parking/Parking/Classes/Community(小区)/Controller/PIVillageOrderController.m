@@ -153,7 +153,7 @@
 #pragma PGDatePickerDelegate
 - (void)datePicker:(PGDatePicker *)datePicker didSelectDate:(NSDateComponents *)dateComponents {
     
-    NSString *str = [NSString stringWithFormat:@"%lu-%lu-%lu %lu:%lu:00", dateComponents.year, dateComponents.month, dateComponents.day, dateComponents.hour, dateComponents.minute];
+    NSString *str = [NSString stringWithFormat:@"%lu-%lu-%lu %02lu:%02lu:00", dateComponents.year, dateComponents.month, dateComponents.day, dateComponents.hour, dateComponents.minute];
     
     if (_selectIndex == 4) {
         

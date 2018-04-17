@@ -40,9 +40,9 @@
     
     [self addSubview:self.tipImageView];
     [self addSubview:self.tipLabel];
-    [self addSubview:self.sepView];
-    [self addSubview:self.bottomLabel];
-    [self addSubview:self.nameLabel];
+    //[self addSubview:self.sepView];
+//    [self addSubview:self.bottomLabel];
+//    [self addSubview:self.nameLabel];
     
     CGFloat iconWH = 80 * Scale_Y;
     weakself
@@ -55,93 +55,100 @@
     
     [self.tipLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.top.equalTo(weakSelf.tipImageView.mas_bottom).offset(15 * Scale_Y);
+        make.top.equalTo(weakSelf.tipImageView.mas_bottom).offset(25 * Scale_Y);
         make.left.and.right.equalTo(weakSelf);
     }];
     
-    [self.sepView mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.top.equalTo(weakSelf.tipLabel.mas_bottom).offset(25 * Scale_Y);
-        make.left.and.right.equalTo(weakSelf);
-        make.height.mas_equalTo(1);
-    }];
-    
-    [self.bottomLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.top.equalTo(weakSelf.sepView.mas_bottom).offset(20 * Scale_Y);
-        make.left.equalTo(weakSelf).offset(15);
-        make.width.mas_equalTo(80);
-    }];
-    
-    [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.centerY.equalTo(weakSelf.bottomLabel.mas_centerY);
-        make.left.equalTo(weakSelf.bottomLabel.mas_right).offset(10);
-        make.right.equalTo(weakSelf).offset(-15);
-    }];
+//    [self.sepView mas_makeConstraints:^(MASConstraintMaker *make) {
+//
+//        make.bottom.equalTo(weakSelf);
+//        make.left.and.right.equalTo(weakSelf);
+//        make.height.mas_equalTo(1);
+//    }];
+//
+//    [self.bottomLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//
+//        make.top.equalTo(weakSelf.sepView.mas_bottom).offset(20 * Scale_Y);
+//        make.left.equalTo(weakSelf).offset(15);
+//        make.width.mas_equalTo(80);
+//    }];
+//
+//    [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//
+//        make.centerY.equalTo(weakSelf.bottomLabel.mas_centerY);
+//        make.left.equalTo(weakSelf.bottomLabel.mas_right).offset(10);
+//        make.right.equalTo(weakSelf).offset(-15);
+//    }];
     
 }
 
-- (void)setVillageName:(NSString *)villageName {
+- (void)setTipTitle:(NSString *)tipTitle {
     
-    _villageName = villageName;
+    _tipTitle = tipTitle;
     
-    self.nameLabel.text = villageName;
-    
+    self.tipLabel.text = tipTitle;
 }
+
+- (void)setImageName:(NSString *)imageName {
+    
+    _imageName = imageName;
+    
+    self.tipImageView.image = [UIImage imageNamed:imageName];
+}
+
 - (UIImageView *)tipImageView {
     
     if (!_tipImageView) {
         
         _tipImageView = [[UIImageView alloc] init];
         
-        _tipImageView.backgroundColor = [UIColor redColor];
+       // _tipImageView.backgroundColor = [UIColor redColor];
     }
     
     return _tipImageView;
 }
 
-- (UIView *)sepView {
-    
-    if (!_sepView) {
-        
-        _sepView = [UIView new];
-        _sepView.backgroundColor = sepLineColor;
-    }
-    
-    return _sepView;
-}
+//- (UIView *)sepView {
+//    
+//    if (!_sepView) {
+//        
+//        _sepView = [UIView new];
+//        //_sepView.backgroundColor = sepLineColor;
+//    }
+//    
+//    return _sepView;
+//}
 
 - (UILabel *)tipLabel {
     
     if (!_tipLabel) {
         
-        _tipLabel = [[UILabel alloc] initWithFont:18 textColor:txtSeconColor textAlignment:Center text:@"已提交申请，等待处理"];
+        _tipLabel = [[UILabel alloc] initWithFont:18 textColor:txtSeconColor textAlignment:Center text:@""];
         _tipLabel.font = [UIFont systemFontOfSize:18 weight:2];
     }
     
     return _tipLabel;
 }
+//
+//- (UILabel *)bottomLabel {
+//    
+//    if (!_bottomLabel) {
+//        
+//        _bottomLabel = [[UILabel alloc] initWithFont:17 textColor:txtSeconColor textAlignment:Center text:@"小区名字"];
+//    }
+//    
+//    return _bottomLabel;
+//}
 
-- (UILabel *)bottomLabel {
-    
-    if (!_bottomLabel) {
-        
-        _bottomLabel = [[UILabel alloc] initWithFont:17 textColor:txtSeconColor textAlignment:Center text:@"小区名字"];
-    }
-    
-    return _bottomLabel;
-}
-
-- (UILabel *)nameLabel {
-    
-    if (!_nameLabel) {
-        
-        _nameLabel = [[UILabel alloc] initWithFont:17 textColor:txtMainColor textAlignment:Right text:nil];
-        _nameLabel.text = @"山水之间";
-    }
-    
-    return _nameLabel;
-}
+//- (UILabel *)nameLabel {
+//
+//    if (!_nameLabel) {
+//
+//        _nameLabel = [[UILabel alloc] initWithFont:17 textColor:txtMainColor textAlignment:Right text:nil];
+//        _nameLabel.text = @"山水之间";
+//    }
+//
+//    return _nameLabel;
+//}
 
 @end

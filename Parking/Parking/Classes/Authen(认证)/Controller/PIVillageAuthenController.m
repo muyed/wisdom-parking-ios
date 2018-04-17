@@ -143,7 +143,7 @@
         if (model.code == 200) {
             
             PIVillageAuthenProgressController *authen = [PIVillageAuthenProgressController new];
-            authen.villageName = weakSelf.villageModel.communityName;
+            //authen.villageName = weakSelf.villageModel.communityName;
             [weakSelf.navigationController pushViewController:authen animated:YES];
             
         }else {

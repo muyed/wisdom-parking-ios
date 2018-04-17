@@ -11,6 +11,9 @@
 #import "PIMineViewCell.h"
 #import "PIPersonAuthenController.h"
 #import "PIVillageAuthenController.h"
+#import "PIBaseDetailCell.h"
+#import "PIVillageAuthenProgressController.h"
+#import "PIMyVillageController.h"
 
 @interface PIMineViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -22,7 +25,9 @@
 @property (nonatomic, strong) UIButton *loginBtn;
 ///-- 中间
 @property (nonatomic, strong) PIMineCenterView *centerView;
+
 @property (nonatomic, strong) UITableView *tableView;
+
 
 @end
 
@@ -55,7 +60,7 @@
 }
 - (void)setupNav {
     
-    UIView *nav = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, NavBarHeight + 180 * Scale_Y)];
+    UIView *nav = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, NavBarHeight + 150 * Scale_Y)];
     nav.backgroundColor = PIMainColor;
     [self.view addSubview:nav];
     self.navView = nav;
@@ -90,7 +95,7 @@
     [self.iconView mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.left.equalTo(weakSelf.navView).offset(margin);
-        make.top.equalTo(btn.mas_bottom).offset(margin);
+        make.top.equalTo(btn.mas_bottom).offset(15 * Scale_Y);
         make.height.and.width.mas_equalTo(iconWH);
     }];
     
@@ -109,11 +114,11 @@
         
         make.left.equalTo(weakSelf.view).offset(margin);
         make.right.equalTo(weakSelf.view).offset(-margin);
-        make.top.equalTo(weakSelf.view).offset(NavBarHeight + 110 * Scale_Y);
-        make.height.mas_equalTo(150 * Scale_Y);
+        make.top.equalTo(weakSelf.view).offset(NavBarHeight + 90 * Scale_Y);
+        make.height.mas_equalTo(120 * Scale_Y);
     }];
     
-    CGFloat tableViewY = NavBarHeight + 260 * Scale_Y;
+    CGFloat tableViewY = NavBarHeight + 215 * Scale_Y;
     
     NSLog(@"%lf", tableViewY);
     
@@ -128,12 +133,12 @@
     
     [self.tableView registerClass:[PIMineViewCell class] forCellReuseIdentifier:NSStringFromClass([PIMineViewCell class])];
     
-    
+    [self.tableView registerClass:[PIBaseDetailCell class] forCellReuseIdentifier:NSStringFromClass([PIBaseDetailCell class])];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -143,9 +148,20 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-   
-    
     if (indexPath.section == 1) {
+        
+        PIBaseDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([PIBaseDetailCell class])];
+        
+        cell.titleString = indexPath.row == 0 ? @"身份信息" : @"小区认证";
+        cell.contentString = indexPath.row == 0 ? @"已认证" : @"请认证";
+        cell.contentColor = indexPath.row == 0 ? txtSeconColor : txtRedColor;
+        cell.commentLabel.textAlignment = NSTextAlignmentRight;
+        cell.commentLabel.font = PISYS_FONT(15);
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        return cell;
+    }
+    
+    if (indexPath.section == 2) {
         
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ID"];
         
@@ -170,21 +186,37 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.section == 1 && indexPath.row == 0) {
+    if (indexPath.section == 1) {
         
-        PIPersonAuthenController *person = [PIPersonAuthenController new];
+        if (indexPath.row == 0) {
+            
+           // PIPersonAuthenController *person = [PIPersonAuthenController new];
+            
+            PIVillageAuthenProgressController *person = [PIVillageAuthenProgressController new];
+            person.titleArr = @[@"真实姓名", @"身份证"];
+            person.contentArr = @[@"迪丽热巴", @"410**********5536"];
+            person.imageName = @"id_check";
+            person.tipTitle = @"身份信息已通过认证";
+            person.authTitle = @"身份认证";
+            
+            [self.navigationController pushViewController:person animated:YES];
+            
+            
+        }else {
+            
+            PIVillageAuthenController *authenVillage = [PIVillageAuthenController new];
+            
+            [self.navigationController pushViewController:authenVillage animated:YES];
+        }
         
-        [self.navigationController pushViewController:person animated:YES]; 
     }else {
         
-        PIVillageAuthenController *person = [PIVillageAuthenController new];
         
-        [self.navigationController pushViewController:person animated:YES];
     }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
-    return 15 * Scale_Y;
+    return 10 * Scale_Y;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -194,7 +226,7 @@
         return SCREEN_WIDTH * 0.25;
     }else {
         
-        return 60 * Scale_Y;
+        return 55 * Scale_Y;
     }
 }
 
@@ -215,8 +247,8 @@
     
     if (!_iconView) {
         
-        _iconView = [[UIImageView alloc] init];
-        _iconView.backgroundColor = [UIColor redColor];
+        _iconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"person_center"]];
+        _iconView.backgroundColor = [UIColor lightGrayColor];
     }
     
     return _iconView;

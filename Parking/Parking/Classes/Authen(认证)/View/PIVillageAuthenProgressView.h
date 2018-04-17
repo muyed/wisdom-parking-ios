@@ -10,6 +10,9 @@
 
 @interface PIVillageAuthenProgressView : UIView
 
-@property (nonatomic, copy) NSString *villageName;
+///-- 提示标题
+@property (nonatomic, copy) NSString *tipTitle;
+///-- 提示图片
+@property (nonatomic, copy) NSString *imageName;
 
 @end
