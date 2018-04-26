@@ -10,4 +10,8 @@
 
 @interface PIComCertiHeaderView : UIView
 
+///-- <#Notes#>
+@property (nonatomic, copy) NSString *lockName;
+
+@property (nonatomic, assign) NSInteger index;
 @end

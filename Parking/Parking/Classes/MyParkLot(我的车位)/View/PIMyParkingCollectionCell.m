@@ -11,13 +11,15 @@
 #import "PIComCerBtnCell.h"
 #import "PIComCerNumberCell.h"
 #import "PIComCerShareCell.h"
+#import "PIMyParkModel.h"
 
 
 @interface PIMyParkingCollectionCell ()<UITableViewDataSource, UITableViewDelegate>
 
 ///-- 列表
 @property (nonatomic, strong) UITableView *tableView;
-
+///-- <#Notes#>
+@property (nonatomic, weak) PIComCertiHeaderView *headerView;
 
 @end
 
@@ -48,6 +50,7 @@
     PIComCertiHeaderView *headerView = [PIComCertiHeaderView new];
     headerView.size = CGSizeMake(SCREEN_WIDTH, 140 * Scale_Y);
     self.tableView.tableHeaderView = headerView;
+    self.headerView = headerView;
     
     [self.tableView registerClass:[PIComCerBtnCell class] forCellReuseIdentifier:NSStringFromClass([PIComCerBtnCell class])];
     
@@ -55,6 +58,16 @@
     
     [self.tableView registerClass:[PIComCerShareCell class] forCellReuseIdentifier:NSStringFromClass([PIComCerShareCell class])];
     
+}
+
+- (void)setModel:(PIMyParkDataModel *)model {
+    
+    _model = model;
+    
+    self.headerView.index = self.index;
+    self.headerView.lockName = model.alias;
+    
+    [self.tableView reloadData];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -72,7 +85,7 @@
     if (indexPath.section == 0) {
         
         PIComCerBtnCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([PIComCerBtnCell class])];
-        
+        cell.model = self.model;
         return cell;
     }
     
@@ -88,7 +101,6 @@
     
     return cell;
     
-    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {

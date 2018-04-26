@@ -13,8 +13,9 @@
 #import "PIPublishOrderCell.h"
 #import "PITextView.h"
 #import "PIBottomBtn.h"
+#import "PIMyParkModel.h"
 
-@interface PIPublishOrderController ()<PGDatePickerDelegate>
+@interface PIPublishOrderController ()<PGDatePickerDelegate, PIBaseFieldCellDelegate>
 
 ///-- 标题
 @property (nonatomic, copy) NSArray *titleArr;
@@ -29,6 +30,7 @@
     NSString *_beginTime;
     NSString *_endTime;
     NSInteger _selectIndex;
+    NSString *_price;
     
 }
 
@@ -38,7 +40,7 @@
     self.title = @"发布共享车位";
     
     
-    self.titleArr = @[@{@"title" : @"起租时间", @"content" : @"请选择时间"}, @{@"title" : @"停租时间", @"content" : @"请选择时间"}, @{@"title" : @"出租价格", @"content" : @"请输入价格"}];
+    self.titleArr = @[@{@"title" : @"起租时间", @"content" : @"请选择时间"}, @{@"title" : @"停租时间", @"content" : @"请选择时间"}, @{@"title" : @"出租价格", @"content" : @"请输入单价"}];
     
     [self setupUI];
 }
@@ -87,7 +89,59 @@
 
 - (void)buttonClick {
     
+    if (_beginTime.length == 0) {
+        
+        [MBProgressHUD showMessage:@"请选择开始时间"];
+        
+        return;
+    }
+    if (_endTime.length == 0) {
+        
+        [MBProgressHUD showMessage:@"请选择结束时间"];
+        
+        return;
+    }
     
+    if (_price.length == 0) {
+        
+        [MBProgressHUD showMessage:@"请输入单价"];
+        
+        return;
+    }
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"carportId"] = self.model.carportId;
+    params[@"startTime"] = _beginTime;
+    params[@"stopTime"] = _endTime;
+    params[@"price"] = _price;
+    
+    [MBProgressHUD showIndeterWithMessage:@"正在发布"];
+    
+    weakself
+    [PIHttpTool piPost:urlPath(@"api/share/publish") params:params success:^(id response) {
+        
+        [MBProgressHUD hideHUD];
+        
+        PIBaseModel *model = [PIBaseModel mj_objectWithKeyValues:response];
+        
+        if (model.code == 200) {
+            
+            [MBProgressHUD showMessage:@"发布成功"];
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                
+                [weakSelf.navigationController popViewControllerAnimated:YES];
+            });
+            
+        }else {
+            
+            [MBProgressHUD showMessage:model.errMsg];
+        }
+        
+    } failure:^(NSError *error) {
+        
+        [MBProgressHUD hideHUD];
+    }];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -148,7 +202,7 @@
             
             cell.titleString = self.titleArr[indexPath.row][@"title"];
             cell.placeString = self.titleArr[indexPath.row][@"content"];
-            
+            cell.pi_delegate = self;
             return cell;
         }
         
@@ -156,13 +210,17 @@
         
         
         PIPublishOrderCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([PIPublishOrderCell class])];
-        
+        cell.model = self.model;
         
         return cell;
         
     }
 }
 
+- (void)pi_textFieldEndEidting:(UITextField *)textField index:(NSInteger)index {
+    
+    _price = textField.text.cancelSpace;
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     

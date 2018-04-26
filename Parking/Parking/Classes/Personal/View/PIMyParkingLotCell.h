@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@class PIMyVillageCarportModel;
+
 @interface PIMyParkingLotCell : UITableViewCell
+
+///-- <#Notes#>
+@property (nonatomic, strong) PIMyVillageCarportModel *model;
+
+///-- 地址
+@property (nonatomic, copy) NSString *address;
+
+///-- <#Notes#>
+@property (nonatomic, assign) BOOL isCanBind;
 
 @end

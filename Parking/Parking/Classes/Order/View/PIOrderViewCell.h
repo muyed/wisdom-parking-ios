@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class PIMyVillageDataModel;
+
 @interface PIOrderViewCell : UITableViewCell
 
+///-- <#Notes#>
+@property (nonatomic, strong) PIMyVillageDataModel *model;
 @end

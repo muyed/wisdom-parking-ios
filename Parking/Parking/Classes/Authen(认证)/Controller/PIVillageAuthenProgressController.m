@@ -33,6 +33,10 @@
     
    
     self.title = self.authTitle;
+    UIBarButtonItem *sp = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    sp.width = -10;
+    UIBarButtonItem *back = [UIBarButtonItem itemWithImage:@"navgation-back" target:self action:@selector(back)];
+    self.navigationItem.leftBarButtonItems = @[sp,back];
     
     CGFloat cellH = 60;
     
@@ -59,6 +63,10 @@
     
 }
 
+- (void)back {
+    
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
     return 1;

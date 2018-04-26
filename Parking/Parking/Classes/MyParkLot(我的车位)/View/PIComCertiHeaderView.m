@@ -53,6 +53,18 @@
     }];
 }
 
+- (void)setIndex:(NSInteger)index {
+    
+    _index = index;
+    
+     [_tipBtn setTitle:[NSString stringWithFormat:@"车位锁 %lu", index] forState:UIControlStateNormal];
+}
+
+- (void)setLockName:(NSString *)lockName {
+    
+    _lockName = lockName;
+    self.contentLabel.text = lockName.length == 0 ? @"我的车锁" : lockName;
+}
 - (UIButton *)tipBtn {
     
     if (!_tipBtn) {

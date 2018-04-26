@@ -8,6 +8,8 @@
 
 #import "PIComCerBtnCell.h"
 #import "PILeftImageBtn.h"
+#import "PIPublishOrderController.h"
+#import "PIMyParkModel.h"
 
 @interface PIComCerBtnCell ()
 
@@ -52,6 +54,18 @@
         make.width.mas_equalTo(btnW);
     }];
     
+    [self.openBtn addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.shareBtn addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)buttonClick:(UIButton *)sender {
+    
+    if (sender.tag) {
+        
+        PIPublishOrderController *order = [PIPublishOrderController new];
+        order.model = self.model;
+        [self.parentController.navigationController pushViewController:order animated:YES];
+    }
 }
 
 - (PILeftImageBtn *)openBtn {
@@ -59,6 +73,7 @@
     if (!_openBtn) {
         
         _openBtn = [PILeftImageBtn new];
+        _openBtn.tag = 0;
         [_openBtn setTitle:@"解锁" forState:UIControlStateNormal];
         _openBtn.titleLabel.font = PISYS_FONT(17);
         [_openBtn setImage:[UIImage imageNamed:@"com_open"] forState:UIControlStateNormal];
@@ -73,7 +88,8 @@
     if (!_shareBtn) {
         
         _shareBtn = [PILeftImageBtn new];
-        [_shareBtn setTitle:@"分享" forState:UIControlStateNormal];
+        _shareBtn.tag = 1;
+        [_shareBtn setTitle:@"共享" forState:UIControlStateNormal];
         _shareBtn.titleLabel.font = PISYS_FONT(17);
         [_shareBtn setImage:[UIImage imageNamed:@"com_share"] forState:UIControlStateNormal];
         

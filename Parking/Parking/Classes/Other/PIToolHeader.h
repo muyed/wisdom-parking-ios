@@ -36,5 +36,6 @@
 #import "PIBaseModel.h"
 #import "PIMapManager.h"
 #import "UITextView+LimitCount.h"
+#import "PIPayTool.h"
 
 #endif /* PIToolHeader_h */

@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class PIMyParkDataModel;
+
 @interface PIComCerNumberCell : UITableViewCell
 
+///-- Notes
+@property (nonatomic, strong) PIMyParkDataModel *model;
 @end

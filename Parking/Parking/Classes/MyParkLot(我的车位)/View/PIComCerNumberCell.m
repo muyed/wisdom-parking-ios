@@ -7,6 +7,7 @@
 //
 
 #import "PIComCerNumberCell.h"
+#import "PIMyParkModel.h"
 
 @interface PIComCerNumberCell ()
 

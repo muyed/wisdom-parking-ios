@@ -7,6 +7,7 @@
 //
 
 #import "PIBaseViewController.h"
+#import "PIPersonAuthenController.h"
 
 @interface PIBaseViewController ()
 
@@ -18,6 +19,20 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = PIBackColor;
+    
+    [PINotification addObserver:self selector:@selector(pushToPersonAuth) name:PIPayForCashNotifation object:nil];
+}
+
+- (void)pushToPersonAuth {
+    
+    PIPersonAuthenController *person = [PIPersonAuthenController new];
+    
+    [self.navigationController pushViewController:person animated:YES];
+}
+
+- (void)dealloc {
+    
+    [PINotification removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {

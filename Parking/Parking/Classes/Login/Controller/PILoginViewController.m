@@ -17,6 +17,7 @@
 #import "PIHomeViewController.h"
 #import "PINavigationController.h"
 #import "PIForgetViewController.h"
+#import "PILoginModel.h"
 
 @interface PILoginViewController ()
 
@@ -229,10 +230,13 @@
         
         [MBProgressHUD hideHUD];
         
-        PIBaseModel *model = [PIBaseModel mj_objectWithKeyValues:response];
+        PILoginModel *model = [PILoginModel mj_objectWithKeyValues:response];
         if (model.code == 200) {
             
             [MBProgressHUD showMessage:@"登录成功"];
+        
+            [PILoginTool saveAcountInfo:(NSDictionary *)response];
+            
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 

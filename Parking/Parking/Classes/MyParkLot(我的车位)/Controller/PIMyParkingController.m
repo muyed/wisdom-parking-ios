@@ -8,13 +8,19 @@
 
 #import "PIMyParkingController.h"
 #import "PIMyParkingCollectionCell.h"
+#import "PIMyParkModel.h"
+
 
 @interface PIMyParkingController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
 ///-- 导航
 @property (nonatomic, weak) UIView *navView;
-///-- <#Notes#>
+///-- 网格
 @property (nonatomic, weak) UICollectionView *collectionView;
+///-- 分页
+@property (nonatomic, weak) UIPageControl *pageControl;
+///-- 数据源
+@property (nonatomic, strong) NSMutableArray *dataArr;
 
 @end
 
@@ -104,23 +110,46 @@
     _collectionView = collection;
     
      [collection registerClass:[PIMyParkingCollectionCell class] forCellWithReuseIdentifier:NSStringFromClass([PIMyParkingCollectionCell class])];
+    
+    UIPageControl *pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(40, SCREEN_HEIGHT - TabBarHeight  - 50 * Scale_Y, SCREEN_WIDTH - 80, 40)];
+    //pageControl.numberOfPages = 4;
+    pageControl.currentPage = 0;
+    pageControl.pageIndicatorTintColor = [UIColor whiteColor];
+    pageControl.currentPageIndicatorTintColor = PIMainColor;
+    
+    [self.view addSubview:pageControl];
+    self.pageControl = pageControl;
 }
 
 - (void)loadData {
     
+    weakself
     [PIHttpTool piGet:urlPath(@"api/carport/myCarport") params:nil success:^(id response) {
         
+        PIMyParkModel *model = [PIMyParkModel mj_objectWithKeyValues:response];
+        
+        if (model.code == 200) {
+            
+            weakSelf.dataArr = (NSMutableArray *)model.data;
+            weakSelf.pageControl.numberOfPages = model.data.count;
+            
+        }else {
+            
+            [MBProgressHUD showMessage:model.errMsg];
+        }
+        
+        [weakSelf.collectionView reloadData];
         
     } failure:^(NSError *error) {
         
-        
+        [MBProgressHUD showMessage:@"获取失败"];
     }];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
     
-    return 4;
+    return self.dataArr.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -128,13 +157,34 @@
     
     PIMyParkingCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([PIMyParkingCollectionCell class]) forIndexPath:indexPath];
     
+    cell.index = indexPath.row + 1;
+    cell.model = self.dataArr[indexPath.row];
     
     return cell;
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+    int page = (int)scrollView.contentOffset.x/SCREEN_WIDTH;
+    
+    self.pageControl.currentPage = page;
+    
+}
+
+
 - (void)back {
     
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (NSMutableArray *)dataArr {
+    
+    if (!_dataArr) {
+        
+        _dataArr = [NSMutableArray array];
+    }
+    
+    return _dataArr;
 }
 
 - (void)didReceiveMemoryWarning {

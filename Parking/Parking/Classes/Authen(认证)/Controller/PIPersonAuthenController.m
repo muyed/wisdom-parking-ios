@@ -10,6 +10,7 @@
 #import "PIBaseDetailCell.h"
 #import "PIBaseFieldCell.h"
 #import "PIBottomBtn.h"
+#import "PIVillageAuthenProgressController.h"
 
 @interface PIPersonAuthenController ()<UITableViewDelegate, UITableViewDataSource, PIBaseFieldCellDelegate>
 
@@ -87,6 +88,7 @@
     
     [MBProgressHUD showIndeterWithMessage:@"正在提交..."];
     
+    weakself
     [PIHttpTool piPost:urlPath(@"api/user/idCardAuth") params:params success:^(id response) {
         
         [MBProgressHUD hideHUD];
@@ -94,6 +96,20 @@
         if (model.code == 200) {
             
             [MBProgressHUD showMessage:@"认证成功！"];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                
+                PIVillageAuthenProgressController *person = [PIVillageAuthenProgressController new];
+                person.titleArr = @[@"真实姓名", @"身份证"];
+                person.contentArr = @[_realName, [_identityNum stringByReplacingCharactersInRange:NSMakeRange(3, _identityNum.length - 7) withString:@"********"]];
+                person.imageName = @"id_check";
+                person.tipTitle = @"身份信息已通过认证";
+                person.authTitle = @"身份认证";
+                
+                [weakSelf.navigationController pushViewController:person animated:YES];
+                
+            });
+           
+            
         }else {
             
             [MBProgressHUD showMessage:model.errMsg];

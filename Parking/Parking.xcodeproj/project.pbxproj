@@ -80,6 +80,25 @@
 		186269862078A90500F450AF /* PIAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 186269852078A90500F450AF /* PIAddressModel.m */; };
 		1897FD402084EA5600FF4F28 /* PIParkingLotAuthController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1897FD3F2084EA5600FF4F28 /* PIParkingLotAuthController.m */; };
 		1897FD432084EDD700FF4F28 /* PIParkingLotAuthCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1897FD422084EDD700FF4F28 /* PIParkingLotAuthCell.m */; };
+		1897FD4C2086371E00FF4F28 /* PIMyVillageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1897FD4B2086371E00FF4F28 /* PIMyVillageViewCell.m */; };
+		1897FD4F2086503E00FF4F28 /* PIMyVillageListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1897FD4E2086503E00FF4F28 /* PIMyVillageListModel.m */; };
+		1897FD582087617400FF4F28 /* PIMyVillageDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1897FD572087617400FF4F28 /* PIMyVillageDetailController.m */; };
+		1897FD5F2087982E00FF4F28 /* PIMyParkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1897FD5E2087982E00FF4F28 /* PIMyParkModel.m */; };
+		1897FD632088BBA300FF4F28 /* PILoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1897FD622088BBA300FF4F28 /* PILoginModel.m */; };
+		1897FD672088BF8A00FF4F28 /* PIAcountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1897FD662088BF8A00FF4F28 /* PIAcountModel.m */; };
+		1897FD6A2088D3C200FF4F28 /* PIPayForCashController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1897FD692088D3C200FF4F28 /* PIPayForCashController.m */; };
+		1897FD6D2088D61500FF4F28 /* PIPayForCashCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1897FD6C2088D61500FF4F28 /* PIPayForCashCell.m */; };
+		1897FD78208B6A5700FF4F28 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1897FD75208B6A5700FF4F28 /* libWeChatSDK.a */; };
+		1897FD7A208B6D3800FF4F28 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1897FD79208B6D3800FF4F28 /* libsqlite3.tbd */; };
+		1897FD7D208C6A7D00FF4F28 /* PIWXPayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1897FD7C208C6A7D00FF4F28 /* PIWXPayModel.m */; };
+		1897FD80208CAEB100FF4F28 /* PIHomeSearchCarPortController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1897FD7F208CAEB100FF4F28 /* PIHomeSearchCarPortController.m */; };
+		1897FD83208CB10D00FF4F28 /* PIHomeSearchCarPortCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1897FD82208CB10D00FF4F28 /* PIHomeSearchCarPortCell.m */; };
+		189A57272090ACCF00870D3B /* PICustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A57262090ACCF00870D3B /* PICustomAnnotation.m */; };
+		189A572A2090AD2900870D3B /* PICustomAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A57292090AD2900870D3B /* PICustomAnnotationView.m */; };
+		189A572D2090CA0900870D3B /* PICarpotOrderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A572C2090CA0900870D3B /* PICarpotOrderView.m */; };
+		189A57302090D38900870D3B /* PICarportAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A572F2090D38900870D3B /* PICarportAddressCell.m */; };
+		189A573320915A4D00870D3B /* PICarportBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A573220915A4D00870D3B /* PICarportBottomCell.m */; };
+		189A5736209167E200870D3B /* PICarportTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A5735209167E200870D3B /* PICarportTimeCell.m */; };
 		18B095AC204C606400871845 /* PIMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095A9204C606400871845 /* PIMeViewController.m */; };
 		18B095B3204C60AD00871845 /* PIOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095B0204C60AD00871845 /* PIOrderViewController.m */; };
 		18B095CC204C61CD00871845 /* PIAddDeviceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095B8204C61CD00871845 /* PIAddDeviceController.m */; };
@@ -297,6 +316,44 @@
 		1897FD3F2084EA5600FF4F28 /* PIParkingLotAuthController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIParkingLotAuthController.m; sourceTree = "<group>"; };
 		1897FD412084EDD700FF4F28 /* PIParkingLotAuthCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIParkingLotAuthCell.h; sourceTree = "<group>"; };
 		1897FD422084EDD700FF4F28 /* PIParkingLotAuthCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIParkingLotAuthCell.m; sourceTree = "<group>"; };
+		1897FD4A2086371E00FF4F28 /* PIMyVillageViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIMyVillageViewCell.h; sourceTree = "<group>"; };
+		1897FD4B2086371E00FF4F28 /* PIMyVillageViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIMyVillageViewCell.m; sourceTree = "<group>"; };
+		1897FD4D2086503E00FF4F28 /* PIMyVillageListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIMyVillageListModel.h; sourceTree = "<group>"; };
+		1897FD4E2086503E00FF4F28 /* PIMyVillageListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIMyVillageListModel.m; sourceTree = "<group>"; };
+		1897FD562087617400FF4F28 /* PIMyVillageDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIMyVillageDetailController.h; sourceTree = "<group>"; };
+		1897FD572087617400FF4F28 /* PIMyVillageDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIMyVillageDetailController.m; sourceTree = "<group>"; };
+		1897FD5D2087982E00FF4F28 /* PIMyParkModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIMyParkModel.h; sourceTree = "<group>"; };
+		1897FD5E2087982E00FF4F28 /* PIMyParkModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIMyParkModel.m; sourceTree = "<group>"; };
+		1897FD612088BBA300FF4F28 /* PILoginModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PILoginModel.h; sourceTree = "<group>"; };
+		1897FD622088BBA300FF4F28 /* PILoginModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PILoginModel.m; sourceTree = "<group>"; };
+		1897FD652088BF8A00FF4F28 /* PIAcountModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIAcountModel.h; sourceTree = "<group>"; };
+		1897FD662088BF8A00FF4F28 /* PIAcountModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIAcountModel.m; sourceTree = "<group>"; };
+		1897FD682088D3C200FF4F28 /* PIPayForCashController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIPayForCashController.h; sourceTree = "<group>"; };
+		1897FD692088D3C200FF4F28 /* PIPayForCashController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIPayForCashController.m; sourceTree = "<group>"; };
+		1897FD6B2088D61500FF4F28 /* PIPayForCashCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIPayForCashCell.h; sourceTree = "<group>"; };
+		1897FD6C2088D61500FF4F28 /* PIPayForCashCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIPayForCashCell.m; sourceTree = "<group>"; };
+		1897FD75208B6A5700FF4F28 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		1897FD76208B6A5700FF4F28 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		1897FD77208B6A5700FF4F28 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		1897FD79208B6D3800FF4F28 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		1897FD7B208C6A7D00FF4F28 /* PIWXPayModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIWXPayModel.h; sourceTree = "<group>"; };
+		1897FD7C208C6A7D00FF4F28 /* PIWXPayModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIWXPayModel.m; sourceTree = "<group>"; };
+		1897FD7E208CAEB100FF4F28 /* PIHomeSearchCarPortController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIHomeSearchCarPortController.h; sourceTree = "<group>"; };
+		1897FD7F208CAEB100FF4F28 /* PIHomeSearchCarPortController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIHomeSearchCarPortController.m; sourceTree = "<group>"; };
+		1897FD81208CB10D00FF4F28 /* PIHomeSearchCarPortCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIHomeSearchCarPortCell.h; sourceTree = "<group>"; };
+		1897FD82208CB10D00FF4F28 /* PIHomeSearchCarPortCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIHomeSearchCarPortCell.m; sourceTree = "<group>"; };
+		189A57252090ACCF00870D3B /* PICustomAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PICustomAnnotation.h; sourceTree = "<group>"; };
+		189A57262090ACCF00870D3B /* PICustomAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PICustomAnnotation.m; sourceTree = "<group>"; };
+		189A57282090AD2900870D3B /* PICustomAnnotationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PICustomAnnotationView.h; sourceTree = "<group>"; };
+		189A57292090AD2900870D3B /* PICustomAnnotationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PICustomAnnotationView.m; sourceTree = "<group>"; };
+		189A572B2090CA0900870D3B /* PICarpotOrderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PICarpotOrderView.h; sourceTree = "<group>"; };
+		189A572C2090CA0900870D3B /* PICarpotOrderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PICarpotOrderView.m; sourceTree = "<group>"; };
+		189A572E2090D38900870D3B /* PICarportAddressCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PICarportAddressCell.h; sourceTree = "<group>"; };
+		189A572F2090D38900870D3B /* PICarportAddressCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PICarportAddressCell.m; sourceTree = "<group>"; };
+		189A573120915A4D00870D3B /* PICarportBottomCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PICarportBottomCell.h; sourceTree = "<group>"; };
+		189A573220915A4D00870D3B /* PICarportBottomCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PICarportBottomCell.m; sourceTree = "<group>"; };
+		189A5734209167E200870D3B /* PICarportTimeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PICarportTimeCell.h; sourceTree = "<group>"; };
+		189A5735209167E200870D3B /* PICarportTimeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PICarportTimeCell.m; sourceTree = "<group>"; };
 		18B095A8204C606400871845 /* PIMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIMeViewController.h; sourceTree = "<group>"; };
 		18B095A9204C606400871845 /* PIMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIMeViewController.m; sourceTree = "<group>"; };
 		18B095AF204C60AD00871845 /* PIOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIOrderViewController.h; sourceTree = "<group>"; };
@@ -418,6 +475,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1897FD7A208B6D3800FF4F28 /* libsqlite3.tbd in Frameworks */,
+				1897FD78208B6A5700FF4F28 /* libWeChatSDK.a in Frameworks */,
 				183C66B0206A761B00908E21 /* CoreMotion.framework in Frameworks */,
 				183C66AE206A760100908E21 /* CFNetwork.framework in Frameworks */,
 				183C66AC206A75F400908E21 /* Foundation.framework in Frameworks */,
@@ -501,6 +560,8 @@
 				1805E0802082065B00A48ECE /* PIProvonceModel.m */,
 				1805E0812082065B00A48ECE /* PIVillageListModel.h */,
 				1805E0822082065B00A48ECE /* PIVillageListModel.m */,
+				1897FD4D2086503E00FF4F28 /* PIMyVillageListModel.h */,
+				1897FD4E2086503E00FF4F28 /* PIMyVillageListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -529,6 +590,8 @@
 		1805E0A72084D57700A48ECE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1897FD5D2087982E00FF4F28 /* PIMyParkModel.h */,
+				1897FD5E2087982E00FF4F28 /* PIMyParkModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -610,6 +673,7 @@
 		183A1FCC201EF41600F8B55F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1897FD59208781A800FF4F28 /* Pay */,
 				1805E0A52084D57700A48ECE /* MyParkLot(我的车位) */,
 				1805E0652081E21700A48ECE /* Authen(认证) */,
 				1845B367206D16D1007B3FE2 /* Community(小区) */,
@@ -657,6 +721,8 @@
 				18626882207115DD00F450AF /* PIVillageFieldCell.m */,
 				1805E07C208205D400A48ECE /* PIVillageListCell.h */,
 				1805E07B208205D400A48ECE /* PIVillageListCell.m */,
+				1897FD4A2086371E00FF4F28 /* PIMyVillageViewCell.h */,
+				1897FD4B2086371E00FF4F28 /* PIMyVillageViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -672,6 +738,8 @@
 				1805E0772082058900A48ECE /* PIVillageListController.m */,
 				1805E0A22084CCD100A48ECE /* PIMyVillageController.h */,
 				1805E0A32084CCD100A48ECE /* PIMyVillageController.m */,
+				1897FD562087617400FF4F28 /* PIMyVillageDetailController.h */,
+				1897FD572087617400FF4F28 /* PIMyVillageDetailController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -692,6 +760,77 @@
 				1862691E20727AE500F450AF /* PILoginTool.m */,
 			);
 			path = LoginTool;
+			sourceTree = "<group>";
+		};
+		1897FD59208781A800FF4F28 /* Pay */ = {
+			isa = PBXGroup;
+			children = (
+				1897FD5A208781A800FF4F28 /* Controller */,
+				1897FD5B208781A800FF4F28 /* Model */,
+				1897FD5C208781A800FF4F28 /* View */,
+			);
+			path = Pay;
+			sourceTree = "<group>";
+		};
+		1897FD5A208781A800FF4F28 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				186269752078572300F450AF /* PIPayOrderController.h */,
+				186269762078572300F450AF /* PIPayOrderController.m */,
+				1897FD682088D3C200FF4F28 /* PIPayForCashController.h */,
+				1897FD692088D3C200FF4F28 /* PIPayForCashController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1897FD5B208781A800FF4F28 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1897FD7B208C6A7D00FF4F28 /* PIWXPayModel.h */,
+				1897FD7C208C6A7D00FF4F28 /* PIWXPayModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1897FD5C208781A800FF4F28 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1862697820785D6E00F450AF /* PIPayOrderTopCell.h */,
+				1862697920785D6E00F450AF /* PIPayOrderTopCell.m */,
+				1862697B207863A400F450AF /* PIPayOrderTypeCell.h */,
+				1862697C207863A400F450AF /* PIPayOrderTypeCell.m */,
+				1897FD6B2088D61500FF4F28 /* PIPayForCashCell.h */,
+				1897FD6C2088D61500FF4F28 /* PIPayForCashCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1897FD602088BB8700FF4F28 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1897FD612088BBA300FF4F28 /* PILoginModel.h */,
+				1897FD622088BBA300FF4F28 /* PILoginModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1897FD642088BF7A00FF4F28 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1897FD652088BF8A00FF4F28 /* PIAcountModel.h */,
+				1897FD662088BF8A00FF4F28 /* PIAcountModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1897FD74208B6A5700FF4F28 /* WXPay */ = {
+			isa = PBXGroup;
+			children = (
+				1897FD75208B6A5700FF4F28 /* libWeChatSDK.a */,
+				1897FD76208B6A5700FF4F28 /* WXApi.h */,
+				1897FD77208B6A5700FF4F28 /* WXApiObject.h */,
+			);
+			path = WXPay;
 			sourceTree = "<group>";
 		};
 		18B095A6204C606400871845 /* Me */ = {
@@ -745,8 +884,6 @@
 				18B095B0204C60AD00871845 /* PIOrderViewController.m */,
 				1862696C2077604D00F450AF /* PIOrderDetailController.h */,
 				1862696D2077604D00F450AF /* PIOrderDetailController.m */,
-				186269752078572300F450AF /* PIPayOrderController.h */,
-				186269762078572300F450AF /* PIPayOrderController.m */,
 				1805E09A2083441E00A48ECE /* PIPublishOrderController.h */,
 				1805E09B2083441E00A48ECE /* PIPublishOrderController.m */,
 			);
@@ -769,10 +906,6 @@
 				18626970207762BB00F450AF /* PIOrderDetailViewCell.m */,
 				1862697220776B6500F450AF /* PIOrderDetailCenterCell.h */,
 				1862697320776B6500F450AF /* PIOrderDetailCenterCell.m */,
-				1862697820785D6E00F450AF /* PIPayOrderTopCell.h */,
-				1862697920785D6E00F450AF /* PIPayOrderTopCell.m */,
-				1862697B207863A400F450AF /* PIPayOrderTypeCell.h */,
-				1862697C207863A400F450AF /* PIPayOrderTypeCell.m */,
 				1805E09D20834FD900A48ECE /* PIPublishOrderCell.h */,
 				1805E09E20834FD900A48ECE /* PIPublishOrderCell.m */,
 			);
@@ -856,6 +989,8 @@
 				180E22B120614B5600FF21BB /* PIHomeOrderController.m */,
 				186269812078A47C00F450AF /* PIHomeSearchController.h */,
 				186269822078A47C00F450AF /* PIHomeSearchController.m */,
+				1897FD7E208CAEB100FF4F28 /* PIHomeSearchCarPortController.h */,
+				1897FD7F208CAEB100FF4F28 /* PIHomeSearchCarPortController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -882,6 +1017,16 @@
 				18B095CB204C61CD00871845 /* PIHomeMainView.m */,
 				18B096E4204EDAFA00871845 /* PIImageUpBtn.h */,
 				18B096E5204EDAFA00871845 /* PIImageUpBtn.m */,
+				1897FD81208CB10D00FF4F28 /* PIHomeSearchCarPortCell.h */,
+				1897FD82208CB10D00FF4F28 /* PIHomeSearchCarPortCell.m */,
+				189A572B2090CA0900870D3B /* PICarpotOrderView.h */,
+				189A572C2090CA0900870D3B /* PICarpotOrderView.m */,
+				189A572E2090D38900870D3B /* PICarportAddressCell.h */,
+				189A572F2090D38900870D3B /* PICarportAddressCell.m */,
+				189A573120915A4D00870D3B /* PICarportBottomCell.h */,
+				189A573220915A4D00870D3B /* PICarportBottomCell.m */,
+				189A5734209167E200870D3B /* PICarportTimeCell.h */,
+				189A5735209167E200870D3B /* PICarportTimeCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -889,9 +1034,9 @@
 		18B095D4204C622600871845 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				1897FD602088BB8700FF4F28 /* Model */,
 				18B095D5204C622600871845 /* Controller */,
 				18B095DC204C622600871845 /* DataManager */,
-				18B095DF204C622600871845 /* Model */,
 				18B095E0204C622600871845 /* View */,
 			);
 			path = Login;
@@ -919,13 +1064,6 @@
 				18B095DE204C622600871845 /* PILoginManager.m */,
 			);
 			path = DataManager;
-			sourceTree = "<group>";
-		};
-		18B095DF204C622600871845 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		18B095E0204C622600871845 /* View */ = {
@@ -989,6 +1127,10 @@
 				18B095FD204C626000871845 /* PILocationTool.m */,
 				18B095FE204C626000871845 /* PIMapManager.h */,
 				18B095FF204C626000871845 /* PIMapManager.m */,
+				189A57252090ACCF00870D3B /* PICustomAnnotation.h */,
+				189A57262090ACCF00870D3B /* PICustomAnnotation.m */,
+				189A57282090AD2900870D3B /* PICustomAnnotationView.h */,
+				189A57292090AD2900870D3B /* PICustomAnnotationView.m */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -1099,6 +1241,7 @@
 		18B09631204C629E00871845 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				1897FD74208B6A5700FF4F28 /* WXPay */,
 				183C6696206A73C100908E21 /* Alipay */,
 			);
 			path = Lib;
@@ -1134,8 +1277,8 @@
 		18B0970620518DF400871845 /* Personal */ = {
 			isa = PBXGroup;
 			children = (
+				1897FD642088BF7A00FF4F28 /* Model */,
 				18B0970720518DF400871845 /* Controller */,
-				18B0970820518DF400871845 /* Model */,
 				18B0970920518DF400871845 /* View */,
 			);
 			path = Personal;
@@ -1154,13 +1297,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		18B0970820518DF400871845 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		18B0970920518DF400871845 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1177,6 +1313,7 @@
 		2C868DF110EE56F0EB0EB620 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1897FD79208B6D3800FF4F28 /* libsqlite3.tbd */,
 				183C66AF206A761B00908E21 /* CoreMotion.framework */,
 				183C66AD206A760100908E21 /* CFNetwork.framework */,
 				183C66AB206A75F400908E21 /* Foundation.framework */,
@@ -1415,6 +1552,7 @@
 				18B0966B204C652300871845 /* AppDelegate.m in Sources */,
 				18B096AC204D812300871845 /* PIAddNoOwerHeaderView.m in Sources */,
 				1805E0732081E21700A48ECE /* PIVillageAuthenProgressController.m in Sources */,
+				1897FD632088BBA300FF4F28 /* PILoginModel.m in Sources */,
 				18B0963C204C629E00871845 /* UILabel+Extension.m in Sources */,
 				1805E0842082065B00A48ECE /* PIVillageListModel.m in Sources */,
 				18B09605204C626000871845 /* PICodeViewController.m in Sources */,
@@ -1426,7 +1564,10 @@
 				1805E089208209C900A48ECE /* PIBaseFieldCell.m in Sources */,
 				18B09639204C629E00871845 /* NSString+Exrtension.m in Sources */,
 				1845B37C206D2C53007B3FE2 /* PIComCerShareCell.m in Sources */,
+				189A57302090D38900870D3B /* PICarportAddressCell.m in Sources */,
+				189A573320915A4D00870D3B /* PICarportBottomCell.m in Sources */,
 				1805E0792082058900A48ECE /* PISelectCitiesController.m in Sources */,
+				189A5736209167E200870D3B /* PICarportTimeCell.m in Sources */,
 				1805E0832082065B00A48ECE /* PIProvonceModel.m in Sources */,
 				18B09637204C629E00871845 /* AppDelegate+PIExtension.m in Sources */,
 				18B09635204C629E00871845 /* PIBaseModel.m in Sources */,
@@ -1441,28 +1582,35 @@
 				1805E07A2082058900A48ECE /* PIVillageListController.m in Sources */,
 				18B096A9204D80D700871845 /* PIAddNoOwerController.m in Sources */,
 				18B096E3204ED2CC00871845 /* PIAddPersonCell.m in Sources */,
+				1897FD5F2087982E00FF4F28 /* PIMyParkModel.m in Sources */,
 				18B095EC204C622600871845 /* PIThirdLoginView.m in Sources */,
+				1897FD80208CAEB100FF4F28 /* PIHomeSearchCarPortController.m in Sources */,
 				18B096E6204EDAFA00871845 /* PIImageUpBtn.m in Sources */,
 				18B095ED204C622600871845 /* PIVerificationBtn.m in Sources */,
 				18B0970520518CEF00871845 /* UITableViewCell+Extension.m in Sources */,
 				186268772071032C00F450AF /* PIVillageOrderController.m in Sources */,
 				1805E0722081E21700A48ECE /* PIVillageAuthenController.m in Sources */,
+				1897FD582087617400FF4F28 /* PIMyVillageDetailController.m in Sources */,
 				1862697420776B6500F450AF /* PIOrderDetailCenterCell.m in Sources */,
 				1805E07D208205D400A48ECE /* PIVillageListCell.m in Sources */,
+				1897FD83208CB10D00FF4F28 /* PIHomeSearchCarPortCell.m in Sources */,
 				18B0960D204C626000871845 /* PILocationTool.m in Sources */,
 				1897FD402084EA5600FF4F28 /* PIParkingLotAuthController.m in Sources */,
 				1862689920724CDC00F450AF /* PIPayTool.m in Sources */,
 				1845B370206D1822007B3FE2 /* PIComCertiHeaderView.m in Sources */,
 				18B09679204C65D700871845 /* main.m in Sources */,
+				1897FD672088BF8A00FF4F28 /* PIAcountModel.m in Sources */,
 				180E22B220614B5600FF21BB /* PIHomeOrderController.m in Sources */,
 				186269832078A47C00F450AF /* PIHomeSearchController.m in Sources */,
 				18B095CC204C61CD00871845 /* PIAddDeviceController.m in Sources */,
+				189A57272090ACCF00870D3B /* PICustomAnnotation.m in Sources */,
 				1862697D207863A400F450AF /* PIPayOrderTypeCell.m in Sources */,
 				186269772078572300F450AF /* PIPayOrderController.m in Sources */,
 				18B095CF204C61CD00871845 /* PIHomeViewController.m in Sources */,
 				18B095CD204C61CD00871845 /* PIAddSubViewController.m in Sources */,
 				186269802078A42D00F450AF /* PISearchBar.m in Sources */,
 				18B095D0204C61CD00871845 /* PIHomeBottomView.m in Sources */,
+				1897FD6A2088D3C200FF4F28 /* PIPayForCashController.m in Sources */,
 				18B09634204C629E00871845 /* PITabBarController.m in Sources */,
 				1897FD432084EDD700FF4F28 /* PIParkingLotAuthCell.m in Sources */,
 				18B095CE204C61CD00871845 /* PIAddSubViewCell.m in Sources */,
@@ -1471,11 +1619,14 @@
 				18B095EB204C622600871845 /* PILoginFieldView.m in Sources */,
 				18B0966C204C652300871845 /* PIConst.m in Sources */,
 				18B095EA204C622600871845 /* PILoginManager.m in Sources */,
+				189A572A2090AD2900870D3B /* PICustomAnnotationView.m in Sources */,
+				1897FD7D208C6A7D00FF4F28 /* PIWXPayModel.m in Sources */,
 				18B0960C204C626000871845 /* PIHttpTool.m in Sources */,
 				1862687A207108EA00F450AF /* PIVillageCommnViewCell.m in Sources */,
 				18B09610204C626000871845 /* PILoginInfoTool.m in Sources */,
 				18626968207615D400F450AF /* PITopImageBtn.m in Sources */,
 				1805E08D20831B6D00A48ECE /* PIBaseTableViewController.m in Sources */,
+				1897FD4F2086503E00FF4F28 /* PIMyVillageListModel.m in Sources */,
 				18B095AC204C606400871845 /* PIMeViewController.m in Sources */,
 				18B09638204C629E00871845 /* MBProgressHUD+PI.m in Sources */,
 				1845B379206D2511007B3FE2 /* PIComCerNumberCell.m in Sources */,
@@ -1492,6 +1643,7 @@
 				1862691F20727AE500F450AF /* PILoginTool.m in Sources */,
 				18B096E0204ECC3500871845 /* PICarNumCell.m in Sources */,
 				18B0960E204C626000871845 /* PIMapManager.m in Sources */,
+				1897FD4C2086371E00FF4F28 /* PIMyVillageViewCell.m in Sources */,
 				18B095D2204C61CD00871845 /* PIHomeItemView.m in Sources */,
 				18B096DD204EC3D700871845 /* PIAddWisedomeCarCell.m in Sources */,
 				18B096A6204D6B2500871845 /* PIAddPayViewCell.m in Sources */,
@@ -1512,11 +1664,13 @@
 				18B09636204C629E00871845 /* PIBottomBtn.m in Sources */,
 				18B095E7204C622600871845 /* PILoginViewController.m in Sources */,
 				1862687D20710DAB00F450AF /* PIVillageSelectCell.m in Sources */,
+				1897FD6D2088D61500FF4F28 /* PIPayForCashCell.m in Sources */,
 				1805E08A208209C900A48ECE /* PIBaseDetailCell.m in Sources */,
 				1805E0992083431200A48ECE /* UITextView+LimitCount.m in Sources */,
 				186269862078A90500F450AF /* PIAddressModel.m in Sources */,
 				18626883207115DD00F450AF /* PIVillageFieldCell.m in Sources */,
 				1845B36D206D1725007B3FE2 /* PIComCertifiController.m in Sources */,
+				189A572D2090CA0900870D3B /* PICarpotOrderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1691,6 +1845,10 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Support Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Parking/Classes/Main/Lib/WXPay",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Peterpan.Parking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "af3e746d-72da-43bc-a79d-a64a820f0ba1";
@@ -1715,6 +1873,10 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Support Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Parking/Classes/Main/Lib/WXPay",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Peterpan.Parking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "af3e746d-72da-43bc-a79d-a64a820f0ba1";

@@ -10,8 +10,11 @@
 #import "PIBaseFieldCell.h"
 #import "PIParkingLotAuthCell.h"
 #import "PIBottomBtn.h"
+#import "PIMyVillageListModel.h"
+#import "PIBaseModel.h"
+#import "PIPayOrderController.h"
 
-@interface PIParkingLotAuthController ()
+@interface PIParkingLotAuthController ()<PIBaseFieldCellDelegate>
 
 ///-- 立即绑定
 @property (nonatomic, strong) PIBottomBtn *bottomBtn;
@@ -19,7 +22,10 @@
 @end
 
 @implementation PIParkingLotAuthController
-
+{
+    
+    NSString *_bindCode;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -31,6 +37,7 @@
 - (void)setupUI {
     
     [self setupTableViewWithFrame:CGRectMake(0, NavBarHeight, SCREEN_WIDTH, SCREEN_HEIGHT - 200)];
+    
     self.tableView.scrollEnabled = NO;
     UIView *footerView = [[UIView alloc] init];
     footerView.size = CGSizeMake(SCREEN_WIDTH, 200);
@@ -43,7 +50,7 @@
     [footerView addSubview:tipLabel];
     
     UILabel *contentLabel = [[UILabel alloc] initWithFont:16 textColor:txtSeconColor];
-    contentLabel.text = @"草在结它的籽，风在摇它的叶子， 我们站着不说话，就十分美好";
+    contentLabel.text = @"添加设备说明";
     contentLabel.frame = CGRectMake(20, CGRectGetMaxY(tipLabel.frame) + 10, SCREEN_WIDTH - 40, 40);
     contentLabel.numberOfLines = 2;
     [footerView addSubview:contentLabel];
@@ -69,7 +76,39 @@
 
 - (void)buttonClick {
     
-    NSLog(@"立即绑定");
+    if (_bindCode.length == 0) {
+        
+        [MBProgressHUD showMessage:@"请填写绑定码"];
+        
+        return;
+    }
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"carportId"] = self.model.ID;
+    params[@"bindCode"] = _bindCode;
+    
+    weakself
+    [PIHttpTool piPost:urlPath(@"api/carport/bind") params:params success:^(id response) {
+        
+        PIBaseModel *model = [PIBaseModel mj_objectWithKeyValues:response];
+        
+        
+        if (model.code == 200) {
+            
+            PIPayOrderController *pay = [PIPayOrderController new];
+            pay.orderNum = model.data;
+            [weakSelf.navigationController pushViewController:pay animated:YES];
+            
+        }else {
+            
+            [MBProgressHUD showMessage:model.errMsg];
+            
+        }
+        
+    } failure:^(NSError *error) {
+        
+        
+    }];
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
@@ -87,13 +126,15 @@
         
         PIBaseFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([PIBaseFieldCell class])];
         
-        cell.titleString = @"绑定码";
-        cell.placeString = @"请填写绑定码";
-        
+         cell.titleString = @"绑定码";
+         cell.placeString = @"请填写绑定码";
+         cell.pi_delegate = self;
          return cell;
     }else {
         
         PIParkingLotAuthCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([PIParkingLotAuthCell class])];
+        cell.model = self.model;
+        cell.address = self.address;
         
         return cell;
     }
@@ -101,6 +142,11 @@
    
 }
 
+- (void)pi_textFieldEndEidting:(UITextField *)textField index:(NSInteger)index {
+    
+    _bindCode = textField.text.cancelSpace;
+    
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
     return 10;

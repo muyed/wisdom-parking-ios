@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class PIMyParkDataModel;
+
 @interface PIMyParkingCollectionCell : UICollectionViewCell
 
+///-- <#Notes#>
+@property (nonatomic, strong) PIMyParkDataModel *model;
+
+///-- <#Notes#>
+@property (nonatomic, assign) NSInteger index;
 @end

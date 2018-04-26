@@ -10,7 +10,13 @@
 
 /**高德key*/
 UIKIT_EXTERN NSString * const PIAMap_Key;
+/**微信*/
+UIKIT_EXTERN NSString * const PIWXin_Key;
 
 UIKIT_EXTERN NSString * const SessionId;
 
 UIKIT_EXTERN CGFloat const btnBorderM;
+
+UIKIT_EXTERN NSString * const PaySuccessNotifation;
+/**实名认证*/
+UIKIT_EXTERN NSString * const PIPayForCashNotifation;

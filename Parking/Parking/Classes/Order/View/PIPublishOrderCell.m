@@ -7,6 +7,7 @@
 //
 
 #import "PIPublishOrderCell.h"
+#import "PIMyParkModel.h"
 
 @interface PIPublishOrderCell ()
 
@@ -119,6 +120,15 @@
     self.addTipLabel.layer.cornerRadius = 5 * Scale_Y;
     self.addTipLabel.clipsToBounds = YES;
     
+}
+
+- (void)setModel:(PIMyParkDataModel *)model {
+    
+    _model = model;
+    
+    self.nameLabel.text = model.communityName.length == 0 ? @"" : model.communityName;
+    self.addLabel.text = model.addr.length == 0 ? @"" : model.addr;
+    self.positionLabel.text = model.carportNum.length == 0 ? @"" : model.carportNum;
 }
 
 - (UILabel *)nameLabel {

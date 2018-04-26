@@ -12,6 +12,19 @@
 
 @implementation PILoginTool
 
++ (instancetype)defaultTool {
+    
+    static dispatch_once_t onceToken;
+    static PILoginTool *insatance;
+    
+    dispatch_once(&onceToken, ^{
+        
+        insatance = [PILoginTool new];
+    });
+    
+    return insatance;
+}
+
 + (void)loginOut {
     
     [UIView transitionWithView:[UIApplication sharedApplication].keyWindow duration:0.5 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
@@ -25,7 +38,11 @@
         PINavigationController  *nav = [[PINavigationController alloc] initWithRootViewController:[[PILoginViewController alloc] init]];
         
         [PIUserDefaults removeObjectForKey:SessionId];
+        [PIUserDefaults removeObjectForKey:@"PIUserInfo"];
         [PIUserDefaults synchronize];
+        
+        [PIMapManager sharedManager].isFirst = NO;
+        [[PIMapManager sharedManager] stopUpdateLocation];
         //重新设置窗口的根视图
         window.rootViewController = nav;
         
@@ -37,5 +54,49 @@
     }];
 
     
+}
+
++ (void)saveAcountInfo:(NSDictionary *)dict {
+    
+    NSDictionary *data = dict[@"data"];
+    
+    [PIUserDefaults setObject:[data mj_JSONString] forKey:@"PIUserInfo"];
+    [PIUserDefaults synchronize];
+}
+
+
+- (BOOL)isIdentiAuthen {
+    
+    PILoginDataModel *model = [self getAcountInfo];
+    
+    return model.identityCard.length == 0 ? NO : YES;
+}
+
+- (BOOL)hasCarPot {
+    
+    PILoginDataModel *model = [self getAcountInfo];
+    
+    return model.userCarportList.count == 0 ? NO : YES;
+}
+
+- (BOOL)hasVillage {
+    
+    PILoginDataModel *model = [self getAcountInfo];
+    
+    return model.communityList.count == 0 ? NO : YES;
+}
+
+- (PILoginDataModel *)acountModel {
+    
+    return [self getAcountInfo];
+}
+
+- (PILoginDataModel *)getAcountInfo {
+
+    NSString *acountInfoStr = [PIUserDefaults objectForKey:@"PIUserInfo"];
+    NSDictionary *acountInfoDict = [acountInfoStr mj_JSONObject];
+    
+    PILoginDataModel *userInfo = [PILoginDataModel mj_objectWithKeyValues:acountInfoDict];
+    return userInfo;
 }
 @end

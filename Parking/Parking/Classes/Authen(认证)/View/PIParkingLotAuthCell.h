@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class PIMyVillageCarportModel;
+
 @interface PIParkingLotAuthCell : UITableViewCell
 
+///-- <#Notes#>
+@property (nonatomic, strong) PIMyVillageCarportModel *model;
+///-- 地址
+@property (nonatomic, copy) NSString *address;
 @end
+

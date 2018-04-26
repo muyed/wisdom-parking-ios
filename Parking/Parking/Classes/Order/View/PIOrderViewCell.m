@@ -7,6 +7,7 @@
 //
 
 #import "PIOrderViewCell.h"
+#import "PIMyVillageListModel.h"
 
 @interface PIOrderViewCell ()
 
@@ -48,7 +49,7 @@
     
     [self.statuesLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.right.equalTo(weakSelf.contentView).offset(-5);
+        make.right.equalTo(weakSelf.contentView).offset(-15);
         make.top.equalTo(weakSelf.contentView).offset(15);
         make.width.mas_equalTo(statuesLabelW);
     }];
@@ -75,6 +76,49 @@
     }];
 }
 
+- (void)setModel:(PIMyVillageDataModel *)model {
+    
+    _model = model;
+    
+    self.numLabel.text = model.communityName.length == 0 ? @"" : model.communityName;
+    self.positionLabel.text = [NSString stringWithFormat:@"%@ %@", model.province.length == 0 ? @"" : model.province, model.city.length == 0 ? @"" : model.city];
+    self.timeLabel.text = model.addr.length == 0 ? @"" : model.addr;
+    
+    switch (model.type) {
+            
+        case 1: {
+            
+            self.statuesLabel.text = @"审核中";
+            self.statuesLabel.textColor = PIMainColor;
+            
+        }
+            break;
+            
+        case 2:{
+            
+            self.statuesLabel.text = @"已认证";
+            self.statuesLabel.textColor = UIColorFromRGB(0x52c41a);
+            
+        }
+            
+            break;
+            
+        case 3:{
+            
+            self.statuesLabel.text = @"已拒绝";
+            self.statuesLabel.textColor = UIColorFromRGB(0xf5222d);
+
+        }
+            
+            break;
+            
+            
+        default:
+            
+            
+            break;
+    }
+}
 - (UILabel *)numLabel {
     
     if (!_numLabel) {

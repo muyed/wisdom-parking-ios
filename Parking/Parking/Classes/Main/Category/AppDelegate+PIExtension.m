@@ -13,6 +13,9 @@
 #import "PINavigationController.h"
 #import "PIHomeOrderController.h"
 #import <AlipaySDK/AlipaySDK.h>
+#import "WXApi.h"
+#import "PIPayTool.h"
+
 
 @implementation AppDelegate (PIExtension)
 
@@ -52,6 +55,7 @@
     NSLog(@"%@", PIAMap_Key);
     
     [AMapServices sharedServices].apiKey = PIAMap_Key;
+    [WXApi registerApp:PIWXin_Key];
     //[[PILocationTool shareCoreLoaction] startUpdataingLocation];
 }
 
@@ -85,12 +89,37 @@
         [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
             NSLog(@"result = %@",resultDic);
             
-           
+            if ([resultDic[@"resultStatus"] isEqual:@(9000)]) {
+                
+                [MBProgressHUD showMessage:@"支付成功"];
+                
+                [PINotification postNotificationName:PaySuccessNotifation object:nil];
+                
+            }
         }];
         
         return YES;
     }
     
+    if ([url.host isEqualToString:@"pay"]) {
+        NSLog(@"----------");
+        return [WXApi handleOpenURL:url delegate:[PIPayTool sharedManager]];
+    }
+    
     return NO;
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    
+    
+    if ([url.host isEqualToString:@"pay"]) {
+        
+        return [WXApi handleOpenURL:url delegate:[PIPayTool sharedManager]];
+    }else {
+        
+        return YES;
+    }
+    
 }
 @end

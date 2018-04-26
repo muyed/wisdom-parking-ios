@@ -7,6 +7,7 @@
 //
 
 #import "PIParkingLotAuthCell.h"
+#import "PIMyVillageListModel.h"
 
 @interface PIParkingLotAuthCell ()
 
@@ -79,6 +80,20 @@
     
 }
 
+- (void)setModel:(PIMyVillageCarportModel *)model {
+    
+    _model = model;
+    self.nameLabel.text = model.carportNum.length == 0 ? @"" : model.carportNum;
+    //self.addLabel.text = model.addr.length == 0 ? @"" : model.addr;
+}
+
+- (void)setAddress:(NSString *)address {
+    
+    _address = address;
+    
+    self.addLabel.text = address;
+}
+
 - (UILabel *)nameLabel {
     
     if (!_nameLabel) {
@@ -86,7 +101,7 @@
         _nameLabel = [[UILabel alloc] init];
         _nameLabel.font = [UIFont boldSystemFontOfSize:18];
         _nameLabel.textColor = txtMainColor;
-        _nameLabel.text = @"马尔代夫";
+        //_nameLabel.text = @"马尔代夫";
         //_nameLabel.backgroundColor = [UIColor redColor];
     }
     
@@ -100,7 +115,7 @@
     if (!_addLabel) {
         
         _addLabel = [[UILabel alloc] initWithFont:17 textColor:txtSeconColor];
-        _addLabel.text = @"规划二路1号";
+        //_addLabel.text = @"规划二路1号";
         _addLabel.preferredMaxLayoutWidth = SCREEN_WIDTH - 63 * Scale_Y;
         _addLabel.numberOfLines = 2;
     }

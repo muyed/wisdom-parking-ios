@@ -69,7 +69,7 @@
     
     label.textColor = [UIColor whiteColor];
     label.textAlignment = NSTextAlignmentCenter;
-    label.text = @"我的";
+    label.text = @"个人中心";
     label.font = [UIFont boldSystemFontOfSize:18.0];
     CGFloat top = NavBarHeight - 34;
     label.frame = CGRectMake(0, top, SCREEN_WIDTH, 24);
@@ -134,6 +134,17 @@
     [self.tableView registerClass:[PIMineViewCell class] forCellReuseIdentifier:NSStringFromClass([PIMineViewCell class])];
     
     [self.tableView registerClass:[PIBaseDetailCell class] forCellReuseIdentifier:NSStringFromClass([PIBaseDetailCell class])];
+    
+    [self.loginBtn addTarget:self action:@selector(loginBtn:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)loginBtn:(UIButton *)sender {
+    
+    if ([sender.currentTitle isEqualToString:@"退出登录"]) {
+        
+        [PILoginTool loginOut];
+    }
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -153,7 +164,12 @@
         PIBaseDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([PIBaseDetailCell class])];
         
         cell.titleString = indexPath.row == 0 ? @"身份信息" : @"小区认证";
-        cell.contentString = indexPath.row == 0 ? @"已认证" : @"请认证";
+        
+        if ([PILoginTool defaultTool].isIdentiAuthen) {
+            
+            cell.contentString = indexPath.row == 0 ? @"已认证" : @"";
+        }
+        
         cell.contentColor = indexPath.row == 0 ? txtSeconColor : txtRedColor;
         cell.commentLabel.textAlignment = NSTextAlignmentRight;
         cell.commentLabel.font = PISYS_FONT(15);
@@ -190,16 +206,25 @@
         
         if (indexPath.row == 0) {
             
-           // PIPersonAuthenController *person = [PIPersonAuthenController new];
-            
-            PIVillageAuthenProgressController *person = [PIVillageAuthenProgressController new];
-            person.titleArr = @[@"真实姓名", @"身份证"];
-            person.contentArr = @[@"迪丽热巴", @"410**********5536"];
-            person.imageName = @"id_check";
-            person.tipTitle = @"身份信息已通过认证";
-            person.authTitle = @"身份认证";
-            
-            [self.navigationController pushViewController:person animated:YES];
+            if ([PILoginTool defaultTool].isIdentiAuthen) {
+                
+                PIVillageAuthenProgressController *person = [PIVillageAuthenProgressController new];
+                person.titleArr = @[@"真实姓名", @"身份证"];
+                person.contentArr = @[[PILoginTool defaultTool].acountModel.realName,[PILoginTool defaultTool].acountModel.identityCard];
+                person.imageName = @"id_check";
+                person.tipTitle = @"身份信息已通过认证";
+                person.authTitle = @"身份认证";
+                
+                [self.navigationController pushViewController:person animated:YES];
+                
+            }else {
+                
+                
+                PIPersonAuthenController *person = [PIPersonAuthenController new];
+                
+                [self.navigationController pushViewController:person animated:YES];
+            }
+    
             
             
         }else {
@@ -258,7 +283,19 @@
     
     if (!_loginBtn) {
         
-        _loginBtn = [[UIButton alloc] initWithFont:15 titleColor:[UIColor whiteColor] title:@"登录/注册"];
+        NSString *session = [PIUserDefaults objectForKey:SessionId];
+        NSString *str;
+        if (session.length == 0) {
+            
+            str = @"登录/注册";
+        }else {
+            
+            str = @"退出登录";
+        }
+        
+        
+        _loginBtn = [[UIButton alloc] initWithFont:15 titleColor:[UIColor whiteColor] title:str];
+        
         _loginBtn.layer.borderColor = [UIColor whiteColor].CGColor;
         _loginBtn.layer.borderWidth = 1;
         _loginBtn.layer.cornerRadius = 5;

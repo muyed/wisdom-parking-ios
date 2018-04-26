@@ -8,6 +8,10 @@
 
 #import "PIBaseTableViewController.h"
 
+@class PIMyParkDataModel;
+
 @interface PIPublishOrderController : PIBaseTableViewController
 
+///-- <#Notes#>
+@property (nonatomic, strong) PIMyParkDataModel *model;
 @end

@@ -10,4 +10,6 @@
 
 @interface PIMyVillageController : PIBaseTableViewController
 
+///-- <#Notes#>
+@property (nonatomic, assign) BOOL isSuccess;
 @end

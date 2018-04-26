@@ -8,8 +8,10 @@
 
 #import "PIMyVillageController.h"
 #import "PIVillageAuthenController.h"
-#import "PIVillageListModel.h"
-#import "PIParkingLotAuthController.h"
+#import "PIMyVillageListModel.h"
+
+#import "PIMyVillageViewCell.h"
+#import "PIMyVillageDetailController.h"
 
 @interface PIMyVillageController ()
 
@@ -32,23 +34,26 @@
     [self setupRefresh];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
+    if (self.isSuccess) {
+        
+        [self.tableView.mj_header beginRefreshing];
+    }
+}
 - (void)setupUI {
     
     [self setupTableViewWithFrame:CGRectMake(0, NavBarHeight, SCREEN_WIDTH, SCREEN_HEIGHT - TabBarHeight - NavBarHeight + 50)];
     
     self.tableView.rowHeight = 130;
     
-//    self.tableView.estimatedRowHeight = 130;
-//    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 130;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     
-   // [self.tableView registerClass:[PIMyParkingLotCell class] forCellReuseIdentifier:NSStringFromClass([PIMyParkingLotCell class])];
+    [self.tableView registerClass:[PIMyVillageViewCell class] forCellReuseIdentifier:NSStringFromClass([PIMyVillageViewCell class])];
     
-//    UIButton *bottomBtn = [[UIButton alloc] initWithImageName:@"add_carlot" font:17 titleColor:PIMainColor title:@"认证小区"];
-//    bottomBtn.backgroundColor = [UIColor whiteColor];
-//    bottomBtn.frame = CGRectMake(0, SCREEN_HEIGHT - TabBarHeight - 9, SCREEN_WIDTH, 60);
-//
-//    [bottomBtn addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:bottomBtn];
 }
 
 - (void)setupRefresh {
@@ -56,7 +61,7 @@
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
     [self.tableView.mj_header beginRefreshing];
     
-    self.tableView.mj_footer= [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    self.tableView.mj_footer= [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
     
 }
 
@@ -84,11 +89,13 @@
         
         [MBProgressHUD hideHUD];
         
-        PIVillageListModel *model  = [PIVillageListModel mj_objectWithKeyValues:response];
+        PIMyVillageListModel *model  = [PIMyVillageListModel mj_objectWithKeyValues:response];
         
         if (model.code == 200) {
             
             [weakSelf.dataArr addObjectsFromArray:model.data];
+            [weakSelf.tableView reloadData];
+            
         }else {
             
             [MBProgressHUD showMessage:model.errMsg];
@@ -123,11 +130,12 @@
         
         [MBProgressHUD hideHUD];
         
-        PIVillageListModel *model  = [PIVillageListModel mj_objectWithKeyValues:response];
+        PIMyVillageListModel *model  = [PIMyVillageListModel mj_objectWithKeyValues:response];
         
         if (model.code == 200) {
             
             [weakSelf.dataArr addObjectsFromArray:model.data];
+            [weakSelf.tableView reloadData];
         }else {
             
             [MBProgressHUD showMessage:model.errMsg];
@@ -147,12 +155,26 @@
     
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return self.dataArr.count;
+    
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    PIMyVillageViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([PIMyVillageViewCell class])];
+    
+    cell.model = self.dataArr[indexPath.row];
+    
+    return cell;
+}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    PIParkingLotAuthController *auth = [PIParkingLotAuthController new];
-    
-    [self.navigationController pushViewController:auth animated:YES];
+    PIMyVillageDetailController *detail = [PIMyVillageDetailController new];
+    detail.model = self.dataArr[indexPath.row];
+    [self.navigationController pushViewController:detail animated:YES];
 }
+
 - (void)buttonClick {
     
     PIVillageAuthenController *village = [PIVillageAuthenController new];

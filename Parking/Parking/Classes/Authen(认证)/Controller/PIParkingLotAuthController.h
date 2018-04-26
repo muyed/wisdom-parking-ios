@@ -8,6 +8,15 @@
 
 #import "PIBaseTableViewController.h"
 
+@class PIMyVillageCarportModel;
+
 @interface PIParkingLotAuthController : PIBaseTableViewController
+
+///-- <#Notes#>
+@property (nonatomic, strong) PIMyVillageCarportModel *model;
+
+///-- 地址
+@property (nonatomic, copy) NSString *address;
+
 
 @end

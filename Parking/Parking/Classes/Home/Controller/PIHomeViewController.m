@@ -23,6 +23,9 @@
 #import "PIMineViewController.h"
 #import "PIHomeSearchController.h"
 #import "PIPublishOrderController.h"
+#import "PIPayForCashController.h"
+#import "PIWXPayModel.h"
+#import "PIHomeSearchCarPortController.h"
 
 
 @interface PIHomeViewController ()<MAMapViewDelegate, PIHomeBottomDelegate>
@@ -58,16 +61,22 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
+    
+    
     [self setupNav];
     [self setupTopBtn];
     
    
     //[self setupMap];
     PIMapManager *mapManager = [PIMapManager sharedManager];
+    
     mapManager.mapController = self;
     [mapManager initMapView];
     
-     [self setupUI];
+
+    [self setupUI];
+    
+
 //
 //    PIHomeItemView *categaryView = [[PIHomeItemView alloc] initWithFrame:CGRectMake(15, NavBarHeight, SCREEN_WIDTH - 30, 54)];
 //
@@ -183,6 +192,8 @@
     }
 }
 
+
+
 - (void)titleClick:(UIButton *)sender {
     
     // -- 修改按钮状态
@@ -197,7 +208,7 @@
 
 - (void)publish {
     
-    PIPublishOrderController *publish = [PIPublishOrderController new];
+    PIPayForCashController *publish = [PIPayForCashController new];
     
     [self.navigationController pushViewController:publish animated:YES];
 }
@@ -307,40 +318,76 @@
 //    [self.navigationController pushViewController:addCar animated:YES];
     
     
-    PIHomeSearchController *search = [PIHomeSearchController new];
-    search.cityName = [PIMapManager sharedManager].cityName;
-    [self.navigationController pushViewController:search animated:YES];
+//    PIHomeSearchController *search = [PIHomeSearchController new];
+//    search.cityName = [PIMapManager sharedManager].cityName;
+    
+    PIHomeSearchCarPortController *carPot = [PIHomeSearchCarPortController new];
+    
+    [self.navigationController pushViewController:carPot animated:YES];
     
 }
 
 - (void)customerClick {
     
-    [MBProgressHUD showIndeterWithMessage:@"请稍等..."];
+    //[MBProgressHUD showMessage:@"正在努力建设中...."];
+//    [MBProgressHUD showIndeterWithMessage:@"请稍等..."];
     
-    [PIPayTool AlipayForOrderWithOrderNum:@"CD20180401223909773229" success:^(id response) {
+//    [PIHttpTool piGet:urlPath(@"api/account/payCash") params:nil success:^(id response) {
+//
+//        PIBaseModel *model = [PIBaseModel mj_objectWithKeyValues:response];
+//
+//        if (model.code == 24) {
+//
+//            [PINotification postNotificationName:PIPayForCashNotifation object:nil];
+//        }
+//        NSLog(@"%@", model.errMsg);
+//
+//    } failure:^(NSError *error) {
+//
+//
+//    }];
+    
+    [PIPayTool payForAcountCash:^(NSString *orderNum) {
         
-        [MBProgressHUD hideHUD];
+        [PIPayTool WXpayForOrderWithOrderNum:orderNum];
         
-        PIBaseModel *model = [PIBaseModel mj_objectWithKeyValues:response];
-        
-        if (model.code == 200) {
-            
-            [[AlipaySDK defaultService] payOrder:model.data fromScheme:@"wisdompark" callback:^(NSDictionary *resultDic) {
-                
-                NSLog(@"%@", resultDic);
-                
-            }];
-            
-        }else {
-            
-            [MBProgressHUD showMessage:model.errMsg];
-        }
-        
-    } failue:^(NSError *error) {
-        
-        [MBProgressHUD hideHUD];
-        [MBProgressHUD showMessage:@"支付失败"];
+//        [PIPayTool WXpayForOrderWithOrderNum:orderNum success:^(id response) {
+//
+//          // PIWXPayModel *model = [PIWXPayModel mj_objectWithKeyValues:response];
+//
+//
+//        } failue:^(NSError *error) {
+//
+//
+//        }];
     }];
+    
+    
+//
+//    [PIPayTool AlipayForOrderWithOrderNum:@"CD20180401223909773229" success:^(id response) {
+//
+//        [MBProgressHUD hideHUD];
+//
+//        PIBaseModel *model = [PIBaseModel mj_objectWithKeyValues:response];
+//
+//        if (model.code == 200) {
+//
+//            [[AlipaySDK defaultService] payOrder:model.data fromScheme:@"wisdompark" callback:^(NSDictionary *resultDic) {
+//
+//                NSLog(@"%@", resultDic);
+//
+//            }];
+//
+//        }else {
+//
+//            [MBProgressHUD showMessage:model.errMsg];
+//        }
+//
+//    } failue:^(NSError *error) {
+//
+//        [MBProgressHUD hideHUD];
+//        [MBProgressHUD showMessage:@"支付失败"];
+//    }];
 
     
 }

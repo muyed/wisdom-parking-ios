@@ -64,7 +64,15 @@
     
     _contentString = contentString;
     
-    self.commentLabel.text = contentString;
+    if ([self.titleString isEqualToString:@"身份证"]) {
+        
+         self.commentLabel.text = [contentString stringByReplacingCharactersInRange:NSMakeRange(3, contentString.length - 7) withString:@"********"];
+        
+    }else {
+        
+         self.commentLabel.text = contentString;
+    }
+   
 }
 
 - (void)setContentColor:(UIColor *)contentColor {
