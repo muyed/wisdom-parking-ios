@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class PICarportDataModel;
+
+typedef void(^CarportNav)(void);
+
 @interface PICarportAddressCell : UITableViewCell
+
+///-- 数据源
+@property (nonatomic, strong) PICarportDataModel *model;
+///-- <#Notes#>
+@property (nonatomic, copy) CarportNav carportNav;
 
 @end

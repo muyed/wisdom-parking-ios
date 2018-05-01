@@ -8,17 +8,18 @@
 
 #import "PIMapManager.h"
 #import <AMapLocationKit/AMapLocationKit.h>
-#import "PICustomAnnotation.h"
-#import "PICustomAnnotationView.h"
-#import "PICarpotOrderView.h"
+//#import "PICustomAnnotation.h"
+//#import "PICustomAnnotationView.h"
+//#import "PICarpotOrderView.h"
+//#import "PICarportModel.h"
 
-@interface PIMapManager ()<MAMapViewDelegate, AMapLocationManagerDelegate, AMapSearchDelegate>
+@interface PIMapManager ()<MAMapViewDelegate,AMapLocationManagerDelegate, AMapSearchDelegate>
 
 @property (nonatomic,strong) AMapLocationManager *locactionManager;
 ///-- 搜索
 @property (nonatomic, strong) AMapSearchAPI *search;
 ///-- <#Notes#>
-@property (nonatomic, strong) PICarpotOrderView *carpotOrderView;
+//@property (nonatomic, strong) PICarpotOrderView *carpotOrderView;
 
 @end
 
@@ -50,7 +51,7 @@
     
     [self setupLocation];
     
-    self.mapView = [[MAMapView alloc] initWithFrame:CGRectMake(0, NavBarHeight + 60, SCREEN_WIDTH, SCREEN_HEIGHT - NavBarHeight)];
+    self.mapView = [[MAMapView alloc] initWithFrame:CGRectMake(0, NavBarHeight, SCREEN_WIDTH, SCREEN_HEIGHT - NavBarHeight)];
     self.mapController.view.backgroundColor = [UIColor whiteColor];
     [self.mapController.view insertSubview:self.mapView atIndex:0];
     [AMapServices sharedServices].enableHTTPS = YES;
@@ -61,15 +62,12 @@
     self.mapView.distanceFilter = 5.0f;
     self.mapView.showsScale = NO;
     self.mapView.showsCompass = NO;
-    self.mapView.delegate = self;
+    //self.mapView.delegate = self.mapController;
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-         [self loadData];
-        
-    });
+    
    
-    self.carpotOrderView = [PICarpotOrderView carportOrderView];
+    
+//    self.carpotOrderView = [PICarpotOrderView carportOrderView];
     
     [PINotification addObserver:self selector:@selector(scrollToUserLoaction) name:@"ScrollToUserLoaction" object:nil];
 }
@@ -163,88 +161,7 @@ updatingLocation:(BOOL)updatingLocation
     
 }
 
-- (void)loadData {
-    
-    NSString *lon = [NSString stringWithFormat:@"%lf", self.mapView.userLocation.location.coordinate.longitude];
-    NSString *lat = [NSString stringWithFormat:@"%lf", self.mapView.userLocation.location.coordinate.latitude];
-    
-    NSString *url = [NSString stringWithFormat:@"%@/%@/%@/%d", urlPath(@"api/share/loadByDistance"), lon, lat, 20];
-    
-    [PIHttpTool piGet:url params:nil success:^(id response) {
-        
-        CLLocationCoordinate2D coor ;
-        
-        coor.latitude = 29.403598;
-        
-        coor.longitude = 120.261369;
-        
-        CLLocationCoordinate2D coors;
-        coors.latitude = 29.423598;
-        
-        coors.longitude = 120.281369;
-        
-        PICustomAnnotation *pointAnnotation = [[PICustomAnnotation alloc] init];
-        
-        
-        pointAnnotation.coordinate = coor;
-        pointAnnotation.icon = @"park_da";
-        
-        PICustomAnnotation *pointAnnotations = [[PICustomAnnotation alloc] init];
-        
-         pointAnnotations.coordinate = coors;
-        pointAnnotations.icon = @"park_da";
-        //设置地图的定位中心点坐标
-        
-        
-        //self.mapView.centerCoordinate = coor;
-        
-        //将点添加到地图上，即所谓的大头针
-        
-        NSArray *arr = @[pointAnnotation, pointAnnotations];
-        
-        [self.mapView addAnnotations:arr];
-       
-        
-    
-        
-    } failure:^(NSError *error) {
-        
-        
-    }];
-}
 
-/**自定义大头针*/
-
-- (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id <MAAnnotation>)annotation {
-    
-    NSLog(@"-------------");
-    
-    // 自定义大头针
-    if ([annotation isKindOfClass:[PICustomAnnotation class]]) {
-        PICustomAnnotationView *annoView = [PICustomAnnotationView annotationViewWithMap:mapView];
-//        annoView.canShowCallout= YES;
-//        annoView.draggable = YES;
-        annoView.annotation = annotation;
-        return annoView;
-    }
-    return nil;
-    
-}
-
-/*点击大头针*/
-- (void)mapView:(MAMapView *)mapView didSelectAnnotationView:(MAAnnotationView *)view {
-    
-   
-    if ([view isKindOfClass:[PICustomAnnotationView class]]) {
-        
-        [self.carpotOrderView show];
-        
-        self.carpotOrderView.lat = view.annotation.coordinate.latitude;
-        
-         //NSLog(@"%lf", view.annotation.coordinate.latitude);
-    }
-    
-}
 
 
 - (void)scrollToUserLoaction {

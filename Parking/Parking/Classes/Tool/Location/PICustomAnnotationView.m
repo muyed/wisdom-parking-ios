@@ -7,6 +7,7 @@
 //
 
 #import "PICustomAnnotationView.h"
+#import "PICarportModel.h"
 
 static NSString *identifier = @"PICustomAnnotationView";
 
@@ -35,7 +36,12 @@ static NSString *identifier = @"PICustomAnnotationView";
 {
     [super setAnnotation:annotation];
     self.image = [UIImage imageNamed:annotation.icon];
+    self.dataModel = annotation.model;
 }
 
-
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    
+    NSLog(@"------------------");
+    
+}
 @end

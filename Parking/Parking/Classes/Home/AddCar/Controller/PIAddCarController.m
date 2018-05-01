@@ -94,6 +94,7 @@
     
     [MBProgressHUD showIndeterWithMessage:@"正在添加..."];
     
+    weakself
     [PIHttpTool piPost:urlPath(@"api/carLicense/add") params:params success:^(id response) {
         
         [MBProgressHUD hideHUD];
@@ -103,6 +104,12 @@
         if (model.code == 200) {
             
             [MBProgressHUD showMessage:@"添加成功"];
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                
+                [weakSelf.navigationController popViewControllerAnimated:YES];
+                
+            });
         }else {
             
             [MBProgressHUD showMessage:model.errMsg];

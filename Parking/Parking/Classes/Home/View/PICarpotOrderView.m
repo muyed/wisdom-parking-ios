@@ -10,6 +10,7 @@
 #import "PICarportAddressCell.h"
 #import "PICarportBottomCell.h"
 #import "PICarportTimeCell.h"
+#import "PICarportModel.h"
 
 @interface PICarpotOrderView ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -54,6 +55,12 @@ static UIWindow *window_;
     [self.tableView registerClass:[PICarportTimeCell class] forCellReuseIdentifier:NSStringFromClass([PICarportTimeCell class])];
 }
 
+- (void)setDataModel:(PICarportDataModel *)dataModel {
+    
+    _dataModel = dataModel;
+    
+    [self.tableView reloadData];
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     return 4;
@@ -61,10 +68,22 @@ static UIWindow *window_;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    weakself
     if (indexPath.row == 0) {
         
         PICarportAddressCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([PICarportAddressCell class])];
         
+        cell.model = self.dataModel;
+        
+        [cell setCarportNav:^{
+            
+            [weakSelf dismiss];
+            
+            if (weakSelf.beginNavToCarport) {
+                
+                weakSelf.beginNavToCarport(weakSelf.dataModel);
+            }
+        }];
         return cell;
     }
     
@@ -72,10 +91,25 @@ static UIWindow *window_;
         
         PICarportBottomCell *cell = [PICarportBottomCell initWithTableView:tableView index:indexPath.row];
         
+        cell.model = self.dataModel;
+        
+        
+        [cell setMatchCarport:^{
+            
+            [weakSelf dismiss];
+            
+            if (weakSelf.beginMatchCarport) {
+                
+                weakSelf.beginMatchCarport(weakSelf.dataModel);
+            }
+        }];
+        
         return cell;
     }
     
     PICarportTimeCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([PICarportTimeCell class])];
+    
+    cell.model = self.dataModel;
     
     return cell;
 }
@@ -89,6 +123,11 @@ static UIWindow *window_;
         
         return 90;
     }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self dismiss];
 }
 
 - (void)show {
@@ -112,9 +151,6 @@ static UIWindow *window_;
     
     [self dismiss];
 }
-- (void)setLat:(CGFloat)lat {
-    
-    NSLog(@"%lf", lat);
-}
+
 
 @end

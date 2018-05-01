@@ -12,7 +12,11 @@ NSString * const PIAMap_Key = @"24440f88b802d8373b2de08e7e8b383d";
 
 NSString * const PIWXin_Key = @"wx39fab7de09774fbd";
 
+NSString * const PIFly_Key = @"5ae5c230";
+
 NSString *const SessionId = @"SessionId";
+
+NSString *const CookieID = @"CookieID";
 
 CGFloat const btnBorderM = 30;
 

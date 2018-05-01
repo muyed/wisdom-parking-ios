@@ -70,5 +70,58 @@
     }
 }
 
++ (NSString *)getWeekDay:(NSString *)dateString {
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    
+    NSDate *date = [formatter dateFromString:dateString];
+    
+   // NSDate *date = [self getDateWithString:dateString];
+    
+    NSArray *weekdays = @[@" ",@"周日",@"周一",@"周二",@"周三",@"周四",@"周五",@"周六"];
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSCalendarUnit calendarUnit = NSCalendarUnitWeekday;
+    
+    NSDateComponents *components = [calendar components:calendarUnit fromDate:date];
+    
+    return [weekdays objectAtIndex:components.weekday];
+}
+
++ (NSString *)getDay:(NSString *)dateString {
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDate *date = [formatter dateFromString:dateString];
+    
+    [formatter setDateFormat:@"MM-dd"];
+    
+    NSString *lastStr = [formatter stringFromDate:date];
+    
+    return lastStr;
+}
+
++ (NSString *)getTime:(NSString *)dateString {
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDate *date = [formatter dateFromString:dateString];
+    
+    [formatter setDateFormat:@"HH:mm"];
+    
+    NSString *lastStr = [formatter stringFromDate:date];
+    
+    return lastStr;
+    
+}
++ (NSDate *)getDateWithString:(NSString *)dateString {
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    
+    return  [formatter dateFromString:dateString];
+}
 @end

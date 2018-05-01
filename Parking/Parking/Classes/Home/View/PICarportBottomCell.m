@@ -7,6 +7,8 @@
 //
 
 #import "PICarportBottomCell.h"
+#import "PICarportBottomCell.h"
+#import "PICarportModel.h"
 
 @interface PICarportBottomCell ()
 
@@ -18,10 +20,14 @@
 @property (nonatomic, strong) UILabel *moneyLabel;
 ///-- 匹配按钮
 @property (nonatomic, strong) UIButton *matchBtn;
+
 @end
 
 @implementation PICarportBottomCell
-
+{
+    
+    NSInteger _index;
+}
 + (instancetype)initWithTableView:(UITableView *)tableview index:(NSInteger)index {
     
     PICarportBottomCell *cell = [tableview dequeueReusableCellWithIdentifier:NSStringFromClass([PICarportBottomCell class])];
@@ -49,7 +55,7 @@
     
     
     weakself
-    
+    _index = index;
     CGFloat margin;
     
     if (index == 3) {
@@ -101,8 +107,31 @@
         make.right.equalTo(weakSelf.contentView).offset(margin);
     }];
     
+    [self.matchBtn addTarget:self action:@selector(matchBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
 }
 
+- (void)matchBtnClick {
+    
+    if (self.matchCarport) {
+        
+        self.matchCarport();
+    }
+}
+- (void)setModel:(PICarportDataModel *)model {
+    
+    _model = model;
+    
+    if (_index == 2) {
+        
+        self.moneyLabel.text = [NSString stringWithFormat:@"%@元/小时", model.price];
+        
+    }else {
+        
+        self.tipLabel.text = [NSString stringWithFormat:@"车位: %@", model.carportNum];
+    }
+    
+}
 
 - (UIButton *)matchBtn {
     

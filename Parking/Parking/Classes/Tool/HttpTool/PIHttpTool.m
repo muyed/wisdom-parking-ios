@@ -44,7 +44,13 @@
 //    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json",@"image/jpeg",@"image/png", @"text/plain", @"text/html", nil];
     
     AFHTTPSessionManager *manager = [self getHttpManager];
-   // manager.responseSerializer =[AFJSONResponseSerializer serializer];
+    NSString *cookie = [PIUserDefaults objectForKey:CookieID];
+    
+    if (cookie.length > 0) {
+        
+        [manager.requestSerializer setValue:[PIUserDefaults objectForKey:CookieID] forHTTPHeaderField:@"Cookie"];
+    }
+  
     NSLog(@"请求地址--->%@",url);
     NSLog(@"请求参数-->%@",params);
     
@@ -67,6 +73,13 @@
     
     
     AFHTTPSessionManager *manager = [self getHttpManager];
+    
+    NSString *cookie = [PIUserDefaults objectForKey:CookieID];
+    
+    if (cookie.length > 0) {
+        
+        [manager.requestSerializer setValue:[PIUserDefaults objectForKey:CookieID] forHTTPHeaderField:@"Cookie"];
+    }
     
     [manager POST:url parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
         
@@ -197,7 +210,9 @@
             if (session) {
             
                 [PIUserDefaults setObject:session forKey:SessionId];
+                [PIUserDefaults setObject:cookieString forKey:CookieID];
                 [PIUserDefaults synchronize];
+                
             }
             
             

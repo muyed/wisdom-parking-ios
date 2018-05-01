@@ -7,6 +7,7 @@
 //
 
 #import "PICarportTimeCell.h"
+#import "PICarportModel.h"
 
 @interface PICarportTimeCell ()
 
@@ -96,6 +97,18 @@
     }];
 }
 
+- (void)setModel:(PICarportDataModel *)model {
+    
+    _model = model;
+    
+    self.leftDayLabel.text = model.startDay;
+    self.rightDayLabel.text = model.stopDay;
+    
+    self.leftTimeLabel.text = [NSString stringWithFormat:@"%@ %@",model.startWeekDay, model.startHour];
+    self.rightTimeLabel.text = [NSString stringWithFormat:@"%@ %@",model.stopWeekDay, model.stopHour];
+    NSLog(@"%@", model.stopHour);
+}
+
 - (UILabel *)tipLabel {
     
     if (!_tipLabel) {
@@ -123,8 +136,8 @@
     
     if (!_leftTimeLabel) {
         
-        _leftTimeLabel = [[UILabel alloc] initWithFont:16 textColor:txtSeconColor];
-        _leftTimeLabel.text = @"周六 10:00";
+        _leftTimeLabel = [[UILabel alloc] initWithFont:15 textColor:txtSeconColor];
+        //_leftTimeLabel.text = @"周六 10:00";
        // _leftTimeLabel.textAlignment = NSTextAlignmentCenter;
     }
     
@@ -147,8 +160,8 @@
     
     if (!_rightTimeLabel) {
         
-        _rightTimeLabel = [[UILabel alloc] initWithFont:16 textColor:txtSeconColor];
-        _rightTimeLabel.text = @"周六 12:00";
+        _rightTimeLabel = [[UILabel alloc] initWithFont:15 textColor:txtSeconColor];
+       // _rightTimeLabel.text = @"周六 12:00";
         _rightTimeLabel.textAlignment = NSTextAlignmentRight;
     }
     

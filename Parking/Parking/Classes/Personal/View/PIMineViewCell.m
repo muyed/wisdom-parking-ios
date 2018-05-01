@@ -15,6 +15,7 @@
 #import "PIMyVillageController.h"
 #import "PIComCertifiController.h"
 #import "PIMyParkingController.h"
+#import "PICarsListController.h"
 
 @interface PIMineViewCell ()
 
@@ -117,9 +118,9 @@
         
     }else {
         
-        PIAddCarController *addCar = [PIAddCarController new];
+        PICarsListController *carsList = [PICarsListController new];
         
-        [self.parentController.navigationController pushViewController:addCar animated:YES];
+        [self.parentController.navigationController pushViewController:carsList animated:YES];
     }
    
 }

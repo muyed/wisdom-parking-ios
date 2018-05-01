@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class PICarportDataModel;
+//-- 导航
+typedef void(^BeginNavToCarport)(PICarportDataModel *dataModel);
+//-- 匹配订单
+typedef void(^BeginMatchCarport)(PICarportDataModel *dataModel);
+
 @interface PICarpotOrderView : UIView
 
 + (instancetype)carportOrderView;
@@ -16,5 +22,10 @@
 
 - (void)dismiss;
 ///-- <#Notes#>
-@property (nonatomic, assign) CGFloat lat;
+@property (nonatomic, strong) PICarportDataModel *dataModel;
+///-- <#Notes#>
+@property (nonatomic, copy) BeginNavToCarport beginNavToCarport;
+///-- <#Notes#>
+@property (nonatomic, copy) BeginMatchCarport beginMatchCarport;
+
 @end

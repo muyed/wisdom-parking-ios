@@ -7,6 +7,7 @@
 //
 
 #import "PICustomAnnotation.h"
+#import "PICarportModel.h"
 
 @implementation PICustomAnnotation
 

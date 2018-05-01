@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class PICarportDataModel;
+
 @interface PICarportTimeCell : UITableViewCell
+
+///-- 数据源
+@property (nonatomic, strong) PICarportDataModel *model;
 
 @end

@@ -9,7 +9,12 @@
 #import <MAMapKit/MAMapKit.h>
 #import "PICustomAnnotation.h"
 
+@class PICarportDataModel;
+
 @interface PICustomAnnotationView : MAAnnotationView
+
+///-- 数据源
+@property (nonatomic, strong) PICarportDataModel *dataModel;
 
 + (instancetype)annotationViewWithMap:(MAMapView *)mapView;
 

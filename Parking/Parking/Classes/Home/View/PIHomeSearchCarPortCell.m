@@ -7,6 +7,8 @@
 //
 
 #import "PIHomeSearchCarPortCell.h"
+#import "PICarportModel.h"
+#import "PIMatchCarportController.h"
 
 @interface PIHomeSearchCarPortCell ()
 
@@ -81,7 +83,7 @@
         
         make.right.equalTo(weakSelf.contentView).offset(-15);
         make.top.equalTo(weakSelf.matchBtn.mas_bottom).offset(20);
-        make.width.mas_equalTo(80);
+        make.width.mas_equalTo(100);
     }];
     
     [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -105,8 +107,45 @@
         make.right.equalTo(weakSelf.priceLabel.mas_left).offset(-5);
         make.bottom.equalTo(weakSelf.contentView).offset(-15);
     }];
+    
+    [self.matchBtn addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
 }
 
+- (void)buttonClick {
+    
+    PIMatchCarportController *matchVC = [PIMatchCarportController new];
+    matchVC.dataModel = self.dataModel;
+    [self.parentController.navigationController pushViewController:matchVC animated:YES];
+}
+- (void)setDataModel:(PICarportDataModel *)dataModel {
+    
+    _dataModel = dataModel;
+    
+    self.posationLabel.text = dataModel.carportNum;
+    self.timeLabel.text = [NSString stringWithFormat:@"可停至%@ %@", dataModel.stopDay, dataModel.stopHour];
+    
+    if (dataModel.communityName.length == 0 && dataModel.addr.length == 0) {
+        
+        self.addressLabel.text = @"   ";
+    }else {
+        
+        self.addressLabel.text = dataModel.communityName.length == 0 ? dataModel.addr : dataModel.communityName;
+    }
+   
+    
+    NSString *tmp = [NSString stringWithFormat:@"%@元/小时", dataModel.price];
+    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:tmp];
+    [str addAttribute:NSForegroundColorAttributeName  value:PIYellowColor range:NSMakeRange(0, tmp.length - 3)];
+    
+    [str addAttribute:NSForegroundColorAttributeName  value:txtSeconColor range:NSMakeRange(tmp.length - 3, 3)];
+    
+    [str addAttribute:NSFontAttributeName  value:PISYS_FONT(20) range:NSMakeRange(0, tmp.length - 4)];
+    
+    [str addAttribute:NSFontAttributeName  value:PISYS_FONT(16) range:NSMakeRange(tmp.length - 4, 4)];
+    
+    self.priceLabel.attributedText = str;
+   
+}
 - (UIButton *)matchBtn {
     
     if (!_matchBtn) {
@@ -182,17 +221,7 @@
         _priceLabel.textAlignment = NSTextAlignmentRight;
         _priceLabel.font = PISYS_FONT(23);
         //_priceLabel.text = @"4元/小时";
-        NSString *tmp = @"4元/小时";
-        NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:tmp];
-        [str addAttribute:NSForegroundColorAttributeName  value:PIYellowColor range:NSMakeRange(0, tmp.length - 3)];
-        
-        [str addAttribute:NSForegroundColorAttributeName  value:txtSeconColor range:NSMakeRange(tmp.length - 3, 3)];
-        
-        [str addAttribute:NSFontAttributeName  value:PISYS_FONT(20) range:NSMakeRange(0, tmp.length - 4)];
-        
-        [str addAttribute:NSFontAttributeName  value:PISYS_FONT(16) range:NSMakeRange(tmp.length - 4, 4)];
-        
-        _priceLabel.attributedText = str;
+       
     }
     
     return _priceLabel;

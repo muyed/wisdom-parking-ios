@@ -7,6 +7,7 @@
 //
 
 #import "PICarportAddressCell.h"
+#import "PICarportModel.h"
 
 @interface PICarportAddressCell ()
 
@@ -62,8 +63,25 @@
         make.bottom.equalTo(weakSelf.contentView).offset(-10);
         make.left.equalTo(weakSelf.contentView).offset(15);
     }];
+    
+    [self.navBtn addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
 }
 
+- (void)buttonClick {
+    
+    if (self.carportNav) {
+        
+        self.carportNav();
+    }
+}
+- (void)setModel:(PICarportDataModel *)model {
+    
+    _model = model;
+    
+    self.nameLabel.text = model.communityName.length == 0 ? @" " : model.communityName;
+    self.addLabel.text = model.addr.length == 0 ? @" " : model.addr;
+    
+}
 - (UIButton *)navBtn {
     
     if (!_navBtn) {

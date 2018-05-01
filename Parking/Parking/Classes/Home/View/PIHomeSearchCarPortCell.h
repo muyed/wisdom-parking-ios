@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class PICarportDataModel;
+
 @interface PIHomeSearchCarPortCell : UITableViewCell
 
+///-- <#Notes#>
+@property (nonatomic, strong) PICarportDataModel *dataModel;
 @end

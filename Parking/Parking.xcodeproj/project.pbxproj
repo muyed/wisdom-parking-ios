@@ -48,7 +48,6 @@
 		183C66A6206A75AF00908E21 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183C66A5206A75AF00908E21 /* CoreText.framework */; };
 		183C66A8206A75CE00908E21 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183C66A7206A75CE00908E21 /* CoreGraphics.framework */; };
 		183C66AA206A75E100908E21 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183C66A9206A75E100908E21 /* UIKit.framework */; };
-		183C66AC206A75F400908E21 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183C66AB206A75F400908E21 /* Foundation.framework */; };
 		183C66AE206A760100908E21 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183C66AD206A760100908E21 /* CFNetwork.framework */; };
 		183C66B0206A761B00908E21 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183C66AF206A761B00908E21 /* CoreMotion.framework */; };
 		1845B36D206D1725007B3FE2 /* PIComCertifiController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1845B36C206D1725007B3FE2 /* PIComCertifiController.m */; };
@@ -99,6 +98,21 @@
 		189A57302090D38900870D3B /* PICarportAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A572F2090D38900870D3B /* PICarportAddressCell.m */; };
 		189A573320915A4D00870D3B /* PICarportBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A573220915A4D00870D3B /* PICarportBottomCell.m */; };
 		189A5736209167E200870D3B /* PICarportTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A5735209167E200870D3B /* PICarportTimeCell.m */; };
+		189A57392091F03400870D3B /* PICarportModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A57382091F03400870D3B /* PICarportModel.m */; };
+		189A573C2095B1C200870D3B /* PIHomeNaviDriveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A573B2095B1C100870D3B /* PIHomeNaviDriveController.m */; };
+		189A57412096060D00870D3B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189A57402096060D00870D3B /* AVFoundation.framework */; };
+		189A57432096062A00870D3B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189A57422096062A00870D3B /* AudioToolbox.framework */; };
+		189A57452096064400870D3B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189A57442096064400870D3B /* CoreLocation.framework */; };
+		189A57472096065600870D3B /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189A57462096065500870D3B /* Contacts.framework */; };
+		189A57492096065E00870D3B /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189A57482096065E00870D3B /* AddressBook.framework */; };
+		189A574B2096068B00870D3B /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 189A574A2096068B00870D3B /* libicucore.tbd */; };
+		189A574D209607BF00870D3B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183C66AB206A75F400908E21 /* Foundation.framework */; };
+		189A575B209615E300870D3B /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189A575A209615E300870D3B /* iflyMSC.framework */; };
+		189A575E2096E60400870D3B /* PIMatchCarportController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A575D2096E60400870D3B /* PIMatchCarportController.m */; };
+		189A57612096F1AC00870D3B /* PIMatchCarportTopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A57602096F1AC00870D3B /* PIMatchCarportTopCell.m */; };
+		189A5764209706C000870D3B /* PICarsListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A5763209706C000870D3B /* PICarsListController.m */; };
+		189A57682097122B00870D3B /* PICarListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A57672097122B00870D3B /* PICarListModel.m */; };
+		189A576F209828C600870D3B /* PIMyWalletController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A576E209828C600870D3B /* PIMyWalletController.m */; };
 		18B095AC204C606400871845 /* PIMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095A9204C606400871845 /* PIMeViewController.m */; };
 		18B095B3204C60AD00871845 /* PIOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095B0204C60AD00871845 /* PIOrderViewController.m */; };
 		18B095CC204C61CD00871845 /* PIAddDeviceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095B8204C61CD00871845 /* PIAddDeviceController.m */; };
@@ -354,6 +368,27 @@
 		189A573220915A4D00870D3B /* PICarportBottomCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PICarportBottomCell.m; sourceTree = "<group>"; };
 		189A5734209167E200870D3B /* PICarportTimeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PICarportTimeCell.h; sourceTree = "<group>"; };
 		189A5735209167E200870D3B /* PICarportTimeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PICarportTimeCell.m; sourceTree = "<group>"; };
+		189A57372091F03400870D3B /* PICarportModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PICarportModel.h; sourceTree = "<group>"; };
+		189A57382091F03400870D3B /* PICarportModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PICarportModel.m; sourceTree = "<group>"; };
+		189A573A2095B1C100870D3B /* PIHomeNaviDriveController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIHomeNaviDriveController.h; sourceTree = "<group>"; };
+		189A573B2095B1C100870D3B /* PIHomeNaviDriveController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIHomeNaviDriveController.m; sourceTree = "<group>"; };
+		189A57402096060D00870D3B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		189A57422096062A00870D3B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		189A57442096064400870D3B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		189A57462096065500870D3B /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
+		189A57482096065E00870D3B /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		189A574A2096068B00870D3B /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		189A575A209615E300870D3B /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iflyMSC.framework; sourceTree = "<group>"; };
+		189A575C2096E60400870D3B /* PIMatchCarportController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIMatchCarportController.h; sourceTree = "<group>"; };
+		189A575D2096E60400870D3B /* PIMatchCarportController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIMatchCarportController.m; sourceTree = "<group>"; };
+		189A575F2096F1AC00870D3B /* PIMatchCarportTopCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIMatchCarportTopCell.h; sourceTree = "<group>"; };
+		189A57602096F1AC00870D3B /* PIMatchCarportTopCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIMatchCarportTopCell.m; sourceTree = "<group>"; };
+		189A5762209706C000870D3B /* PICarsListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PICarsListController.h; sourceTree = "<group>"; };
+		189A5763209706C000870D3B /* PICarsListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PICarsListController.m; sourceTree = "<group>"; };
+		189A57662097122B00870D3B /* PICarListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PICarListModel.h; sourceTree = "<group>"; };
+		189A57672097122B00870D3B /* PICarListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PICarListModel.m; sourceTree = "<group>"; };
+		189A576D209828C600870D3B /* PIMyWalletController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIMyWalletController.h; sourceTree = "<group>"; };
+		189A576E209828C600870D3B /* PIMyWalletController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIMyWalletController.m; sourceTree = "<group>"; };
 		18B095A8204C606400871845 /* PIMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIMeViewController.h; sourceTree = "<group>"; };
 		18B095A9204C606400871845 /* PIMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIMeViewController.m; sourceTree = "<group>"; };
 		18B095AF204C60AD00871845 /* PIOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIOrderViewController.h; sourceTree = "<group>"; };
@@ -475,11 +510,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				189A574D209607BF00870D3B /* Foundation.framework in Frameworks */,
+				189A574B2096068B00870D3B /* libicucore.tbd in Frameworks */,
+				189A57492096065E00870D3B /* AddressBook.framework in Frameworks */,
+				189A57472096065600870D3B /* Contacts.framework in Frameworks */,
+				189A57452096064400870D3B /* CoreLocation.framework in Frameworks */,
+				189A57432096062A00870D3B /* AudioToolbox.framework in Frameworks */,
+				189A57412096060D00870D3B /* AVFoundation.framework in Frameworks */,
 				1897FD7A208B6D3800FF4F28 /* libsqlite3.tbd in Frameworks */,
 				1897FD78208B6A5700FF4F28 /* libWeChatSDK.a in Frameworks */,
 				183C66B0206A761B00908E21 /* CoreMotion.framework in Frameworks */,
 				183C66AE206A760100908E21 /* CFNetwork.framework in Frameworks */,
-				183C66AC206A75F400908E21 /* Foundation.framework in Frameworks */,
 				183C66AA206A75E100908E21 /* UIKit.framework in Frameworks */,
 				183C66A8206A75CE00908E21 /* CoreGraphics.framework in Frameworks */,
 				183C66A6206A75AF00908E21 /* CoreText.framework in Frameworks */,
@@ -487,6 +528,7 @@
 				183C66A2206A744D00908E21 /* CoreTelephony.framework in Frameworks */,
 				183C66A0206A743400908E21 /* SystemConfiguration.framework in Frameworks */,
 				183C669E206A742900908E21 /* libz.tbd in Frameworks */,
+				189A575B209615E300870D3B /* iflyMSC.framework in Frameworks */,
 				183C669C206A741400908E21 /* libc++.tbd in Frameworks */,
 				F060CE10D439F1EE5A0EFB29 /* libPods-Parking.a in Frameworks */,
 				183C669A206A73C100908E21 /* AlipaySDK.framework in Frameworks */,
@@ -833,6 +875,56 @@
 			path = WXPay;
 			sourceTree = "<group>";
 		};
+		189A57552096130700870D3B /* ifFly */ = {
+			isa = PBXGroup;
+			children = (
+				189A575A209615E300870D3B /* iflyMSC.framework */,
+			);
+			path = ifFly;
+			sourceTree = "<group>";
+		};
+		189A57652097121900870D3B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				189A57662097122B00870D3B /* PICarListModel.h */,
+				189A57672097122B00870D3B /* PICarListModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		189A5769209827DD00870D3B /* MyWallet */ = {
+			isa = PBXGroup;
+			children = (
+				189A576A209827DD00870D3B /* Controller */,
+				189A576B209827DD00870D3B /* Model */,
+				189A576C209827DD00870D3B /* View */,
+			);
+			path = MyWallet;
+			sourceTree = "<group>";
+		};
+		189A576A209827DD00870D3B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				189A576D209828C600870D3B /* PIMyWalletController.h */,
+				189A576E209828C600870D3B /* PIMyWalletController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		189A576B209827DD00870D3B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		189A576C209827DD00870D3B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		18B095A6204C606400871845 /* Me */ = {
 			isa = PBXGroup;
 			children = (
@@ -915,7 +1007,8 @@
 		18B095B4204C61CD00871845 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				18B095B5204C61CD00871845 /* AddDevice */,
+				189A5769209827DD00870D3B /* MyWallet */,
+				18B095B5204C61CD00871845 /* AddCar */,
 				18B095BF204C61CD00871845 /* Controller */,
 				18B095C2204C61CD00871845 /* Model */,
 				18B095C3204C61CD00871845 /* View */,
@@ -923,14 +1016,14 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		18B095B5204C61CD00871845 /* AddDevice */ = {
+		18B095B5204C61CD00871845 /* AddCar */ = {
 			isa = PBXGroup;
 			children = (
+				189A57652097121900870D3B /* Model */,
 				18B095B6204C61CD00871845 /* Controller */,
-				18B095BB204C61CD00871845 /* Model */,
 				18B095BC204C61CD00871845 /* View */,
 			);
-			path = AddDevice;
+			path = AddCar;
 			sourceTree = "<group>";
 		};
 		18B095B6204C61CD00871845 /* Controller */ = {
@@ -946,15 +1039,10 @@
 				18B096A8204D80D700871845 /* PIAddNoOwerController.m */,
 				180DCA1F2070912A002F01DA /* PIAddCarController.h */,
 				180DCA202070912A002F01DA /* PIAddCarController.m */,
+				189A5762209706C000870D3B /* PICarsListController.h */,
+				189A5763209706C000870D3B /* PICarsListController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		18B095BB204C61CD00871845 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		18B095BC204C61CD00871845 /* View */ = {
@@ -987,10 +1075,14 @@
 				18B095C1204C61CD00871845 /* PIHomeViewController.m */,
 				180E22B020614B5600FF21BB /* PIHomeOrderController.h */,
 				180E22B120614B5600FF21BB /* PIHomeOrderController.m */,
+				189A573A2095B1C100870D3B /* PIHomeNaviDriveController.h */,
+				189A573B2095B1C100870D3B /* PIHomeNaviDriveController.m */,
 				186269812078A47C00F450AF /* PIHomeSearchController.h */,
 				186269822078A47C00F450AF /* PIHomeSearchController.m */,
 				1897FD7E208CAEB100FF4F28 /* PIHomeSearchCarPortController.h */,
 				1897FD7F208CAEB100FF4F28 /* PIHomeSearchCarPortController.m */,
+				189A575C2096E60400870D3B /* PIMatchCarportController.h */,
+				189A575D2096E60400870D3B /* PIMatchCarportController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1000,6 +1092,8 @@
 			children = (
 				186269842078A90500F450AF /* PIAddressModel.h */,
 				186269852078A90500F450AF /* PIAddressModel.m */,
+				189A57372091F03400870D3B /* PICarportModel.h */,
+				189A57382091F03400870D3B /* PICarportModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1027,6 +1121,8 @@
 				189A573220915A4D00870D3B /* PICarportBottomCell.m */,
 				189A5734209167E200870D3B /* PICarportTimeCell.h */,
 				189A5735209167E200870D3B /* PICarportTimeCell.m */,
+				189A575F2096F1AC00870D3B /* PIMatchCarportTopCell.h */,
+				189A57602096F1AC00870D3B /* PIMatchCarportTopCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1241,6 +1337,7 @@
 		18B09631204C629E00871845 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				189A57552096130700870D3B /* ifFly */,
 				1897FD74208B6A5700FF4F28 /* WXPay */,
 				183C6696206A73C100908E21 /* Alipay */,
 			);
@@ -1313,6 +1410,12 @@
 		2C868DF110EE56F0EB0EB620 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				189A574A2096068B00870D3B /* libicucore.tbd */,
+				189A57482096065E00870D3B /* AddressBook.framework */,
+				189A57462096065500870D3B /* Contacts.framework */,
+				189A57442096064400870D3B /* CoreLocation.framework */,
+				189A57422096062A00870D3B /* AudioToolbox.framework */,
+				189A57402096060D00870D3B /* AVFoundation.framework */,
 				1897FD79208B6D3800FF4F28 /* libsqlite3.tbd */,
 				183C66AF206A761B00908E21 /* CoreMotion.framework */,
 				183C66AD206A760100908E21 /* CFNetwork.framework */,
@@ -1524,6 +1627,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Parking/Pods-Parking-resources.sh",
 				"${PODS_ROOT}/AMap3DMap/MAMapKit.framework/AMap.bundle",
+				"${PODS_ROOT}/AMapNavi/AMapNaviKit.framework/AMapNavi.bundle",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/PGDatePicker/PGDatePicker/PGDatePicker.bundle",
@@ -1567,6 +1671,7 @@
 				189A57302090D38900870D3B /* PICarportAddressCell.m in Sources */,
 				189A573320915A4D00870D3B /* PICarportBottomCell.m in Sources */,
 				1805E0792082058900A48ECE /* PISelectCitiesController.m in Sources */,
+				189A5764209706C000870D3B /* PICarsListController.m in Sources */,
 				189A5736209167E200870D3B /* PICarportTimeCell.m in Sources */,
 				1805E0832082065B00A48ECE /* PIProvonceModel.m in Sources */,
 				18B09637204C629E00871845 /* AppDelegate+PIExtension.m in Sources */,
@@ -1604,6 +1709,7 @@
 				186269832078A47C00F450AF /* PIHomeSearchController.m in Sources */,
 				18B095CC204C61CD00871845 /* PIAddDeviceController.m in Sources */,
 				189A57272090ACCF00870D3B /* PICustomAnnotation.m in Sources */,
+				189A57682097122B00870D3B /* PICarListModel.m in Sources */,
 				1862697D207863A400F450AF /* PIPayOrderTypeCell.m in Sources */,
 				186269772078572300F450AF /* PIPayOrderController.m in Sources */,
 				18B095CF204C61CD00871845 /* PIHomeViewController.m in Sources */,
@@ -1616,9 +1722,12 @@
 				18B095CE204C61CD00871845 /* PIAddSubViewCell.m in Sources */,
 				18B0963E204C629E00871845 /* UIView+PIExtension.m in Sources */,
 				1805E0712081E21700A48ECE /* PIPersonAuthenController.m in Sources */,
+				189A57392091F03400870D3B /* PICarportModel.m in Sources */,
 				18B095EB204C622600871845 /* PILoginFieldView.m in Sources */,
 				18B0966C204C652300871845 /* PIConst.m in Sources */,
+				189A576F209828C600870D3B /* PIMyWalletController.m in Sources */,
 				18B095EA204C622600871845 /* PILoginManager.m in Sources */,
+				189A575E2096E60400870D3B /* PIMatchCarportController.m in Sources */,
 				189A572A2090AD2900870D3B /* PICustomAnnotationView.m in Sources */,
 				1897FD7D208C6A7D00FF4F28 /* PIWXPayModel.m in Sources */,
 				18B0960C204C626000871845 /* PIHttpTool.m in Sources */,
@@ -1658,8 +1767,10 @@
 				18B0963D204C629E00871845 /* UIView+ParentController.m in Sources */,
 				1805E09C2083441E00A48ECE /* PIPublishOrderController.m in Sources */,
 				1805E0A42084CCD100A48ECE /* PIMyVillageController.m in Sources */,
+				189A573C2095B1C200870D3B /* PIHomeNaviDriveController.m in Sources */,
 				1805E0AE2084DAE200A48ECE /* PIMyParkingCollectionCell.m in Sources */,
 				1862697A20785D6E00F450AF /* PIPayOrderTopCell.m in Sources */,
+				189A57612096F1AC00870D3B /* PIMatchCarportTopCell.m in Sources */,
 				1805E096208341C900A48ECE /* PITextView.m in Sources */,
 				18B09636204C629E00871845 /* PIBottomBtn.m in Sources */,
 				18B095E7204C622600871845 /* PILoginViewController.m in Sources */,
@@ -1837,9 +1948,12 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = D2C4P929KB;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Parking/Classes/Main/Lib/Alipay",
+					"$(SRCROOT)/Parking/Classes/Main/Lib/ifFly",
+					"$(PROJECT_DIR)/Parking/Classes/Main/Lib/ifFly",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Parking/Classes/Other/parkingHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Support Files/Info.plist";
@@ -1865,9 +1979,12 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = D2C4P929KB;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Parking/Classes/Main/Lib/Alipay",
+					"$(SRCROOT)/Parking/Classes/Main/Lib/ifFly",
+					"$(PROJECT_DIR)/Parking/Classes/Main/Lib/ifFly",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Parking/Classes/Other/parkingHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Support Files/Info.plist";

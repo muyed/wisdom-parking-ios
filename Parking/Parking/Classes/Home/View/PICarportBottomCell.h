@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class PICarportDataModel;
+
+typedef void(^MatchCarport)(void);
 @interface PICarportBottomCell : UITableViewCell
 
 + (instancetype)initWithTableView:(UITableView *)tableview index:(NSInteger)index;
 
+///-- 数据模型
+@property (nonatomic, strong) PICarportDataModel *model;
+///-- <#Notes#>
+@property (nonatomic, copy) MatchCarport matchCarport;
 @end

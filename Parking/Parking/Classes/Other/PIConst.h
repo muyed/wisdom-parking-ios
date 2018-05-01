@@ -12,8 +12,12 @@
 UIKIT_EXTERN NSString * const PIAMap_Key;
 /**微信*/
 UIKIT_EXTERN NSString * const PIWXin_Key;
+/**讯飞*/
+UIKIT_EXTERN NSString * const PIFly_Key;
 
 UIKIT_EXTERN NSString * const SessionId;
+/**cookie*/
+UIKIT_EXTERN NSString * const CookieID;
 
 UIKIT_EXTERN CGFloat const btnBorderM;
 

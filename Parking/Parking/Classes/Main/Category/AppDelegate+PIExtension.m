@@ -15,6 +15,7 @@
 #import <AlipaySDK/AlipaySDK.h>
 #import "WXApi.h"
 #import "PIPayTool.h"
+#import <iflyMSC/iflyMSC.h>
 
 
 @implementation AppDelegate (PIExtension)
@@ -56,6 +57,7 @@
     
     [AMapServices sharedServices].apiKey = PIAMap_Key;
     [WXApi registerApp:PIWXin_Key];
+    [IFlySpeechUtility createUtility:PIFly_Key];
     //[[PILocationTool shareCoreLoaction] startUpdataingLocation];
 }
 

@@ -32,5 +32,9 @@
  */
 @property (nonatomic, assign) NSInteger index;
 
+///-- 标题
+@property (nonatomic, strong) UILabel *titleLabel;
+///-- 内容
+@property (nonatomic, strong) UITextField *textField;
 
 @end

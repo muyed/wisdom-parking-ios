@@ -10,4 +10,8 @@
 
 @interface PIHomeSearchCarPortController : PIBaseViewController
 
+///-- <#Notes#>
+@property (nonatomic, assign) CGFloat lat;
+
+@property (nonatomic, assign) CGFloat lon;
 @end

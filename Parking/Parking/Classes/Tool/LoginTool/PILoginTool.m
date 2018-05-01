@@ -38,6 +38,7 @@
         PINavigationController  *nav = [[PINavigationController alloc] initWithRootViewController:[[PILoginViewController alloc] init]];
         
         [PIUserDefaults removeObjectForKey:SessionId];
+        [PIUserDefaults removeObjectForKey:CookieID];
         [PIUserDefaults removeObjectForKey:@"PIUserInfo"];
         [PIUserDefaults synchronize];
         

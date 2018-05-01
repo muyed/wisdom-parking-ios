@@ -29,5 +29,11 @@
 
 ///-- 验证身份证
 - (BOOL)validateIdentityCard;
+///-- 获取星期几
++ (NSString *)getWeekDay:(NSString *)dateString;
+///-- 获取日期
++ (NSString *)getDay:(NSString *)dateString;
+///-- 获取日期
++ (NSString *)getTime:(NSString *)dateString;
 
 @end

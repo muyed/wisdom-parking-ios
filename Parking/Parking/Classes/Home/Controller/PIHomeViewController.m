@@ -26,12 +26,18 @@
 #import "PIPayForCashController.h"
 #import "PIWXPayModel.h"
 #import "PIHomeSearchCarPortController.h"
+#import "PICustomAnnotation.h"
+#import "PICustomAnnotationView.h"
+#import "PICarpotOrderView.h"
+#import "PICarportModel.h"
+#import "PIHomeNaviDriveController.h"
+#import "PIMatchCarportController.h"
 
 
-@interface PIHomeViewController ()<MAMapViewDelegate, PIHomeBottomDelegate>
+@interface PIHomeViewController ()<MAMapViewDelegate,PIHomeBottomDelegate>
 
 ///-- 地图
-@property (nonatomic, strong) MAMapView *mapView;
+@property (nonatomic, weak) MAMapView *mapView;
 ///-- 主视图
 @property (nonatomic, strong) PIHomeMainView *mainView;
 ///-- 客服
@@ -52,6 +58,8 @@
 ///-- 个人中心
 @property (nonatomic, strong) UIButton *locationBtn;
 
+@property (nonatomic, strong) PICarpotOrderView *carpotOrderView;
+
 @end
 
 @implementation PIHomeViewController
@@ -64,7 +72,7 @@
     
     
     [self setupNav];
-    [self setupTopBtn];
+    //[self setupTopBtn];
     
    
     //[self setupMap];
@@ -72,11 +80,45 @@
     
     mapManager.mapController = self;
     [mapManager initMapView];
-    
+    mapManager.mapView.delegate = self;
+    self.mapView = mapManager.mapView;
 
     [self setupUI];
     
-
+    self.carpotOrderView = [PICarpotOrderView carportOrderView];
+    
+    weakself
+    [self.carpotOrderView setBeginNavToCarport:^(PICarportDataModel *dataModel) {
+        
+        NSLog(@"----> %@", dataModel.communityName);
+        PIHomeNaviDriveController *naviDrive = [PIHomeNaviDriveController new];
+        naviDrive.startCoor = weakSelf.mapView.userLocation.coordinate;
+        
+        CLLocationCoordinate2D coor = CLLocationCoordinate2DMake(29.383783, 120.151287);
+        naviDrive.destinationCoor = coor;
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
+            [weakSelf.navigationController pushViewController:naviDrive animated:YES];
+        });
+        
+    }];
+    
+    [self.carpotOrderView setBeginMatchCarport:^(PICarportDataModel *dataModel) {
+        
+        PIMatchCarportController *matchVC = [PIMatchCarportController new];
+        matchVC.dataModel = dataModel;
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
+            [weakSelf.navigationController pushViewController:matchVC animated:YES];
+        });
+    }];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [self loadData];
+        
+    });
 //
 //    PIHomeItemView *categaryView = [[PIHomeItemView alloc] initWithFrame:CGRectMake(15, NavBarHeight, SCREEN_WIDTH - 30, 54)];
 //
@@ -108,7 +150,7 @@
 }
 - (void)setupNav {
     
-    UIView *nav = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, NavBarHeight + 60 )];
+    UIView *nav = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, NavBarHeight)];
     nav.backgroundColor = PIMainColor;
     [self.view addSubview:nav];
     self.navView = nav;
@@ -132,13 +174,13 @@
     [btn addTarget:self action:@selector(getMessage) forControlEvents:UIControlEventTouchUpInside];
     [nav addSubview:btn];
     
-    UIButton *leftBtn = [[UIButton alloc] initWithTitle:@"+"];
-    leftBtn.x = 20;
-    leftBtn.y = top;
-    leftBtn.width = 25;
-    leftBtn.height = 25;
-    [leftBtn addTarget:self action:@selector(publish) forControlEvents:UIControlEventTouchUpInside];
-    [nav addSubview:leftBtn];
+//    UIButton *leftBtn = [[UIButton alloc] initWithTitle:@"+"];
+//    leftBtn.x = 20;
+//    leftBtn.y = top;
+//    leftBtn.width = 25;
+//    leftBtn.height = 25;
+//    [leftBtn addTarget:self action:@selector(publish) forControlEvents:UIControlEventTouchUpInside];
+//    [nav addSubview:leftBtn];
     
 //    UIBarButtonItem *rightBtn = [UIBarButtonItem itemWithImage:@"home_message" target:self action:@selector(getMessage)];
 //
@@ -298,6 +340,84 @@
 //    self.bottomView.height = 200;
 //    self.bottomView.delegate = self;
 //    [self.view addSubview:self.bottomView];
+}
+
+- (void)loadData {
+    
+    NSString *lon = [NSString stringWithFormat:@"%lf", self.mapView.userLocation.location.coordinate.longitude];
+    NSString *lat = [NSString stringWithFormat:@"%lf", self.mapView.userLocation.location.coordinate.latitude];
+    
+    NSString *url = [NSString stringWithFormat:@"%@/%@/%@/%d", urlPath(@"api/share/loadByDistance"), lon, lat, 20];
+    
+    NSMutableArray *dataArr = [NSMutableArray array];
+    
+    weakself
+    [PIHttpTool piGet:url params:nil success:^(id response) {
+        
+        PICarportModel *model = [PICarportModel mj_objectWithKeyValues:response];
+        
+        if (model.code == 200) {
+            
+            for (PICarportDataModel *dataModel in model.data) {
+                
+                CLLocationCoordinate2D coor ;
+                coor.latitude = dataModel.lat;
+                coor.longitude = dataModel.lon;
+                
+                PICustomAnnotation *pointAnnotation = [[PICustomAnnotation alloc] init];
+                
+                pointAnnotation.coordinate = coor;
+                pointAnnotation.icon = @"park_da";
+                pointAnnotation.model = dataModel;
+                [dataArr addObject:pointAnnotation];
+            }
+            
+            [weakSelf.mapView addAnnotations:dataArr];
+            
+        }else {
+            
+            [MBProgressHUD showMessage:model.errMsg];
+        }
+        
+        
+    } failure:^(NSError *error) {
+        
+        
+    }];
+}
+
+
+/**自定义大头针*/
+
+- (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id <MAAnnotation>)annotation {
+    
+    // 自定义大头针
+    if ([annotation isKindOfClass:[PICustomAnnotation class]]) {
+        PICustomAnnotationView *annoView = [PICustomAnnotationView annotationViewWithMap:mapView];
+        //        annoView.canShowCallout= YES;
+        //        annoView.draggable = YES;
+        annoView.annotation = annotation;
+        return annoView;
+    }
+    return nil;
+    
+}
+
+/*点击大头针*/
+- (void)mapView:(MAMapView *)mapView didSelectAnnotationView:(MAAnnotationView *)view {
+    
+    
+    if ([view isKindOfClass:[PICustomAnnotationView class]]) {
+        
+        PICustomAnnotationView *annotationView = (PICustomAnnotationView *)view;
+        
+        self.carpotOrderView.dataModel = annotationView.dataModel;
+        
+        [self.carpotOrderView show];
+        
+        //NSLog(@"%lf", view.annotation.coordinate.latitude);
+    }
+    
 }
 
 

@@ -8,6 +8,8 @@
 
 #import <MAMapKit/MAMapKit.h>
 
+@class PICarportDataModel;
+
 @interface PICustomAnnotation : NSObject<MAAnnotation>
 
 /**
@@ -29,5 +31,8 @@
  *  图标
  */
 @property (nonatomic, copy) NSString *icon;
+
+///-- 数据类型
+@property (nonatomic, strong) PICarportDataModel *model;
 
 @end
