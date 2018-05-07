@@ -17,11 +17,15 @@
 @end
 
 @implementation PIPayForCashController
-
+{
+    
+    NSInteger _selectIndex;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.title = @"缴纳押金";
+    _selectIndex = 0;
     [self setupUI];
 }
 
@@ -58,7 +62,35 @@
 
 - (void)bottomBtnClick {
     
+    if (self.orderNum.length == 0) {
+        
+        [PIPayTool payForAcountCash:^(NSString *orderNum) {
+            
+            if (_selectIndex == 0) {
+                
+                [PIPayTool AlipayForOrderWithOrderNum:orderNum];
+            }else {
+                
+                [PIPayTool WXpayForOrderWithOrderNum:orderNum];
+            }
+            
+            
+            
+        }];
+    }else {
+        
+        
+        if (_selectIndex == 0) {
+            
+            [PIPayTool AlipayForOrderWithOrderNum:self.orderNum];
+        }else {
+            
+            [PIPayTool WXpayForOrderWithOrderNum:self.orderNum];
+        }
+    }
+   
     
+   
 }
 
 
@@ -86,6 +118,8 @@
         PIPayForCashCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([PIPayForCashCell class])];
         cell.userInteractionEnabled = NO;
         
+        cell.cash = self.isCarportCash ? [PILoginTool defaultTool].carportCashConf : [PILoginTool defaultTool].accountCashConf;
+        
         return cell;
     }
     
@@ -95,6 +129,9 @@
         
         cell.imageName = @"order_alipay";
         cell.titleStr = @"支付宝";
+        
+         [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+        
     }else {
         
         cell.imageName = @"order_wx";
@@ -133,6 +170,13 @@
         header.textLabel.text = @"   选择支付方式";
         header.textLabel.font = PISYS_FONT(18);
     }
+    
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    _selectIndex = indexPath.row;
+    
     
 }
 

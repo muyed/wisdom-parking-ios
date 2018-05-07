@@ -10,4 +10,6 @@
 
 @interface PIPayForCashCell : UITableViewCell
 
+///-- <#Notes#>
+@property (nonatomic, copy) NSString *cash;
 @end

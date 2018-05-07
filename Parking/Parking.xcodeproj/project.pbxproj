@@ -113,6 +113,15 @@
 		189A5764209706C000870D3B /* PICarsListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A5763209706C000870D3B /* PICarsListController.m */; };
 		189A57682097122B00870D3B /* PICarListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A57672097122B00870D3B /* PICarListModel.m */; };
 		189A576F209828C600870D3B /* PIMyWalletController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A576E209828C600870D3B /* PIMyWalletController.m */; };
+		189A57722098305200870D3B /* PIMyWalletHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A57712098305200870D3B /* PIMyWalletHeaderView.m */; };
+		189A577520985CDF00870D3B /* PIMoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A577420985CDF00870D3B /* PIMoreController.m */; };
+		189A5778209860E000870D3B /* PIAboutUsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A5777209860E000870D3B /* PIAboutUsController.m */; };
+		189A57CE209EDC6300870D3B /* PIMyBankCardsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A57CD209EDC6000870D3B /* PIMyBankCardsController.m */; };
+		189A57D1209EDF6000870D3B /* PIMyBankCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A57D0209EDF6000870D3B /* PIMyBankCardCell.m */; };
+		189A57D4209F238200870D3B /* PIBindBankCardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A57D3209F238200870D3B /* PIBindBankCardController.m */; };
+		189A57D7209F3C4600870D3B /* PIBankListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A57D6209F3C4600870D3B /* PIBankListController.m */; };
+		189A57D9209F3D3900870D3B /* bank.plist in Resources */ = {isa = PBXBuildFile; fileRef = 189A57D8209F3D3900870D3B /* bank.plist */; };
+		189A57DC209F411E00870D3B /* PIBankModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A57DB209F411E00870D3B /* PIBankModel.m */; };
 		18B095AC204C606400871845 /* PIMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095A9204C606400871845 /* PIMeViewController.m */; };
 		18B095B3204C60AD00871845 /* PIOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095B0204C60AD00871845 /* PIOrderViewController.m */; };
 		18B095CC204C61CD00871845 /* PIAddDeviceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B095B8204C61CD00871845 /* PIAddDeviceController.m */; };
@@ -389,6 +398,23 @@
 		189A57672097122B00870D3B /* PICarListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PICarListModel.m; sourceTree = "<group>"; };
 		189A576D209828C600870D3B /* PIMyWalletController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIMyWalletController.h; sourceTree = "<group>"; };
 		189A576E209828C600870D3B /* PIMyWalletController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIMyWalletController.m; sourceTree = "<group>"; };
+		189A57702098305200870D3B /* PIMyWalletHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIMyWalletHeaderView.h; sourceTree = "<group>"; };
+		189A57712098305200870D3B /* PIMyWalletHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIMyWalletHeaderView.m; sourceTree = "<group>"; };
+		189A577320985CDF00870D3B /* PIMoreController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIMoreController.h; sourceTree = "<group>"; };
+		189A577420985CDF00870D3B /* PIMoreController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIMoreController.m; sourceTree = "<group>"; };
+		189A5776209860E000870D3B /* PIAboutUsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIAboutUsController.h; sourceTree = "<group>"; };
+		189A5777209860E000870D3B /* PIAboutUsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIAboutUsController.m; sourceTree = "<group>"; };
+		189A57CC209EDC6000870D3B /* PIMyBankCardsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIMyBankCardsController.h; sourceTree = "<group>"; };
+		189A57CD209EDC6000870D3B /* PIMyBankCardsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIMyBankCardsController.m; sourceTree = "<group>"; };
+		189A57CF209EDF6000870D3B /* PIMyBankCardCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIMyBankCardCell.h; sourceTree = "<group>"; };
+		189A57D0209EDF6000870D3B /* PIMyBankCardCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIMyBankCardCell.m; sourceTree = "<group>"; };
+		189A57D2209F238200870D3B /* PIBindBankCardController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIBindBankCardController.h; sourceTree = "<group>"; };
+		189A57D3209F238200870D3B /* PIBindBankCardController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIBindBankCardController.m; sourceTree = "<group>"; };
+		189A57D5209F3C4600870D3B /* PIBankListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIBankListController.h; sourceTree = "<group>"; };
+		189A57D6209F3C4600870D3B /* PIBankListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIBankListController.m; sourceTree = "<group>"; };
+		189A57D8209F3D3900870D3B /* bank.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = bank.plist; sourceTree = "<group>"; };
+		189A57DA209F411E00870D3B /* PIBankModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIBankModel.h; sourceTree = "<group>"; };
+		189A57DB209F411E00870D3B /* PIBankModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIBankModel.m; sourceTree = "<group>"; };
 		18B095A8204C606400871845 /* PIMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIMeViewController.h; sourceTree = "<group>"; };
 		18B095A9204C606400871845 /* PIMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIMeViewController.m; sourceTree = "<group>"; };
 		18B095AF204C60AD00871845 /* PIOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIOrderViewController.h; sourceTree = "<group>"; };
@@ -907,6 +933,12 @@
 			children = (
 				189A576D209828C600870D3B /* PIMyWalletController.h */,
 				189A576E209828C600870D3B /* PIMyWalletController.m */,
+				189A57CC209EDC6000870D3B /* PIMyBankCardsController.h */,
+				189A57CD209EDC6000870D3B /* PIMyBankCardsController.m */,
+				189A57D2209F238200870D3B /* PIBindBankCardController.h */,
+				189A57D3209F238200870D3B /* PIBindBankCardController.m */,
+				189A57D5209F3C4600870D3B /* PIBankListController.h */,
+				189A57D6209F3C4600870D3B /* PIBankListController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -914,6 +946,8 @@
 		189A576B209827DD00870D3B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				189A57DA209F411E00870D3B /* PIBankModel.h */,
+				189A57DB209F411E00870D3B /* PIBankModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -921,6 +955,10 @@
 		189A576C209827DD00870D3B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				189A57702098305200870D3B /* PIMyWalletHeaderView.h */,
+				189A57712098305200870D3B /* PIMyWalletHeaderView.m */,
+				189A57CF209EDF6000870D3B /* PIMyBankCardCell.h */,
+				189A57D0209EDF6000870D3B /* PIMyBankCardCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1007,7 +1045,6 @@
 		18B095B4204C61CD00871845 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				189A5769209827DD00870D3B /* MyWallet */,
 				18B095B5204C61CD00871845 /* AddCar */,
 				18B095BF204C61CD00871845 /* Controller */,
 				18B095C2204C61CD00871845 /* Model */,
@@ -1367,6 +1404,7 @@
 				18B09671204C65D700871845 /* Main.storyboard */,
 				18B09673204C65D700871845 /* keystore.cer */,
 				18B09674204C65D700871845 /* main.m */,
+				189A57D8209F3D3900870D3B /* bank.plist */,
 			);
 			path = "Support Files";
 			sourceTree = "<group>";
@@ -1374,6 +1412,7 @@
 		18B0970620518DF400871845 /* Personal */ = {
 			isa = PBXGroup;
 			children = (
+				189A5769209827DD00870D3B /* MyWallet */,
 				1897FD642088BF7A00FF4F28 /* Model */,
 				18B0970720518DF400871845 /* Controller */,
 				18B0970920518DF400871845 /* View */,
@@ -1390,6 +1429,10 @@
 				1862695E2075BCFE00F450AF /* PIMineViewController.m */,
 				1805E08E20831E5000A48ECE /* PIMyParkingLotController.h */,
 				1805E08F20831E5000A48ECE /* PIMyParkingLotController.m */,
+				189A577320985CDF00870D3B /* PIMoreController.h */,
+				189A577420985CDF00870D3B /* PIMoreController.m */,
+				189A5776209860E000870D3B /* PIAboutUsController.h */,
+				189A5777209860E000870D3B /* PIAboutUsController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1566,6 +1609,7 @@
 				18B0967B204C668000871845 /* Info.plist in Resources */,
 				18B09609204C626000871845 /* shaomacenter.png in Resources */,
 				18B09607204C626000871845 /* shaoma@2x.png in Resources */,
+				189A57D9209F3D3900870D3B /* bank.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1661,6 +1705,7 @@
 				1805E0842082065B00A48ECE /* PIVillageListModel.m in Sources */,
 				18B09605204C626000871845 /* PICodeViewController.m in Sources */,
 				1805E0742081E21700A48ECE /* PIVillageAuthenProgressView.m in Sources */,
+				189A5778209860E000870D3B /* PIAboutUsController.m in Sources */,
 				1862696E2077604D00F450AF /* PIOrderDetailController.m in Sources */,
 				18B0963A204C629E00871845 /* UIBarButtonItem+PI.m in Sources */,
 				1805E09F20834FD900A48ECE /* PIPublishOrderCell.m in Sources */,
@@ -1681,6 +1726,7 @@
 				18B09633204C629E00871845 /* PINavigationController.m in Sources */,
 				18626971207762BB00F450AF /* PIOrderDetailViewCell.m in Sources */,
 				18B095E8204C622600871845 /* PIRegisterViewController.m in Sources */,
+				189A577520985CDF00870D3B /* PIMoreController.m in Sources */,
 				18B0960F204C626000871845 /* PITool.m in Sources */,
 				1862695F2075BCFE00F450AF /* PIMineViewController.m in Sources */,
 				180DCA2420709149002F01DA /* PIAddCarView.m in Sources */,
@@ -1695,6 +1741,7 @@
 				18B0970520518CEF00871845 /* UITableViewCell+Extension.m in Sources */,
 				186268772071032C00F450AF /* PIVillageOrderController.m in Sources */,
 				1805E0722081E21700A48ECE /* PIVillageAuthenController.m in Sources */,
+				189A57D7209F3C4600870D3B /* PIBankListController.m in Sources */,
 				1897FD582087617400FF4F28 /* PIMyVillageDetailController.m in Sources */,
 				1862697420776B6500F450AF /* PIOrderDetailCenterCell.m in Sources */,
 				1805E07D208205D400A48ECE /* PIVillageListCell.m in Sources */,
@@ -1727,6 +1774,7 @@
 				18B0966C204C652300871845 /* PIConst.m in Sources */,
 				189A576F209828C600870D3B /* PIMyWalletController.m in Sources */,
 				18B095EA204C622600871845 /* PILoginManager.m in Sources */,
+				189A57D4209F238200870D3B /* PIBindBankCardController.m in Sources */,
 				189A575E2096E60400870D3B /* PIMatchCarportController.m in Sources */,
 				189A572A2090AD2900870D3B /* PICustomAnnotationView.m in Sources */,
 				1897FD7D208C6A7D00FF4F28 /* PIWXPayModel.m in Sources */,
@@ -1763,6 +1811,9 @@
 				1805E09020831E5000A48ECE /* PIMyParkingLotController.m in Sources */,
 				18B095B3204C60AD00871845 /* PIOrderViewController.m in Sources */,
 				180E22B82061557000FF21BB /* UIImage+Extension.m in Sources */,
+				189A57D1209EDF6000870D3B /* PIMyBankCardCell.m in Sources */,
+				189A57DC209F411E00870D3B /* PIBankModel.m in Sources */,
+				189A57722098305200870D3B /* PIMyWalletHeaderView.m in Sources */,
 				18B095E9204C622600871845 /* PISetPassWViewController.m in Sources */,
 				18B0963D204C629E00871845 /* UIView+ParentController.m in Sources */,
 				1805E09C2083441E00A48ECE /* PIPublishOrderController.m in Sources */,
@@ -1777,6 +1828,7 @@
 				1862687D20710DAB00F450AF /* PIVillageSelectCell.m in Sources */,
 				1897FD6D2088D61500FF4F28 /* PIPayForCashCell.m in Sources */,
 				1805E08A208209C900A48ECE /* PIBaseDetailCell.m in Sources */,
+				189A57CE209EDC6300870D3B /* PIMyBankCardsController.m in Sources */,
 				1805E0992083431200A48ECE /* UITextView+LimitCount.m in Sources */,
 				186269862078A90500F450AF /* PIAddressModel.m in Sources */,
 				18626883207115DD00F450AF /* PIVillageFieldCell.m in Sources */,

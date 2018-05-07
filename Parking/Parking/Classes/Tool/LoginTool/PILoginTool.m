@@ -87,6 +87,41 @@
     return model.communityList.count == 0 ? NO : YES;
 }
 
+- (CGFloat)balance {
+    
+    if (!_balance) {
+        
+        PILoginDataModel *model = [self getAcountInfo];
+        _balance = model.account.balance;
+    }
+    
+    return _balance;
+}
+
+- (NSString *)accountCashConf {
+    
+    if (!_accountCashConf) {
+        
+        PILoginDataModel *model = [self getAcountInfo];
+        
+        _accountCashConf = model.accountCashConf;
+    }
+    
+    return _accountCashConf;
+}
+
+- (NSString *)carportCashConf {
+    
+    if (!_carportCashConf) {
+        
+        PILoginDataModel *model = [self getAcountInfo];
+        
+        _carportCashConf = model.carportCashConf;
+    }
+    
+    return _carportCashConf;
+}
+
 - (PILoginDataModel *)acountModel {
     
     return [self getAcountInfo];

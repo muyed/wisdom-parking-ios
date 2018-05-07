@@ -14,6 +14,8 @@
 #import "PIBaseDetailCell.h"
 #import "PIVillageAuthenProgressController.h"
 #import "PIMyVillageController.h"
+#import "PIMoreController.h"
+#import "PIMyBankCardsController.h"
 
 @interface PIMineViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -27,7 +29,8 @@
 @property (nonatomic, strong) PIMineCenterView *centerView;
 
 @property (nonatomic, strong) UITableView *tableView;
-
+///-- headView
+@property (nonatomic, weak) UIView *headerView;
 
 @end
 
@@ -60,7 +63,7 @@
 }
 - (void)setupNav {
     
-    UIView *nav = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, NavBarHeight + 150 * Scale_Y)];
+    UIView *nav = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, NavBarHeight)];
     nav.backgroundColor = PIMainColor;
     [self.view addSubview:nav];
     self.navView = nav;
@@ -84,9 +87,29 @@
     [btn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     [nav addSubview:btn];
     
-    [self.navView addSubview:self.iconView];
-    [self.navView addSubview:self.loginBtn];
-    [self.view addSubview:self.centerView];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, NavBarHeight, SCREEN_WIDTH, SCREEN_HEIGHT - NavBarHeight - TabBarHeight + 50) style:UITableViewStylePlain];
+    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.backgroundColor = [UIColor clearColor];
+    //self.tableView.scrollEnabled = NO;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    [self.view addSubview:self.tableView];
+    
+    UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, NavBarHeight, SCREEN_WIDTH, 230 * Scale_Y)];
+    //[self.view addSubview:backView];
+    self.tableView.tableHeaderView = backView;
+    
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 150 * Scale_Y)];
+    headerView.backgroundColor = PIMainColor;
+    
+    [backView addSubview:headerView];
+    
+    self.headerView = headerView;
+    
+    [self.headerView addSubview:self.iconView];
+    [self.headerView addSubview:self.loginBtn];
+    [backView addSubview:self.centerView];
     
     weakself
     
@@ -95,7 +118,7 @@
     [self.iconView mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.left.equalTo(weakSelf.navView).offset(margin);
-        make.top.equalTo(btn.mas_bottom).offset(15 * Scale_Y);
+        make.top.equalTo(weakSelf.headerView).offset(15 * Scale_Y);
         make.height.and.width.mas_equalTo(iconWH);
     }];
     
@@ -112,24 +135,16 @@
     
     [self.centerView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.left.equalTo(weakSelf.view).offset(margin);
-        make.right.equalTo(weakSelf.view).offset(-margin);
-        make.top.equalTo(weakSelf.view).offset(NavBarHeight + 90 * Scale_Y);
+        make.left.equalTo(backView).offset(margin);
+        make.right.equalTo(backView).offset(-margin);
+        make.top.equalTo(weakSelf.headerView.mas_bottom).offset(-50 * Scale_Y);
         make.height.mas_equalTo(120 * Scale_Y);
     }];
     
-    CGFloat tableViewY = NavBarHeight + 215 * Scale_Y;
+    //CGFloat tableViewY = NavBarHeight + 215 * Scale_Y;
     
-    NSLog(@"%lf", tableViewY);
+    //NSLog(@"%lf", tableViewY);
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, tableViewY, SCREEN_WIDTH, SCREEN_HEIGHT - tableViewY) style:UITableViewStylePlain];
-    
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    self.tableView.backgroundColor = [UIColor clearColor];
-    self.tableView.scrollEnabled = NO;
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    [self.view addSubview:self.tableView];
     
     [self.tableView registerClass:[PIMineViewCell class] forCellReuseIdentifier:NSStringFromClass([PIMineViewCell class])];
     
@@ -154,7 +169,16 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return section == 0 ? 1 : 2;
+    if (section == 0) {
+        
+        return 1;
+    }else if (section == 1) {
+        
+        return 3;
+    }else {
+        
+        return 2;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -163,12 +187,19 @@
         
         PIBaseDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([PIBaseDetailCell class])];
         
-        cell.titleString = indexPath.row == 0 ? @"身份信息" : @"小区认证";
-        
-        if ([PILoginTool defaultTool].isIdentiAuthen) {
+        if (indexPath.row == 0) {
             
-            cell.contentString = indexPath.row == 0 ? @"已认证" : @"";
+            cell.titleString = @"身份信息";
+            cell.contentString = [PILoginTool defaultTool].isIdentiAuthen ? @"已认证" : @"未认证";
+
+        }else if (indexPath.row == 1) {
+            
+            cell.titleString = @"小区认证";
+        }else {
+            
+            cell.titleString = @"我的银行卡";
         }
+        
         
         cell.contentColor = indexPath.row == 0 ? txtSeconColor : txtRedColor;
         cell.commentLabel.textAlignment = NSTextAlignmentRight;
@@ -226,17 +257,28 @@
             }
     
             
-            
-        }else {
+        }else if (indexPath.row == 1){
             
             PIVillageAuthenController *authenVillage = [PIVillageAuthenController new];
             
             [self.navigationController pushViewController:authenVillage animated:YES];
+        }else {
+            
+            
+            PIMyBankCardsController *myBanks = [PIMyBankCardsController new];
+            
+            [self.navigationController pushViewController:myBanks animated:YES];
         }
         
-    }else {
+    }else if(indexPath.section == 2){
         
         
+        if (indexPath.row == 1) {
+            
+            PIMoreController *more = [PIMoreController new];
+            
+            [self.navigationController pushViewController:more animated:YES];
+        }
     }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {

@@ -1,0 +1,13 @@
+//
+//  PIBankModel.m
+//  Parking
+//
+//  Created by apple on 2018/5/6.
+//  Copyright © 2018年 GM. All rights reserved.
+//
+
+#import "PIBankModel.h"
+
+@implementation PIBankModel
+
+@end

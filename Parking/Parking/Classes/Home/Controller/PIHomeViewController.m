@@ -116,7 +116,10 @@
     }];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
-        [self loadData];
+        CGFloat lon = self.mapView.userLocation.location.coordinate.longitude;
+        CGFloat lat = self.mapView.userLocation.location.coordinate.latitude;
+        
+        [self loadDataWithLat:lat lon:lon];
         
     });
 //
@@ -342,14 +345,22 @@
 //    [self.view addSubview:self.bottomView];
 }
 
-- (void)loadData {
+- (void)loadDataWithLat:(CGFloat)lat lon:(CGFloat)lon {
     
-    NSString *lon = [NSString stringWithFormat:@"%lf", self.mapView.userLocation.location.coordinate.longitude];
-    NSString *lat = [NSString stringWithFormat:@"%lf", self.mapView.userLocation.location.coordinate.latitude];
+    NSString *lonStr = [NSString stringWithFormat:@"%lf", lon];
+    NSString *latStr = [NSString stringWithFormat:@"%lf", lat];
+//    NSString *lon = [NSString stringWithFormat:@"%lf", self.mapView.userLocation.location.coordinate.longitude];
+//    NSString *lat = [NSString stringWithFormat:@"%lf", self.mapView.userLocation.location.coordinate.latitude];
     
-    NSString *url = [NSString stringWithFormat:@"%@/%@/%@/%d", urlPath(@"api/share/loadByDistance"), lon, lat, 20];
+    NSString *url = [NSString stringWithFormat:@"%@/%@/%@/%d", urlPath(@"api/share/loadByDistance"), lonStr, latStr, 20];
     
     NSMutableArray *dataArr = [NSMutableArray array];
+    
+    if (dataArr.count > 0) {
+        
+        [self.mapView removeAnnotations:dataArr];
+        [dataArr removeAllObjects];
+    }
     
     weakself
     [PIHttpTool piGet:url params:nil success:^(id response) {
@@ -373,6 +384,8 @@
             }
             
             [weakSelf.mapView addAnnotations:dataArr];
+            //[weakSelf.mapView showAnnotations:dataArr animated:YES];
+            [weakSelf.mapView showAnnotations:dataArr edgePadding:UIEdgeInsetsMake(10, 10, 10, 10) animated:YES];
             
         }else {
             
@@ -438,16 +451,48 @@
 //    [self.navigationController pushViewController:addCar animated:YES];
     
     
-//    PIHomeSearchController *search = [PIHomeSearchController new];
-//    search.cityName = [PIMapManager sharedManager].cityName;
+    PIHomeSearchController *search = [PIHomeSearchController new];
+    search.cityName = [PIMapManager sharedManager].cityName;
     
-    PIHomeSearchCarPortController *carPot = [PIHomeSearchCarPortController new];
+    weakself
+    [search setDestinationCoor:^(CGFloat lat, CGFloat lon) {
+        
     
-    [self.navigationController pushViewController:carPot animated:YES];
+        [weakSelf loadDataWithLat:lat lon:lon];
+    }];
+    
+//    PIHomeSearchCarPortController *carPot = [PIHomeSearchCarPortController new];
+//
+//    carPot.lon = self.mapView.userLocation.location.coordinate.longitude;
+//    carPot.lat = self.mapView.userLocation.location.coordinate.latitude;
+    
+    [self.navigationController pushViewController:search animated:YES];
     
 }
 
 - (void)customerClick {
+    
+    [PIPayTool withdrawCashWithBankCardID:@"2" success:^(id response) {
+        
+        
+        PIBaseModel *model = [PIBaseModel mj_objectWithKeyValues:response];
+        NSLog(@"%@", model.errMsg);
+        
+        if (model.code == 200) {
+            
+            [MBProgressHUD showMessage:@"提现成功"];
+        }else {
+            
+            [MBProgressHUD showMessage:model.errMsg];
+            
+        }
+        
+        
+    } failue:^(NSError *error) {
+        
+        
+    }];
+    
     
     //[MBProgressHUD showMessage:@"正在努力建设中...."];
 //    [MBProgressHUD showIndeterWithMessage:@"请稍等..."];
@@ -467,20 +512,20 @@
 //
 //    }];
     
-    [PIPayTool payForAcountCash:^(NSString *orderNum) {
-        
-        [PIPayTool WXpayForOrderWithOrderNum:orderNum];
-        
-//        [PIPayTool WXpayForOrderWithOrderNum:orderNum success:^(id response) {
+//    [PIPayTool payForAcountCash:^(NSString *orderNum) {
 //
-//          // PIWXPayModel *model = [PIWXPayModel mj_objectWithKeyValues:response];
+//        [PIPayTool WXpayForOrderWithOrderNum:orderNum];
 //
-//
-//        } failue:^(NSError *error) {
-//
-//
-//        }];
-    }];
+////        [PIPayTool WXpayForOrderWithOrderNum:orderNum success:^(id response) {
+////
+////          // PIWXPayModel *model = [PIWXPayModel mj_objectWithKeyValues:response];
+////
+////
+////        } failue:^(NSError *error) {
+////
+////
+////        }];
+//    }];
     
     
 //

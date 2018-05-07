@@ -12,7 +12,7 @@
 #import "PIBottomBtn.h"
 #import "PIMyVillageListModel.h"
 #import "PIBaseModel.h"
-#import "PIPayOrderController.h"
+#import "PIPayForCashController.h"
 
 @interface PIParkingLotAuthController ()<PIBaseFieldCellDelegate>
 
@@ -95,8 +95,9 @@
         
         if (model.code == 200) {
             
-            PIPayOrderController *pay = [PIPayOrderController new];
+            PIPayForCashController *pay = [PIPayForCashController new];
             pay.orderNum = model.data;
+            pay.isCarportCash = YES;
             [weakSelf.navigationController pushViewController:pay animated:YES];
             
         }else {

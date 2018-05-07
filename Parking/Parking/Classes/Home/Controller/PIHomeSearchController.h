@@ -8,9 +8,12 @@
 
 #import "PIBaseViewController.h"
 
+typedef void(^DestinationCoor)(CGFloat lat, CGFloat lon);
+
 @interface PIHomeSearchController : PIBaseViewController
 
 @property (nonatomic, copy) NSString *cityName;
 @property (nonatomic, copy) NSString *addrssKeyWord;
-
+///-- <#Notes#>
+@property (nonatomic, copy) DestinationCoor destinationCoor;
 @end

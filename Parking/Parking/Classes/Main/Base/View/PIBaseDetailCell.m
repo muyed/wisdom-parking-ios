@@ -40,7 +40,7 @@
         
         make.left.equalTo(weakSelf.contentView).offset(15 * Scale_Y);
         make.centerY.equalTo(weakSelf.contentView);
-        make.width.mas_equalTo(80);
+        make.width.mas_equalTo(90);
     }];
     
     [self.commentLabel mas_makeConstraints:^(MASConstraintMaker *make) {

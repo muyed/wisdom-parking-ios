@@ -8,6 +8,8 @@
 
 #import "PIMineCenterView.h"
 #import "PILeftImageBtn.h"
+#import "PIMyWalletController.h"
+#import "PIPayForCashController.h"
 
 @interface PIMineCenterView ()
 
@@ -118,6 +120,27 @@
         make.bottom.equalTo(weakSelf);
         make.width.mas_equalTo(buttonW);
     }];
+    
+    UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pushToWallet)];
+    
+    self.topView.userInteractionEnabled = YES;
+    
+    [self.topView addGestureRecognizer:tapGes];
+    
+    [self.depBtn addTarget:self action:@selector(payForAcountCrash) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)payForAcountCrash {
+    
+    PIPayForCashController *payForCash = [PIPayForCashController new];
+    
+    [self.parentController.navigationController pushViewController:payForCash animated:YES];
+}
+- (void)pushToWallet {
+    
+    PIMyWalletController *myWallet = [PIMyWalletController new];
+    
+    [self.parentController.navigationController pushViewController:myWallet animated:YES];
 }
 
 - (UIView *)topView {

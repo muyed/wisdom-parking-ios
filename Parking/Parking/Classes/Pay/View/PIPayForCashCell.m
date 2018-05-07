@@ -76,6 +76,13 @@
 //    }];
 }
 
+- (void)setCash:(NSString *)cash {
+    
+    _cash = cash;
+    
+    _commentLabel.text = [NSString stringWithFormat:@"交纳押金%@元", cash];
+}
+
 - (UILabel *)commentLabel {
     
     if (!_commentLabel) {
@@ -83,7 +90,7 @@
         _commentLabel = [[UILabel alloc] init];
         _commentLabel.font = [UIFont systemFontOfSize:21 weight:2];
         _commentLabel.textColor = txtMainColor;
-        _commentLabel.text = @"交纳押金199元";
+        
     }
     
     return _commentLabel;

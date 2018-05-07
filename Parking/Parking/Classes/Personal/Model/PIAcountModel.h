@@ -11,7 +11,7 @@
 @interface PIAcountModel : NSObject
 
 ///-- <#Notes#>
-@property (nonatomic, copy) NSString *balance;
+@property (nonatomic, assign) CGFloat balance;
 ///-- <#Notes#>
 @property (nonatomic, copy) NSString *cash;
 ///-- <#Notes#>

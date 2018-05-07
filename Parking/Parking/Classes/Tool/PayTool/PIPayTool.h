@@ -47,6 +47,7 @@
                            success:(void (^)(id response))success
                             failue:(void (^)(NSError *error))failue;
 
++ (void)AlipayForOrderWithOrderNum:(NSString *)orderNum;
 
 /**
  微信支付
@@ -67,4 +68,44 @@
  @param success 成功
  */
 + (void)payForAcountCash:(void (^)(NSString *orderNum))success;
+
+
+/**
+ 绑定银行卡
+
+ @param acount 账号
+ @param name 名字
+ @param success 成功
+ @param failue 失败
+ */
+
+/**
+ 绑定银行卡
+ 
+ @param acount 账号
+ @param name 名字
+ @param address 地址
+ @param bankCode 代码
+ @param success 成功
+ @param failue 失败
+ */
++ (void)bindBankCardWithAcount:(NSString *)acount
+                          name:(NSString *)name
+                      bankAddr:(NSString *)address
+                      bankCode:(NSString *)bankCode
+                       success:(void(^)(id response))success
+                        failue:(void (^)(NSError *error))failue;
+
+
+
+/**
+ 提现
+
+ @param cardID 银行卡ID
+ @param success 成功
+ @param failue 失败
+ */
++ (void)withdrawCashWithBankCardID:(NSString *)cardID
+                            success:(void(^)(id response))success
+                             failue:(void (^)(NSError *error))failue;
 @end

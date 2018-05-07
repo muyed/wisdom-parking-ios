@@ -56,11 +56,42 @@
     }];
 }
 
++ (void)AlipayForOrderWithOrderNum:(NSString *)orderNum {
+    
+    NSString *url = [NSString stringWithFormat:@"%@%@", urlPath(@"api/pay/mayi/"), orderNum];
+    
+    [PIHttpTool piGet:url params:nil success:^(id response) {
+        
+        PIBaseModel *model = [PIBaseModel mj_objectWithKeyValues:response];
+        
+        [MBProgressHUD hideHUD];
+        
+        if (model.code == 200) {
+            
+            [[AlipaySDK defaultService] payOrder:model.data fromScheme:@"wisdompark" callback:^(NSDictionary *resultDic) {
+    
+                    NSLog(@"%@", resultDic);
+            
+            }];
+        }else {
+            
+            [MBProgressHUD showMessage:model.errMsg];
+        }
+        
+    } failure:^(NSError *error) {
+        
+      
+        
+    }];
+}
+
 + (void)WXpayForOrderWithOrderNum:(NSString *)orderNum {
     
     NSString *url = [NSString stringWithFormat:@"%@%@", urlPath(@"api/pay/wx/"), orderNum];
     
     [PIHttpTool piGet:url params:nil success:^(id response) {
+        
+        [MBProgressHUD hideHUD];
         
         PIWXPayModel *model = [PIWXPayModel mj_objectWithKeyValues:response];
         
@@ -75,6 +106,9 @@
             payRequest.sign = model.data.sign;
             
             [WXApi sendReq:payRequest];
+        }else {
+            
+            [MBProgressHUD showMessage:model.errMsg];
         }
         
         
@@ -86,13 +120,17 @@
 }
 + (void)payForAcountCash:(void (^)(NSString *))success {
     
+    [MBProgressHUD showIndeterWithMessage:@"正在支付"];
+    
     [PIHttpTool piGet:urlPath(@"api/account/payCash") params:nil success:^(id response) {
+        
         
         PIBaseModel *model = [PIBaseModel mj_objectWithKeyValues:response];
         
         if (model.code == 200) {
             
             success ? success(model.data) : nil;
+            
         }else if (model.code == 24) {
             
             [MBProgressHUD showMessage:model.errMsg];
@@ -105,12 +143,15 @@
             
         }else {
             
+            
+            [MBProgressHUD hideHUD];
             [MBProgressHUD showMessage:model.errMsg];
         }
         
         
     } failure:^(NSError *error) {
         
+        [MBProgressHUD hideHUD];
         [MBProgressHUD showMessage:@"支付失败"];
     }];
 }
@@ -137,4 +178,37 @@
     }
 }
 
++ (void)bindBankCardWithAcount:(NSString *)acount name:(NSString *)name bankAddr:(NSString *)address bankCode:(NSString *)bankCode success:(void (^)(id))success failue:(void (^)(NSError *))failue {
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"bankAccount"] = acount;
+    params[@"accountName"] = name;
+    params[@"bankAddr"] = address.length == 0 ? @"中国" : address;
+    params[@"bankCode"] = bankCode;
+    
+    [PIHttpTool piPost:urlPath(@"api/bank/add") params:params success:^(id response) {
+        
+         success ? success(response) : nil;
+        
+    } failure:^(NSError *error) {
+        
+        failue ? failue(error) : nil;
+    }];
+}
+
++ (void)withdrawCashWithBankCardID:(NSString *)cardID success:(void (^)(id))success failue:(void (^)(NSError *))failue {
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"id"] = cardID;
+    
+    
+    [PIHttpTool piPost:urlPath(@"api/account/withdrawCash") params:params success:^(id response) {
+        
+        success ? success(response) : nil;
+        
+    } failure:^(NSError *error) {
+        
+        failue ? failue(error) : nil;
+    }];
+}
 @end

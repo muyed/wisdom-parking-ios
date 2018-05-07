@@ -26,7 +26,7 @@ static UIWindow *window_;
 + (instancetype)carportOrderView {
     
     window_ = [[UIWindow alloc] init];
-    window_.frame = CGRectMake(0, SCREEN_HEIGHT - TabBarHeight + 50, SCREEN_WIDTH, 330);
+    window_.frame = CGRectMake(0, SCREEN_HEIGHT + TabBarHeight - 50, SCREEN_WIDTH, 330);
     window_.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.2];
     window_.hidden = NO;
     
@@ -134,7 +134,7 @@ static UIWindow *window_;
     
     [UIView animateWithDuration:0.5 animations:^{
         
-        window_.y = SCREEN_HEIGHT- TabBarHeight + 50 - 330;
+        window_.y = SCREEN_HEIGHT + TabBarHeight - 50  - 330;
     }];
     
 }
@@ -143,7 +143,7 @@ static UIWindow *window_;
     
     [UIView animateWithDuration:0.5 animations:^{
         
-        window_.y = SCREEN_HEIGHT;
+        window_.y = SCREEN_HEIGHT + TabBarHeight - 50;
     }];
 }
 

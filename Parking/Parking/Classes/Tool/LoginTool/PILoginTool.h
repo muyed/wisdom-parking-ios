@@ -25,6 +25,12 @@
 @property (nonatomic, assign) BOOL hasVillage;
 ///-- 是否有车位
 @property (nonatomic, assign) BOOL hasCarPot;
+///-- 余额
+@property (nonatomic, assign) CGFloat balance;
+///-- 押金
+@property (nonatomic, copy) NSString *accountCashConf;
+///-- 车位
+@property (nonatomic, copy) NSString *carportCashConf;
 
 @property (nonatomic, strong) PILoginDataModel *acountModel;
 

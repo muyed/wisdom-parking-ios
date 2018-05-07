@@ -10,4 +10,8 @@
 
 @interface PIPayForCashController : PIBaseTableViewController
 
+///-- 账户押金
+@property (nonatomic, assign) BOOL isCarportCash;
+///-- <#Notes#>
+@property (nonatomic, copy) NSString *orderNum;
 @end

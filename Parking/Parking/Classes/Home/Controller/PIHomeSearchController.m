@@ -16,21 +16,48 @@
 @property (nonatomic, strong) NSMutableArray *dataArray;
 @property (nonatomic, strong) AMapSearchAPI *search;
 ///-- <#Notes#>
-@property (nonatomic, weak) PISearchBar *searchBar;
+//@property (nonatomic, weak) PISearchBar *searchBar;
+@property (nonatomic, strong) UITextField *searchBar;
 
 @end
 
 @implementation PIHomeSearchController
-
+{
+    
+    CGFloat _desLat;
+    CGFloat _desLon;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    PISearchBar *searchBar = [PISearchBar searchBar];
-    searchBar.width = 280 * Scale_Y;
-    searchBar.height = 30;
-    [searchBar addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
-    self.navigationItem.titleView = searchBar;
-    self.searchBar = searchBar;
+    self.searchBar = [[UITextField alloc] init];
+    self.searchBar.size = CGSizeMake(SCREEN_WIDTH - 100, 35);
+    self.searchBar.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.searchBar.layer.borderWidth = 1.5;
+    self.searchBar.layer.cornerRadius = 17.5;
+    self.searchBar.clipsToBounds = YES;
+    self.searchBar.tintColor = [UIColor whiteColor];
+    self.searchBar.textColor = [UIColor whiteColor];
+    self.searchBar.placeholder = @"请输入搜索关键字";
+//    UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 35)];
+//    self.searchBar.leftView = leftView;
+//    self.searchBar.leftViewMode = UITextFieldViewModeAlways;
+    UIButton *rightView = [[UIButton alloc] initWithImageName:@"home_search_white"];
+    rightView.size = CGSizeMake(35, 35);
+    self.searchBar.leftView = rightView;
+    self.searchBar.leftViewMode = UITextFieldViewModeAlways;
+    self.searchBar.delegate = self;
+    self.searchBar.returnKeyType = UIReturnKeySearch;
+    
+    [self.searchBar setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
+    [self.searchBar setValue:PISYS_FONT(15) forKeyPath:@"_placeholderLabel.font"];
+    self.navigationItem.titleView = self.searchBar;
+//    PISearchBar *searchBar = [PISearchBar searchBar];
+//    searchBar.width = 280 * Scale_Y;
+//    searchBar.height = 30;
+    [self.searchBar addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+//    self.navigationItem.titleView = searchBar;
+//    self.searchBar = searchBar;
     
     _search = [[AMapSearchAPI alloc]init];
     _search.delegate = self;
@@ -57,6 +84,13 @@
     else {
         [_tableView reloadData];
     }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    [textField resignFirstResponder];
+    
+    return YES;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -118,6 +152,18 @@
     [_tableView reloadData];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    PIAddressModel *ads = self.dataArray[indexPath.row];
+    
+    if (self.destinationCoor) {
+        
+        self.destinationCoor(ads.latitude, ads.longitude);
+        
+    }
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
 //请求失败
 - (void)AMapSearchRequest:(id)request didFailWithError:(NSError *)error
 {
@@ -137,10 +183,6 @@
     [_search AMapInputTipsSearch: tipsRequest];
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    return NO;
-}
 
 
 - (UITableView *)tableView
