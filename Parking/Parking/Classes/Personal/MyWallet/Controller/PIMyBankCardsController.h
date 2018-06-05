@@ -8,6 +8,16 @@
 
 #import "PIBaseTableViewController.h"
 
+@class PIMyCardsDataModel;
+
+typedef void(^BankCardInfo)(PIMyCardsDataModel *dataModel);
+
 @interface PIMyBankCardsController : PIBaseTableViewController
+
+///-- 是否为提现
+@property (nonatomic, assign) BOOL isPutForward;
+
+///-- 银行卡
+@property (nonatomic, copy) BankCardInfo bankCardInfo;
 
 @end

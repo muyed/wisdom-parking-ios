@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PIMyCardsModel.h"
 
+typedef void(^DeleteCard)(PIMyCardsDataModel *dataModel);
 @interface PIMyBankCardCell : UITableViewCell
 
+///-- <#Notes#>
+@property (nonatomic, strong) PIMyCardsDataModel *dataModel;
+///-- <#Notes#>
+@property (nonatomic, copy) DeleteCard deleteCard;
 @end

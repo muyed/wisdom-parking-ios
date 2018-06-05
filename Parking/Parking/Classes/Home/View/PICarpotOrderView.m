@@ -28,11 +28,15 @@ static UIWindow *window_;
     window_ = [[UIWindow alloc] init];
     window_.frame = CGRectMake(0, SCREEN_HEIGHT + TabBarHeight - 50, SCREEN_WIDTH, 330);
     window_.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.2];
+    
     window_.hidden = NO;
+
     
     PICarpotOrderView *orderView = [[PICarpotOrderView alloc] init];
     
     orderView.frame = CGRectMake(15, 0, SCREEN_WIDTH - 30, 320);
+    
+    
     orderView.backgroundColor = [UIColor whiteColor];
     [window_ addSubview:orderView];
     [orderView setupTableView];
@@ -49,6 +53,7 @@ static UIWindow *window_;
     self.tableView.scrollEnabled = NO;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self addSubview:self.tableView];
+    
     
     [self.tableView registerClass:[PICarportAddressCell class] forCellReuseIdentifier:NSStringFromClass([PICarportAddressCell class])];
     
@@ -132,19 +137,29 @@ static UIWindow *window_;
 
 - (void)show {
     
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:0.3 animations:^{
         
         window_.y = SCREEN_HEIGHT + TabBarHeight - 50  - 330;
+        
+        self.isShow = YES;
     }];
     
 }
 
 - (void)dismiss {
     
-    [UIView animateWithDuration:0.5 animations:^{
+    NSLog(@"-------test------");
+    
+    [UIView animateWithDuration:0.3 animations:^{
         
         window_.y = SCREEN_HEIGHT + TabBarHeight - 50;
+        self.isShow = NO;
     }];
+}
+
+- (void)tapClick {
+    
+    [self dismiss];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

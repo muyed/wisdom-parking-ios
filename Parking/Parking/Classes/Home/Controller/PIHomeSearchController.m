@@ -93,6 +93,11 @@
     return YES;
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+    [self.searchBar resignFirstResponder];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 //    NSString *str = [self.searchBar.searchTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];

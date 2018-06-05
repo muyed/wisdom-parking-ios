@@ -10,6 +10,7 @@
 #import "PILeftImageBtn.h"
 #import "PIMyWalletController.h"
 #import "PIPayForCashController.h"
+#import "PICountBalanceController.h"
 
 @interface PIMineCenterView ()
 
@@ -138,7 +139,7 @@
 }
 - (void)pushToWallet {
     
-    PIMyWalletController *myWallet = [PIMyWalletController new];
+    PICountBalanceController *myWallet = [PICountBalanceController new];
     
     [self.parentController.navigationController pushViewController:myWallet animated:YES];
 }

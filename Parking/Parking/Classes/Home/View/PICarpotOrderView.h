@@ -27,5 +27,6 @@ typedef void(^BeginMatchCarport)(PICarportDataModel *dataModel);
 @property (nonatomic, copy) BeginNavToCarport beginNavToCarport;
 ///-- <#Notes#>
 @property (nonatomic, copy) BeginMatchCarport beginMatchCarport;
-
+///-- <#Notes#>
+@property (nonatomic, assign) BOOL isShow;
 @end

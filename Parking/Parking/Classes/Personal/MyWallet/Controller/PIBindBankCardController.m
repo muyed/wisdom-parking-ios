@@ -74,7 +74,7 @@
     [MBProgressHUD showIndeterWithMessage:@"正在提交..."];
     
     weakself
-    [PIPayTool bindBankCardWithAcount:_carNum name:self.bankModel.bank_name bankAddr:nil bankCode:self.bankModel.bank_code success:^(id response) {
+    [PIPayTool bindBankCardWithAcount:_carNum name:[[PILoginTool defaultTool] getAcountInfo].realName bankAddr:nil bankCode:self.bankModel.bank_code success:^(id response) {
         
         PIBaseModel *model = [PIBaseModel mj_objectWithKeyValues:response];
         [MBProgressHUD hideHUD];
@@ -98,7 +98,7 @@
             
         }else {
             
-            [MBProgressHUD showMessage:model.data];
+            [MBProgressHUD showMessage:model.errMsg];
         }
         
     } failue:^(NSError *error) {

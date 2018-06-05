@@ -19,6 +19,8 @@
 ///-- 更改按钮
 @property (nonatomic, strong) UIButton *changeBtn;
 
+@property (nonatomic, strong) UIView *imageBackView;
+
 @end
 
 @implementation PIMyBankCardCell
@@ -29,7 +31,7 @@
         
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        self.contentView.backgroundColor = [UIColor blueColor];
+        self.contentView.backgroundColor = UIColorFromRGB(0x7dc5eb);
         self.contentView.layer.cornerRadius = 10;
         self.contentView.clipsToBounds = YES;
         [self setupUI];
@@ -40,11 +42,12 @@
 
 - (void)setupUI {
     
-    [self.contentView addSubview:self.iconView];
+    
     [self.contentView addSubview:self.nameLabel];
     [self.contentView addSubview:self.cardLabel];
     [self.contentView addSubview:self.changeBtn];
-    
+    [self.contentView addSubview:self.imageBackView];
+    [self.imageBackView addSubview:self.iconView];
     weakself
     
     CGFloat iconWH = 50;
@@ -57,14 +60,24 @@
         make.height.mas_equalTo(30);
     }];
     
-    [self.iconView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.imageBackView mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.left.equalTo(weakSelf.contentView).offset(25);
         make.top.equalTo(weakSelf.contentView).offset(25);
-        make.height.and.width.mas_equalTo(iconWH);
+        make.height.and.width.mas_equalTo(iconWH + 10);
     }];
     
-    self.iconView.layer.cornerRadius = iconWH * 0.5;
+    [self.iconView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.center.equalTo(weakSelf.imageBackView);
+        make.height.and.width.mas_equalTo(iconWH);
+        
+    }];
+    
+    self.imageBackView.layer.cornerRadius = (iconWH + 10) * 0.5;
+    self.imageBackView.clipsToBounds = YES;
+    
+    self.iconView.layer.cornerRadius = (iconWH) * 0.5;
     self.iconView.clipsToBounds = YES;
     
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -81,9 +94,25 @@
         make.bottom.equalTo(weakSelf.contentView).offset(-40);
     }];
     
-    
+    [self.changeBtn addTarget:self action:@selector(changeBtnClick) forControlEvents:UIControlEventTouchUpInside];
 }
 
+- (void)changeBtnClick {
+    
+    if (self.deleteCard) {
+        
+        self.deleteCard(self.dataModel);
+    }
+}
+
+- (void)setDataModel:(PIMyCardsDataModel *)dataModel {
+    
+    _dataModel = dataModel;
+    
+    self.iconView.image = [UIImage imageNamed:dataModel.bank_logo];
+    self.nameLabel.text = dataModel.bankName;
+    self.cardLabel.text = [dataModel.bankAccount stringByReplacingCharactersInRange:NSMakeRange(0, dataModel.bankAccount.length - 4) withString:@"**** **** ****"];
+}
 - (void)setFrame:(CGRect)frame {
     
     frame.origin.x = 15;
@@ -98,7 +127,7 @@
     if (!_iconView) {
         
         _iconView = [UIImageView new];
-        _iconView.backgroundColor = [UIColor redColor];
+        _iconView.backgroundColor = [UIColor whiteColor];
     }
     
     return _iconView;
@@ -134,11 +163,22 @@
     
     if (!_changeBtn) {
         
-        _changeBtn = [[UIButton alloc] initWithFont:18 titleColor:[UIColor whiteColor] title:@"更改"];
+        _changeBtn = [[UIButton alloc] initWithFont:18 titleColor:[UIColor whiteColor] title:@"解除"];
         //_changeBtn.backgroundColor = [UIColor yellowColor];
     }
     
     return _changeBtn;
+}
+
+- (UIView *)imageBackView {
+    
+    if (!_imageBackView) {
+        
+        _imageBackView = [UIView new];
+        _imageBackView.backgroundColor = [UIColor whiteColor];
+    }
+    
+    return _imageBackView;
 }
 - (void)awakeFromNib {
     [super awakeFromNib];

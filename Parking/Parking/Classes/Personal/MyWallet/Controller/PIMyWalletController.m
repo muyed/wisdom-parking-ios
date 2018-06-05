@@ -10,6 +10,7 @@
 #import "PIMyWalletHeaderView.h"
 #import "PIPayOrderTypeCell.h"
 #import "PIBottomBtn.h"
+#import "PIPutForwardController.h"
 
 @interface PIMyWalletController ()
 
@@ -28,6 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
     [self setupNav];
     [self setupUI];
 }
@@ -38,6 +40,13 @@
     
     self.navigationController.navigationBarHidden = YES;
     
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    [super viewWillDisappear:animated];
+    
+    self.navigationController.navigationBarHidden = NO;
 }
 - (void)setupUI {
     
@@ -52,23 +61,23 @@
 }
 
 - (void)setupNav {
-    
+
     UIView *nav = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, NavBarHeight)];
     nav.backgroundColor = PIMainColor;
     [self.view addSubview:nav];
     self.navView = nav;
-    
+
     UILabel *label = [[UILabel alloc] init];
-    
+
     label.textColor = [UIColor whiteColor];
     label.textAlignment = NSTextAlignmentCenter;
     label.text = @"我的钱包";
     label.font = [UIFont boldSystemFontOfSize:18.0];
     CGFloat top = NavBarHeight - 34;
     label.frame = CGRectMake(0, top, SCREEN_WIDTH, 24);
-    
+
     [nav addSubview:label];
-    
+
     UIButton *btn = [[UIButton alloc] initWithImageName:@"navgation-back"];
     btn.x = 15;
     btn.y = top;
@@ -77,6 +86,15 @@
     [btn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     [nav addSubview:btn];
     
+    UIButton *rightBtn = [[UIButton alloc] initWithTitle:@"提现"];
+    rightBtn.x = SCREEN_WIDTH - 60;
+    rightBtn.y = top;
+    rightBtn.width = 60;
+    rightBtn.height = 25;
+    [rightBtn addTarget:self action:@selector(putForward) forControlEvents:UIControlEventTouchUpInside];
+    [nav addSubview:rightBtn];
+    
+
     
     UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - TabBarHeight - 20, SCREEN_WIDTH, 70)];
     
@@ -99,6 +117,12 @@
     
 }
 
+- (void)putForward {
+    
+    PIPutForwardController *putForward = [PIPutForwardController new];
+    
+    [self.navigationController pushViewController:putForward animated:YES];
+}
 - (void)bottomBtnClick {
     
     NSLog(@"立即充值");

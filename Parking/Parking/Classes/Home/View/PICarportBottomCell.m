@@ -7,7 +7,6 @@
 //
 
 #import "PICarportBottomCell.h"
-#import "PICarportBottomCell.h"
 #import "PICarportModel.h"
 
 @interface PICarportBottomCell ()

@@ -32,6 +32,7 @@
 #import "PICarportModel.h"
 #import "PIHomeNaviDriveController.h"
 #import "PIMatchCarportController.h"
+#import "PIHomeAdsView.h"
 
 
 @interface PIHomeViewController ()<MAMapViewDelegate,PIHomeBottomDelegate>
@@ -59,7 +60,8 @@
 @property (nonatomic, strong) UIButton *locationBtn;
 
 @property (nonatomic, strong) PICarpotOrderView *carpotOrderView;
-
+///-- 广告
+@property (nonatomic, strong) PIHomeAdsView *adsView;
 @end
 
 @implementation PIHomeViewController
@@ -149,6 +151,11 @@
     
     [super viewWillDisappear:animated];
     
+    if (self.carpotOrderView.isShow) {
+        
+        [self.carpotOrderView dismiss];
+    }
+    
     self.navigationController.navigationBarHidden = NO;
 }
 - (void)setupNav {
@@ -193,6 +200,10 @@
 //    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
 //    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
    // self.navigationController.navigationBar.alpha = 0.0;
+    
+    self.adsView = [[PIHomeAdsView alloc] initWithFrame:CGRectMake(0, NavBarHeight, SCREEN_WIDTH, 50)];
+    
+    [self.view addSubview:self.adsView];
 }
 
 - (void)setupTopBtn {
@@ -422,17 +433,28 @@
     
     if ([view isKindOfClass:[PICustomAnnotationView class]]) {
         
+        
         PICustomAnnotationView *annotationView = (PICustomAnnotationView *)view;
         
         self.carpotOrderView.dataModel = annotationView.dataModel;
         
-        [self.carpotOrderView show];
+        if (!self.carpotOrderView.isShow) {
+            
+            [self.carpotOrderView show];
+        }
         
+        
+        [mapView deselectAnnotation:annotationView.annotation animated:YES];
         //NSLog(@"%lf", view.annotation.coordinate.latitude);
     }
     
 }
 
+- (void)mapView:(MAMapView *)mapView didTouchPois:(NSArray *)pois {
+    
+    
+    [self.carpotOrderView dismiss];
+}
 
 - (void)getMessage {
     
