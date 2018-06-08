@@ -40,6 +40,7 @@
         [PIUserDefaults removeObjectForKey:SessionId];
         [PIUserDefaults removeObjectForKey:CookieID];
         [PIUserDefaults removeObjectForKey:@"PIUserInfo"];
+        [PIUserDefaults removeObjectForKey:@"Balance"];
         [PIUserDefaults synchronize];
         
         [PIMapManager sharedManager].isFirst = NO;
@@ -91,11 +92,32 @@
     
     if (!_balance) {
         
-        PILoginDataModel *model = [self getAcountInfo];
-        _balance = model.account.balance;
+        NSString *balanceStr = [PIUserDefaults objectForKey:@"Balance"];
+        
+        if (balanceStr.length == 0) {
+        
+            PILoginDataModel *model = [self getAcountInfo];
+            _balance = model.account.balance;
+            [PIUserDefaults setObject:[NSString stringWithFormat:@"%.2lf", _balance] forKey:@"Balance"];
+            [PIUserDefaults synchronize];
+            
+        }else {
+            
+            NSString *tmp = [PIUserDefaults objectForKey:@"Balance"];
+            _balance = tmp.floatValue;
+        }
+        
     }
     
     return _balance;
+}
+
+- (void)updateBalance:(CGFloat)balance {
+    
+    
+    [PIUserDefaults setObject:[NSString stringWithFormat:@"%.2lf", balance] forKey:@"Balance"];
+    [PIUserDefaults synchronize];
+    
 }
 
 - (NSString *)accountCashConf {

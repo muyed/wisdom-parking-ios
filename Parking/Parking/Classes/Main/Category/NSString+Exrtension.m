@@ -124,4 +124,26 @@
     
     return  [formatter dateFromString:dateString];
 }
+
+///-- 时间差
+- (NSInteger)getTimeDifference {
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    NSDate *date = [formatter dateFromString:self];
+    
+    //当前时间
+    NSDate *now = [NSDate date];
+    //日历对象（方便比较两个日期之间的差距）
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    //NSCalendarUnit 枚举代表想获得哪些差值
+    NSCalendarUnit unit = NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond;
+    //计算两个日期间的差距
+    NSDateComponents *cmps = [calendar components:unit fromDate:now toDate:date options:0];
+    
+    NSInteger timeSecond = cmps.minute * 60 + cmps.second;
+    
+    return timeSecond;
+}
+
 @end

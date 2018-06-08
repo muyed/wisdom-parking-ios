@@ -34,4 +34,6 @@
 
 @property (nonatomic, strong) PILoginDataModel *acountModel;
 
+///-- 更新余额
+- (void)updateBalance:(CGFloat)balance;
 @end

@@ -57,8 +57,10 @@
     [manager GET:url parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        success?success(responseObject):nil;
+        
         NSLog(@"成功回调: %@", responseObject);
+        
+        success?success(responseObject):nil;
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure?failure(error):nil;

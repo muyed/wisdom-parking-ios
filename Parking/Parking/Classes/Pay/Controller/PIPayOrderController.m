@@ -11,6 +11,7 @@
 #import "PIPayOrderTypeCell.h"
 #import "PIBottomBtn.h"
 #import "PIMyVillageController.h"
+#import "PIPaySuccessController.h"
 
 @interface PIPayOrderController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -20,6 +21,10 @@
 @end
 
 @implementation PIPayOrderController
+{
+    
+    NSInteger _selectIndex;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -60,53 +65,75 @@
     
     [bottomBtn addTarget:self action:@selector(bottomBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
-    [PINotification addObserver:self selector:@selector(backToList) name:PaySuccessNotifation object:nil];
+    [PINotification addObserver:self selector:@selector(backToList:) name:PaySuccessNotifation object:nil];
+    
+    
+}
+
+- (void)backToList:(NSNotification *)noti {
+    
+    
+    NSDictionary *dic = noti.userInfo;
+    
+    NSLog(@"-----> : %@", dic[@"resultStatus"]);
+    
+    if ([dic[@"resultStatus"] isEqualToString:@"9000"]) {
+        
+        PIPaySuccessController *paySuccess = [PIPaySuccessController new];
+        
+        [self.navigationController pushViewController:paySuccess animated:YES];
+        
+    }else {
+        
+        [MBProgressHUD showMessage:dic[@"memo"]];
+    }
+    
+    
 }
 
 - (void)bottomBtnClick {
     
-    [MBProgressHUD showIndeterWithMessage:@"正在支付..."];
-    
-    [PIPayTool AlipayForOrderWithOrderNum:self.orderNum success:^(id response) {
+    [PIPayTool payForCarportOrderWithID:self.orderNum success:^(NSString *orderNum) {
         
-        [MBProgressHUD hideHUD];
-        
-        PIBaseModel *model = [PIBaseModel mj_objectWithKeyValues:response];
-        
-        if (model.code == 200) {
+        if (_selectIndex == 0) {
             
-            [[AlipaySDK defaultService] payOrder:model.data fromScheme:@"wisdompark" callback:^(NSDictionary *resultDic) {
-                
-                NSLog(@"---> %@", resultDic);
-                
-            }];
-            
+            [PIPayTool AlipayForOrderWithOrderNum:orderNum];
         }else {
             
-            [MBProgressHUD showMessage:model.errMsg];
+            [PIPayTool WXpayForOrderWithOrderNum:orderNum];
         }
         
-    } failue:^(NSError *error) {
-        
-        [MBProgressHUD hideHUD];
-        [MBProgressHUD showMessage:@"支付失败!"];
     }];
+//    //[MBProgressHUD showIndeterWithMessage:@"正在支付..."];
+//    
+//    [PIPayTool AlipayForOrderWithOrderNum:self.orderNum success:^(id response) {
+//        
+//        [MBProgressHUD hideHUD];
+//        
+//        PIBaseModel *model = [PIBaseModel mj_objectWithKeyValues:response];
+//        
+//        if (model.code == 200) {
+//            
+//            [[AlipaySDK defaultService] payOrder:model.data fromScheme:@"wisdompark" callback:^(NSDictionary *resultDic) {
+//                
+//                NSLog(@"---> %@", resultDic);
+//                
+//            }];
+//            
+//        }else {
+//            
+//            [MBProgressHUD showMessage:model.errMsg];
+//        }
+//        
+//    } failue:^(NSError *error) {
+//        
+//        [MBProgressHUD hideHUD];
+//        [MBProgressHUD showMessage:@"支付失败!"];
+//    }];
 }
 
-- (void)backToList {
-    
-    for (UIViewController *vc in self.navigationController.viewControllers) {
-        
-        if ([vc isKindOfClass:NSClassFromString(@"PIMyVillageController")]) {
-            
-            PIMyVillageController *village = (PIMyVillageController *)vc;
-            village.isSuccess = YES;
-            [self.navigationController popToViewController:village animated:YES];
-            
-            break;
-        }
-    }
-}
+
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
     return 2;
@@ -130,7 +157,7 @@
         
         PIPayOrderTopCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([PIPayOrderTopCell class])];
         cell.userInteractionEnabled = NO;
-        
+        cell.money = self.money;
         return cell;
     }
     
@@ -140,6 +167,9 @@
         
         cell.imageName = @"order_alipay";
         cell.titleStr = @"支付宝";
+        
+        [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+        
     }else {
         
         cell.imageName = @"order_wx";
@@ -176,6 +206,17 @@
 }
 
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    _selectIndex = indexPath.row;
+    
+    
+}
+
+- (void)dealloc {
+    
+    [PINotification removeObserver:self];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

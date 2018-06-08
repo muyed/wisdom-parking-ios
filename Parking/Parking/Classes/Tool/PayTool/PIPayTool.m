@@ -156,6 +156,47 @@
     }];
 }
 
++ (void)payForCarportOrderWithID:(NSString *)ID success:(void (^)(NSString *))success {
+    
+    
+    [MBProgressHUD showIndeterWithMessage:@"正在支付"];
+    
+    NSString *url = [NSString stringWithFormat:@"api/ticket/pay/%@", ID];
+    
+    [PIHttpTool piGet:urlPath(url) params:nil success:^(id response) {
+        
+        
+        PIBaseModel *model = [PIBaseModel mj_objectWithKeyValues:response];
+        
+        if (model.code == 200) {
+            
+            success ? success(model.data) : nil;
+            
+        }else if (model.code == 24) {
+            
+            [MBProgressHUD showMessage:model.errMsg];
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                
+                [PINotification postNotificationName:PIPayForCashNotifation object:nil];
+                
+            });
+            
+        }else {
+            
+            
+            [MBProgressHUD hideHUD];
+            [MBProgressHUD showMessage:model.errMsg];
+        }
+        
+        
+    } failure:^(NSError *error) {
+        
+        [MBProgressHUD hideHUD];
+        [MBProgressHUD showMessage:@"支付失败"];
+    }];
+    
+}
 - (void)onResp:(BaseResp *)resp {
     
     if([resp isKindOfClass:[PayResp class]]){
@@ -165,13 +206,24 @@
         
         switch (resp.errCode) {
             case WXSuccess:
-                strMsg = @"支付结果：成功！";
-                NSLog(@"支付成功－PaySuccess，retcode = %d", resp.errCode);
+                
+                [MBProgressHUD showMessage:@"支付成功"];
+                
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    
+                    NSDictionary *dic = @{@"resultStatus":@"9000"};
+                    
+                    [PINotification postNotificationName:PaySuccessNotifation object:nil userInfo:dic];
+                });
+                
                 break;
                 
             default:
                 strMsg = [NSString stringWithFormat:@"支付结果：失败！retcode = %d, retstr = %@", resp.errCode,resp.errStr];
                 NSLog(@"错误，retcode = %d, retstr = %@", resp.errCode,resp.errStr);
+                
+                [MBProgressHUD showMessage:@"支付失败"];
+                
                 break;
         }
         

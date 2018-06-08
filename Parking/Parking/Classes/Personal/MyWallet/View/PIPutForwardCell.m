@@ -70,7 +70,7 @@
     if (!_moneyField) {
         
         _moneyField = [[UITextField alloc] init];
-        _moneyField.placeholder = @"请输入金额";
+        _moneyField.placeholder = [NSString stringWithFormat:@"本次做多可提现 %.2lf元", [PILoginTool defaultTool].balance];
         _moneyField.keyboardType = UIKeyboardTypeDecimalPad;
         
         UILabel *leftLabel = [[UILabel alloc] initWithFont:20 textColor:txtMainColor textAlignment:Center text:@"￥"];
@@ -84,7 +84,7 @@
         [rightBtn addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
         _moneyField.rightView = rightBtn;
         _moneyField.rightViewMode = UITextFieldViewModeAlways;
-        
+    
     }
     
     return _moneyField;
@@ -92,9 +92,11 @@
 
 - (void)buttonClick {
     
-    NSLog(@"全部");
+    self.moneyField.text = [NSString stringWithFormat:@"%.2lf", [PILoginTool defaultTool].balance];
     
+    [self.moneyField resignFirstResponder];
 }
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code

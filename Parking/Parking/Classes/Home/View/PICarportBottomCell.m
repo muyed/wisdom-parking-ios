@@ -71,7 +71,7 @@
         
         margin = -85;
         self.circleLabel.backgroundColor = PIYellowColor;
-        self.tipLabel.text = @"车位78BSSUU";
+        //self.tipLabel.text = @"车位78BSSUU";
         
     }else {
         
@@ -81,7 +81,7 @@
             
             make.right.equalTo(weakSelf.contentView).offset(-15);
             make.centerY.equalTo(weakSelf.contentView);
-            make.width.mas_equalTo(80);
+            make.width.mas_equalTo(90);
         }];
         
         margin = -105;

@@ -32,6 +32,13 @@
     [self setupUI];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
+    self.moneyLabel.text = [NSString stringWithFormat:@"%.2lf", [PILoginTool defaultTool].balance];
+    
+}
 - (void)setupUI {
     
     [self.view addSubview:self.iconImage];

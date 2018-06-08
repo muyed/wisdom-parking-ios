@@ -188,6 +188,11 @@
 		18B0970C20518E2B00871845 /* PIPersonalController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B0970B20518E2B00871845 /* PIPersonalController.m */; };
 		18F49F1120BEE6BC0040BDDB /* PICountBalanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F49F1020BEE6BC0040BDDB /* PICountBalanceController.m */; };
 		18F49F1720C03E4A0040BDDB /* PIHomeAdsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F49F1620C03E4A0040BDDB /* PIHomeAdsView.m */; };
+		18F49F2020C663230040BDDB /* PINoticeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F49F1F20C663230040BDDB /* PINoticeModel.m */; };
+		18F49F2320C66EB80040BDDB /* PIHomeNoticeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F49F2220C66EB80040BDDB /* PIHomeNoticeCell.m */; };
+		18F49F2620C6737F0040BDDB /* PINoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F49F2520C6737F0040BDDB /* PINoticeViewController.m */; };
+		18F49F2C20C6AB690040BDDB /* PIOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F49F2B20C6AB690040BDDB /* PIOrderModel.m */; };
+		18F49F2F20C76A580040BDDB /* PIPaySuccessController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F49F2E20C76A580040BDDB /* PIPaySuccessController.m */; };
 		F060CE10D439F1EE5A0EFB29 /* libPods-Parking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB5728185F18F73085A448AB /* libPods-Parking.a */; };
 /* End PBXBuildFile section */
 
@@ -542,6 +547,16 @@
 		18F49F1020BEE6BC0040BDDB /* PICountBalanceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PICountBalanceController.m; sourceTree = "<group>"; };
 		18F49F1520C03E4A0040BDDB /* PIHomeAdsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIHomeAdsView.h; sourceTree = "<group>"; };
 		18F49F1620C03E4A0040BDDB /* PIHomeAdsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIHomeAdsView.m; sourceTree = "<group>"; };
+		18F49F1E20C663230040BDDB /* PINoticeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PINoticeModel.h; sourceTree = "<group>"; };
+		18F49F1F20C663230040BDDB /* PINoticeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PINoticeModel.m; sourceTree = "<group>"; };
+		18F49F2120C66EB80040BDDB /* PIHomeNoticeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIHomeNoticeCell.h; sourceTree = "<group>"; };
+		18F49F2220C66EB80040BDDB /* PIHomeNoticeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIHomeNoticeCell.m; sourceTree = "<group>"; };
+		18F49F2420C6737F0040BDDB /* PINoticeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PINoticeViewController.h; sourceTree = "<group>"; };
+		18F49F2520C6737F0040BDDB /* PINoticeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PINoticeViewController.m; sourceTree = "<group>"; };
+		18F49F2A20C6AB690040BDDB /* PIOrderModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIOrderModel.h; sourceTree = "<group>"; };
+		18F49F2B20C6AB690040BDDB /* PIOrderModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIOrderModel.m; sourceTree = "<group>"; };
+		18F49F2D20C76A580040BDDB /* PIPaySuccessController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIPaySuccessController.h; sourceTree = "<group>"; };
+		18F49F2E20C76A580040BDDB /* PIPaySuccessController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIPaySuccessController.m; sourceTree = "<group>"; };
 		9349DDA0ABEC8A2A985E6235 /* Pods-Parking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Parking/Pods-Parking.debug.xcconfig"; sourceTree = "<group>"; };
 		AB5728185F18F73085A448AB /* libPods-Parking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Parking.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -862,6 +877,8 @@
 				186269762078572300F450AF /* PIPayOrderController.m */,
 				1897FD682088D3C200FF4F28 /* PIPayForCashController.h */,
 				1897FD692088D3C200FF4F28 /* PIPayForCashController.m */,
+				18F49F2D20C76A580040BDDB /* PIPaySuccessController.h */,
+				18F49F2E20C76A580040BDDB /* PIPaySuccessController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1023,8 +1040,8 @@
 			isa = PBXGroup;
 			children = (
 				180E22AD205FE00F00FF21BB /* OrderData */,
+				18F49F2720C685020040BDDB /* Model */,
 				18B095AE204C60AD00871845 /* Controller */,
-				18B095B1204C60AD00871845 /* Model */,
 				18B095B2204C60AD00871845 /* View */,
 			);
 			path = Order;
@@ -1041,13 +1058,6 @@
 				1805E09B2083441E00A48ECE /* PIPublishOrderController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		18B095B1204C60AD00871845 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		18B095B2204C60AD00871845 /* View */ = {
@@ -1143,6 +1153,8 @@
 				1897FD7F208CAEB100FF4F28 /* PIHomeSearchCarPortController.m */,
 				189A575C2096E60400870D3B /* PIMatchCarportController.h */,
 				189A575D2096E60400870D3B /* PIMatchCarportController.m */,
+				18F49F2420C6737F0040BDDB /* PINoticeViewController.h */,
+				18F49F2520C6737F0040BDDB /* PINoticeViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1154,6 +1166,8 @@
 				186269852078A90500F450AF /* PIAddressModel.m */,
 				189A57372091F03400870D3B /* PICarportModel.h */,
 				189A57382091F03400870D3B /* PICarportModel.m */,
+				18F49F1E20C663230040BDDB /* PINoticeModel.h */,
+				18F49F1F20C663230040BDDB /* PINoticeModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1185,6 +1199,8 @@
 				189A57602096F1AC00870D3B /* PIMatchCarportTopCell.m */,
 				18F49F1520C03E4A0040BDDB /* PIHomeAdsView.h */,
 				18F49F1620C03E4A0040BDDB /* PIHomeAdsView.m */,
+				18F49F2120C66EB80040BDDB /* PIHomeNoticeCell.h */,
+				18F49F2220C66EB80040BDDB /* PIHomeNoticeCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1475,6 +1491,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		18F49F2720C685020040BDDB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				18F49F2A20C6AB690040BDDB /* PIOrderModel.h */,
+				18F49F2B20C6AB690040BDDB /* PIOrderModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		2C868DF110EE56F0EB0EB620 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1743,6 +1768,7 @@
 				1805E0792082058900A48ECE /* PISelectCitiesController.m in Sources */,
 				189A5764209706C000870D3B /* PICarsListController.m in Sources */,
 				189A5736209167E200870D3B /* PICarportTimeCell.m in Sources */,
+				18F49F2020C663230040BDDB /* PINoticeModel.m in Sources */,
 				1805E0832082065B00A48ECE /* PIProvonceModel.m in Sources */,
 				18B09637204C629E00871845 /* AppDelegate+PIExtension.m in Sources */,
 				18B09635204C629E00871845 /* PIBaseModel.m in Sources */,
@@ -1781,6 +1807,7 @@
 				180E22B220614B5600FF21BB /* PIHomeOrderController.m in Sources */,
 				186269832078A47C00F450AF /* PIHomeSearchController.m in Sources */,
 				18B095CC204C61CD00871845 /* PIAddDeviceController.m in Sources */,
+				18F49F2C20C6AB690040BDDB /* PIOrderModel.m in Sources */,
 				189A57272090ACCF00870D3B /* PICustomAnnotation.m in Sources */,
 				189A57682097122B00870D3B /* PICarListModel.m in Sources */,
 				1862697D207863A400F450AF /* PIPayOrderTypeCell.m in Sources */,
@@ -1788,6 +1815,7 @@
 				18B095CF204C61CD00871845 /* PIHomeViewController.m in Sources */,
 				18F49F1120BEE6BC0040BDDB /* PICountBalanceController.m in Sources */,
 				18B095CD204C61CD00871845 /* PIAddSubViewController.m in Sources */,
+				18F49F2320C66EB80040BDDB /* PIHomeNoticeCell.m in Sources */,
 				186269802078A42D00F450AF /* PISearchBar.m in Sources */,
 				18B095D0204C61CD00871845 /* PIHomeBottomView.m in Sources */,
 				1897FD6A2088D3C200FF4F28 /* PIPayForCashController.m in Sources */,
@@ -1805,6 +1833,7 @@
 				189A575E2096E60400870D3B /* PIMatchCarportController.m in Sources */,
 				189A572A2090AD2900870D3B /* PICustomAnnotationView.m in Sources */,
 				1897FD7D208C6A7D00FF4F28 /* PIWXPayModel.m in Sources */,
+				18F49F2F20C76A580040BDDB /* PIPaySuccessController.m in Sources */,
 				18B0960C204C626000871845 /* PIHttpTool.m in Sources */,
 				1862687A207108EA00F450AF /* PIVillageCommnViewCell.m in Sources */,
 				18B09610204C626000871845 /* PILoginInfoTool.m in Sources */,
@@ -1824,6 +1853,7 @@
 				180DCA212070912A002F01DA /* PIAddCarController.m in Sources */,
 				18B096A3204D668E00871845 /* PIAddPayViewController.m in Sources */,
 				180E22C120628B7500FF21BB /* PIForgetViewController.m in Sources */,
+				18F49F2620C6737F0040BDDB /* PINoticeViewController.m in Sources */,
 				1862691F20727AE500F450AF /* PILoginTool.m in Sources */,
 				18B096E0204ECC3500871845 /* PICarNumCell.m in Sources */,
 				189A57E520A188EF00870D3B /* PIMyCardsModel.m in Sources */,

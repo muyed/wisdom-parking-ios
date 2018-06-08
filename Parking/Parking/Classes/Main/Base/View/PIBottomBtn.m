@@ -14,9 +14,11 @@
     
     if (self = [super initWithFrame:frame]) {
         
-        self.backgroundColor = PIMainColor;
+        //self.backgroundColor = PIMainColor;
         self.titleLabel.font = PIBigFont;
         [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [self setBackgroundImage:[UIImage imageWithColor:PIMainColor] forState:UIControlStateNormal];
+        [self setBackgroundImage:[UIImage imageWithColor:txtPlaceColor] forState:UIControlStateDisabled];
     }
     
     return self;

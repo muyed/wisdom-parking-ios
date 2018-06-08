@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PIOrderModel.h"
 
 @class PIMyVillageDataModel;
 
@@ -14,4 +15,7 @@
 
 ///-- <#Notes#>
 @property (nonatomic, strong) PIMyVillageDataModel *model;
+///-- <#Notes#>
+@property (nonatomic, strong) PIOrderListData *listModel;
+
 @end

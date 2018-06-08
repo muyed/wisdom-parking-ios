@@ -89,22 +89,15 @@
     if ([url.host isEqualToString:@"safepay"]) {
         //跳转支付宝钱包进行支付，处理支付结果
         [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
-            NSLog(@"result = %@",resultDic[@"resultStatus"]);
             
-            if ([resultDic[@"resultStatus"] isEqual:@(9000)]) {
-                
-                [MBProgressHUD showMessage:@"支付成功"];
-                
-                [PINotification postNotificationName:PaySuccessNotifation object:nil];
-                
-            }
+             [PINotification postNotificationName:PaySuccessNotifation object:nil userInfo:resultDic];
         }];
         
         return YES;
     }
     
     if ([url.host isEqualToString:@"pay"]) {
-        NSLog(@"----------");
+        
         return [WXApi handleOpenURL:url delegate:[PIPayTool sharedManager]];
     }
     

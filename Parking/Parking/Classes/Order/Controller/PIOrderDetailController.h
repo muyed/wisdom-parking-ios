@@ -8,6 +8,11 @@
 
 #import "PIBaseViewController.h"
 
+@class PIOrderListData;
+
 @interface PIOrderDetailController : PIBaseViewController
+
+///-- 数据
+@property (nonatomic, strong) PIOrderListData *listData;
 
 @end

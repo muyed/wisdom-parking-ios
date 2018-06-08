@@ -12,4 +12,6 @@
 
 ///-- <#Notes#>
 @property (nonatomic, copy) NSString *orderNum;
+///-- <#Notes#>
+@property (nonatomic, copy) NSString *money;
 @end

@@ -10,4 +10,7 @@
 
 @interface PIPayOrderTopCell : UITableViewCell
 
+///-- <#Notes#>
+@property (nonatomic, copy) NSString *money;
+
 @end

@@ -145,7 +145,7 @@
     if (!_orderBtn) {
         
         _orderBtn = [PITopImageBtn new];
-        [_orderBtn setTitle:@"我的订单" forState:UIControlStateNormal];
+        [_orderBtn setTitle:@"我的停车单" forState:UIControlStateNormal];
         _orderBtn.titleLabel.font = PISYS_FONT(15);
         _orderBtn.tag = 1;
         [_orderBtn setImage:[UIImage imageNamed:@"mine_order"] forState:UIControlStateNormal];

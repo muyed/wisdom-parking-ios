@@ -57,6 +57,12 @@
     
 }
 
+- (void)setMoney:(NSString *)money {
+    
+    _money = money;
+    
+    self.commentLabel.text = [NSString stringWithFormat:@"￥%@", money];
+}
 
 - (UILabel *)titleLabel {
     
@@ -76,7 +82,7 @@
         _commentLabel = [[UILabel alloc] init];
         _commentLabel.font = [UIFont systemFontOfSize:18 weight:2];
         _commentLabel.textColor = txtRedColor;
-        _commentLabel.text = @"￥299.00";
+        //_commentLabel.text = @"￥299.00";
     }
     
     return _commentLabel;

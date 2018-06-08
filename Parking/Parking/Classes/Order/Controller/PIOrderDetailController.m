@@ -11,6 +11,7 @@
 #import "PIOrderDetailCenterCell.h"
 #import "PIBottomBtn.h"
 #import "PIPayOrderController.h"
+#import "PIOrderModel.h"
 
 @interface PIOrderDetailController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -24,6 +25,10 @@
 @end
 
 @implementation PIOrderDetailController
+{
+    
+    dispatch_source_t _timer;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,8 +39,8 @@
 
 - (void)setupUI {
     
-    self.titleArr = @[@[@"订单编号:", @"手机号码:", @"下单时间:", @"取消时间:"], @[@"应付:"]];
-    self.contentArr = @[@[@"00000000122", @"15737865198", @"2018-03-25 13:34:36", @"2018-03-25 13:34:36"], @[@"￥4.00"]];
+    self.titleArr = @[@[@"订单编号:", @"手机号码:", @"下单时间:", @"取消时间:"], @[@"金额:"]];
+    self.contentArr = @[@[self.listData.ticketNum, self.listData.phone, self.listData.appointmentStartTime, self.listData.appointmentEndTime], @[self.listData.parkingFee]];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, NavBarHeight, SCREEN_WIDTH, SCREEN_HEIGHT - NavBarHeight) style:UITableViewStylePlain];
     
@@ -50,25 +55,48 @@
     
      [self.tableView registerClass:[PIOrderDetailViewCell class] forCellReuseIdentifier:NSStringFromClass([PIOrderDetailViewCell class])];
     
-    PIBottomBtn *bottomBtn = [PIBottomBtn new];
+    if (self.listData.status == 0 || self.listData.status == 5) {
+        
+        PIBottomBtn *bottomBtn = [PIBottomBtn new];
+        
+        bottomBtn.x = btnBorderM;
+        bottomBtn.y = SCREEN_HEIGHT - NavBarHeight - 20 * Scale_Y - TabBarHeight;
+        bottomBtn.width = SCREEN_WIDTH - 2 * btnBorderM;
+        bottomBtn.height = 50 * Scale_Y;
+        bottomBtn.layer.cornerRadius = 50 * Scale_Y * 0.5;
+        bottomBtn.clipsToBounds = YES;
+        [bottomBtn setTitle:@"支付" forState:UIControlStateNormal];
+        [self.view addSubview:bottomBtn];
+        
+        [bottomBtn addTarget:self action:@selector(bottomBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    }
+   
+    [self startTimer:[self.listData.payDeadlineTime getTimeDifference]];
+ 
     
-    bottomBtn.x = btnBorderM;
-    bottomBtn.y = SCREEN_HEIGHT - NavBarHeight - 20 * Scale_Y - TabBarHeight;
-    bottomBtn.width = SCREEN_WIDTH - 2 * btnBorderM;
-    bottomBtn.height = 50 * Scale_Y;
-    bottomBtn.layer.cornerRadius = 50 * Scale_Y * 0.5;
-    bottomBtn.clipsToBounds = YES;
-    [bottomBtn setTitle:@"支付" forState:UIControlStateNormal];
-    [self.view addSubview:bottomBtn];
+    [PINotification addObserver:self selector:@selector(enterGround) name:UIApplicationWillEnterForegroundNotification object:nil];
+
+    [PINotification addObserver:self selector:@selector(enterBackGround) name:UIApplicationDidEnterBackgroundNotification object:nil];
     
-    [bottomBtn addTarget:self action:@selector(bottomBtnClick) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)enterGround {
+
+     [self startTimer:[self.listData.payDeadlineTime getTimeDifference]];
+}
+
+- (void)enterBackGround {
+
+    ///-- 销毁
+    dispatch_source_cancel(_timer);
     
 }
 
 - (void)bottomBtnClick {
     
     PIPayOrderController *pay = [PIPayOrderController new];
-    
+    pay.orderNum = self.listData.ID;
+    pay.money = self.listData.parkingFee;
     [self.navigationController pushViewController:pay animated:YES];
     
 }
@@ -103,6 +131,8 @@
         
         PIOrderDetailViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([PIOrderDetailViewCell class])];
         
+        cell.orderCode = self.listData.openCode;
+        cell.listData = self.listData;
         return cell;
     }
     
@@ -149,6 +179,50 @@
     header.backgroundColor = [UIColor clearColor];
     
     return header;
+}
+
+
+
+- (void)startTimer:(NSInteger)surplusTime {
+    
+    __block NSInteger timeout = surplusTime; //倒计时时间
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,queue);
+    dispatch_source_set_timer(_timer,DISPATCH_TIME_NOW,1.0*NSEC_PER_SEC, 0); //每秒执行
+    dispatch_source_set_event_handler(_timer, ^{
+        
+        
+        
+        if(timeout <= 0) { //倒计时结束，关闭
+            dispatch_source_cancel(_timer);
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                
+            });
+        }
+        else
+        {
+            NSInteger minutes = timeout / 60;
+            NSInteger senconds = timeout % 60;
+            
+            //NSLog(@"%ld分 %ld秒", (long)minutes, (long)senconds);
+            NSString *differTime = [NSString stringWithFormat:@"%02lu:%02lu", minutes, senconds];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                 NSLog(@"%@", differTime);
+            });
+            
+           
+            timeout--;
+        }
+    });
+    dispatch_resume(_timer);
+}
+
+- (void)dealloc {
+    
+    [PINotification removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {

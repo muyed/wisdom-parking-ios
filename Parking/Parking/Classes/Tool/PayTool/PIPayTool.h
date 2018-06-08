@@ -71,6 +71,14 @@
 
 
 /**
+ 支付订单
+
+ @param ID 订单ID
+ @param success 成功
+ */
++ (void)payForCarportOrderWithID:(NSString *)ID success:(void (^)(NSString *))success;
+
+/**
  绑定银行卡
 
  @param acount 账号

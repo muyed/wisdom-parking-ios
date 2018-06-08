@@ -45,7 +45,7 @@
     [self.contentView addSubview:self.timeLabel];
     
     weakself
-    CGFloat statuesLabelW = 80;
+    CGFloat statuesLabelW = 100 * Scale_Y;
     
     [self.statuesLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
@@ -119,6 +119,71 @@
             break;
     }
 }
+
+- (void)setListModel:(PIOrderListData *)listModel {
+    
+    _listModel = listModel;
+    
+    self.numLabel.text = listModel.openCode;
+    self.positionLabel.text = [NSString stringWithFormat:@"%@%@", listModel.province, listModel.area];
+    self.timeLabel.text = [NSString stringWithFormat:@"预约时间:%@", listModel.appointmentStartTime];
+    
+    switch (listModel.status) {
+        case 0:
+            
+            [self setStatuesWithMessage:@"待支付" color:PIMainColor];
+            
+            break;
+        
+        case 1:
+            
+            [self setStatuesWithMessage:@"已支付" color:nil];
+            break;
+            
+        case 2:
+            
+            
+            [self setStatuesWithMessage:@"停车中" color:PIGreenColor];
+            break;
+            
+        case 3:
+            
+            [self setStatuesWithMessage:@"已逾期" color:txtRedColor];
+            break;
+        
+        case 4:
+            
+            [self setStatuesWithMessage:@"已完成" color:nil];
+            break;
+        
+        case 5:
+            
+            [self setStatuesWithMessage:@"待支付(逾期)" color:PIMainColor];
+            
+            break;
+            
+        case 6:
+            
+            [self setStatuesWithMessage:@"已完成(逾期)" color:nil];
+            
+            break;
+        
+        case 7:
+            
+            [self setStatuesWithMessage:@"已取消" color:nil];
+            
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)setStatuesWithMessage:(NSString *)msg color:(UIColor *)color {
+    
+    self.statuesLabel.text = msg;
+    self.statuesLabel.textColor = color == nil ? txtSeconColor : PIMainColor;
+}
 - (UILabel *)numLabel {
     
     if (!_numLabel) {
@@ -137,7 +202,7 @@
     
     if (!_statuesLabel) {
         
-        _statuesLabel = [[UILabel alloc] initWithFont:17 textColor:PIMainColor];
+        _statuesLabel = [[UILabel alloc] initWithFont:16 textColor:PIMainColor];
         _statuesLabel.textAlignment = NSTextAlignmentRight;
         _statuesLabel.text = @"未支付";
         //_statuesLabel.backgroundColor = [UIColor yellowColor];

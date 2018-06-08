@@ -35,5 +35,6 @@
 + (NSString *)getDay:(NSString *)dateString;
 ///-- 获取日期
 + (NSString *)getTime:(NSString *)dateString;
-
+///-- 获取时间差
+- (NSInteger)getTimeDifference;
 @end

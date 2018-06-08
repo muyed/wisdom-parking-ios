@@ -13,12 +13,14 @@
 #import "PIBottomBtn.h"
 #import "PIVillageAuthenProgressController.h"
 
-@interface PIPutForwardController ()
+@interface PIPutForwardController ()<UITextFieldDelegate>
 
 ///-- 银行
 @property (nonatomic, strong) PIMyCardsDataModel *bankModel;
 ///-- <#Notes#>
 @property (nonatomic, weak) UITextField *moneyField;
+///-- <#Notes#>
+@property (nonatomic, weak) PIBottomBtn *bottomBtn;
 @end
 
 @implementation PIPutForwardController
@@ -47,12 +49,17 @@
     bottomBtn.layer.cornerRadius = 25;
     bottomBtn.clipsToBounds = YES;
     [bottomBtn setTitle:@"确认提现" forState:UIControlStateNormal];
+    [bottomBtn setTitle:@"确认提现" forState:UIControlStateDisabled];
+    bottomBtn.enabled = NO;
     [self.view addSubview:bottomBtn];
+    
+    self.bottomBtn = bottomBtn;
     
     [bottomBtn addTarget:self action:@selector(bottomBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
     [self.tableView registerClass:[PIPutForwardCell class] forCellReuseIdentifier:NSStringFromClass([PIPutForwardCell class])];
     
+    [PINotification addObserver:self selector:@selector(textChange) name:UITextFieldTextDidChangeNotification object:nil];
 }
 
 - (void)bottomBtnClick {
@@ -87,6 +94,10 @@
         NSLog(@"%@", model.errMsg);
         
         if (model.code == 200) {
+            
+            CGFloat balance = [PILoginTool defaultTool].balance;
+            balance = balance - weakSelf.moneyField.text.floatValue;
+            [[PILoginTool defaultTool] updateBalance:balance];
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 
@@ -131,6 +142,7 @@
         PIPutForwardCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([PIPutForwardCell class])];
         
         self.moneyField = cell.moneyField;
+        self.moneyField.delegate = self;
         
         return cell;
     }
@@ -207,11 +219,53 @@
         [cards setBankCardInfo:^(PIMyCardsDataModel *dataModel) {
             
             weakSelf.bankModel = dataModel;
+            
+            if (weakSelf.moneyField.text.floatValue > 0.00) {
+                
+                weakSelf.bottomBtn.enabled = YES;
+            }else {
+                
+                weakSelf.bottomBtn.enabled = NO;
+            }
+            
             [weakSelf.tableView reloadData];
         }];
 
         [self.navigationController pushViewController:cards animated:YES];
     }
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    
+    if (textField.text.floatValue <= [PILoginTool defaultTool].balance && textField.text.length > 0) {
+        
+        [MBProgressHUD showMessage:@"余额不足"];
+    }
+    
+    if (textField.text.floatValue > 0.00 && self.bankModel && textField.text.floatValue <= [PILoginTool defaultTool].balance) {
+        
+        self.bottomBtn.enabled = YES;
+        
+    }else {
+        
+        self.bottomBtn.enabled = NO;
+    }
+}
+
+- (void)textChange {
+    
+    CGFloat balance = [PILoginTool defaultTool].balance;
+    
+    if (self.moneyField.text.floatValue > balance) {
+        
+        [MBProgressHUD showMessage:@"余额不足"];
+    }
+}
+
+- (void)dealloc {
+    
+    [PINotification removeObserver:self];
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

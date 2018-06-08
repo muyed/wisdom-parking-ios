@@ -14,8 +14,13 @@
 #import "PGDatePickManager.h"
 #import "PIBottomBtn.h"
 #import "PICarsListController.h"
+#import "PIOrderModel.h"
+#import "PIOrderDetailController.h"
 
 @interface PIMatchCarportController ()<PGDatePickerDelegate, PIBaseFieldCellDelegate>
+
+///-- 数据源
+@property (nonatomic, strong) PIOrderListData *listData;
 
 @end
 
@@ -98,7 +103,7 @@
     NSLog(@"%@", self.dataModel.parkingTicketId);
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"parkingShareId"] = self.dataModel.parkingTicketId;
+    params[@"parkingShareId"] = self.dataModel.ID;
     params[@"appointmentStartTime"] = _beginTime;
     params[@"appointmentEndTime"] = _endTime;
     params[@"carLicense"] = _carNum;
@@ -106,9 +111,33 @@
     
     [MBProgressHUD showIndeterWithMessage:@"正在匹配"];
     
+    weakself
     [PIHttpTool piPost:urlPath(@"api/ticket/matching") params:params success:^(id response) {
         
         [MBProgressHUD hideHUD];
+        
+        PIBaseModel *model = [PIBaseModel mj_objectWithKeyValues:response];
+        
+        if (model.code != 200) {
+            
+            [MBProgressHUD showMessage:model.errMsg];
+        }else {
+            
+            weakSelf.listData = [PIOrderListData mj_objectWithKeyValues:response[@"data"]];
+            
+            [MBProgressHUD showMessage:@"匹配成功"];
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                
+                PIOrderDetailController *orderVC = [PIOrderDetailController new];
+                
+                orderVC.listData = weakSelf.listData;
+                [weakSelf.navigationController pushViewController:orderVC animated:YES];
+            });
+        }
+        
+    
+        
         
     } failure:^(NSError *error) {
         

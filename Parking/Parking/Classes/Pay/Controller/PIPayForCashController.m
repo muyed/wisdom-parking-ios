@@ -10,6 +10,7 @@
 #import "PIPayForCashCell.h"
 #import "PIPayOrderTypeCell.h"
 #import "PIBottomBtn.h"
+#import "PIPaySuccessController.h"
 
 
 @interface PIPayForCashController ()
@@ -27,7 +28,9 @@
     self.title = @"缴纳押金";
     _selectIndex = 0;
     [self setupUI];
+    
 }
+
 
 - (void)setupUI {
     
@@ -56,9 +59,30 @@
     
     [self.tableView registerClass:[PIPayOrderTypeCell class] forCellReuseIdentifier:NSStringFromClass([PIPayOrderTypeCell class])];
     
+     [PINotification addObserver:self selector:@selector(backToList:) name:PaySuccessNotifation object:nil];
     
 }
 
+- (void)backToList:(NSNotification *)noti {
+    
+    
+    NSDictionary *dic = noti.userInfo;
+    
+    NSLog(@"-----> : %@", dic[@"resultStatus"]);
+    
+    if ([dic[@"resultStatus"] isEqualToString:@"9000"]) {
+        
+        PIPaySuccessController *paySuccess = [PIPaySuccessController new];
+        
+        [self.navigationController pushViewController:paySuccess animated:YES];
+        
+    }else {
+        
+        [MBProgressHUD showMessage:dic[@"memo"]];
+    }
+    
+    
+}
 
 - (void)bottomBtnClick {
     
@@ -180,6 +204,10 @@
     
 }
 
+- (void)dealloc {
+    
+    [PINotification removeObserver:self];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -7,6 +7,7 @@
 //
 
 #import "PIOrderDetailViewCell.h"
+#import "PIOrderModel.h"
 
 @interface PIOrderDetailViewCell ()
 
@@ -116,6 +117,25 @@
     
 }
 
+- (void)setOrderCode:(NSString *)orderCode {
+    
+    _orderCode = orderCode;
+    
+    self.numLabel.text = [NSString stringWithFormat:@"预约码:%@", orderCode];
+}
+
+- (void)setListData:(PIOrderListData *)listData {
+    
+    _listData = listData;
+    
+    self.positionLabel.text = [NSString stringWithFormat:@"%@%@", _listData.province, _listData.area];
+    self.carLabel.text = _listData.carLicense;
+    
+    self.cancelBtn.hidden = listData.status != 0 ? YES : NO;
+    
+}
+
+
 - (UILabel *)numLabel {
     
     if (!_numLabel) {
@@ -134,7 +154,7 @@
     
     if (!_cancelBtn) {
         
-        _cancelBtn = [[UIButton alloc] initWithFont:16 titleColor:txtPlaceColor title:@"取消订单"];
+        _cancelBtn = [[UIButton alloc] initWithFont:16 titleColor:PIMainColor title:@"取消订单"];
     }
     
     return _cancelBtn;

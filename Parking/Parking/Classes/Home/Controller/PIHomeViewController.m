@@ -33,6 +33,7 @@
 #import "PIHomeNaviDriveController.h"
 #import "PIMatchCarportController.h"
 #import "PIHomeAdsView.h"
+#import "PIMyParkingController.h"
 
 
 @interface PIHomeViewController ()<MAMapViewDelegate,PIHomeBottomDelegate>
@@ -65,7 +66,10 @@
 @end
 
 @implementation PIHomeViewController
-
+{
+    
+    BOOL _isLoadNew;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -116,15 +120,16 @@
             [weakSelf.navigationController pushViewController:matchVC animated:YES];
         });
     }];
+
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        CGFloat lon = self.mapView.userLocation.location.coordinate.longitude;
-        CGFloat lat = self.mapView.userLocation.location.coordinate.latitude;
-        
-        [self loadDataWithLat:lat lon:lon];
-        
-    });
-//
+    
+            CGFloat lon = self.mapView.userLocation.location.coordinate.longitude;
+            CGFloat lat = self.mapView.userLocation.location.coordinate.latitude;
+    
+            [self loadDataWithLat:lat lon:lon];
+    
+        });
+    
 //    PIHomeItemView *categaryView = [[PIHomeItemView alloc] initWithFrame:CGRectMake(15, NavBarHeight, SCREEN_WIDTH - 30, 54)];
 //
 //    [self.view addSubview:categaryView];
@@ -136,7 +141,22 @@
     [super viewWillAppear:animated];
     
     self.navigationController.navigationBarHidden = YES;
+    
+   
+    if (_isLoadNew) {
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
+            CGFloat lon = self.mapView.userLocation.location.coordinate.longitude;
+            CGFloat lat = self.mapView.userLocation.location.coordinate.latitude;
+            
+            [self loadDataWithLat:lat lon:lon];
+            
+        });
+        
+    }
 }
+
 - (void)viewDidAppear:(BOOL)animated {
     
     [super viewDidAppear:animated];
@@ -201,7 +221,7 @@
 //    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
    // self.navigationController.navigationBar.alpha = 0.0;
     
-    self.adsView = [[PIHomeAdsView alloc] initWithFrame:CGRectMake(0, NavBarHeight, SCREEN_WIDTH, 50)];
+    self.adsView = [[PIHomeAdsView alloc] initWithFrame:CGRectMake(0, NavBarHeight, SCREEN_WIDTH, 40)];
     
     [self.view addSubview:self.adsView];
 }
@@ -358,6 +378,8 @@
 
 - (void)loadDataWithLat:(CGFloat)lat lon:(CGFloat)lon {
     
+    _isLoadNew = YES;
+    
     NSString *lonStr = [NSString stringWithFormat:@"%lf", lon];
     NSString *latStr = [NSString stringWithFormat:@"%lf", lat];
 //    NSString *lon = [NSString stringWithFormat:@"%lf", self.mapView.userLocation.location.coordinate.longitude];
@@ -394,9 +416,12 @@
                 [dataArr addObject:pointAnnotation];
             }
             
+            NSLog(@"---------> %lu", dataArr.count);
+            
             [weakSelf.mapView addAnnotations:dataArr];
             //[weakSelf.mapView showAnnotations:dataArr animated:YES];
             [weakSelf.mapView showAnnotations:dataArr edgePadding:UIEdgeInsetsMake(10, 10, 10, 10) animated:YES];
+            
             
         }else {
             
@@ -581,10 +606,9 @@
 
 - (void)tipBtnClick {
     
-   // [MBProgressHUD showMessage:@"正在努力建设中...."];
+    PIMyParkingController *myParking = [PIMyParkingController new];
     
-   
-    [PILoginTool loginOut];
+    [self.navigationController pushViewController:myParking animated:YES];
 }
 
 - (void)locationBtnClick {

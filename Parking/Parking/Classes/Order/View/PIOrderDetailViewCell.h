@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class PIOrderListData;
+
 @interface PIOrderDetailViewCell : UITableViewCell
+
+///-- <#Notes#>
+@property (nonatomic, strong) PIOrderListData *listData;
+///-- 预约码
+@property (nonatomic, copy) NSString *orderCode;
 
 @end
