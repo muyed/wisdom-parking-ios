@@ -24,3 +24,5 @@ UIKIT_EXTERN CGFloat const btnBorderM;
 UIKIT_EXTERN NSString * const PaySuccessNotifation;
 /**实名认证*/
 UIKIT_EXTERN NSString * const PIPayForCashNotifation;
+
+UIKIT_EXTERN NSString * const PIPayForCashDeposit;

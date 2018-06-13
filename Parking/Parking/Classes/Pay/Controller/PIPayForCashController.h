@@ -7,6 +7,7 @@
 //
 
 #import "PIBaseTableViewController.h"
+#import "PIMyParkModel.h"
 
 @interface PIPayForCashController : PIBaseTableViewController
 
@@ -14,4 +15,8 @@
 @property (nonatomic, assign) BOOL isCarportCash;
 ///-- <#Notes#>
 @property (nonatomic, copy) NSString *orderNum;
+
+///-- <#Notes#>
+@property (nonatomic, strong) PIMyParkDataModel *dataModel;
+
 @end

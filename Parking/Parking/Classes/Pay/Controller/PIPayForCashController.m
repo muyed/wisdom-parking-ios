@@ -68,9 +68,25 @@
     
     NSDictionary *dic = noti.userInfo;
     
-    NSLog(@"-----> : %@", dic[@"resultStatus"]);
     
     if ([dic[@"resultStatus"] isEqualToString:@"9000"]) {
+        
+        if (self.isCarportCash) {
+            
+            self.dataModel.deposit = [PILoginTool defaultTool].carportCashConf;
+            
+            [PINotification postNotificationName:@"PutCarportCashSuccess" object:nil];
+            
+        }else {
+            
+            CGFloat acountCash = [PILoginTool defaultTool].accountCashConf.floatValue;
+            
+            [[PILoginTool defaultTool] updateAcountCash: acountCash];
+            
+            [PINotification postNotificationName:PIPayForCashDeposit object:nil];
+        }
+        
+        
         
         PIPaySuccessController *paySuccess = [PIPaySuccessController new];
         

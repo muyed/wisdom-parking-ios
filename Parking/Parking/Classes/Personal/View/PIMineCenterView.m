@@ -9,8 +9,9 @@
 #import "PIMineCenterView.h"
 #import "PILeftImageBtn.h"
 #import "PIMyWalletController.h"
-#import "PIPayForCashController.h"
+#import "PIAcountCashController.h"
 #import "PICountBalanceController.h"
+#import "PIPayForCashController.h"
 
 @interface PIMineCenterView ()
 
@@ -133,9 +134,9 @@
 
 - (void)payForAcountCrash {
     
-    PIPayForCashController *payForCash = [PIPayForCashController new];
+    PIAcountCashController *cash = [PIAcountCashController new];
     
-    [self.parentController.navigationController pushViewController:payForCash animated:YES];
+    [self.parentController.navigationController pushViewController:cash animated:YES];
 }
 - (void)pushToWallet {
     

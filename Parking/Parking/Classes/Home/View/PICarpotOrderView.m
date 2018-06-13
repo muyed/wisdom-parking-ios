@@ -154,6 +154,9 @@ static UIWindow *window_;
         
         window_.y = SCREEN_HEIGHT + TabBarHeight - 50;
         self.isShow = NO;
+    } completion:^(BOOL finished) {
+        
+        //window_ = nil;
     }];
 }
 

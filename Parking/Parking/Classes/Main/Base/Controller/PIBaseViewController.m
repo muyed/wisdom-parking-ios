@@ -20,8 +20,11 @@
     
     self.view.backgroundColor = PIBackColor;
     
+    self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
+    
     [PINotification addObserver:self selector:@selector(pushToPersonAuth) name:PIPayForCashNotifation object:nil];
 }
+
 
 - (void)pushToPersonAuth {
     

@@ -41,6 +41,7 @@
         [PIUserDefaults removeObjectForKey:CookieID];
         [PIUserDefaults removeObjectForKey:@"PIUserInfo"];
         [PIUserDefaults removeObjectForKey:@"Balance"];
+        [PIUserDefaults removeObjectForKey:@"Cash"];
         [PIUserDefaults synchronize];
         
         [PIMapManager sharedManager].isFirst = NO;
@@ -90,32 +91,80 @@
 
 - (CGFloat)balance {
     
-    if (!_balance) {
+//    if (!_balance) {
+//
+//
+//
+//    }
+    
+    NSString *balanceStr = [PIUserDefaults objectForKey:@"Balance"];
+    
+    if (balanceStr.length == 0) {
         
-        NSString *balanceStr = [PIUserDefaults objectForKey:@"Balance"];
+        PILoginDataModel *model = [self getAcountInfo];
+        _balance = model.account.balance;
+        [PIUserDefaults setObject:[NSString stringWithFormat:@"%.2lf", _balance] forKey:@"Balance"];
+        [PIUserDefaults synchronize];
         
-        if (balanceStr.length == 0) {
+    }else {
         
-            PILoginDataModel *model = [self getAcountInfo];
-            _balance = model.account.balance;
-            [PIUserDefaults setObject:[NSString stringWithFormat:@"%.2lf", _balance] forKey:@"Balance"];
-            [PIUserDefaults synchronize];
-            
-        }else {
-            
-            NSString *tmp = [PIUserDefaults objectForKey:@"Balance"];
-            _balance = tmp.floatValue;
-        }
-        
+        NSString *tmp = [PIUserDefaults objectForKey:@"Balance"];
+        _balance = tmp.floatValue;
     }
     
     return _balance;
+}
+
+
+- (CGFloat)cash {
+    
+//    if (!_cash) {
+//
+//
+//    }
+    
+    NSString *cashStr = [PIUserDefaults objectForKey:@"Cash"];
+    
+    if (cashStr.length == 0) {
+        
+        PILoginDataModel *model = [self getAcountInfo];
+        _cash = model.account.cash;
+        [PIUserDefaults setObject:[NSString stringWithFormat:@"%.2lf", _cash] forKey:@"Cash"];
+        [PIUserDefaults synchronize];
+        
+    }else {
+        
+        NSString *tmp = [PIUserDefaults objectForKey:@"Cash"];
+        
+        
+        _cash = tmp.floatValue;
+    }
+    
+    return _cash;
+}
+
+- (BOOL)hasCash {
+    
+
+    NSLog(@"%lf", _cash);
+    
+    return _hasCash = self.cash > 0.00 ? YES : NO;;
 }
 
 - (void)updateBalance:(CGFloat)balance {
     
     
     [PIUserDefaults setObject:[NSString stringWithFormat:@"%.2lf", balance] forKey:@"Balance"];
+    [PIUserDefaults synchronize];
+    
+}
+
+- (void)updateAcountCash:(CGFloat)cash {
+    
+    
+    [PIUserDefaults setObject:[NSString stringWithFormat:@"%.2lf", cash] forKey:@"Cash"];
+    NSLog(@"---------success-----------");
+    
     [PIUserDefaults synchronize];
     
 }

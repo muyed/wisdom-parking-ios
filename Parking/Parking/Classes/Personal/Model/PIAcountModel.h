@@ -13,7 +13,7 @@
 ///-- <#Notes#>
 @property (nonatomic, assign) CGFloat balance;
 ///-- <#Notes#>
-@property (nonatomic, copy) NSString *cash;
+@property (nonatomic, assign) CGFloat cash;
 ///-- <#Notes#>
 @property (nonatomic, copy) NSString *createTime;
 ///-- <#Notes#>

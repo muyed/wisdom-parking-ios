@@ -23,3 +23,6 @@ CGFloat const btnBorderM = 30;
 NSString * const PaySuccessNotifation = @"PaySuccessNotifation";
 
 NSString * const PIPayForCashNotifation = @"PIPayForCashNotifation";
+
+NSString * const PIPayForCashDeposit = @"PIPayForCashDeposit";
+

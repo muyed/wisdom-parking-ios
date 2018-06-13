@@ -65,7 +65,22 @@
 
 - (void)back {
     
-    [self.navigationController popViewControllerAnimated:YES];
+//    for (PIBaseViewController *controller in self.navigationController.viewControllers) {
+//
+//        if ([controller isKindOfClass:[Controller class]]) {
+//            [self.navigationController popToViewController:controller animated:YES];
+//        }
+//    }
+    
+    if (self.navigationController.viewControllers.count > 3) {
+        
+        [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:2] animated:YES];
+        
+    }else {
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     

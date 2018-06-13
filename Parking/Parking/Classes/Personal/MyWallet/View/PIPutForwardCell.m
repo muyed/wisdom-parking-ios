@@ -7,6 +7,7 @@
 //
 
 #import "PIPutForwardCell.h"
+#import "PIMyParkModel.h"
 
 @interface PIPutForwardCell ()
 
@@ -55,6 +56,33 @@
     
 }
 
+- (void)setIsCash:(BOOL)isCash {
+    
+    _isCash = isCash;
+    
+    if (!self.dataModel) {
+        
+        if (!_isCash) {
+            
+            UIButton *rightBtn = [[UIButton alloc] initWithFont:18 titleColor:PIMainColor title:@"全部"];
+            rightBtn.size = CGSizeMake(60, 40);
+            [rightBtn addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
+            _moneyField.rightView = rightBtn;
+            _moneyField.rightViewMode = UITextFieldViewModeAlways;
+            
+            _moneyField.placeholder = [NSString stringWithFormat:@"本次做多可提现 %.2lf元", [PILoginTool defaultTool].balance];
+            
+        }else {
+            
+            _moneyField.text = [NSString stringWithFormat:@"%.2lf元", [PILoginTool defaultTool].cash];
+        }
+    }else {
+        
+        _moneyField.text = [NSString stringWithFormat:@"%.2lf元", self.dataModel.deposit.floatValue];
+    }
+   
+}
+
 - (UILabel *)tipLabel {
     
     if (!_tipLabel) {
@@ -70,7 +98,7 @@
     if (!_moneyField) {
         
         _moneyField = [[UITextField alloc] init];
-        _moneyField.placeholder = [NSString stringWithFormat:@"本次做多可提现 %.2lf元", [PILoginTool defaultTool].balance];
+        
         _moneyField.keyboardType = UIKeyboardTypeDecimalPad;
         
         UILabel *leftLabel = [[UILabel alloc] initWithFont:20 textColor:txtMainColor textAlignment:Center text:@"￥"];
@@ -79,11 +107,6 @@
         _moneyField.leftView = leftLabel;
         _moneyField.leftViewMode = UITextFieldViewModeAlways;
         
-        UIButton *rightBtn = [[UIButton alloc] initWithFont:18 titleColor:PIMainColor title:@"全部"];
-        rightBtn.size = CGSizeMake(60, 40);
-        [rightBtn addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
-        _moneyField.rightView = rightBtn;
-        _moneyField.rightViewMode = UITextFieldViewModeAlways;
     
     }
     

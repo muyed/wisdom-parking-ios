@@ -25,9 +25,13 @@
 @property (nonatomic, assign) BOOL hasVillage;
 ///-- 是否有车位
 @property (nonatomic, assign) BOOL hasCarPot;
+///-- 是否缴纳押金
+@property (nonatomic, assign) BOOL hasCash;
 ///-- 余额
 @property (nonatomic, assign) CGFloat balance;
-///-- 押金
+///-- 账户押金
+@property (nonatomic, assign) CGFloat cash;
+///-- 押金配置
 @property (nonatomic, copy) NSString *accountCashConf;
 ///-- 车位
 @property (nonatomic, copy) NSString *carportCashConf;
@@ -36,4 +40,7 @@
 
 ///-- 更新余额
 - (void)updateBalance:(CGFloat)balance;
+///-- 更新账户押金
+- (void)updateAcountCash:(CGFloat)cash;
+
 @end

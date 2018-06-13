@@ -61,7 +61,17 @@
 //            }
 //        }
     
-    [self.navigationController popViewControllerAnimated:YES];
+    if (self.navigationController.viewControllers.count > 3) {
+        
+        [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:2] animated:YES];
+        
+    }else {
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    
+    
+    //[self.navigationController popViewControllerAnimated:YES];
 }
 
 - (PIVillageAuthenProgressView *)authView {

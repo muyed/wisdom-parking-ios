@@ -16,6 +16,7 @@
 #import "PIComCertifiController.h"
 #import "PIMyParkingController.h"
 #import "PICarsListController.h"
+#import "PIVillageAuthenController.h"
 
 @interface PIMineViewCell ()
 

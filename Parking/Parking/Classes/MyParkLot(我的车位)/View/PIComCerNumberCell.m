@@ -83,6 +83,13 @@
     
 }
 
+- (void)setModel:(PIMyParkDataModel *)model {
+    
+    _model = model;
+    
+    self.carLabel.text = model.carportNum;
+    
+}
 - (UILabel *)carTipLabel {
     
     if (!_carTipLabel) {

@@ -12,6 +12,7 @@
 #import "PIPutForwardCell.h"
 #import "PIBottomBtn.h"
 #import "PIVillageAuthenProgressController.h"
+#import "PIMyParkModel.h"
 
 @interface PIPutForwardController ()<UITextFieldDelegate>
 
@@ -26,6 +27,7 @@
 @implementation PIPutForwardController
 {
     NSString *_balance;
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -50,7 +52,7 @@
     bottomBtn.clipsToBounds = YES;
     [bottomBtn setTitle:@"确认提现" forState:UIControlStateNormal];
     [bottomBtn setTitle:@"确认提现" forState:UIControlStateDisabled];
-    bottomBtn.enabled = NO;
+    bottomBtn.enabled = self.isCash;
     [self.view addSubview:bottomBtn];
     
     self.bottomBtn = bottomBtn;
@@ -71,60 +73,143 @@
         return;
     }
 
-    if (self.moneyField.text.cancelSpace.length == 0) {
-
-        [MBProgressHUD showMessage:@"请输入金额"];
-        return;
-    }
     
-    _balance = self.moneyField.text.cancelSpace;
+     weakself
     
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"bankId"] = self.bankModel.ID;
-    params[@"amount"] = _balance;
-    
-    [MBProgressHUD showIndeterWithMessage:@"正在提取..."];
-    
-    weakself
-    [PIHttpTool piPost:urlPath(@"api/account/withdrawBalance") params:params success:^(id response) {
+    if (self.dataModel) {
         
-        [MBProgressHUD hideHUD];
+        [MBProgressHUD showIndeterWithMessage:@"正在提取..."];
         
-        PIBaseModel *model = [PIBaseModel mj_objectWithKeyValues:response];
-        NSLog(@"%@", model.errMsg);
+        NSMutableDictionary *params = [NSMutableDictionary dictionary];
+        params[@"bankId"] = self.bankModel.ID;
+        params[@"id"] = self.dataModel.carportId;
         
-        if (model.code == 200) {
+        [PIHttpTool piPost:urlPath(@"api/carport/withdraw") params:params success:^(id response) {
             
-            CGFloat balance = [PILoginTool defaultTool].balance;
-            balance = balance - weakSelf.moneyField.text.floatValue;
-            [[PILoginTool defaultTool] updateBalance:balance];
+            [MBProgressHUD hideHUD];
             
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-
-                NSString *bankAcount = [weakSelf.bankModel.bankAccount stringByReplacingCharactersInRange:NSMakeRange(0, weakSelf.bankModel.bankAccount.length - 4) withString:@"**** **** ****"];
-
-                PIVillageAuthenProgressController *person = [PIVillageAuthenProgressController new];
-                person.titleArr = @[@"订单金额", @"提现至"];
-                person.contentArr = @[_balance, bankAcount];
-                person.imageName = @"put_forward_success";
-                person.tipTitle = @"提现成功";
-                person.authTitle = @"提现";
-
-                [weakSelf.navigationController pushViewController:person animated:YES];
-
-            });
+            PIBaseModel *model = [PIBaseModel mj_objectWithKeyValues:response];
+            NSLog(@"%@", model.errMsg);
             
-        }else {
+            if (model.code == 200) {
+                
+                weakSelf.dataModel.deposit = @"0.00";
+                
+                [PINotification postNotificationName:@"PutCarportCashSuccess" object:nil];
+                
+                _balance = weakSelf.dataModel.deposit;
+                
+                [weakSelf putSuccess];
+                
+            }else {
+                
+                [MBProgressHUD showMessage:model.errMsg];
+            }
             
-            [MBProgressHUD showMessage:model.errMsg];
+            
+        } failure:^(NSError *error) {
+            
+            [MBProgressHUD hideHUD];
+        }];
+        
+    }else if (self.isCash) {
+        
+         [MBProgressHUD showIndeterWithMessage:@"正在提取..."];
+        
+        [PIPayTool withdrawCashWithBankCardID:self.bankModel.ID success:^(id response) {
+            
+            [MBProgressHUD hideHUD];
+            PIBaseModel *model = [PIBaseModel mj_objectWithKeyValues:response];
+            NSLog(@"%@", model.errMsg);
+            
+            if (model.code == 200) {
+                
+                
+                [[PILoginTool defaultTool] updateAcountCash: 0.00];
+                
+                _balance = [PILoginTool defaultTool].accountCashConf
+                ;
+                
+                [PINotification postNotificationName:PIPayForCashDeposit object:nil];
+                
+                [weakSelf putSuccess];
+            }else {
+                
+                [MBProgressHUD showMessage:model.errMsg];
+            }
+               
+                
+        } failue:^(NSError *error) {
+            
+            [MBProgressHUD hideHUD];
+        }];
+        
+    }else {
+        
+        if (self.moneyField.text.cancelSpace.length == 0) {
+            
+            [MBProgressHUD showMessage:@"请输入金额"];
+            return;
         }
         
+         [MBProgressHUD showIndeterWithMessage:@"正在提取..."];
         
-    } failure:^(NSError *error) {
+        _balance = self.moneyField.text.cancelSpace;
         
-        [MBProgressHUD hideHUD];
-    }];
+        NSMutableDictionary *params = [NSMutableDictionary dictionary];
+        params[@"bankId"] = self.bankModel.ID;
+        params[@"amount"] = _balance;
+        
+        
+        [PIHttpTool piPost:urlPath(@"api/account/withdrawBalance") params:params success:^(id response) {
+            
+            [MBProgressHUD hideHUD];
+            
+            PIBaseModel *model = [PIBaseModel mj_objectWithKeyValues:response];
+            NSLog(@"%@", model.errMsg);
+            
+            if (model.code == 200) {
+                
+                CGFloat balance = [PILoginTool defaultTool].balance;
+                balance = balance - weakSelf.moneyField.text.floatValue;
+                [[PILoginTool defaultTool] updateBalance:balance];
+                
+                [weakSelf putSuccess];
+                
+            }else {
+                
+                [MBProgressHUD showMessage:model.errMsg];
+            }
+            
+            
+        } failure:^(NSError *error) {
+            
+            [MBProgressHUD hideHUD];
+        }];
+    }
+    
+
 }
+
+- (void)putSuccess {
+    
+    weakself
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        NSString *bankAcount = [weakSelf.bankModel.bankAccount stringByReplacingCharactersInRange:NSMakeRange(0, weakSelf.bankModel.bankAccount.length - 4) withString:@"**** **** ****"];
+        
+        PIVillageAuthenProgressController *person = [PIVillageAuthenProgressController new];
+        person.titleArr = @[@"订单金额", @"提现至"];
+        person.contentArr = @[_balance, bankAcount];
+        person.imageName = @"put_forward_success";
+        person.tipTitle = @"提现成功";
+        person.authTitle = @"提现";
+        
+        [weakSelf.navigationController pushViewController:person animated:YES];
+        
+    });
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
     return 2;
@@ -141,6 +226,9 @@
         
         PIPutForwardCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([PIPutForwardCell class])];
         
+        cell.moneyField.enabled = !self.isCash;
+        cell.dataModel = self.dataModel;
+        cell.isCash = self.isCash;
         self.moneyField = cell.moneyField;
         self.moneyField.delegate = self;
         

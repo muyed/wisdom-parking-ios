@@ -37,5 +37,6 @@
 #import "PIMapManager.h"
 #import "UITextView+LimitCount.h"
 #import "PIPayTool.h"
+#import "PIAlertViewTool.h"
 
 #endif /* PIToolHeader_h */

@@ -93,6 +93,8 @@
         
         PIComCerNumberCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([PIComCerNumberCell class])];
         
+        cell.model = self.model;
+        
         return cell;
         
     }

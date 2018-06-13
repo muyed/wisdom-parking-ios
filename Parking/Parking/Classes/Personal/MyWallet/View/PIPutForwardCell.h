@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class PIMyParkDataModel;
+
 @interface PIPutForwardCell : UITableViewCell
 
 ///-- 提现金额
 @property (nonatomic, strong) UITextField *moneyField;
+///-- 是否为押金
+@property (nonatomic, assign) BOOL isCash;
+///-- 数据源
+@property (nonatomic, strong) PIMyParkDataModel *dataModel;
+
 @end
